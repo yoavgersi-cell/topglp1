@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────────────────
+   TopGLP1 design tokens.
+   A clinical, editorial look: deep teal primary, warm sand ground, ink text.
+   Deliberately distinct from any sister property's navy palette.
+   ───────────────────────────────────────────────────────────────────────── */
+:root {
+  --background: #FBFAF7;
+  --surface: #FFFFFF;
+  --foreground: #14211F;
+  --muted: #5B6B67;
+  --border: #E6E3DB;
+
+  --primary: #0E7C6B;        /* deep teal */
+  --primary-dark: #0A5C50;
+  --primary-light: #E6F4F1;
+  --accent: #E4703A;         /* warm terracotta accent */
+  --accent-light: #FBEAE0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, "Times New Roman", serif;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+/* Editorial prose defaults used by the <Prose> wrapper. */
+.prose-body p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: var(--foreground);
+}
+.prose-body li {
+  line-height: 1.7;
+}
