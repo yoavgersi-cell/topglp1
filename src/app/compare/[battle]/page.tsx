@@ -13,6 +13,7 @@ import {
   Pill,
   ShieldCheck,
   ScrollText,
+  Trophy,
 } from "lucide-react";
 import { BATTLES, BATTLE_SLUGS, getBattle, type Side } from "@/data/battles";
 import { getProvider, type Provider } from "@/data/providers";
@@ -131,6 +132,9 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
   const bp = getProvider(b.b);
   if (!a || !bp) notFound();
 
+  const winner = getProvider(b.winner) ?? a;
+  const winnerIsA = b.winner === a.id;
+
   const otherBattles = BATTLES.filter((x) => x.slug !== b.slug).slice(0, 4);
 
   return (
@@ -170,18 +174,47 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
 
       <MedicalDisclaimer className="mt-6" />
 
-      {/* Verdict panel — decision-first, no scoreboard */}
-      <section className="mt-8 grid gap-4 sm:grid-cols-2">
-        <div className="rounded-2xl border border-border bg-surface p-6">
-          <div className="relative h-6 w-24">
-            <Image src={a.logo} alt={`${a.name} logo`} fill className="object-contain object-left" sizes="96px" />
+      {/* Our pick banner */}
+      <section className="mt-6 overflow-hidden rounded-2xl border-2 border-primary bg-primary-light/50">
+        <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+              <Trophy size={14} /> Our pick
+            </span>
+            <div className="relative h-8 w-28">
+              <Image src={winner.logo} alt={`${winner.name} logo`} fill className="object-contain object-left" sizes="112px" />
+            </div>
+          </div>
+          <p className="flex-1 text-sm leading-relaxed text-foreground">{b.winnerReason}</p>
+          <a
+            href={winner.affiliateUrl}
+            target="_blank"
+            rel="sponsored nofollow noopener"
+            className="inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+          >
+            {winner.ctaText}: {winner.name} <ArrowUpRight size={15} />
+          </a>
+        </div>
+      </section>
+
+      {/* Verdict panel — decision-first */}
+      <section className="mt-4 grid gap-4 sm:grid-cols-2">
+        <div className={`rounded-2xl border bg-surface p-6 ${winnerIsA ? "border-primary ring-1 ring-primary" : "border-border"}`}>
+          <div className="flex items-center justify-between">
+            <div className="relative h-6 w-24">
+              <Image src={a.logo} alt={`${a.name} logo`} fill className="object-contain object-left" sizes="96px" />
+            </div>
+            {winnerIsA && <span className="rounded-full bg-primary-light px-2 py-0.5 text-[11px] font-bold text-primary">OUR PICK</span>}
           </div>
           <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-primary">Choose {a.name} if…</p>
           <p className="mt-1 leading-relaxed text-foreground">{b.chooseA}</p>
         </div>
-        <div className="rounded-2xl border border-border bg-surface p-6">
-          <div className="relative h-6 w-24">
-            <Image src={bp.logo} alt={`${bp.name} logo`} fill className="object-contain object-left" sizes="96px" />
+        <div className={`rounded-2xl border bg-surface p-6 ${!winnerIsA ? "border-primary ring-1 ring-primary" : "border-border"}`}>
+          <div className="flex items-center justify-between">
+            <div className="relative h-6 w-24">
+              <Image src={bp.logo} alt={`${bp.name} logo`} fill className="object-contain object-left" sizes="96px" />
+            </div>
+            {!winnerIsA && <span className="rounded-full bg-primary-light px-2 py-0.5 text-[11px] font-bold text-primary">OUR PICK</span>}
           </div>
           <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-accent">Choose {bp.name} if…</p>
           <p className="mt-1 leading-relaxed text-foreground">{b.chooseB}</p>
@@ -380,8 +413,8 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
         <p className="mt-2 text-sm leading-relaxed text-muted">
           We compare programs on the factors that actually affect a patient: real price (including whether it's
           compounded or branded), medications and formulations offered, shipping, pharmacy accreditation and
-          clinician model, insurance stance, and commitment. We don't crown a single winner because the right
-          choice depends on your priorities and your insurance. Pricing is provider-reported and changes
+          clinician model, insurance stance, and commitment. We name a top pick for most people, but we show the
+          trade-offs in full so you can override it when your priorities or insurance point the other way. Pricing is provider-reported and changes
           frequently — and compounded-drug availability shifts with FDA shortage status — so always confirm the
           current details on the provider's own site before enrolling. Affiliate relationships do not change a
           program's placement. This page is educational and not medical advice; see our{" "}

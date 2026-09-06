@@ -17,7 +17,7 @@ const FEATURED_GUIDES = [
 export default function HomePage() {
   const featuredMeds = MEDICATIONS.filter((m) => m.slug !== "compounded-glp1").slice(0, 4);
   const guides = FEATURED_GUIDES.map((s) => GUIDES.find((g) => g.slug === s)!).filter(Boolean);
-  const topProviders = PROVIDERS.slice(0, 3);
+  const topProviders = [...PROVIDERS].sort((x, y) => x.rank - y.rank).slice(0, 3);
 
   return (
     <>

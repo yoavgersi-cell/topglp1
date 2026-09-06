@@ -45,6 +45,10 @@ export interface Battle {
   title: string;
   description: string;
   intro: string;
+  /** Our recommended pick (provider id) — shown as an "Our pick" banner. */
+  winner: string;
+  /** One-line reason the pick is our default recommendation. */
+  winnerReason: string;
   chooseA: string;
   chooseB: string;
   /** Prose analysis of the pricing difference. */
@@ -69,6 +73,9 @@ export const BATTLES: Battle[] = [
       "Embody's flat-price compounded GLP-1 versus Ro's branded, insurance-friendly access. A cash-price vs FDA-approved decision, broken down by real cost.",
     intro:
       "This is the clearest example of the two roads into GLP-1 treatment. Embody is a cash-pay compounding route built for low, predictable pricing — $69/mo semaglutide, $119/mo tirzepatide, flat. Ro is a branded route built around FDA-approved medication and insurance, where your real cost depends almost entirely on your coverage. Below we put actual numbers to both.",
+    winner: "embody",
+    winnerReason:
+      "Embody's flat, cash-price GLP-1 is the realistic pick for most people — the only reason to choose Ro is if your insurance genuinely covers branded GLP-1.",
     chooseA: "you're paying cash and want the lowest, most predictable monthly price with fast shipping.",
     chooseB: "you want an FDA-approved branded medication and think your insurance may cover it.",
     pricingAnalysis: [
@@ -127,6 +134,9 @@ export const BATTLES: Battle[] = [
       "The two lowest-priced compounded GLP-1 programs, head to head — with the actual monthly numbers, formulations and trade-offs laid out.",
     intro:
       "Both are cash-pay compounding programs at the value end of the market, so this comes down to specifics. Embody leans on flat, transparent pricing ($69 semaglutide, $119 tirzepatide) and fast shipping. altRx edges it on the absolute entry structure ($89 semaglutide, $149 for the GLP-1/GIP option), adds financing, and uniquely offers brand-name Wegovy and Zepbound alongside the compounded options.",
+    winner: "embody",
+    winnerReason:
+      "Embody edges it on the lowest flat monthly price and fastest shipping — altRx is the pick only if you specifically want financing or a brand-name off-ramp.",
     chooseA: "you value flat, predictable pricing and fast 1–2 day shipping above all.",
     chooseB: "you want financing, or the option to move to brand-name Wegovy/Zepbound later.",
     pricingAnalysis: [
@@ -185,6 +195,9 @@ export const BATTLES: Battle[] = [
       "altRx's low-cost compounded (plus brand) program versus Ro's established branded, insurance-first platform — compared on cost, product and support.",
     intro:
       "altRx and Ro both offer brand-name GLP-1 — but they approach it from opposite directions. altRx leads with cheap compounded options ($89 semaglutide) and adds brand on top; Ro is a branded-first, insurance-coordinated platform with a long track record. The deciding variable, again, is your insurance.",
+    winner: "altrx",
+    winnerReason:
+      "For cash payers, altRx's low compounded pricing wins; Ro only pulls ahead if you have solid GLP-1 insurance coverage.",
     chooseA: "you want the lowest cash price with the flexibility of brand-name if you need it.",
     chooseB: "you have GLP-1 coverage and want an established, insurance-first branded platform.",
     pricingAnalysis: [
@@ -238,6 +251,9 @@ export const BATTLES: Battle[] = [
       "Flat, transparent compounded pricing versus a guidance-heavy compounded program — compared on price clarity, support and credentials.",
     intro:
       "Both are compounded, cash-pay GLP-1 programs, so the split here is about pricing style and support. Embody optimizes for a flat, published price you can plan around ($69/$119). TrimRX leans into ongoing clinical guidance and flexible plans rather than a single headline number.",
+    winner: "embody",
+    winnerReason:
+      "Embody wins on transparent flat pricing, fast shipping and clearly stated pharmacy credentials — choose TrimRX only if you want heavier ongoing guidance.",
     chooseA: "you know what you want and value flat pricing plus fast shipping.",
     chooseB: "you'd rather have more hand-holding and ongoing clinical check-ins.",
     pricingAnalysis: [
@@ -291,6 +307,9 @@ export const BATTLES: Battle[] = [
       "The lowest-cost compounded entry with brand options versus a flexible, guidance-first compounded plan — the numbers and trade-offs.",
     intro:
       "Two value-oriented compounded programs. altRx pushes the entry price down ($89 semaglutide), adds financing, and keeps a brand-name option in reserve. TrimRX competes on flexible plans and ongoing clinical guidance rather than a headline rate.",
+    winner: "altrx",
+    winnerReason:
+      "altRx's clear, low, financeable pricing and brand-name option make it the safer default; TrimRX is for those who value ongoing guidance over price certainty.",
     chooseA: "price, financing, and the option to switch to brand-name matter most.",
     chooseB: "you want flexible plans with ongoing clinical support.",
     pricingAnalysis: [
@@ -344,6 +363,9 @@ export const BATTLES: Battle[] = [
       "A $99 overnight-shipped semaglutide plan versus flat-priced compounded semaglutide and tirzepatide — commitment and shipping vs flexibility and range.",
     intro:
       "Both are compounded, cash-pay, LegitScript-forward programs with 503A pharmacies — but they trade off differently. HealthRx pairs a low semaglutide price with free overnight cold-chain shipping, at the cost of a 12-month prepay and no tirzepatide. Embody keeps pricing flat and month-friendly ($69/$119) and offers tirzepatide too.",
+    winner: "embody",
+    winnerReason:
+      "Embody is the better default — a lower flat semaglutide price, no year-long prepay, and tirzepatide available too; pick HealthRx only if overnight cold-chain shipping is a must-have.",
     chooseA: "you only want semaglutide, will prepay a year, and value overnight cold-chain shipping.",
     chooseB: "you want tirzepatide as an option and prefer flat monthly pricing without a long commitment.",
     pricingAnalysis: [
@@ -397,6 +419,9 @@ export const BATTLES: Battle[] = [
       "Two insurance-friendly, branded GLP-1 platforms — one a large general telehealth brand, the other pairing medication with behavior coaching.",
     intro:
       "If you're going the branded, insurance route, Ro and Found are natural rivals. Ro is a big, general telehealth platform focused on clinician-reviewed prescriptions and insurance navigation. Found wraps the medication in structured habit coaching for people who want behavior change alongside the drug.",
+    winner: "ro",
+    winnerReason:
+      "For a lean, medication-first branded experience, Ro is the default; choose Found only if you specifically want structured coaching.",
     chooseA: "you mainly want efficient, clinician-reviewed access to branded GLP-1.",
     chooseB: "you want medication plus structured behavioral coaching in one program.",
     pricingAnalysis: [
@@ -450,6 +475,9 @@ export const BATTLES: Battle[] = [
       "Flat-priced, focused compounded GLP-1 versus a broader compounded GLP-1/GIP program with longevity add-ons — compared on cost and scope.",
     intro:
       "Embody keeps things narrow and cheap: compounded semaglutide and tirzepatide at flat prices ($69/$119). wellmedr widens the aperture — compounded GLP-1/GIP plus a longevity stack (NAD+, B12) and other men's-health services — for people who want more than weight loss, opening with a 50%-off first month.",
+    winner: "embody",
+    winnerReason:
+      "Embody's focused, flat-priced GLP-1 is the cleaner pick unless you genuinely want wellmedr's longevity add-ons.",
     chooseA: "you want a focused, low-cost, flat-priced GLP-1 program and nothing else.",
     chooseB: "you want GLP-1 alongside longevity and broader wellness services.",
     pricingAnalysis: [

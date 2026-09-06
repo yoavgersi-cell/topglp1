@@ -52,7 +52,7 @@ export default function BestProvidersPage() {
       </div>
 
       <div className="mt-8 space-y-4">
-        {PROVIDERS.map((p) => (
+        {[...PROVIDERS].sort((x, y) => x.rank - y.rank).map((p) => (
           <ProviderCard key={p.id} provider={p} />
         ))}
       </div>
