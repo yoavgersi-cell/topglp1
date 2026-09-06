@@ -51,6 +51,18 @@ export default function HomePage() {
                 Compare GLP-1 programs
               </Link>
             </div>
+
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+              {[
+                "Every clinical figure cited to NEJM & the FDA",
+                "Independent — rankings aren't for sale",
+                "Written by people, reviewed against primary sources",
+              ].map((t) => (
+                <span key={t} className="inline-flex items-center gap-1.5">
+                  <ShieldCheck size={15} className="text-primary" /> {t}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>

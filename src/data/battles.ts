@@ -259,7 +259,7 @@ export const BATTLES: Battle[] = [
     pricingAnalysis: [
       "Embody's pricing is its pitch: $69/mo semaglutide and $119/mo tirzepatide, flat, with shipping included and no intro-then-hike surprise. You can forecast a full year of cost on a napkin.",
       "TrimRX doesn't publish one flat number — it markets 'competitive' pricing across flexible plans, with ongoing clinical guidance folded in. That can be great value if the guidance keeps you on track, but it means you'll need to check the current plan price rather than read it off a chart.",
-      "If total transparency and the lowest predictable rate matter most, Embody has the edge. If you'd trade a little price clarity for more clinical contact through your journey, TrimRX's model is designed for exactly that.",
+      "If total transparency and the lowest predictable rate matter most, Embody has the edge. If you'd trade a little price clarity for more clinical contact along the way, TrimRX's model is built for exactly that.",
     ],
     costRows: [
       { label: "Semaglutide, monthly", a: "$69/mo flat", b: "Competitive (confirm current plan)" },

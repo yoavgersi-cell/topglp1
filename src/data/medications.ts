@@ -208,7 +208,7 @@ export const MEDICATIONS: Medication[] = [
     ],
     howItWorks: [
       "Tirzepatide is a single molecule that switches on two receptors. The GLP-1 side does what semaglutide does — slows stomach emptying, reduces appetite, and improves insulin response. The GIP side is thought to add further appetite and metabolic benefits and may help the body tolerate the GLP-1 effect.",
-      "The practical takeaway is that combining the two pathways appears to unlock more weight loss for many people than GLP-1 alone, though it also means dose escalation and side-effect management still matter.",
+      "The practical takeaway is that combining the two pathways appears to produce more weight loss for many people than GLP-1 alone, though it also means dose escalation and side-effect management still matter.",
     ],
     efficacy: {
       headline: "Up to ~20–23% average body-weight loss at the highest dose.",

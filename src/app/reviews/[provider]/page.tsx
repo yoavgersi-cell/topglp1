@@ -149,7 +149,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
           <span className="text-sm text-muted">{p.reviewCount.toLocaleString()} reviews</span>
         </div>
         <p className="mt-4 text-lg leading-relaxed text-foreground">
-          {p.name} {p.glp1Focus.charAt(0).toLowerCase() + p.glp1Focus.slice(1)} {p.specs.standout}.
+          {p.glp1Focus} {p.specs.standout}.
         </p>
         <p className="mt-2 text-xs text-muted">Last reviewed {CONTENT_REVIEWED} · We may earn a commission.</p>
       </header>

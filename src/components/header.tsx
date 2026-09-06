@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./logo";
@@ -15,6 +16,8 @@ const NAV = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname() || "/";
+  const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur">
@@ -26,7 +29,10 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-muted transition-colors hover:text-primary"
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                isActive(item.href) ? "text-primary" : "text-muted"
+              }`}
             >
               {item.label}
             </Link>
@@ -57,7 +63,10 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="py-3 text-sm font-medium text-foreground"
+                aria-current={isActive(item.href) ? "page" : undefined}
+                className={`border-b border-border py-3 text-sm font-medium last:border-0 ${
+                  isActive(item.href) ? "text-primary" : "text-foreground"
+                }`}
                 onClick={() => setOpen(false)}
               >
                 {item.label}
