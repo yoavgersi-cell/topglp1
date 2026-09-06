@@ -309,6 +309,14 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
           </h2>
           <p className="mt-2 text-sm text-muted">
             Telehealth programs we rate highly for accessing this medication.
+            {med.slug === "semaglutide" && (
+              <> See all programs and pricing on our{" "}
+                <Link href="/semaglutide-online" className="font-semibold text-primary underline">semaglutide online</Link> page.</>
+            )}
+            {med.slug === "tirzepatide" && (
+              <> See all programs and pricing on our{" "}
+                <Link href="/tirzepatide-online" className="font-semibold text-primary underline">tirzepatide online</Link> page.</>
+            )}
           </p>
           <div className="mt-5 space-y-4">
             {relatedProviders.map((p) => (

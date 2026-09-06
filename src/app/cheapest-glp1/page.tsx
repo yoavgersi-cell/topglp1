@@ -114,6 +114,10 @@ export default function CheapestGlp1Page() {
           .
         </p>
         <p>
+          Looking for one molecule specifically? See{" "}
+          <Link href="/semaglutide-online" className="font-semibold text-primary underline">semaglutide online</Link>,{" "}
+          <Link href="/tirzepatide-online" className="font-semibold text-primary underline">tirzepatide online</Link>, or the{" "}
+          <Link href="/cheapest-tirzepatide" className="font-semibold text-primary underline">cheapest tirzepatide</Link>.
           Not sure what you'd pay in your situation? Run the{" "}
           <Link href="/tools/glp1-cost-calculator" className="font-semibold text-primary underline">
             GLP-1 cost calculator

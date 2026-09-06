@@ -60,6 +60,9 @@ export function GET() {
   lines.push("## Key pages");
   lines.push(`- Best GLP-1 programs: ${SITE.url}/best-glp1-providers`);
   lines.push(`- Cheapest GLP-1 options: ${SITE.url}/cheapest-glp1`);
+  lines.push(`- Semaglutide online: ${SITE.url}/semaglutide-online`);
+  lines.push(`- Tirzepatide online: ${SITE.url}/tirzepatide-online`);
+  lines.push(`- Cheapest tirzepatide: ${SITE.url}/cheapest-tirzepatide`);
   lines.push(`- All comparisons: ${SITE.url}/compare`);
   lines.push(`- About & editorial approach: ${SITE.url}/about`);
   lines.push(`- Medical disclaimer: ${SITE.url}/disclaimer`);

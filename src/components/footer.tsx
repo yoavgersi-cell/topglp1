@@ -10,7 +10,8 @@ const COLUMNS = [
       { label: "Tirzepatide (Zepbound)", href: "/medications/tirzepatide" },
       { label: "Retatrutide", href: "/medications/retatrutide" },
       { label: "Compounded GLP-1", href: "/medications/compounded-glp1" },
-      { label: "All medications", href: "/medications" },
+      { label: "Semaglutide online", href: "/semaglutide-online" },
+      { label: "Tirzepatide online", href: "/tirzepatide-online" },
     ],
   },
   {
