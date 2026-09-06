@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { MEDICATIONS } from "@/data/medications";
 import { GUIDES } from "@/data/guides";
-import { BATTLES } from "@/data/battles";
+import { allBattleSlugs } from "@/data/battle-engine";
 import { PROVIDERS } from "@/data/providers";
 import { MED_COMPARISONS } from "@/data/med-comparisons";
 import { SITE } from "@/lib/site";
@@ -47,11 +47,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const battlePages: MetadataRoute.Sitemap = BATTLES.map((b) => ({
-    url: `${base}/compare/${b.slug}`,
+  const battlePages: MetadataRoute.Sitemap = allBattleSlugs().map((slug) => ({
+    url: `${base}/compare/${slug}`,
     lastModified,
     changeFrequency: "weekly",
-    priority: 0.75,
+    priority: 0.6,
   }));
 
   const reviewPages: MetadataRoute.Sitemap = PROVIDERS.map((p) => ({

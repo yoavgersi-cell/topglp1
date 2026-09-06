@@ -13,7 +13,7 @@ import {
   DollarSign,
 } from "lucide-react";
 import { PROVIDERS, getProvider, type Provider } from "@/data/providers";
-import { BATTLES } from "@/data/battles";
+import { battlesForProvider } from "@/data/battle-engine";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { Faq } from "@/components/faq";
@@ -87,7 +87,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
 
   const isTopPick = p.rank === 1;
   const faqs = providerFaqs(p);
-  const relatedBattles = BATTLES.filter((b) => b.a === p.id || b.b === p.id).slice(0, 4);
+  const relatedBattles = battlesForProvider(p.id).slice(0, 6);
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">

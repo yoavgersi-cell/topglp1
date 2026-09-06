@@ -15,7 +15,8 @@ import {
   ScrollText,
   Trophy,
 } from "lucide-react";
-import { BATTLES, BATTLE_SLUGS, getBattle, type Side } from "@/data/battles";
+import { BATTLES, type Side } from "@/data/battles";
+import { allBattleSlugs, resolveBattle } from "@/data/battle-engine";
 import { getProvider, type Provider } from "@/data/providers";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Faq } from "@/components/faq";
@@ -24,9 +25,10 @@ import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
 export const revalidate = 3600;
+export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return BATTLE_SLUGS.map((battle) => ({ battle }));
+  return allBattleSlugs().map((battle) => ({ battle }));
 }
 
 export async function generateMetadata({
@@ -35,7 +37,7 @@ export async function generateMetadata({
   params: Promise<{ battle: string }>;
 }): Promise<Metadata> {
   const { battle } = await params;
-  const b = getBattle(battle);
+  const b = resolveBattle(battle);
   if (!b) return {};
   return pageMetadata({
     title: `${b.title}: Pricing, Medications & Which Is Right for You (2026)`,
@@ -125,7 +127,7 @@ function ProsCons({ provider }: { provider: Provider }) {
 
 export default async function BattlePage({ params }: { params: Promise<{ battle: string }> }) {
   const { battle } = await params;
-  const b = getBattle(battle);
+  const b = resolveBattle(battle);
   if (!b) notFound();
 
   const a = getProvider(b.a);
