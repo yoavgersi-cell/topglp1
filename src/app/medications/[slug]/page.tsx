@@ -7,6 +7,7 @@ import { getProvider as getProviderById } from "@/data/providers";
 import { GUIDES } from "@/data/guides";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
+import { MedicalSources } from "@/components/medical-sources";
 import { Faq } from "@/components/faq";
 import { ProviderCard } from "@/components/provider-card";
 import { CONTENT_REVIEWED } from "@/lib/site";
@@ -270,6 +271,9 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
           <Faq items={med.faqs} />
         </div>
       </section>
+
+      {/* Sources */}
+      <MedicalSources keys={med.sources} />
 
       {/* Related providers */}
       {relatedProviders.length > 0 && (

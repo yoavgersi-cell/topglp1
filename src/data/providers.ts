@@ -2,12 +2,30 @@
 // Telehealth GLP-1 providers.
 //
 // These are the affiliate partners TopGLP1 features. The provider set is shared
-// with our sister properties (same partners), but the ranking, blurbs and
-// framing here are written for a GLP-1-first audience: we lead with what each
-// clinic actually prescribes and how it's priced, not generic "weight loss."
+// with our sister properties (same partners, same pricing), but the ranking,
+// blurbs, structured specs and framing here are written for a GLP-1-first
+// audience and power our own comparison method (see data/battles.ts).
 //
 // A "#" affiliateUrl is a placeholder pending the live tracking link.
 // ─────────────────────────────────────────────────────────────────────────────
+
+export interface ProviderSpecs {
+  /** Headline entry price. */
+  startingPrice: string;
+  /** Semaglutide pricing, or "—" if not offered. */
+  semaglutide: string;
+  /** Tirzepatide pricing, or "—" if not offered. */
+  tirzepatide: string;
+  offeringType: "Compounded" | "Branded" | "Both";
+  medications: string[];
+  shipping: string;
+  insurance: string;
+  consult: string;
+  /** The single thing this provider does best. */
+  standout: string;
+  /** An honest caveat. */
+  watchOut: string;
+}
 
 export interface Provider {
   id: string;
@@ -19,11 +37,11 @@ export interface Provider {
   rating: number;
   ratingLabel: string;
   reviewCount: number;
-  /** GLP-1-specific one-liner on what they offer. */
   glp1Focus: string;
   highlights: string[];
   affiliateUrl: string;
   ctaText: string;
+  specs: ProviderSpecs;
 }
 
 export const PROVIDERS: Provider[] = [
@@ -45,6 +63,18 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "#",
     ctaText: "View Plan",
+    specs: {
+      startingPrice: "$89/mo",
+      semaglutide: "$89/mo (compounded)",
+      tirzepatide: "$149/mo (compounded GLP-1 + GIP)",
+      offeringType: "Both",
+      medications: ["Compounded semaglutide", "Compounded tirzepatide", "Brand Wegovy", "Brand Zepbound"],
+      shipping: "Included",
+      insurance: "Cash; Buy Now, Pay Later available",
+      consult: "Online medical intake",
+      standout: "Lowest compounded entry price and brand-name options under one roof",
+      watchOut: "As with any compounded product, quality rests on the pharmacy",
+    },
   },
   {
     id: "embody",
@@ -64,6 +94,18 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "#",
     ctaText: "View Plan",
+    specs: {
+      startingPrice: "$69/mo",
+      semaglutide: "$69/mo (compounded)",
+      tirzepatide: "$119/mo (compounded)",
+      offeringType: "Compounded",
+      medications: ["Compounded semaglutide", "Compounded tirzepatide"],
+      shipping: "Free 1–2 day",
+      insurance: "Cash only",
+      consult: "Online visit with licensed doctors",
+      standout: "Flat, transparent pricing with LegitScript-certified 503A pharmacies",
+      watchOut: "Compounded only — no brand-name option",
+    },
   },
   {
     id: "ro",
@@ -83,6 +125,18 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "#",
     ctaText: "View Plan",
+    specs: {
+      startingPrice: "Varies (branded, insurance-dependent)",
+      semaglutide: "Brand Wegovy / Ozempic (insurance-dependent)",
+      tirzepatide: "Brand Zepbound / Mounjaro (insurance-dependent)",
+      offeringType: "Branded",
+      medications: ["Brand Wegovy", "Brand Zepbound", "Brand Ozempic", "Brand Mounjaro"],
+      shipping: "Varies by pharmacy",
+      insurance: "Works with insurance",
+      consult: "Clinician-reviewed treatment plan",
+      standout: "Established platform for FDA-approved branded GLP-1 with insurance help",
+      watchOut: "Can be expensive without insurance coverage",
+    },
   },
   {
     id: "trimrx",
@@ -102,6 +156,18 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "#",
     ctaText: "View Plan",
+    specs: {
+      startingPrice: "Competitive (varies by plan)",
+      semaglutide: "Compounded (varies)",
+      tirzepatide: "Compounded (varies)",
+      offeringType: "Compounded",
+      medications: ["Compounded semaglutide", "Compounded tirzepatide"],
+      shipping: "Included",
+      insurance: "Cash",
+      consult: "Ongoing clinical guidance",
+      standout: "Ongoing clinical guidance rather than a one-and-done script",
+      watchOut: "Entry pricing is less transparent upfront",
+    },
   },
   {
     id: "wellmedr",
@@ -121,6 +187,18 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "#",
     ctaText: "View Plan",
+    specs: {
+      startingPrice: "50% off first month",
+      semaglutide: "Compounded (varies)",
+      tirzepatide: "Compounded GLP-1/GIP",
+      offeringType: "Compounded",
+      medications: ["Compounded tirzepatide (GLP-1/GIP)", "NAD+/B12 microdose add-ons"],
+      shipping: "Included",
+      insurance: "Cash",
+      consult: "Board-certified specialists, AI-assisted intake",
+      standout: "GLP-1 paired with a broader longevity and wellness stack",
+      watchOut: "Add-on services can add cost beyond the core GLP-1",
+    },
   },
   {
     id: "healthrx",
@@ -140,6 +218,18 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1630&aff_id=12905&url_id=12442",
     ctaText: "Check Eligibility",
+    specs: {
+      startingPrice: "$99/mo (12-month prepaid)",
+      semaglutide: "$99/mo (compounded, prepaid plan)",
+      tirzepatide: "—",
+      offeringType: "Compounded",
+      medications: ["Compounded semaglutide"],
+      shipping: "Free overnight cold-chain",
+      insurance: "Cash",
+      consult: "Clinician consult",
+      standout: "Overnight cold-chain shipping and a low semaglutide price",
+      watchOut: "Lowest price needs a 12-month prepay; semaglutide only (no tirzepatide)",
+    },
   },
   {
     id: "sprout",
@@ -159,6 +249,18 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1286&aff_id=12905",
     ctaText: "Get Started",
+    specs: {
+      startingPrice: "$200 off first month",
+      semaglutide: "Compounded (varies)",
+      tirzepatide: "Compounded (varies)",
+      offeringType: "Compounded",
+      medications: ["Compounded semaglutide", "Compounded tirzepatide"],
+      shipping: "Ships within 2 days",
+      insurance: "Cash",
+      consult: "Personalized plan",
+      standout: "Strong first-month discount and fast dispatch",
+      watchOut: "Intro pricing may step up after the first month",
+    },
   },
   {
     id: "found",
@@ -178,6 +280,18 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://joinfound.com/",
     ctaText: "View Plan",
+    specs: {
+      startingPrice: "Membership + medication",
+      semaglutide: "Brand / insurance-dependent",
+      tirzepatide: "Brand / insurance-dependent",
+      offeringType: "Branded",
+      medications: ["Brand GLP-1", "Behavior coaching"],
+      shipping: "Fast delivery",
+      insurance: "Works with major insurance",
+      consult: "Medical + behavioral coaching",
+      standout: "Medication paired with structured habit coaching",
+      watchOut: "Membership fee sits on top of medication cost",
+    },
   },
   {
     id: "skinnyrx",
@@ -197,6 +311,18 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://skinnyrx.com/",
     ctaText: "View Plan",
+    specs: {
+      startingPrice: "Varies",
+      semaglutide: "Compounded (varies)",
+      tirzepatide: "Compounded (varies)",
+      offeringType: "Compounded",
+      medications: ["Compounded semaglutide", "Compounded tirzepatide"],
+      shipping: "Nationwide home delivery",
+      insurance: "Cash",
+      consult: "Physician-prescribed",
+      standout: "Straightforward physician-prescribed compounded GLP-1",
+      watchOut: "Fewer published details than top-ranked programs",
+    },
   },
   {
     id: "sequence",
@@ -216,6 +342,18 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://www.weightwatchers.com/us/clinic",
     ctaText: "Visit Site",
+    specs: {
+      startingPrice: "Membership (branded, insurance-dependent)",
+      semaglutide: "Brand / insurance-dependent",
+      tirzepatide: "Brand / insurance-dependent",
+      offeringType: "Branded",
+      medications: ["Brand GLP-1", "WeightWatchers behavioral program"],
+      shipping: "Varies by pharmacy",
+      insurance: "Works with insurance + prior-auth support",
+      consult: "Clinician-led",
+      standout: "Prior-authorization support and the WeightWatchers program built in",
+      watchOut: "Best value only materializes if your insurance covers GLP-1",
+    },
   },
 ];
 

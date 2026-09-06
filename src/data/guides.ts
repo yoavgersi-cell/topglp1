@@ -28,6 +28,8 @@ export interface Guide {
   /** Related guide slugs and medication slugs for internal linking. */
   relatedGuides?: string[];
   relatedMeds?: string[];
+  /** Source keys (see sources.ts) backing this guide's clinical claims. */
+  sources?: string[];
 }
 
 export const GUIDES: Guide[] = [
@@ -80,6 +82,7 @@ export const GUIDES: Guide[] = [
     ],
     relatedGuides: ["glp1-side-effects-and-how-to-manage-them", "glp1-dosing-schedule-explained"],
     relatedMeds: ["semaglutide", "tirzepatide", "retatrutide"],
+    sources: ["step-1", "surmount-1", "retatrutide-p2"],
   },
   {
     slug: "glp1-dosing-schedule-explained",
@@ -138,6 +141,7 @@ export const GUIDES: Guide[] = [
     ],
     relatedGuides: ["glp1-side-effects-and-how-to-manage-them", "how-glp1-medications-work"],
     relatedMeds: ["semaglutide", "tirzepatide"],
+    sources: ["step-1", "surmount-1"],
   },
   {
     slug: "glp1-side-effects-and-how-to-manage-them",
@@ -203,6 +207,7 @@ export const GUIDES: Guide[] = [
     ],
     relatedGuides: ["what-to-eat-on-glp1-medications", "glp1-dosing-schedule-explained"],
     relatedMeds: ["semaglutide", "tirzepatide", "compounded-glp1"],
+    sources: ["step-1", "surmount-1", "fda-unapproved-glp1"],
   },
   {
     slug: "glp1-cost-and-insurance",
@@ -256,6 +261,7 @@ export const GUIDES: Guide[] = [
     ],
     relatedGuides: ["how-to-get-glp1-through-telehealth", "compounded-vs-branded-glp1"],
     relatedMeds: ["semaglutide", "tirzepatide", "compounded-glp1"],
+    sources: ["fda-compounding-policy", "fda-drug-shortages", "fda-unapproved-glp1"],
   },
   {
     slug: "glp1-results-timeline",
@@ -304,6 +310,7 @@ export const GUIDES: Guide[] = [
     ],
     relatedGuides: ["what-to-eat-on-glp1-medications", "how-glp1-medications-work"],
     relatedMeds: ["semaglutide", "tirzepatide"],
+    sources: ["step-1", "surmount-1", "surmount-5"],
   },
   {
     slug: "what-to-eat-on-glp1-medications",
@@ -364,6 +371,7 @@ export const GUIDES: Guide[] = [
     ],
     relatedGuides: ["glp1-results-timeline", "glp1-side-effects-and-how-to-manage-them"],
     relatedMeds: ["semaglutide", "tirzepatide"],
+    sources: ["step-1", "surmount-1"],
   },
   {
     slug: "how-to-get-glp1-through-telehealth",
@@ -416,6 +424,7 @@ export const GUIDES: Guide[] = [
     ],
     relatedGuides: ["glp1-cost-and-insurance", "compounded-vs-branded-glp1"],
     relatedMeds: ["compounded-glp1", "semaglutide", "tirzepatide"],
+    sources: ["fda-unapproved-glp1", "fda-compounding-dosing", "fda-compounding-policy"],
   },
   {
     slug: "compounded-vs-branded-glp1",
@@ -464,6 +473,7 @@ export const GUIDES: Guide[] = [
     ],
     relatedGuides: ["glp1-cost-and-insurance", "how-to-get-glp1-through-telehealth"],
     relatedMeds: ["compounded-glp1", "semaglutide", "tirzepatide"],
+    sources: ["fda-unapproved-glp1", "fda-compounding-policy", "fda-compounding-dosing"],
   },
 ];
 

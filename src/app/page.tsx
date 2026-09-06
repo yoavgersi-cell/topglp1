@@ -2,7 +2,8 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck, Scale, Activity } from "lucide-react";
 import { MEDICATIONS } from "@/data/medications";
 import { GUIDES } from "@/data/guides";
-import { PROVIDERS } from "@/data/providers";
+import { PROVIDERS, getProvider } from "@/data/providers";
+import { BATTLES } from "@/data/battles";
 import { SITE } from "@/lib/site";
 import { ProviderCard } from "@/components/provider-card";
 
@@ -136,6 +137,41 @@ export default function HomePage() {
           <Link href="/guides" className="mt-8 inline-flex items-center gap-1 text-sm font-semibold text-primary">
             Browse all guides <ArrowRight size={15} />
           </Link>
+        </div>
+      </section>
+
+      {/* Comparisons */}
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="font-serif text-3xl font-semibold text-foreground">Head-to-head comparisons</h2>
+            <p className="mt-2 max-w-2xl text-muted">
+              No scoreboard — we match each program to your priority (price, brand access, shipping, coaching).
+            </p>
+          </div>
+          <Link href="/compare" className="hidden shrink-0 items-center gap-1 text-sm font-semibold text-primary sm:inline-flex">
+            All comparisons <ArrowRight size={15} />
+          </Link>
+        </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {BATTLES.slice(0, 4).map((b) => {
+            const a = getProvider(b.a);
+            const bp = getProvider(b.b);
+            if (!a || !bp) return null;
+            return (
+              <Link
+                key={b.slug}
+                href={`/compare/${b.slug}`}
+                className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-surface p-5 transition-colors hover:border-primary"
+              >
+                <div>
+                  <h3 className="font-bold text-foreground">{b.title}</h3>
+                  <p className="mt-1 text-sm text-muted">{b.description}</p>
+                </div>
+                <ArrowRight size={16} className="shrink-0 text-primary transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            );
+          })}
         </div>
       </section>
 

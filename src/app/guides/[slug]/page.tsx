@@ -6,6 +6,7 @@ import { GUIDES, GUIDE_SLUGS, getGuide } from "@/data/guides";
 import { getMedication } from "@/data/medications";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
+import { MedicalSources } from "@/components/medical-sources";
 import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, articleSchema, breadcrumbSchema } from "@/lib/seo";
 
@@ -127,6 +128,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           </section>
         ))}
       </div>
+
+      {/* Sources */}
+      {guide.sources && guide.sources.length > 0 && <MedicalSources keys={guide.sources} />}
 
       {/* Related medications */}
       {relatedMeds.length > 0 && (

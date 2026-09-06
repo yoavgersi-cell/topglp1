@@ -75,6 +75,8 @@ export interface Medication {
   faqs: MedFaq[];
   /** Provider ids (see providers.ts) most relevant to this medication. */
   relatedProviders: string[];
+  /** Source keys (see sources.ts) backing this page's clinical claims. */
+  sources: string[];
   /** Accent hex used on the medication page hero. */
   accent: string;
 }
@@ -180,6 +182,7 @@ export const MEDICATIONS: Medication[] = [
       },
     ],
     relatedProviders: ["embody", "altrx", "ro", "trimrx", "healthrx"],
+    sources: ["step-1", "select", "surmount-5", "fda-unapproved-glp1"],
     accent: "#0E9488",
   },
   {
@@ -276,6 +279,7 @@ export const MEDICATIONS: Medication[] = [
       },
     ],
     relatedProviders: ["embody", "altrx", "wellmedr", "trimrx", "healthrx"],
+    sources: ["surmount-1", "surmount-5", "fda-unapproved-glp1"],
     accent: "#2563EB",
   },
   {
@@ -360,6 +364,7 @@ export const MEDICATIONS: Medication[] = [
       },
     ],
     relatedProviders: [],
+    sources: ["retatrutide-p2", "fda-unapproved-glp1"],
     accent: "#7C3AED",
   },
   {
@@ -435,6 +440,7 @@ export const MEDICATIONS: Medication[] = [
       },
     ],
     relatedProviders: ["ro", "found", "sequence"],
+    sources: ["scale-obesity", "fda-unapproved-glp1"],
     accent: "#DB6D28",
   },
   {
@@ -520,6 +526,7 @@ export const MEDICATIONS: Medication[] = [
       },
     ],
     relatedProviders: ["embody", "altrx", "trimrx", "wellmedr", "healthrx", "skinnyrx"],
+    sources: ["fda-unapproved-glp1", "fda-compounding-dosing", "fda-compounding-policy", "fda-drug-shortages"],
     accent: "#0E9488",
   },
 ];

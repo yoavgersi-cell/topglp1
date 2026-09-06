@@ -1,5 +1,6 @@
 import { MEDICATIONS } from "@/data/medications";
 import { GUIDES } from "@/data/guides";
+import { BATTLES } from "@/data/battles";
 import { SITE } from "@/lib/site";
 
 // A curated index for AI answer engines (the emerging "llms.txt" convention).
@@ -13,7 +14,8 @@ export function GET() {
   lines.push("");
   lines.push(
     "TopGLP1 is an independent, education-first resource on GLP-1 medications for a US audience. " +
-      "Content is general educational information, not medical advice.",
+      "Content is general educational information, not medical advice. Clinical claims are cited to " +
+      "peer-reviewed trials (New England Journal of Medicine) and the U.S. FDA.",
   );
   lines.push("");
 
@@ -29,8 +31,15 @@ export function GET() {
   }
   lines.push("");
 
+  lines.push("## Comparisons");
+  for (const b of BATTLES) {
+    lines.push(`- ${b.title} — ${b.description} ${SITE.url}/compare/${b.slug}`);
+  }
+  lines.push("");
+
   lines.push("## Key pages");
   lines.push(`- Best GLP-1 programs: ${SITE.url}/best-glp1-providers`);
+  lines.push(`- All comparisons: ${SITE.url}/compare`);
   lines.push(`- About & editorial approach: ${SITE.url}/about`);
   lines.push(`- Medical disclaimer: ${SITE.url}/disclaimer`);
   lines.push("");

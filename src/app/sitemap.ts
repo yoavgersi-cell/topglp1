@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { MEDICATIONS } from "@/data/medications";
 import { GUIDES } from "@/data/guides";
+import { BATTLES } from "@/data/battles";
 import { SITE } from "@/lib/site";
 import { CONTENT_REVIEWED } from "@/lib/site";
 
@@ -13,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/medications`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/guides`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/best-glp1-providers`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/compare`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/about`, lastModified, changeFrequency: "monthly", priority: 0.4 },
     { url: `${base}/disclaimer`, lastModified, changeFrequency: "monthly", priority: 0.3 },
     { url: `${base}/privacy`, lastModified, changeFrequency: "monthly", priority: 0.2 },
@@ -32,5 +34,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...medPages, ...guidePages];
+  const battlePages: MetadataRoute.Sitemap = BATTLES.map((b) => ({
+    url: `${base}/compare/${b.slug}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.75,
+  }));
+
+  return [...staticPages, ...medPages, ...guidePages, ...battlePages];
 }

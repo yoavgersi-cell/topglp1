@@ -24,9 +24,18 @@ const COLUMNS = [
     ],
   },
   {
+    title: "Compare",
+    links: [
+      { label: "Embody vs Ro", href: "/compare/embody-vs-ro" },
+      { label: "Embody vs altRx", href: "/compare/embody-vs-altrx" },
+      { label: "altRx vs Ro", href: "/compare/altrx-vs-ro" },
+      { label: "All comparisons", href: "/compare" },
+      { label: "Best GLP-1 programs", href: "/best-glp1-providers" },
+    ],
+  },
+  {
     title: "Site",
     links: [
-      { label: "Best GLP-1 programs", href: "/best-glp1-providers" },
       { label: "About us", href: "/about" },
       { label: "Editorial & disclaimer", href: "/disclaimer" },
       { label: "Privacy", href: "/privacy" },
@@ -38,7 +47,7 @@ export function Footer() {
   return (
     <footer className="mt-20 border-t border-border bg-surface">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           <div>
             <Logo />
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
