@@ -5,6 +5,7 @@ import { ArrowRight, Check, X, AlertTriangle, Pill, DollarSign, TrendingUp } fro
 import { MEDICATIONS, MEDICATION_SLUGS, getMedication } from "@/data/medications";
 import { getProvider as getProviderById } from "@/data/providers";
 import { GUIDES } from "@/data/guides";
+import { MED_COMPARISONS } from "@/data/med-comparisons";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { MedicalSources } from "@/components/medical-sources";
@@ -55,6 +56,10 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
   const relatedGuides = GUIDES.filter((g) =>
     g.relatedMeds?.includes(med.slug),
   ).slice(0, 3);
+
+  const relatedComparisons = MED_COMPARISONS.filter(
+    (c) => c.aMedSlug === med.slug || c.bMedSlug === med.slug,
+  ).slice(0, 4);
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
@@ -271,6 +276,27 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
           <Faq items={med.faqs} />
         </div>
       </section>
+
+      {/* Drug comparisons */}
+      {relatedComparisons.length > 0 && (
+        <section className="mt-12">
+          <h2 className="font-serif text-2xl font-semibold text-foreground">
+            How {med.name.toLowerCase()} compares
+          </h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {relatedComparisons.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/vs/${c.slug}`}
+                className="group flex items-center justify-between rounded-xl border border-border bg-surface p-4 transition-colors hover:border-primary"
+              >
+                <span className="text-sm font-semibold text-foreground">{c.title}</span>
+                <ArrowRight size={15} className="text-primary transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Sources */}
       <MedicalSources keys={med.sources} />

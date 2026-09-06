@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Calculator, ClipboardCheck, ArrowRight } from "lucide-react";
+import { Calculator, ClipboardCheck, ShieldCheck, ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 
@@ -23,6 +23,12 @@ const TOOLS = [
     icon: ClipboardCheck,
     title: "Am I Eligible? (BMI Checker)",
     body: "Enter your height, weight and any weight-related conditions to see whether you likely meet the clinical criteria for GLP-1 treatment.",
+  },
+  {
+    href: "/tools/glp1-provider-safety-check",
+    icon: ShieldCheck,
+    title: "Provider Safety Check",
+    body: "Check whether a GLP-1 program clears the basics — licensed prescribers, accredited pharmacies, LegitScript certification — plus the red flags to avoid.",
   },
 ];
 

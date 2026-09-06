@@ -4,6 +4,7 @@ import { MEDICATIONS } from "@/data/medications";
 import { GUIDES } from "@/data/guides";
 import { PROVIDERS, getProvider } from "@/data/providers";
 import { BATTLES } from "@/data/battles";
+import { MED_COMPARISONS } from "@/data/med-comparisons";
 import { SITE } from "@/lib/site";
 import { ProviderCard } from "@/components/provider-card";
 
@@ -111,6 +112,30 @@ export default function HomePage() {
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
                 Read the guide <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />
               </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Drug comparisons */}
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="font-serif text-3xl font-semibold text-foreground">Which drug is right for you?</h2>
+            <p className="mt-2 text-muted">Cited head-to-head comparisons of the medications themselves.</p>
+          </div>
+          <Link href="/vs" className="hidden shrink-0 items-center gap-1 text-sm font-semibold text-primary sm:inline-flex">
+            All drug comparisons <ArrowRight size={15} />
+          </Link>
+        </div>
+        <div className="mt-6 flex flex-wrap gap-2.5">
+          {MED_COMPARISONS.map((c) => (
+            <Link
+              key={c.slug}
+              href={`/vs/${c.slug}`}
+              className="inline-flex items-center gap-1 rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary"
+            >
+              {c.title} <ArrowRight size={13} className="text-primary" />
             </Link>
           ))}
         </div>

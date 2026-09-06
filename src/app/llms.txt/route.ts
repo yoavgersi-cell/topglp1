@@ -2,6 +2,7 @@ import { MEDICATIONS } from "@/data/medications";
 import { GUIDES } from "@/data/guides";
 import { BATTLES } from "@/data/battles";
 import { PROVIDERS } from "@/data/providers";
+import { MED_COMPARISONS } from "@/data/med-comparisons";
 import { SITE } from "@/lib/site";
 
 // A curated index for AI answer engines (the emerging "llms.txt" convention).
@@ -44,9 +45,16 @@ export function GET() {
   }
   lines.push("");
 
+  lines.push("## Drug comparisons");
+  for (const c of MED_COMPARISONS) {
+    lines.push(`- ${c.title} — ${c.description} ${SITE.url}/vs/${c.slug}`);
+  }
+  lines.push("");
+
   lines.push("## Free tools");
   lines.push(`- GLP-1 cost calculator: ${SITE.url}/tools/glp1-cost-calculator`);
   lines.push(`- Eligibility / BMI checker: ${SITE.url}/tools/am-i-eligible-for-glp1`);
+  lines.push(`- Provider safety check: ${SITE.url}/tools/glp1-provider-safety-check`);
   lines.push("");
 
   lines.push("## Key pages");
