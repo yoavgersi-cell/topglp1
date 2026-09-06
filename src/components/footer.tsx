@@ -39,8 +39,9 @@ const COLUMNS = [
     links: [
       { label: "Cost calculator", href: "/tools/glp1-cost-calculator" },
       { label: "Eligibility checker", href: "/tools/am-i-eligible-for-glp1" },
-      { label: "Provider safety check", href: "/tools/glp1-provider-safety-check" },
-      { label: "About & disclaimer", href: "/disclaimer" },
+      { label: "How we review", href: "/how-we-review" },
+      { label: "About us", href: "/about" },
+      { label: "Disclaimer", href: "/disclaimer" },
       { label: "Privacy", href: "/privacy" },
     ],
   },
