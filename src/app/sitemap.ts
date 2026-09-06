@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { MEDICATIONS } from "@/data/medications";
 import { GUIDES } from "@/data/guides";
 import { BATTLES } from "@/data/battles";
+import { PROVIDERS } from "@/data/providers";
 import { SITE } from "@/lib/site";
 import { CONTENT_REVIEWED } from "@/lib/site";
 
@@ -14,7 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/medications`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/guides`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/best-glp1-providers`, lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/reviews`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/compare`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/cheapest-glp1`, lastModified, changeFrequency: "weekly", priority: 0.85 },
+    { url: `${base}/tools`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/tools/glp1-cost-calculator`, lastModified, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${base}/tools/am-i-eligible-for-glp1`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/about`, lastModified, changeFrequency: "monthly", priority: 0.4 },
     { url: `${base}/disclaimer`, lastModified, changeFrequency: "monthly", priority: 0.3 },
     { url: `${base}/privacy`, lastModified, changeFrequency: "monthly", priority: 0.2 },
@@ -41,5 +47,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...staticPages, ...medPages, ...guidePages, ...battlePages];
+  const reviewPages: MetadataRoute.Sitemap = PROVIDERS.map((p) => ({
+    url: `${base}/reviews/${p.slug}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...medPages, ...guidePages, ...battlePages, ...reviewPages];
 }

@@ -1,6 +1,7 @@
 import { MEDICATIONS } from "@/data/medications";
 import { GUIDES } from "@/data/guides";
 import { BATTLES } from "@/data/battles";
+import { PROVIDERS } from "@/data/providers";
 import { SITE } from "@/lib/site";
 
 // A curated index for AI answer engines (the emerging "llms.txt" convention).
@@ -37,8 +38,20 @@ export function GET() {
   }
   lines.push("");
 
+  lines.push("## Provider reviews");
+  for (const p of [...PROVIDERS].sort((x, y) => x.rank - y.rank)) {
+    lines.push(`- ${p.name} review (rated ${p.rating.toFixed(1)}/10): ${SITE.url}/reviews/${p.slug}`);
+  }
+  lines.push("");
+
+  lines.push("## Free tools");
+  lines.push(`- GLP-1 cost calculator: ${SITE.url}/tools/glp1-cost-calculator`);
+  lines.push(`- Eligibility / BMI checker: ${SITE.url}/tools/am-i-eligible-for-glp1`);
+  lines.push("");
+
   lines.push("## Key pages");
   lines.push(`- Best GLP-1 programs: ${SITE.url}/best-glp1-providers`);
+  lines.push(`- Cheapest GLP-1 options: ${SITE.url}/cheapest-glp1`);
   lines.push(`- All comparisons: ${SITE.url}/compare`);
   lines.push(`- About & editorial approach: ${SITE.url}/about`);
   lines.push(`- Medical disclaimer: ${SITE.url}/disclaimer`);

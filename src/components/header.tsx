@@ -7,10 +7,10 @@ import { Logo } from "./logo";
 
 const NAV = [
   { label: "Medications", href: "/medications" },
-  { label: "Guides", href: "/guides" },
+  { label: "Reviews", href: "/reviews" },
   { label: "Compare", href: "/compare" },
-  { label: "Best Programs", href: "/best-glp1-providers" },
-  { label: "About", href: "/about" },
+  { label: "Guides", href: "/guides" },
+  { label: "Tools", href: "/tools" },
 ];
 
 export function Header() {

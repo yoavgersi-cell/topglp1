@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck, Scale, Activity } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck, Scale, Activity, Calculator, ClipboardCheck } from "lucide-react";
 import { MEDICATIONS } from "@/data/medications";
 import { GUIDES } from "@/data/guides";
 import { PROVIDERS, getProvider } from "@/data/providers";
@@ -137,6 +137,46 @@ export default function HomePage() {
           <Link href="/guides" className="mt-8 inline-flex items-center gap-1 text-sm font-semibold text-primary">
             Browse all guides <ArrowRight size={15} />
           </Link>
+        </div>
+      </section>
+
+      {/* Tools */}
+      <section className="border-y border-border bg-surface">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+          <h2 className="font-serif text-3xl font-semibold text-foreground">Free tools, no signup</h2>
+          <p className="mt-2 text-muted">Answer the two questions everyone has before starting.</p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <Link
+              href="/tools/glp1-cost-calculator"
+              className="group flex items-start gap-4 rounded-2xl border border-border bg-background p-6 transition-colors hover:border-primary"
+            >
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary-light text-primary">
+                <Calculator size={22} />
+              </span>
+              <div>
+                <h3 className="font-bold text-foreground">GLP-1 Cost Calculator</h3>
+                <p className="mt-1 text-sm text-muted">Estimate what you'll actually pay — cash, insured, or compounded.</p>
+                <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Calculate <ArrowRight size={14} />
+                </span>
+              </div>
+            </Link>
+            <Link
+              href="/tools/am-i-eligible-for-glp1"
+              className="group flex items-start gap-4 rounded-2xl border border-border bg-background p-6 transition-colors hover:border-primary"
+            >
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary-light text-primary">
+                <ClipboardCheck size={22} />
+              </span>
+              <div>
+                <h3 className="font-bold text-foreground">Am I Eligible? (BMI Checker)</h3>
+                <p className="mt-1 text-sm text-muted">See if you likely meet the clinical criteria in 30 seconds.</p>
+                <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                  Check now <ArrowRight size={14} />
+                </span>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
