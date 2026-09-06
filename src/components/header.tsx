@@ -38,10 +38,10 @@ export function Header() {
             </Link>
           ))}
           <Link
-            href="/best-glp1-providers"
+            href="/find-your-match"
             className="rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
           >
-            Compare Programs
+            Take the Quiz
           </Link>
         </nav>
 

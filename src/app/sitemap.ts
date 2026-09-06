@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/tools/glp1-cost-calculator`, lastModified, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/tools/am-i-eligible-for-glp1`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/glp1-provider-safety-check`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/find-your-match`, lastModified, changeFrequency: "monthly", priority: 0.85 },
     { url: `${base}/how-we-review`, lastModified, changeFrequency: "monthly", priority: 0.5 },
     { url: `${base}/about`, lastModified, changeFrequency: "monthly", priority: 0.4 },
     { url: `${base}/disclaimer`, lastModified, changeFrequency: "monthly", priority: 0.3 },

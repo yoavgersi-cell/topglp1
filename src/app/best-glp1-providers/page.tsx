@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PROVIDERS } from "@/data/providers";
-import { ProviderCard } from "@/components/provider-card";
+import { ScoredRankingTable } from "@/components/scored-ranking-table";
+import { CategoryPicks } from "@/components/category-picks";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { CONTENT_REVIEWED } from "@/lib/site";
+import { EditorialByline } from "@/components/editorial-byline";
+import { PROVIDERS } from "@/data/providers";
+import { SCORING_CRITERIA } from "@/data/rankings";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Best GLP-1 Programs of 2026: Telehealth Providers Ranked",
+  title: "Best GLP-1 Programs of 2026: 21 Telehealth Providers Ranked & Scored",
   description:
-    "Our independent ranking of the best telehealth GLP-1 programs — compounded and branded semaglutide and tirzepatide compared on price, access, shipping and clinical support.",
+    "Our independent 2026 ranking of the best online GLP-1 programs — scored across cost, clinical oversight, medications, UX and transparency. Real pricing, type and insurance.",
   path: "/best-glp1-providers",
 });
 
 export default function BestProvidersPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+    <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -31,43 +33,64 @@ export default function BestProvidersPage() {
         items={[{ name: "Home", path: "/" }, { name: "Best GLP-1 programs", path: "/best-glp1-providers" }]}
       />
 
-      <h1 className="font-serif text-4xl font-semibold text-foreground">
-        Best GLP-1 programs of 2026
-      </h1>
-      <p className="mt-3 max-w-2xl text-lg leading-relaxed text-muted">
-        If you've read up on the medications and want to start treatment, these are the
-        telehealth programs we rate highest for GLP-1 access. We weigh price, what's actually
-        prescribed, pharmacy legitimacy, shipping, and clinical support.
+      <span className="text-xs font-semibold uppercase tracking-wide text-primary">Independent rankings</span>
+      <h1 className="mt-2 font-serif text-4xl font-semibold text-foreground">Best GLP-1 programs of 2026</h1>
+      <EditorialByline chips={[`${PROVIDERS.length} programs scored`, "Rankings aren't for sale"]} />
+      <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
+        Scored and ordered by our methodology across cost, clinical depth, medications, UX and transparency. We
+        weigh price, what's actually prescribed, pharmacy legitimacy, shipping, and clinical support — and we say
+        plainly what to watch out for.
       </p>
-      <p className="mt-3 text-xs text-muted">Last reviewed {CONTENT_REVIEWED} · We may earn a commission from links below.</p>
 
-      <div className="mt-8 rounded-2xl border border-border bg-primary-light/40 p-5 text-sm leading-relaxed text-foreground">
-        <strong>Before you choose:</strong> a legitimate program requires a licensed prescriber and a real
-        medical intake, uses a state-licensed pharmacy (LegitScript certification is a good sign), and gives
-        you clear dosing plus a way to reach a clinician. See our{" "}
-        <Link href="/guides/how-to-get-glp1-through-telehealth" className="font-semibold text-primary underline">
-          guide to getting GLP-1 safely
-        </Link>{" "}
-        before signing up.
-      </div>
+      {/* Category picks */}
+      <section className="mt-10">
+        <h2 className="font-serif text-2xl font-semibold text-foreground">Editor's picks by category</h2>
+        <p className="mt-2 text-sm text-muted">One quick pick for the priority that matters most to you.</p>
+        <div className="mt-6">
+          <CategoryPicks />
+        </div>
+      </section>
 
-      <div className="mt-8 space-y-4">
-        {[...PROVIDERS].sort((x, y) => x.rank - y.rank).map((p) => (
-          <ProviderCard key={p.id} provider={p} />
-        ))}
-      </div>
-
-      <div className="mt-10 rounded-2xl border border-border bg-surface p-6 text-sm leading-relaxed text-muted">
-        <h2 className="font-serif text-xl font-semibold text-foreground">How we rank</h2>
-        <p className="mt-2">
-          Rankings reflect a mix of pricing transparency, medication options (compounded vs branded,
-          semaglutide vs tirzepatide), pharmacy and clinician credentials, shipping speed, and the
-          overall quality of the patient experience. Affiliate relationships do not change a program's
-          position — a partner we're paid by can still rank below one we aren't. Availability and pricing
-          change frequently, especially as FDA shortage status shifts, so always confirm current details
-          on the provider's own site.
+      {/* Scored ranking table */}
+      <section className="mt-12">
+        <h2 className="font-serif text-2xl font-semibold text-foreground">The full 2026 ranking</h2>
+        <p className="mt-2 text-sm text-muted">
+          All {PROVIDERS.length} programs, scored 1–10. Affiliate relationships never change a program's position.
         </p>
-      </div>
+        <div className="mt-6">
+          <ScoredRankingTable />
+        </div>
+        <p className="mt-4 text-xs leading-relaxed text-muted">
+          <strong className="text-foreground">What the types mean:</strong> <strong>Brand</strong> = FDA-approved
+          name-brand (Wegovy, Zepbound, Ozempic). <strong>Compounded</strong> = pharmacy-prepared
+          semaglutide/tirzepatide that is not FDA-approved and shouldn't be assumed equivalent to a brand product.{" "}
+          <strong>Both</strong> = offers brand-name and compounded.
+        </p>
+      </section>
+
+      {/* Scoring methodology */}
+      <section className="mt-12">
+        <span className="text-xs font-semibold uppercase tracking-wide text-primary">Scoring methodology</span>
+        <h2 className="mt-2 font-serif text-2xl font-semibold text-foreground">How we score providers</h2>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+          Every provider is evaluated on five weighted criteria and combined into a single 1–10 rating. We
+          re-check pricing and policies over time and update scores when they change.
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {SCORING_CRITERIA.map((c) => (
+            <div key={c.name} className="rounded-2xl border border-border bg-surface p-5">
+              <div className="flex items-center justify-between">
+                <h3 className="font-semibold text-foreground">{c.name}</h3>
+                <span className="rounded-full bg-primary-light px-2 py-0.5 text-xs font-bold text-primary">{c.weight}%</span>
+              </div>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{c.detail}</p>
+            </div>
+          ))}
+        </div>
+        <Link href="/how-we-review" className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+          Read the full methodology →
+        </Link>
+      </section>
     </div>
   );
 }

@@ -28,10 +28,10 @@ const COLUMNS = [
     title: "Compare & reviews",
     links: [
       { label: "Best GLP-1 programs", href: "/best-glp1-providers" },
+      { label: "Match quiz", href: "/find-your-match" },
       { label: "All reviews", href: "/reviews" },
       { label: "Program comparisons", href: "/compare" },
       { label: "Drug comparisons", href: "/vs" },
-      { label: "Cheapest GLP-1", href: "/cheapest-glp1" },
     ],
   },
   {

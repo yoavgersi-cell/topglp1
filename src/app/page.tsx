@@ -7,6 +7,7 @@ import { BATTLES } from "@/data/battles";
 import { MED_COMPARISONS } from "@/data/med-comparisons";
 import { SITE } from "@/lib/site";
 import { ProviderCard } from "@/components/provider-card";
+import { Faq } from "@/components/faq";
 
 const FEATURED_GUIDES = [
   "how-glp1-medications-work",
@@ -63,6 +64,36 @@ export default function HomePage() {
                 </span>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Savings hook */}
+      <section className="border-b border-border bg-surface">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 py-10 sm:px-6 md:flex-row md:justify-between">
+          <div className="flex items-center gap-5 text-center md:text-left">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted">At the pharmacy</p>
+              <p className="font-serif text-3xl font-semibold text-muted line-through decoration-accent/60">$1,349/mo</p>
+            </div>
+            <ArrowRight size={28} className="shrink-0 text-primary" />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-primary">Cheapest verified online</p>
+              <p className="font-serif text-4xl font-semibold text-foreground">
+                from $69<span className="text-lg font-normal text-muted">/mo</span>
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-3 sm:flex-row">
+            <Link
+              href="/find-your-match"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary-dark"
+            >
+              Find your match in 7 questions <ArrowRight size={16} />
+            </Link>
+            <Link href="/cheapest-glp1" className="text-sm font-semibold text-primary hover:underline">
+              See cheapest options
+            </Link>
           </div>
         </div>
       </section>
@@ -278,6 +309,53 @@ export default function HomePage() {
           >
             See all {PROVIDERS.length} programs, ranked <ArrowUpRight size={15} />
           </Link>
+        </div>
+      </section>
+
+      {/* Find your GLP-1 path */}
+      <section className="border-y border-border bg-surface">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+          <h2 className="font-serif text-3xl font-semibold text-foreground">Find your GLP-1 path</h2>
+          <p className="mt-2 text-muted">Jump straight to what you're looking for.</p>
+          <div className="mt-8 grid gap-x-8 gap-y-5 sm:grid-cols-2">
+            {[
+              { href: "/best-glp1-providers", title: "Best GLP-1 program for your situation", note: "All 21 programs scored and ranked" },
+              { href: "/cheapest-glp1", title: "Cheapest GLP-1 without insurance", note: "Every program ranked by price" },
+              { href: "/semaglutide-online", title: "Semaglutide online, compared", note: "Compounded & brand, from $69/mo" },
+              { href: "/tirzepatide-online", title: "Tirzepatide online, compared", note: "The stronger molecule, from $119/mo" },
+              { href: "/compare", title: "Compare any two programs", note: "Side-by-side on price, meds & credentials" },
+              { href: "/vs", title: "Which drug is right for you?", note: "Ozempic vs Wegovy, and more" },
+              { href: "/guides/glp1-side-effects-and-how-to-manage-them", title: "GLP-1 safety & side effects", note: "FDA warnings and what to watch" },
+              { href: "/tools", title: "Free tools", note: "Cost calculator, eligibility & safety check" },
+              { href: "/reviews", title: "All GLP-1 provider reviews", note: "Independent, methodology-scored" },
+              { href: "/find-your-match", title: "Take the 2-minute match quiz", note: "Your best-fit program in 7 questions" },
+            ].map((l) => (
+              <Link key={l.href} href={l.href} className="group flex items-start justify-between gap-3 border-b border-border pb-4">
+                <div>
+                  <p className="font-semibold text-foreground group-hover:text-primary">{l.title}</p>
+                  <p className="mt-0.5 text-sm text-muted">{l.note}</p>
+                </div>
+                <ArrowRight size={16} className="mt-1 shrink-0 text-primary transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+        <h2 className="font-serif text-3xl font-semibold text-foreground">Questions readers ask most</h2>
+        <div className="mt-6">
+          <Faq
+            items={[
+              { q: "What is the cheapest GLP-1 program in 2026?", a: "Compounded semaglutide is the cheapest route — our top pick Embody offers it at a flat $69/month, versus $1,000+/month for branded at the pharmacy. See our cheapest-GLP-1 ranking for the full list." },
+              { q: "Which GLP-1 medication works best for weight loss?", a: "In trials, tirzepatide (Zepbound) produced the most average weight loss (~15–21%), edging semaglutide (Wegovy, ~15%). A head-to-head trial, SURMOUNT-5, confirmed tirzepatide's average advantage. Both are highly effective." },
+              { q: "Do I qualify for GLP-1 weight-loss medication?", a: "Prescribers generally use a BMI of 30+, or 27+ with a weight-related condition (like high blood pressure or type 2 diabetes). Try our free eligibility checker for an instant estimate — a clinician makes the final call." },
+              { q: "What's the difference between brand-name and compounded GLP-1?", a: "Same active molecule; different manufacturing and oversight. Branded (Wegovy, Zepbound) is FDA-approved and expensive; compounded is pharmacy-prepared, far cheaper, and not FDA-approved as a finished product — so a legitimate, accredited pharmacy matters." },
+              { q: "Will Medicare cover GLP-1 medications?", a: "Medicare has historically not covered GLP-1 drugs for weight loss alone, though coverage for diabetes and certain cardiovascular indications exists and policy is evolving. Always confirm your specific plan's formulary." },
+              { q: "Can I get GLP-1 as a pill instead of an injection?", a: "Oral options exist (like Rybelsus, and newer oral GLP-1s in development), but the most effective GLP-1 treatments are still weekly injections. Most telehealth programs focus on injectable compounded semaglutide and tirzepatide." },
+            ]}
+          />
         </div>
       </section>
 

@@ -14,14 +14,17 @@ import {
   ShieldCheck,
   ScrollText,
   Trophy,
+  Star,
 } from "lucide-react";
 import { BATTLES, type Side } from "@/data/battles";
 import { allBattleSlugs, resolveBattle } from "@/data/battle-engine";
 import { getProvider, type Provider } from "@/data/providers";
+import { PROVIDERS } from "@/data/providers";
+import { bestForTag } from "@/data/rankings";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { EditorialByline } from "@/components/editorial-byline";
 import { Faq } from "@/components/faq";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
-import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
 export const revalidate = 3600;
@@ -48,6 +51,8 @@ export async function generateMetadata({
 
 // Full spec table — pulled straight from structured provider specs.
 const SPEC_ROWS: { label: string; get: (p: Provider) => string }[] = [
+  { label: "Why choose it", get: (p) => p.specs.standout },
+  { label: "Watch out for", get: (p) => p.specs.watchOut },
   { label: "Starting price", get: (p) => p.specs.startingPrice },
   { label: "Compounded semaglutide", get: (p) => p.specs.semaglutide },
   { label: "Tirzepatide", get: (p) => p.specs.tirzepatide },
@@ -166,15 +171,21 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
       />
 
       <header>
-        <h1 className="font-serif text-4xl font-semibold leading-tight text-foreground">{b.title}</h1>
-        <p className="mt-3 text-lg leading-relaxed text-muted">{b.intro}</p>
-        <p className="mt-3 text-xs text-muted">
-          Last reviewed {CONTENT_REVIEWED} · Pricing is provider-reported and changes often — confirm current
-          rates on each provider's site. We may earn a commission.
-        </p>
+        <h1 className="font-serif text-4xl font-semibold leading-tight text-foreground">
+          {b.title}: <span className="text-muted">which GLP-1 program is better?</span>
+        </h1>
+        <EditorialByline chips={["21 programs compared", "Independent — rankings aren't for sale"]} />
+        <p className="mt-4 text-lg leading-relaxed text-muted">{b.intro}</p>
       </header>
 
-      <MedicalDisclaimer className="mt-6" />
+      {/* Short answer / TL;DR */}
+      <div className="mt-6 rounded-r-xl border-l-4 border-primary bg-primary-light/40 py-4 pl-5 pr-4">
+        <p className="leading-relaxed text-foreground">
+          <strong>Short answer:</strong> {b.winnerReason}
+        </p>
+      </div>
+
+      <MedicalDisclaimer className="mt-4" />
 
       {/* Our pick banner */}
       <section className="mt-6 overflow-hidden rounded-2xl border-2 border-primary bg-primary-light/50">
@@ -199,28 +210,35 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
         </div>
       </section>
 
-      {/* Verdict panel — decision-first */}
+      {/* Verdict panel — decision-first, with rank + score */}
       <section className="mt-4 grid gap-4 sm:grid-cols-2">
-        <div className={`rounded-2xl border bg-surface p-6 ${winnerIsA ? "border-primary ring-1 ring-primary" : "border-border"}`}>
-          <div className="flex items-center justify-between">
-            <div className="relative h-6 w-24">
-              <Image src={a.logo} alt={`${a.name} logo`} fill className="object-contain object-left" sizes="96px" />
+        {[
+          { p: a, isWinner: winnerIsA, choose: b.chooseA, accent: "text-primary" as const },
+          { p: bp, isWinner: !winnerIsA, choose: b.chooseB, accent: "text-accent" as const },
+        ].map(({ p, isWinner, choose, accent }) => (
+          <div
+            key={p.id}
+            className={`rounded-2xl border bg-surface p-6 ${isWinner ? "border-primary ring-1 ring-primary" : "border-border"}`}
+          >
+            <div className="flex items-center justify-between">
+              <div className="relative h-6 w-24">
+                <Image src={p.logo} alt={`${p.name} logo`} fill className="object-contain object-left" sizes="96px" />
+              </div>
+              {isWinner && <span className="rounded-full bg-primary-light px-2 py-0.5 text-[11px] font-bold text-primary">OUR PICK</span>}
             </div>
-            {winnerIsA && <span className="rounded-full bg-primary-light px-2 py-0.5 text-[11px] font-bold text-primary">OUR PICK</span>}
-          </div>
-          <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-primary">Choose {a.name} if…</p>
-          <p className="mt-1 leading-relaxed text-foreground">{b.chooseA}</p>
-        </div>
-        <div className={`rounded-2xl border bg-surface p-6 ${!winnerIsA ? "border-primary ring-1 ring-primary" : "border-border"}`}>
-          <div className="flex items-center justify-between">
-            <div className="relative h-6 w-24">
-              <Image src={bp.logo} alt={`${bp.name} logo`} fill className="object-contain object-left" sizes="96px" />
+            <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+              <span className="inline-flex items-center gap-1 font-bold text-primary">
+                <Star size={14} className="fill-primary text-primary" /> {p.rating.toFixed(1)}
+                <span className="font-normal text-muted">/10</span>
+              </span>
+              <span className="text-muted">#{p.rank} of {PROVIDERS.length}</span>
+              <span className="text-muted">· {p.specs.startingPrice}</span>
             </div>
-            {!winnerIsA && <span className="rounded-full bg-primary-light px-2 py-0.5 text-[11px] font-bold text-primary">OUR PICK</span>}
+            <p className="mt-1 text-xs font-medium text-muted">Best for: {bestForTag(p.id)}</p>
+            <p className={`mt-3 text-sm font-semibold uppercase tracking-wide ${accent}`}>Choose {p.name} if…</p>
+            <p className="mt-1 leading-relaxed text-foreground">{choose}</p>
           </div>
-          <p className="mt-3 text-sm font-semibold uppercase tracking-wide text-accent">Choose {bp.name} if…</p>
-          <p className="mt-1 leading-relaxed text-foreground">{b.chooseB}</p>
-        </div>
+        ))}
       </section>
 
       {/* Cost breakdown */}
@@ -424,22 +442,77 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
         </p>
       </section>
 
-      {/* Other comparisons */}
+      {/* Full reviews + legitimacy */}
+      <section className="mt-10 grid gap-3 sm:grid-cols-2">
+        {[a, bp].map((p) => (
+          <Link
+            key={p.id}
+            href={`/reviews/${p.slug}`}
+            className="group flex items-center justify-between rounded-xl border border-border bg-surface p-4 transition-colors hover:border-primary"
+          >
+            <span className="text-sm font-semibold text-foreground">
+              Is {p.name} legit? Read the full review
+            </span>
+            <ArrowRight size={15} className="text-primary transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        ))}
+      </section>
+
+      {/* Not sure? Quiz */}
+      <section className="mt-8 rounded-2xl border border-border bg-accent-light/40 p-6 text-center">
+        <h2 className="font-serif text-xl font-semibold text-foreground">Not sure which one is right for you?</h2>
+        <p className="mt-2 text-sm text-muted">Answer 7 quick questions and we'll match you to a program.</p>
+        <Link
+          href="/find-your-match"
+          className="mt-4 inline-flex items-center gap-1 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+        >
+          Take the match quiz <ArrowRight size={15} />
+        </Link>
+      </section>
+
+      {/* Other comparisons — with prices */}
       <nav className="mt-12 border-t border-border pt-8">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">More comparisons</h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          {otherBattles.map((x) => (
-            <Link
-              key={x.slug}
-              href={`/compare/${x.slug}`}
-              className="group flex items-center justify-between rounded-xl border border-border bg-surface p-4 transition-colors hover:border-primary"
-            >
-              <span className="text-sm font-semibold text-foreground">{x.title}</span>
-              <ArrowRight size={15} className="text-primary transition-transform group-hover:translate-x-0.5" />
-            </Link>
-          ))}
+          {otherBattles.map((x) => {
+            const xa = getProvider(x.a);
+            return (
+              <Link
+                key={x.slug}
+                href={`/compare/${x.slug}`}
+                className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-surface p-4 transition-colors hover:border-primary"
+              >
+                <span className="text-sm font-semibold text-foreground">{x.title}</span>
+                <span className="flex shrink-0 items-center gap-2">
+                  {xa && <span className="text-xs text-muted">{xa.specs.startingPrice.split("(")[0].trim()}</span>}
+                  <ArrowRight size={15} className="text-primary transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </nav>
+
+      {/* Sticky compare bar (mobile) */}
+      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-surface/95 p-3 backdrop-blur sm:hidden">
+        <div className="flex gap-2">
+          <a
+            href={winner.affiliateUrl}
+            target="_blank"
+            rel="sponsored nofollow noopener"
+            className="flex flex-1 items-center justify-center gap-1 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white"
+          >
+            Get {winner.name} <ArrowUpRight size={14} />
+          </a>
+          <Link
+            href="/find-your-match"
+            className="flex items-center justify-center rounded-full border border-border px-4 py-2.5 text-sm font-semibold text-foreground"
+          >
+            Quiz
+          </Link>
+        </div>
+      </div>
+      <div className="h-16 sm:hidden" aria-hidden />
     </article>
   );
 }
