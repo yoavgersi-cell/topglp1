@@ -145,7 +145,7 @@ export const PROVIDERS: Provider[] = [
       "Compounded only — no brand-name Wegovy/Zepbound",
       "Cash-pay only (no insurance billing)",
     ],
-    affiliateUrl: "#",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1548&aff_id=12904",
     ctaText: "View Plan",
     specs: {
       startingPrice: "$69/mo (compounded semaglutide)",

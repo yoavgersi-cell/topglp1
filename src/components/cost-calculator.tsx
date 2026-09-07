@@ -8,6 +8,9 @@ import {
   estimateCost,
   type InsuranceStatus,
 } from "@/data/cost-model";
+import { getProvider } from "@/data/providers";
+
+const EMBODY_URL = getProvider("embody")?.affiliateUrl ?? "#";
 
 const INSURANCE_CHOICES: { value: InsuranceStatus; label: string }[] = [
   { value: "none", label: "No insurance / paying cash" },
@@ -102,7 +105,8 @@ export function CostCalculator() {
             <strong>Big savings alert:</strong> a compounded version of the same molecule can cost a fraction of
             this. Our top pick,{" "}
             <a
-              href="#"
+              href={EMBODY_URL}
+              target="_blank"
               className="inline-flex items-center gap-0.5 font-semibold text-primary underline"
               rel="sponsored nofollow noopener"
             >
@@ -119,7 +123,8 @@ export function CostCalculator() {
 
       <div className="mt-5 flex flex-wrap gap-3">
         <a
-          href="#"
+          href={EMBODY_URL}
+          target="_blank"
           rel="sponsored nofollow noopener"
           className="inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
         >
