@@ -86,7 +86,7 @@ export default async function MedComparisonPage({ params }: { params: Promise<{ 
       <header>
         <h1 className="font-serif text-4xl font-semibold leading-tight text-foreground">{c.title}</h1>
         <p className="mt-3 text-lg leading-relaxed text-muted">{c.intro}</p>
-        <p className="mt-3 text-xs text-muted">Last reviewed {CONTENT_REVIEWED} by the TopGLP1 Editorial Team</p>
+        <p className="mt-3 text-xs text-muted">Last reviewed {CONTENT_REVIEWED} by the Top GLP-1 Editorial Team</p>
       </header>
 
       <MedicalDisclaimer className="mt-6" />

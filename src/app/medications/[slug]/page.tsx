@@ -115,7 +115,7 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
           <strong className="text-foreground">{med.brandNames.join(", ")}</strong>
         </p>
         <p className="mt-4 text-lg leading-relaxed text-foreground">{med.oneLiner}</p>
-        <p className="mt-3 text-xs text-muted">Last reviewed {CONTENT_REVIEWED} by the TopGLP1 Editorial Team</p>
+        <p className="mt-3 text-xs text-muted">Last reviewed {CONTENT_REVIEWED} by the Top GLP-1 Editorial Team</p>
       </header>
 
       <MedicalDisclaimer className="mt-6" />

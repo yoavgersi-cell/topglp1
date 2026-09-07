@@ -8,15 +8,17 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const SITE = {
-  name: "TopGLP1",
+  name: "Top GLP-1",
+  // Alternate names so search engines associate the brand with the domain.
+  alternateNames: ["TopGLP1", "topglp1.io", "Top GLP1"],
   domain: "topglp1.io",
   url: "https://www.topglp1.io",
   // Short, spoken-brand tagline used in the header and OG.
   tagline: "The independent guide to GLP-1 medications",
   // One-sentence description used across metadata.
   description:
-    "TopGLP1 is an independent, science-first guide to GLP-1 medications — how semaglutide, tirzepatide and retatrutide work, dosing schedules, side effects, real-world results, cost, and how to get treatment safely.",
-  team: "TopGLP1 Editorial Team",
+    "Top GLP-1 is an independent, science-first guide to GLP-1 medications — how semaglutide, tirzepatide and retatrutide work, dosing schedules, side effects, real-world results, cost, and how to get treatment safely.",
+  team: "Top GLP-1 Editorial Team",
   // Contact / editorial identity used in schema and the footer.
   email: "editorial@topglp1.io",
   founded: "2026",

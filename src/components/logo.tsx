@@ -4,7 +4,7 @@ import Link from "next/link";
 // SVG so it's crisp at any size and needs no asset request.
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link href="/" className={`inline-flex items-center gap-2 ${className}`} aria-label="TopGLP1 home">
+    <Link href="/" className={`inline-flex items-center gap-2 ${className}`} aria-label="Top GLP-1 home">
       <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary text-white">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path
@@ -18,7 +18,7 @@ export function Logo({ className = "" }: { className?: string }) {
         </svg>
       </span>
       <span className="text-lg font-bold tracking-tight text-foreground">
-        Top<span className="text-primary">GLP1</span>
+        Top <span className="text-primary">GLP-1</span>
       </span>
     </Link>
   );

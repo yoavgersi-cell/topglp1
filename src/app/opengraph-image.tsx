@@ -36,7 +36,7 @@ export default function OpengraphImage() {
           >
             ⌁
           </div>
-          TopGLP1
+          Top GLP-1
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
           <div style={{ fontSize: 68, fontWeight: 700, lineHeight: 1.05, maxWidth: 900 }}>

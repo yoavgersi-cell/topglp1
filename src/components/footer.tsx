@@ -80,7 +80,7 @@ export function Footer() {
 
         <div className="mt-10 border-t border-border pt-6">
           <p className="text-xs leading-relaxed text-muted">
-            <strong className="text-foreground">Medical disclaimer:</strong> TopGLP1 provides
+            <strong className="text-foreground">Medical disclaimer:</strong> Top GLP-1 provides
             general educational information, not medical advice. GLP-1 medications are
             prescription drugs with real risks. Always consult a licensed healthcare
             provider before starting, stopping, or changing treatment. We may earn a

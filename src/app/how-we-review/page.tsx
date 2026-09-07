@@ -9,7 +9,7 @@ import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "How We Review & Rank GLP-1 Programs — Our Editorial Standards",
   description:
-    "How TopGLP1 sources medical facts, ranks GLP-1 providers, handles pricing, and makes money — and the things we refuse to do. Our full editorial standards.",
+    "How Top GLP-1 sources medical facts, ranks GLP-1 providers, handles pricing, and makes money — and the things we refuse to do. Our full editorial standards.",
   path: "/how-we-review",
 });
 

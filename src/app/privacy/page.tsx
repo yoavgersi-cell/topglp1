@@ -5,7 +5,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
-  description: "How TopGLP1 handles data, analytics, cookies and affiliate tracking.",
+  description: "How Top GLP-1 handles data, analytics, cookies and affiliate tracking.",
   path: "/privacy",
 });
 

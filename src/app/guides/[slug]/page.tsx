@@ -84,7 +84,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <h1 className="mt-2 font-serif text-4xl font-semibold leading-tight text-foreground">{guide.title}</h1>
         <p className="mt-3 text-lg leading-relaxed text-muted">{guide.description}</p>
         <p className="mt-3 text-xs text-muted">
-          {guide.readTime} · Last reviewed {CONTENT_REVIEWED} by the TopGLP1 Editorial Team
+          {guide.readTime} · Last reviewed {CONTENT_REVIEWED} by the Top GLP-1 Editorial Team
         </p>
       </header>
 

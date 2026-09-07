@@ -40,10 +40,11 @@ export function organizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE.name,
+    alternateName: SITE.alternateNames,
     url: SITE.url,
     description: SITE.description,
     email: SITE.email,
-    logo: `${SITE.url}/icon.svg`,
+    logo: `${SITE.url}/icon`,
     areaServed: { "@type": "Country", name: "United States" },
     knowsAbout: [
       "GLP-1 receptor agonists",
@@ -64,6 +65,7 @@ export function websiteSchema() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: SITE.name,
+    alternateName: SITE.alternateNames,
     url: SITE.url,
     description: SITE.description,
   };

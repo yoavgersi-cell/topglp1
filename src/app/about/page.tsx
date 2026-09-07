@@ -5,9 +5,9 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "About TopGLP1 — Our Editorial Approach",
+  title: "About Top GLP-1 — Our Editorial Approach",
   description:
-    "TopGLP1 is an independent, education-first resource on GLP-1 medications. Here's who we are, how we make money, and the standards behind our content.",
+    "Top GLP-1 is an independent, education-first resource on GLP-1 medications. Here's who we are, how we make money, and the standards behind our content.",
   path: "/about",
 });
 

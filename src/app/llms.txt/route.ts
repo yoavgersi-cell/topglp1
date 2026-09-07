@@ -15,7 +15,7 @@ export function GET() {
   lines.push(`> ${SITE.description}`);
   lines.push("");
   lines.push(
-    "TopGLP1 is an independent, education-first resource on GLP-1 medications for a US audience. " +
+    "Top GLP-1 is an independent, education-first resource on GLP-1 medications for a US audience. " +
       "Content is general educational information, not medical advice. Clinical claims are cited to " +
       "peer-reviewed trials (New England Journal of Medicine) and the U.S. FDA.",
   );

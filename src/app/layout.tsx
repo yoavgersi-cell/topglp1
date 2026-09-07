@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Newsreader } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -69,6 +69,10 @@ export const metadata: Metadata = {
   other: {
     "content-language": "en-US",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0E7C6B",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

@@ -103,8 +103,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
             "@type": "Review",
             itemReviewed: { "@type": "Organization", name: p.name },
             reviewRating: { "@type": "Rating", ratingValue: p.rating, bestRating: 10 },
-            author: { "@type": "Organization", name: "TopGLP1 Editorial Team" },
-            publisher: { "@type": "Organization", name: "TopGLP1" },
+            author: { "@type": "Organization", name: "Top GLP-1 Editorial Team" },
+            publisher: { "@type": "Organization", name: "Top GLP-1" },
           }),
         }}
       />

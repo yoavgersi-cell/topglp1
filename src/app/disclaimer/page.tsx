@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Medical Disclaimer & Affiliate Disclosure",
   description:
-    "TopGLP1 provides general educational information about GLP-1 medications, not medical advice. Read our full medical disclaimer and affiliate disclosure.",
+    "Top GLP-1 provides general educational information about GLP-1 medications, not medical advice. Read our full medical disclaimer and affiliate disclosure.",
   path: "/disclaimer",
 });
 

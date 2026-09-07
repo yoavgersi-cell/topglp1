@@ -41,8 +41,8 @@ export const STAT_GROUPS: StatGroup[] = [
     category: "What it costs",
     stats: [
       { value: "$1,000–$1,350", label: "Monthly cash list price of branded GLP-1 (Wegovy/Zepbound) without insurance", attribution: "Manufacturer list pricing, 2026" },
-      { value: "from $69/mo", label: "Cheapest verified compounded semaglutide (our top pick, Embody)", attribution: "TopGLP1 pricing research, 2026" },
-      { value: "$25–$100", label: "Typical monthly copay when a plan actually covers GLP-1", attribution: "TopGLP1 research of plan formularies, 2026" },
+      { value: "from $69/mo", label: "Cheapest verified compounded semaglutide (our top pick, Embody)", attribution: "Top GLP-1 pricing research, 2026" },
+      { value: "$25–$100", label: "Typical monthly copay when a plan actually covers GLP-1", attribution: "Top GLP-1 research of plan formularies, 2026" },
     ],
   },
   {
