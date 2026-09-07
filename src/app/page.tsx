@@ -330,6 +330,7 @@ export default function HomePage() {
               { href: "/guides/glp1-side-effects-and-how-to-manage-them", title: "GLP-1 safety & side effects", note: "FDA warnings and what to watch" },
               { href: "/tools", title: "Free tools", note: "Cost calculator, eligibility & safety check" },
               { href: "/reviews", title: "All GLP-1 provider reviews", note: "Independent, methodology-scored" },
+              { href: "/glp1-answers", title: "GLP-1 quick answers", note: "Direct, cited answers to the top questions" },
               { href: "/find-your-match", title: "Take the 2-minute match quiz", note: "Your best-fit program in 7 questions" },
             ].map((l) => (
               <Link key={l.href} href={l.href} className="group flex items-start justify-between gap-3 border-b border-border pb-4">
@@ -346,7 +347,12 @@ export default function HomePage() {
 
       {/* FAQ */}
       <section className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
-        <h2 className="font-serif text-3xl font-semibold text-foreground">Questions readers ask most</h2>
+        <div className="flex items-end justify-between gap-4">
+          <h2 className="font-serif text-3xl font-semibold text-foreground">Questions readers ask most</h2>
+          <Link href="/glp1-answers" className="hidden shrink-0 items-center gap-1 text-sm font-semibold text-primary sm:inline-flex">
+            All quick answers <ArrowRight size={15} />
+          </Link>
+        </div>
         <div className="mt-6">
           <Faq
             items={[

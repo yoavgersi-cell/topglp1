@@ -57,6 +57,10 @@ export function GET() {
   lines.push(`- Provider safety check: ${SITE.url}/tools/glp1-provider-safety-check`);
   lines.push("");
 
+  lines.push("## Quick answers (direct, cited)");
+  lines.push(`- GLP-1 quick answers hub: ${SITE.url}/glp1-answers`);
+  lines.push("");
+
   lines.push("## Coverage");
   lines.push(`- GLP-1 coverage by state (Medicaid): ${SITE.url}/glp1-by-state`);
   lines.push(`- Medicare GLP-1 coverage (Part D + Bridge): ${SITE.url}/glp1-medicare-coverage`);

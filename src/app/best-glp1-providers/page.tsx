@@ -5,8 +5,9 @@ import { CategoryPicks } from "@/components/category-picks";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialByline } from "@/components/editorial-byline";
 import { PROVIDERS } from "@/data/providers";
-import { SCORING_CRITERIA } from "@/data/rankings";
-import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
+import { rankedProviders, SCORING_CRITERIA } from "@/data/rankings";
+import { SITE } from "@/lib/site";
+import { pageMetadata, breadcrumbSchema, itemListSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Best GLP-1 Programs of 2026: 21 Telehealth Providers Ranked & Scored",
@@ -26,6 +27,21 @@ export default function BestProvidersPage() {
               { name: "Home", path: "/" },
               { name: "Best GLP-1 programs", path: "/best-glp1-providers" },
             ]),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            itemListSchema(
+              "Best online GLP-1 programs of 2026",
+              rankedProviders(PROVIDERS).map((p) => ({
+                name: p.name,
+                url: `${SITE.url}/reviews/${p.slug}`,
+                position: p.rank,
+              })),
+            ),
           ),
         }}
       />

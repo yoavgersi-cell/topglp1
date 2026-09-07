@@ -20,6 +20,7 @@ const COLUMNS = [
       { label: "How GLP-1 works", href: "/guides/how-glp1-medications-work" },
       { label: "Dosing schedules", href: "/guides/glp1-dosing-schedule-explained" },
       { label: "Side effects", href: "/guides/glp1-side-effects-and-how-to-manage-them" },
+      { label: "Quick answers", href: "/glp1-answers" },
       { label: "Cost & insurance", href: "/guides/glp1-cost-and-insurance" },
       { label: "GLP-1 by state", href: "/glp1-by-state" },
       { label: "Medicare coverage", href: "/glp1-medicare-coverage" },

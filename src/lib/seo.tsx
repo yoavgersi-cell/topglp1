@@ -43,7 +43,19 @@ export function organizationSchema() {
     url: SITE.url,
     description: SITE.description,
     email: SITE.email,
+    logo: `${SITE.url}/icon.svg`,
     areaServed: { "@type": "Country", name: "United States" },
+    knowsAbout: [
+      "GLP-1 receptor agonists",
+      "Semaglutide",
+      "Tirzepatide",
+      "Wegovy",
+      "Zepbound",
+      "Ozempic",
+      "Mounjaro",
+      "Compounded GLP-1",
+      "Telehealth weight loss",
+    ],
   };
 }
 
@@ -54,6 +66,26 @@ export function websiteSchema() {
     name: SITE.name,
     url: SITE.url,
     description: SITE.description,
+  };
+}
+
+// ItemList schema for a ranked list (e.g. best GLP-1 programs) — lets answer
+// engines lift the ranking with positions, names and URLs.
+export function itemListSchema(
+  name: string,
+  items: { name: string; url: string; position: number }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((it) => ({
+      "@type": "ListItem",
+      position: it.position,
+      name: it.name,
+      url: it.url,
+    })),
   };
 }
 

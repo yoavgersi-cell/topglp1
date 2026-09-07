@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/tools/am-i-eligible-for-glp1`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/glp1-provider-safety-check`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/find-your-match`, lastModified, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${base}/glp1-answers`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/glp1-by-state`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/glp1-medicare-coverage`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/how-we-review`, lastModified, changeFrequency: "monthly", priority: 0.5 },
