@@ -12,9 +12,9 @@
   --muted: #5B6B67;
   --border: #E6E3DB;
 
-  --primary: #0F8670;        /* fresh emerald-teal — brighter than the old deep teal, still AA (4.5:1) on white */
-  --primary-dark: #0B6353;   /* hover / green text on light tints */
-  --primary-light: #E8F6F1;  /* airier mint tint for section fills */
+  --primary: #14A88C;        /* fresh, light mint-teal — the visible brand green */
+  --primary-dark: #0C7A66;   /* readable deeper green for hovers and small text on white */
+  --primary-light: #E9F7F2;  /* airy mint tint for section fills */
   --accent: #C2410C;         /* deeper terracotta — legible as text (was #E4703A, failed contrast) */
   --accent-light: #FBEAE0;
 }
