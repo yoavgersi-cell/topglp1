@@ -10,7 +10,7 @@
 // and every page that relies on it links to the same authoritative URL.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export type SourceType = "Clinical trial" | "Regulatory" | "Peer-reviewed";
+export type SourceType = "Clinical trial" | "Regulatory" | "Peer-reviewed" | "Policy analysis";
 
 export interface Source {
   /** Full citation line. */
@@ -102,6 +102,34 @@ export const SOURCES: Record<string, Source> = {
     url: "https://www.fda.gov/drugs/drug-shortages",
     type: "Regulatory",
     note: "Official record of current drug shortage status.",
+  },
+  "kff-medicaid-glp1": {
+    citation: "KFF. Medicaid Coverage of and Spending on GLP-1s.",
+    publisher: "KFF (Kaiser Family Foundation)",
+    url: "https://www.kff.org/medicaid/medicaid-coverage-of-and-spending-on-glp-1s/",
+    type: "Policy analysis",
+    note: "Tracks which state Medicaid programs cover GLP-1s for obesity.",
+  },
+  "stateline-glp1-medicaid": {
+    citation: "Stateline. States retreat from covering drugs for weight loss (2025).",
+    publisher: "Stateline",
+    url: "https://stateline.org/2025/11/28/states-retreat-from-covering-drugs-for-weight-loss/",
+    type: "Policy analysis",
+    note: "Reporting on states adding and dropping Medicaid GLP-1 obesity coverage.",
+  },
+  "medicare-glp1-bridge": {
+    citation: "Medicare Rights Center. GLP-1 Weight-Loss Drug Demonstration Begins July 2026.",
+    publisher: "Medicare Rights Center",
+    url: "https://www.medicarerights.org/medicare-watch/2026/06/04/glp-1-weight-loss-drug-demonstration-begins-july-2026",
+    type: "Policy analysis",
+    note: "Details the Medicare GLP-1 Bridge demonstration ($50 copay, July 2026–Dec 2027).",
+  },
+  "kff-medicare-balance": {
+    citation: "KFF. What to Know About the BALANCE Model for GLP-1s in Medicare and Medicaid and the Medicare GLP-1 Bridge.",
+    publisher: "KFF (Kaiser Family Foundation)",
+    url: "https://www.kff.org/medicare/what-to-know-about-the-balance-model-for-glp-1s-in-medicare-and-medicaid/",
+    type: "Policy analysis",
+    note: "Explains the Medicare GLP-1 Bridge and the follow-on BALANCE Model.",
   },
 };
 

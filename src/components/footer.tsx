@@ -21,7 +21,8 @@ const COLUMNS = [
       { label: "Dosing schedules", href: "/guides/glp1-dosing-schedule-explained" },
       { label: "Side effects", href: "/guides/glp1-side-effects-and-how-to-manage-them" },
       { label: "Cost & insurance", href: "/guides/glp1-cost-and-insurance" },
-      { label: "All guides", href: "/guides" },
+      { label: "GLP-1 by state", href: "/glp1-by-state" },
+      { label: "Medicare coverage", href: "/glp1-medicare-coverage" },
     ],
   },
   {

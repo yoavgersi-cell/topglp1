@@ -4,6 +4,7 @@ import { GUIDES } from "@/data/guides";
 import { allBattleSlugs } from "@/data/battle-engine";
 import { PROVIDERS } from "@/data/providers";
 import { MED_COMPARISONS } from "@/data/med-comparisons";
+import { STATES } from "@/data/states";
 import { SITE } from "@/lib/site";
 import { CONTENT_REVIEWED } from "@/lib/site";
 
@@ -28,6 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/tools/am-i-eligible-for-glp1`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/tools/glp1-provider-safety-check`, lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/find-your-match`, lastModified, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${base}/glp1-by-state`, lastModified, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${base}/glp1-medicare-coverage`, lastModified, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/how-we-review`, lastModified, changeFrequency: "monthly", priority: 0.5 },
     { url: `${base}/about`, lastModified, changeFrequency: "monthly", priority: 0.4 },
     { url: `${base}/disclaimer`, lastModified, changeFrequency: "monthly", priority: 0.3 },
@@ -69,6 +72,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
+  const statePages: MetadataRoute.Sitemap = STATES.map((s) => ({
+    url: `${base}/glp1-by-state/${s.slug}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.6,
+  }));
+
   return [
     ...staticPages,
     ...medPages,
@@ -76,5 +86,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...battlePages,
     ...reviewPages,
     ...medComparePages,
+    ...statePages,
   ];
 }

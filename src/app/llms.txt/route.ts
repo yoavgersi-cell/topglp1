@@ -57,7 +57,13 @@ export function GET() {
   lines.push(`- Provider safety check: ${SITE.url}/tools/glp1-provider-safety-check`);
   lines.push("");
 
+  lines.push("## Coverage");
+  lines.push(`- GLP-1 coverage by state (Medicaid): ${SITE.url}/glp1-by-state`);
+  lines.push(`- Medicare GLP-1 coverage (Part D + Bridge): ${SITE.url}/glp1-medicare-coverage`);
+  lines.push("");
+
   lines.push("## Key pages");
+  lines.push(`- GLP-1 match quiz: ${SITE.url}/find-your-match`);
   lines.push(`- Best GLP-1 programs: ${SITE.url}/best-glp1-providers`);
   lines.push(`- Cheapest GLP-1 options: ${SITE.url}/cheapest-glp1`);
   lines.push(`- Semaglutide online: ${SITE.url}/semaglutide-online`);

@@ -325,6 +325,8 @@ export default function HomePage() {
               { href: "/tirzepatide-online", title: "Tirzepatide online, compared", note: "The stronger molecule, from $119/mo" },
               { href: "/compare", title: "Compare any two programs", note: "Side-by-side on price, meds & credentials" },
               { href: "/vs", title: "Which drug is right for you?", note: "Ozempic vs Wegovy, and more" },
+              { href: "/glp1-by-state", title: "GLP-1 coverage by your state", note: "Medicaid status for all 50 states" },
+              { href: "/glp1-medicare-coverage", title: "Medicare GLP-1 coverage", note: "Part D, the $50 Bridge program & more" },
               { href: "/guides/glp1-side-effects-and-how-to-manage-them", title: "GLP-1 safety & side effects", note: "FDA warnings and what to watch" },
               { href: "/tools", title: "Free tools", note: "Cost calculator, eligibility & safety check" },
               { href: "/reviews", title: "All GLP-1 provider reviews", note: "Independent, methodology-scored" },
