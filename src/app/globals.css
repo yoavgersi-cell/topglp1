@@ -12,10 +12,10 @@
   --muted: #5B6B67;
   --border: #E6E3DB;
 
-  --primary: #0E7C6B;        /* deep teal */
-  --primary-dark: #0A5C50;
-  --primary-light: #E6F4F1;
-  --accent: #E4703A;         /* warm terracotta accent */
+  --primary: #0F8670;        /* fresh emerald-teal — brighter than the old deep teal, still AA (4.5:1) on white */
+  --primary-dark: #0B6353;   /* hover / green text on light tints */
+  --primary-light: #E8F6F1;  /* airier mint tint for section fills */
+  --accent: #C2410C;         /* deeper terracotta — legible as text (was #E4703A, failed contrast) */
   --accent-light: #FBEAE0;
 }
 
