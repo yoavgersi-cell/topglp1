@@ -73,12 +73,13 @@ const SPEC_ROWS: { label: string; get: (p: Provider) => string }[] = [
 ];
 
 function ProviderHead({ provider }: { provider: Provider }) {
+  // The logo is a wordmark, so it already reads as the brand name — no separate
+  // text label underneath (that duplicated the name).
   return (
-    <div className="flex flex-col items-center gap-2 text-center">
-      <div className="relative h-9 w-24">
-        <Image src={provider.logo} alt={`${provider.name} logo`} fill className="object-contain" sizes="96px" />
+    <div className="flex justify-center">
+      <div className="relative h-10 w-28">
+        <Image src={provider.logo} alt={provider.name} fill className="object-contain" sizes="112px" />
       </div>
-      <span className="text-sm font-bold text-foreground">{provider.name}</span>
     </div>
   );
 }
