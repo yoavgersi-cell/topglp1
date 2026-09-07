@@ -57,8 +57,10 @@ export function GET() {
   lines.push(`- Provider safety check: ${SITE.url}/tools/glp1-provider-safety-check`);
   lines.push("");
 
-  lines.push("## Quick answers (direct, cited)");
+  lines.push("## Quick answers, stats & definitions (direct, cited)");
   lines.push(`- GLP-1 quick answers hub: ${SITE.url}/glp1-answers`);
+  lines.push(`- GLP-1 statistics & facts (cited to NEJM/FDA/CDC/KFF): ${SITE.url}/glp1-statistics`);
+  lines.push(`- GLP-1 glossary (defined terms): ${SITE.url}/glp1-glossary`);
   lines.push("");
 
   lines.push("## Coverage");

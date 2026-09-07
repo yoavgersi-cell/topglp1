@@ -124,6 +124,13 @@ export const SOURCES: Record<string, Source> = {
     type: "Policy analysis",
     note: "Details the Medicare GLP-1 Bridge demonstration ($50 copay, July 2026–Dec 2027).",
   },
+  "cdc-obesity": {
+    citation: "Centers for Disease Control and Prevention. Adult Obesity Facts.",
+    publisher: "U.S. Centers for Disease Control and Prevention",
+    url: "https://www.cdc.gov/obesity/php/data-research/adult-obesity-facts.html",
+    type: "Regulatory",
+    note: "US adult obesity prevalence data (roughly 40% of adults).",
+  },
   "kff-medicare-balance": {
     citation: "KFF. What to Know About the BALANCE Model for GLP-1s in Medicare and Medicaid and the Medicare GLP-1 Bridge.",
     publisher: "KFF (Kaiser Family Foundation)",
