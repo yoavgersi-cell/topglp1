@@ -48,7 +48,9 @@ export function pageMetadata({
       title,
       description,
       url,
-      siteName: SITE.name,
+      // UK pages must not carry the "Top GLP-1" brand ("GLP-1" is a restricted
+      // term in UK ads) — use a neutral site name there.
+      siteName: locale === "en_GB" ? "Top" : SITE.name,
       type: "article",
       locale: locale ?? SITE.locale,
     },

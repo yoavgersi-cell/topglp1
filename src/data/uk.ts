@@ -1,16 +1,16 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// UK GLP-1 data.
+// UK weight-loss providers — COMPLIANCE-FIRST.
 //
-// The UK market is a different product from the US one: there is NO legal
-// compounded-GLP-1 market here (the MHRA actively enforces against it) — access
-// is brand-only (Mounjaro, Wegovy) via prescription, on the NHS (heavily
-// restricted) or privately. Everything below is authored for a UK audience and
-// priced in GBP.
+// UK law (Human Medicines Regulations 2012) and the CAP Code (rule 12.12) ban
+// advertising prescription-only medicines to the public. The MHRA/ASA/GPhC
+// treat medicine NAMES, the term "GLP-1", "weight-loss injection/pen/jab",
+// medicine prices and pen imagery as prohibited references.
 //
-// Pricing is provider-reported and changes often (there have been list-price
-// changes in 2025–26). We show ranges and say "verify current price" rather than
-// inventing a precise figure. Third-party ratings (Trustpilot) are added only
-// from a cited, dated source — never invented.
+// So this data is deliberately PROVIDER-LED and medicine-free: we promote a
+// regulated weight-loss SERVICE (which is allowed), never a medicine. No drug
+// names, no drug prices, no "GLP-1". Trustpilot ratings describe the PROVIDER,
+// which is fine. Anything commercial here should still be checked via the ASA's
+// free CAP Copy Advice service before scaling.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export interface UkProvider {
@@ -22,30 +22,26 @@ export interface UkProvider {
   ctaText: string;
   /** True for our lead UK pick. */
   champion?: boolean;
+  /** Provider-level positioning — no medicine references. */
   tagline: string;
   /** Regulatory credentials — the UK trust signal that matters most. */
   regulated: string;
-  /** Medications offered. */
-  meds: string[];
-  /** Provider-reported monthly price ranges (GBP). */
-  price: { mounjaro?: string; wegovy?: string; wegovyPill?: string };
+  /** How the service works, in medicine-free terms. */
+  howItWorks: string[];
   minBmi: string;
   delivery: string;
-  included: string[];
   standout: string;
-  watchOut: string;
   pros: string[];
   cons: string[];
-  /**
-   * Verified third-party reviews (Trustpilot). Added only once confirmed from a
-   * dated source — left undefined until then so nothing is invented.
-   */
+  /** Provider Trustpilot rating (about the service — allowed). Verified only. */
   trustpilot?: {
     score: string;
     scoreValue: number;
     scoreMax: number;
     count: number;
     asOf: string;
+    /** Service-focused quotes only — never medicine references. */
+    quotes?: { name: string; stars: number; label: "Invited" | "Verified" | "Unprompted"; date: string; text: string }[];
   };
 }
 
@@ -55,33 +51,65 @@ export const UK_PROVIDERS: UkProvider[] = [
     name: "MedExpress",
     slug: "medexpress",
     url: "#",
-    ctaText: "Check eligibility",
+    ctaText: "Check your eligibility",
     champion: true,
-    tagline: "GPhC-registered UK online pharmacy with fast, often next-day delivery",
+    tagline: "A GPhC-registered UK online pharmacy and medical weight-loss service",
     regulated: "GPhC-registered online pharmacy (UK), CQC-regulated",
-    meds: ["Mounjaro (tirzepatide)", "Wegovy injection (semaglutide)", "Wegovy pill (oral semaglutide)", "Orlos (orlistat)"],
-    price: {
-      mounjaro: "from ~£179.99/mo (varies by dose, up to ~£309.99)",
-      wegovy: "from ~£99.99/mo (varies by dose, up to ~£279.99)",
-      wegovyPill: "oral semaglutide available — price varies by dose",
-    },
-    minBmi: "Assessed from BMI 25 (with risk factors) — clinician decides",
-    delivery: "Home delivery, frequently next-day",
-    included: ["Online clinician assessment", "Medication", "Home delivery"],
-    standout: "A properly regulated UK pharmacy (GPhC + CQC) offering the full brand range with quick delivery",
-    watchOut: "Prices are list-price and change; cheaper headline doses may not include everything — compare the checkout total",
+    howItWorks: [
+      "Complete a short online health assessment",
+      "A prescriber reviews whether treatment is suitable for you",
+      "If approved, your order is dispatched discreetly to your door",
+    ],
+    minBmi: "You may be suitable from a BMI of 25 — a clinician decides",
+    delivery: "Home delivery, frequently next-day, no subscription required",
+    standout: "A properly regulated UK pharmacy (GPhC + CQC) with a strong service record and fast delivery",
     pros: [
       "GPhC-registered and CQC-regulated — verifiable UK credentials",
-      "Full brand range: Mounjaro, Wegovy injection and the Wegovy pill",
-      "Fast, frequently next-day delivery",
       "Clinician assessment on every order",
+      "Fast, frequently next-day delivery",
+      "Long-established, with tens of thousands of service reviews",
     ],
     cons: [
-      "Brand-name only (as with all legal UK options) — no cheap compounded route",
-      "List prices change with manufacturer pricing; confirm today's cost at checkout",
-      "Cash-pay private service — not an NHS route",
+      "A private, cash-pay service — not an NHS route",
+      "Suitability is decided by a clinician; not everyone will be approved",
     ],
-    // trustpilot: added once verified from the live Trustpilot profile (~4.3/5).
+    trustpilot: {
+      score: "4.3 / 5",
+      scoreValue: 4.3,
+      scoreMax: 5,
+      count: 54868,
+      asOf: "September 8, 2026",
+      quotes: [
+        {
+          name: "rene tranter",
+          stars: 5,
+          label: "Unprompted",
+          date: "September 3, 2026",
+          text: "Straightforward process. Covered relevant details before approving the order. Delivery was within 24 hours by first-class mail.",
+        },
+        {
+          name: "JJ",
+          stars: 5,
+          label: "Invited",
+          date: "July 29, 2026",
+          text: "Always an excellent service. Great ordering process and speedy delivery service.",
+        },
+        {
+          name: "Kerry",
+          stars: 5,
+          label: "Invited",
+          date: "October 1, 2025",
+          text: "Easy to complete the questions and answers — informative website that answered all my questions.",
+        },
+        {
+          name: "Sarah",
+          stars: 5,
+          label: "Invited",
+          date: "December 18, 2025",
+          text: "Quick delivery, helpful agents to answer any questions.",
+        },
+      ],
+    },
   },
 ];
 

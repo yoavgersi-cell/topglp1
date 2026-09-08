@@ -1,6 +1,51 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Logo } from "./logo";
 import { SITE } from "@/lib/site";
+
+// UK-safe footer: no medicine names, no "GLP-1", medicine-free disclaimer.
+const UK_LINKS = [
+  { label: "UK guide", href: "/uk" },
+  { label: "NHS eligibility", href: "/uk/nhs-weight-loss-treatment" },
+  { label: "Getting treatment safely", href: "/uk/buying-weight-loss-treatment-safely" },
+  { label: "Disclaimer", href: "/disclaimer" },
+  { label: "Privacy", href: "/privacy" },
+];
+
+function UkFooter() {
+  return (
+    <footer className="mt-20 border-t border-border bg-surface">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <Logo variant="uk" href="/uk" />
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
+          Independent, education-first information on weight-loss treatment in the UK — how the
+          NHS and regulated private services work, and how to access care safely.
+        </p>
+        <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+          {UK_LINKS.map((l) => (
+            <li key={l.href}>
+              <Link href={l.href} className="text-sm text-muted transition-colors hover:text-primary">
+                {l.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-8 border-t border-border pt-6">
+          <p className="text-xs leading-relaxed text-muted">
+            <strong className="text-foreground">Medical disclaimer:</strong> this site provides general
+            educational information, not medical advice. Weight-loss treatment in the UK is prescription-only
+            and carries real risks — always consult a registered clinician, and only use a GPhC-registered
+            pharmacy. We may earn a commission when you use a provider through links on this site, which never
+            affects our editorial assessments.
+          </p>
+          <p className="mt-4 text-xs text-muted">© {new Date().getFullYear()} Top · United Kingdom</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
 
 const COLUMNS = [
   {
@@ -51,6 +96,8 @@ const COLUMNS = [
 ];
 
 export function Footer() {
+  const pathname = usePathname() || "/";
+  if (pathname === "/uk" || pathname.startsWith("/uk/")) return <UkFooter />;
   return (
     <footer className="mt-20 border-t border-border bg-surface">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">

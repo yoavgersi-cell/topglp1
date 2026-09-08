@@ -168,6 +168,13 @@ export const SOURCES: Record<string, Source> = {
     type: "Regulatory",
     note: "Enforcement against unlicensed/compounded weight-loss medicines in the UK.",
   },
+  "nhs-obesity": {
+    citation: "NHS. Obesity — overview and treatment.",
+    publisher: "NHS",
+    url: "https://www.nhs.uk/conditions/obesity/",
+    type: "Regulatory",
+    note: "NHS guidance on obesity and weight-management options, including specialist services.",
+  },
   "which-glp1-uk-costs": {
     citation: "Which?. Weight-loss injections: Wegovy vs Mounjaro, private costs and NHS options explained.",
     publisher: "Which?",
