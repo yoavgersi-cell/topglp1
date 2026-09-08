@@ -106,8 +106,8 @@ export interface ExternalReviews {
   quotes?: {
     name: string;
     stars: number;
-    /** "Invited" (solicited) or "Verified" — shown exactly as the source labels it. */
-    label: "Invited" | "Verified";
+    /** Shown exactly as the source labels it — solicited vs organic. */
+    label: "Invited" | "Verified" | "Unprompted";
     date: string;
     text: string;
   }[];
@@ -368,6 +368,91 @@ export const PROVIDERS: Provider[] = [
       consult: "Clinician-reviewed treatment plan",
       standout: "Established platform for FDA-approved branded GLP-1 with insurance help",
       watchOut: "Can be expensive without insurance coverage",
+    },
+    editorial: {
+      seoTitle: "Ro Reviews 2026: GLP-1 Cost, Zepbound & Wegovy Access, Is It Worth It?",
+      seoDescription:
+        "An independent Ro review: real Trustpilot rating (4.0/5 across 6,343 organic reviews), how its GLP-1 membership and branded Zepbound/Wegovy access work, insurance, and honest pros and cons.",
+      intro:
+        "Ro is an established telehealth platform that connects you with licensed clinicians for GLP-1 care and access to FDA-approved branded medications — Wegovy, Ozempic, Zepbound and Mounjaro — with help navigating insurance. You pay a membership for the clinical care, plus the medication itself (cost depends on your insurance). On Trustpilot it holds a 4.0 out of 5 across 6,343 reviews, most of them “unprompted” — organic feedback Ro didn't solicit. Here's how it works, who it fits, and where it falls short.",
+      isItLegit:
+        "Ro is one of the largest and longest-running US telehealth companies (its Trustpilot profile dates to 2021), working with US-licensed clinicians and dispensing FDA-approved branded GLP-1 through licensed pharmacies. Unlike compounded-only services, the medication is the brand-name, FDA-approved product. It is a well-established, legitimate operation — the usual caveat applies: a clinician should review your history, and GLP-1 medications carry real side effects.",
+      isItWorth:
+        "Ro is worth it if you specifically want brand-name Wegovy or Zepbound, or want to run treatment through insurance — its clinician review, insurance navigation and prior-auth help are genuine strengths, and reviewers praise its communication and speed. The catch is cost and transparency: you pay a membership on top of the medication (one reviewer wished Ro made clearer that the membership buys doctor access, not the drug), and without solid insurance, brand-name GLP-1 can be very expensive. If your priority is the lowest predictable price, our top pick Embody's flat $69–$119/month compounded pricing is far cheaper — the trade-off is compounded vs. brand-name.",
+      semaglutideNote:
+        "Ro provides brand-name semaglutide — Wegovy for weight management (Ozempic is the type-2-diabetes brand). Price depends on your insurance and current promotions rather than a flat cash rate.",
+      tirzepatideNote:
+        "Ro provides brand-name tirzepatide — Zepbound for weight management and Mounjaro for diabetes. As the dual GLP-1/GIP agonist, tirzepatide has driven the largest average weight loss in trials; through Ro it is the FDA-approved branded product, priced per your insurance.",
+      bestFor: [
+        "People who specifically want brand-name Wegovy, Zepbound, Ozempic or Mounjaro",
+        "Anyone with GLP-1 insurance coverage who wants help using it",
+        "Those who value a large, established platform with clinician review and prior-auth support",
+      ],
+      notFor: [
+        "Anyone whose top priority is the lowest cash price — compounded is far cheaper",
+        "People paying fully out of pocket without insurance coverage",
+        "Anyone who wants one flat, published monthly price with no membership layer",
+      ],
+      bottomLine:
+        "Ro is a strong, credible choice for brand-name GLP-1 with insurance help, and its 4.0/5 Trustpilot — built mostly on organic, unprompted reviews — is a genuinely good signal for communication and speed. It ranks behind our top pick on cost and transparency: you're paying a membership plus brand-name medication, which without good insurance runs well above Embody's flat $69–$119/month compounded pricing. Want branded and insured? Ro fits. Want the lowest predictable price? Embody wins.",
+    },
+    externalReviews: {
+      source: "Trustpilot",
+      score: "4.0 / 5",
+      scoreValue: 4.0,
+      scoreMax: 5,
+      count: 6343,
+      asOf: "September 7, 2026",
+      summary:
+        "Ro holds a 4.0 out of 5 on Trustpilot across 6,343 reviews, and — unlike an invite-driven profile — the recent reviews are largely “unprompted,” organic feedback Ro didn't solicit (the profile does carry a paid Trustpilot subscription). Reviewers repeatedly praise fast, easy sign-up and approval, strong provider communication, and quick delivery — several mention medication arriving in about three days. The honest criticisms are about money and billing: more than one reviewer notes the membership is monthly and doesn't include the medication (so it's costly out of pocket without insurance), and one described being accidentally charged twice. Even the cost-conscious reviews tend to end on “worth it if it works.”",
+      positives: [
+        "Fast, easy sign-up and approval — reviewers cite a “valuable questionnaire” and quick provider contact",
+        "Strong, responsive communication; several say the process made them feel safe going online",
+        "Fast delivery — multiple reviewers report medication arriving in about three days",
+        "Upfront information on pricing, use and side effects; recent reviews are mostly “unprompted” (organic)",
+      ],
+      negatives: [
+        "Cost: reviewers note the monthly membership doesn't include the medication, so it's expensive out of pocket without insurance",
+        "One reviewer reported being charged twice — a duplicate charge their bank declined",
+        "The profile carries a paid Trustpilot subscription, though the recent reviews read as organic",
+      ],
+      quotes: [
+        {
+          name: "Linda Hernandez",
+          stars: 5,
+          label: "Unprompted",
+          date: "September 4, 2026",
+          text: "Communication is excellent — they're quick to respond, with a thorough review of my medical history. I think the price of the subscription is a little high considering it's monthly and doesn't include the medication. No insurance, so it's all out of pocket. It will be worth it if it works.",
+        },
+        {
+          name: "Lena",
+          stars: 5,
+          label: "Unprompted",
+          date: "September 4, 2026",
+          text: "From request to delivery of the medication was only 3 days, which is amazing! Also, the cost was not prohibitive for my budget.",
+        },
+        {
+          name: "Pam Spohr",
+          stars: 4,
+          label: "Unprompted",
+          date: "September 4, 2026",
+          text: "Somehow I must have done something wrong. I got two doctors and got charged twice — glad my bank declined the second charge.",
+        },
+        {
+          name: "Samantha Wilson",
+          stars: 5,
+          label: "Unprompted",
+          date: "August 27, 2026",
+          text: "I like how easy it is to get in touch with a provider. I think it could be more transparent that the subscription is just access to the doctors, not for any medication.",
+        },
+        {
+          name: "Michael",
+          stars: 5,
+          label: "Unprompted",
+          date: "September 7, 2026",
+          text: "Easy process. Answer a few questions and your provider will contact you. In a few minutes you can find out if you're approved and what program is right for you.",
+        },
+      ],
     },
   },
   {
