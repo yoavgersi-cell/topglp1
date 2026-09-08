@@ -50,6 +50,65 @@ export interface ProviderSpecs {
   watchOut: string;
 }
 
+/**
+ * Long-form, hand-authored editorial for a provider's review page. Optional —
+ * only providers we've written a full review for carry it; others fall back to
+ * the structured template. Written to answer the questions people actually
+ * search ("is it legit", "is it worth it", tirzepatide/semaglutide specifics).
+ */
+export interface ProviderEditorial {
+  /** Overrides the review page <title>. Target the real search queries. */
+  seoTitle?: string;
+  /** Overrides the meta description. */
+  seoDescription?: string;
+  /** Answer-first summary — the first thing a reader (and an AI engine) sees. */
+  intro: string;
+  /** Direct answer to "is {provider} legit / safe?". */
+  isItLegit: string;
+  /** Direct answer to "is {provider} worth it?". */
+  isItWorth: string;
+  /** Deep note on the semaglutide offering, if any. */
+  semaglutideNote?: string;
+  /** Deep note on the tirzepatide offering, if any. */
+  tirzepatideNote?: string;
+  /** Who this provider genuinely fits. */
+  bestFor: string[];
+  /** Who should look elsewhere — the honesty that earns trust. */
+  notFor: string[];
+  /** One-paragraph bottom line. */
+  bottomLine: string;
+}
+
+/**
+ * Third-party review data (e.g. Trustpilot). NEVER invented — every field must
+ * come from the cited source and be dated. Rendered only when present, always
+ * with a link back to the source so readers can verify.
+ */
+export interface ExternalReviews {
+  source: string;
+  /** Public URL of the source listing, for verification. */
+  url: string;
+  /** Score exactly as the source states it, e.g. "4.6 / 5". */
+  score: string;
+  /** Review count from the source. */
+  count: number;
+  /** Date we last checked the source. */
+  asOf: string;
+  /** Honest synthesis of recurring themes — our words, from real reviews. */
+  summary?: string;
+  positives?: string[];
+  negatives?: string[];
+  /** Representative verbatim quotes from the source, attributed as shown there. */
+  quotes?: {
+    name: string;
+    stars: number;
+    /** "Invited" (solicited) or "Verified" — shown exactly as the source labels it. */
+    label: "Invited" | "Verified";
+    date: string;
+    text: string;
+  }[];
+}
+
 export interface Provider {
   id: string;
   name: string;
@@ -57,6 +116,7 @@ export interface Provider {
   rank: number;
   tagline: string;
   logo: string;
+  /** Top GLP-1 editorial score (our methodology, /10) — not a customer rating. */
   rating: number;
   ratingLabel: string;
   reviewCount: number;
@@ -67,6 +127,10 @@ export interface Provider {
   affiliateUrl: string;
   ctaText: string;
   specs: ProviderSpecs;
+  /** Full hand-written review, when we've authored one. */
+  editorial?: ProviderEditorial;
+  /** Verified third-party reviews (Trustpilot etc.), when we have real data. */
+  externalReviews?: ExternalReviews;
 }
 
 export const PROVIDERS: Provider[] = [
@@ -166,6 +230,89 @@ export const PROVIDERS: Provider[] = [
       consult: "Online visit with licensed doctors",
       standout: "Flat, transparent pricing with LegitScript-certified 503A pharmacies",
       watchOut: "Compounded only — no brand-name option",
+    },
+    editorial: {
+      seoTitle: "Embody Reviews 2026: Tirzepatide & Semaglutide Cost, Is It Legit?",
+      seoDescription:
+        "An independent Embody review: real Trustpilot rating (3.7/5 across 7,250 reviews), tirzepatide ($119/mo) and semaglutide ($69/mo) pricing, pharmacy credentials, and honest pros and cons.",
+      intro:
+        "Embody is a cash-pay telehealth service that prescribes compounded GLP-1 medication — semaglutide at a flat $69/month and tirzepatide at $119/month — with free 1–2 day shipping and no insurance required. It's our top pick for value and pricing transparency among the GLP-1 programs we track. On Trustpilot it holds a mixed 3.7 out of 5 across 7,250 reviews. Below is who it fits, who it doesn't, and what to check before signing up.",
+      isItLegit:
+        "Embody works with US-licensed doctors and LegitScript-certified 503A compounding pharmacies, and it states those credentials openly — both good signs. The caveat is inherent to the model, not to Embody specifically: compounded semaglutide and tirzepatide are not FDA-approved finished drugs, and the rules around compounding GLP-1s have tightened since the FDA declared the semaglutide and tirzepatide shortages resolved in 2025. Compounding remains legal in defined circumstances, but it is a different product from branded Wegovy or Zepbound, and a licensed clinician should review your history before prescribing.",
+      isItWorth:
+        "If your priority is the lowest predictable cash price for a GLP-1 and you're comfortable with compounded medication, Embody is hard to beat: $69/month semaglutide and $119/month tirzepatide are flat, with no intro-rate-then-hike and no insurance runaround. It is not the right pick if you specifically want brand-name Wegovy or Zepbound, plan to bill insurance, or want in-person care — for those, a branded telehealth service such as Ro fits better.",
+      semaglutideNote:
+        "Compounded semaglutide is $69/month flat — among the lowest published prices we track. Semaglutide is the same active molecule found in Ozempic and Wegovy; a compounded version is prepared by a pharmacy rather than the brand manufacturer.",
+      tirzepatideNote:
+        "Compounded tirzepatide is $119/month flat. Tirzepatide is a dual GLP-1/GIP agonist (the molecule in Mounjaro and Zepbound), and in the SURMOUNT/SURPASS trial program it produced greater average weight loss than semaglutide — so the extra $50/month buys the stronger dual-agonist. It is still compounded, with the same caveats noted above.",
+      bestFor: [
+        "People who want the lowest flat cash price for compounded semaglutide or tirzepatide",
+        "Anyone without GLP-1 insurance coverage who is paying out of pocket regardless",
+        "Those who value transparent, published pricing over insurance navigation",
+      ],
+      notFor: [
+        "Anyone who specifically wants brand-name Wegovy, Zepbound, Ozempic or Mounjaro",
+        "People who want to run treatment through insurance",
+        "Anyone not comfortable with compounded (non-FDA-approved) medication",
+      ],
+      bottomLine:
+        "Embody is our #1 GLP-1 pick on the fundamentals we can verify: the lowest flat cash pricing we track, both semaglutide and tirzepatide, fast free shipping, and openly stated pharmacy credentials. Its Trustpilot score is a mixed 3.7/5 — mostly invited reviews praising responsive clinicians, alongside a real minority of unhappy customers — so go in clear-eyed: it's the best-value compounded option we've found, not a flawless one.",
+    },
+    externalReviews: {
+      source: "Trustpilot",
+      url: "https://www.trustpilot.com/search?query=embody",
+      score: "3.7 / 5",
+      count: 7250,
+      asOf: "September 7, 2026",
+      summary:
+        "Embody holds a 3.7 out of 5 on Trustpilot across 7,250 reviews — a genuinely mixed “Average” score. Most reviews are 5-star, and most are “invited” (Embody solicits them and runs a paid Trustpilot subscription on a claimed profile), so weigh the sample accordingly. The recurring praise is consistent: friendly, knowledgeable clinicians who answer questions, an easy online ordering process, and pricing people describe as affordable and stable. One honest wrinkle shows up repeatedly — the scheduled video visit sometimes fails to connect, though reviewers say a provider phoned them shortly after. A visible minority still leave 1-star reviews.",
+      positives: [
+        "Clinicians repeatedly described as friendly, patient and knowledgeable — reviewers say they answered every question",
+        "Online ordering and consultation described as easy, comfortable and hassle-free",
+        "Pricing praised as affordable and stable (“prices that don't change”), with free delivery",
+      ],
+      negatives: [
+        "A recurring glitch: the scheduled video visit sometimes doesn't connect — reviewers report a provider phoning them instead",
+        "3.7/5 overall is “Average,” and the distribution shows a real share of 1-star reviews",
+        "Most reviews are “invited” and the profile carries a paid Trustpilot subscription — the sample skews toward solicited feedback",
+      ],
+      quotes: [
+        {
+          name: "Thom K.",
+          stars: 5,
+          label: "Verified",
+          date: "July 3, 2026",
+          text: "The ordering experience was excellent, all information was given and everything done online. It was a very comfortable process.",
+        },
+        {
+          name: "Ann Kirch",
+          stars: 5,
+          label: "Invited",
+          date: "September 5, 2026",
+          text: "I had issues with my video connecting, so my provider took it upon herself to phone call me — it went perfect. So much faith in Embody, with the affordable prices that don't change.",
+        },
+        {
+          name: "Teresa Brown",
+          stars: 5,
+          label: "Invited",
+          date: "September 7, 2026",
+          text: "No hassles. Free delivery. Explained everything.",
+        },
+        {
+          name: "Taylor Smith",
+          stars: 5,
+          label: "Invited",
+          date: "September 7, 2026",
+          text: "Nobody showed up for the video visit, but got a phone call shortly after.",
+        },
+        {
+          name: "Dawn White",
+          stars: 5,
+          label: "Invited",
+          date: "September 7, 2026",
+          text: "He was friendly, concerned about my feelings and answered all my questions.",
+        },
+      ],
     },
   },
   {

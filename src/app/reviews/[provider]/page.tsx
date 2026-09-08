@@ -11,6 +11,10 @@ import {
   Trophy,
   ShieldCheck,
   DollarSign,
+  HelpCircle,
+  Pill,
+  Quote,
+  Users,
 } from "lucide-react";
 import { PROVIDERS, getProvider, type Provider } from "@/data/providers";
 import { battlesForProvider } from "@/data/battle-engine";
@@ -59,8 +63,12 @@ export async function generateMetadata({
   const p = getProvider(provider);
   if (!p) return {};
   return pageMetadata({
-    title: `${p.name} Review 2026: Pricing, Medications & Is It Worth It?`,
-    description: `Our independent ${p.name} review — GLP-1 pricing (${p.specs.startingPrice}), medications offered, pharmacy credentials, pros and cons, and who it's best for.`,
+    title:
+      p.editorial?.seoTitle ??
+      `${p.name} Review 2026: Pricing, Medications & Is It Worth It?`,
+    description:
+      p.editorial?.seoDescription ??
+      `Our independent ${p.name} review — GLP-1 pricing (${p.specs.startingPrice}), medications offered, pharmacy credentials, pros and cons, and who it's best for.`,
     path: `/reviews/${p.slug}`,
   });
 }
@@ -141,17 +149,29 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
           </div>
         </div>
         <h1 className="mt-4 font-serif text-4xl font-semibold leading-tight text-foreground">{p.name} review</h1>
-        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
-          <span className="inline-flex items-center gap-1 text-lg font-bold text-primary">
-            <Star size={18} className="fill-primary text-primary" /> {p.rating.toFixed(1)}
-            <span className="text-sm font-normal text-muted">/ 10 · {p.ratingLabel}</span>
+        <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-light px-3 py-1 text-sm font-bold text-primary">
+            <Star size={15} className="fill-primary text-primary" /> {p.rating.toFixed(1)}/10
+            <span className="font-normal text-muted">Top GLP-1 score</span>
           </span>
-          <span className="text-sm text-muted">{p.reviewCount.toLocaleString()} reviews</span>
+          {p.externalReviews && (
+            <a
+              href={p.externalReviews.url}
+              target="_blank"
+              rel="nofollow noopener"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-sm font-semibold text-foreground hover:border-primary"
+            >
+              <Star size={14} className="fill-accent text-accent" /> {p.externalReviews.score}
+              <span className="font-normal text-muted">
+                {p.externalReviews.source} · {p.externalReviews.count.toLocaleString()} reviews
+              </span>
+            </a>
+          )}
         </div>
         <p className="mt-4 text-lg leading-relaxed text-foreground">
-          {p.glp1Focus} {p.specs.standout}.
+          {p.editorial?.intro ?? `${p.glp1Focus} ${p.specs.standout}.`}
         </p>
-        <p className="mt-2 text-xs text-muted">Last reviewed {CONTENT_REVIEWED} · We may earn a commission.</p>
+        <p className="mt-2 text-xs text-muted">Last reviewed {CONTENT_REVIEWED} · We may earn a commission — it never changes our rankings.</p>
       </header>
 
       <MedicalDisclaimer className="mt-6" />
@@ -172,6 +192,47 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
           {p.ctaText}: {p.name} <ArrowUpRight size={15} />
         </a>
       </div>
+
+      {/* Answer-first Q&A (AEO) */}
+      {p.editorial && (
+        <section className="mt-10 space-y-5">
+          <div>
+            <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
+              <HelpCircle size={20} className="text-primary" /> Is {p.name} legitimate and safe?
+            </h2>
+            <p className="prose-body mt-3 leading-relaxed text-foreground">{p.editorial.isItLegit}</p>
+          </div>
+          <div>
+            <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
+              <HelpCircle size={20} className="text-primary" /> Is {p.name} worth it?
+            </h2>
+            <p className="prose-body mt-3 leading-relaxed text-foreground">{p.editorial.isItWorth}</p>
+          </div>
+        </section>
+      )}
+
+      {/* Medication deep-notes */}
+      {p.editorial && (p.editorial.semaglutideNote || p.editorial.tirzepatideNote) && (
+        <section className="mt-10">
+          <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
+            <Pill size={20} className="text-primary" /> {p.name}: semaglutide vs tirzepatide
+          </h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {p.editorial.semaglutideNote && (
+              <div className="rounded-2xl border border-border bg-surface p-5">
+                <h3 className="text-xs font-semibold uppercase tracking-wide text-primary">Semaglutide</h3>
+                <p className="mt-2 text-sm leading-relaxed text-foreground">{p.editorial.semaglutideNote}</p>
+              </div>
+            )}
+            {p.editorial.tirzepatideNote && (
+              <div className="rounded-2xl border border-border bg-surface p-5">
+                <h3 className="text-xs font-semibold uppercase tracking-wide text-primary">Tirzepatide</h3>
+                <p className="mt-2 text-sm leading-relaxed text-foreground">{p.editorial.tirzepatideNote}</p>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Pricing highlight */}
       <section className="mt-10">
@@ -237,6 +298,121 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
         </div>
       </section>
 
+      {/* Who it's for / not for */}
+      {p.editorial && (
+        <section className="mt-10">
+          <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
+            <Users size={20} className="text-primary" /> Who {p.name} is (and isn't) for
+          </h2>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-border bg-primary-light/40 p-5">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-primary">Best for</h3>
+              <ul className="mt-3 space-y-2">
+                {p.editorial.bestFor.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-foreground">
+                    <Check size={15} className="mt-0.5 shrink-0 text-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-border bg-surface p-5">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-accent">Look elsewhere if</h3>
+              <ul className="mt-3 space-y-2">
+                {p.editorial.notFor.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-muted">
+                    <X size={15} className="mt-0.5 shrink-0 text-accent" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Real third-party reviews (Trustpilot etc.) */}
+      {p.externalReviews && (
+        <section className="mt-10">
+          <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
+            <Star size={20} className="fill-primary text-primary" /> What real {p.name} customers say
+          </h2>
+          <div className="mt-4 rounded-2xl border border-border bg-surface p-6">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <span className="text-3xl font-bold text-foreground">{p.externalReviews.score}</span>
+              <span className="text-sm text-muted">
+                on {p.externalReviews.source} · {p.externalReviews.count.toLocaleString()} reviews · checked{" "}
+                {p.externalReviews.asOf}
+              </span>
+            </div>
+            {p.externalReviews.summary && (
+              <p className="prose-body mt-3 leading-relaxed text-foreground">{p.externalReviews.summary}</p>
+            )}
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              {p.externalReviews.positives && p.externalReviews.positives.length > 0 && (
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-wide text-primary">What they praise</h3>
+                  <ul className="mt-2 space-y-1.5">
+                    {p.externalReviews.positives.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-foreground">
+                        <Check size={15} className="mt-0.5 shrink-0 text-primary" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {p.externalReviews.negatives && p.externalReviews.negatives.length > 0 && (
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-wide text-accent">The gripes</h3>
+                  <ul className="mt-2 space-y-1.5">
+                    {p.externalReviews.negatives.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-muted">
+                        <X size={15} className="mt-0.5 shrink-0 text-accent" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {p.externalReviews.quotes && p.externalReviews.quotes.length > 0 && (
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {p.externalReviews.quotes.map((qt) => (
+                <figure key={qt.name + qt.date} className="rounded-2xl border border-border bg-surface p-5">
+                  <Quote size={16} className="text-primary" aria-hidden />
+                  <blockquote className="mt-2 text-sm leading-relaxed text-foreground">“{qt.text}”</blockquote>
+                  <figcaption className="mt-3 flex items-center gap-2 text-xs text-muted">
+                    <span className="inline-flex items-center gap-0.5 font-semibold text-foreground">
+                      {qt.stars}
+                      <Star size={11} className="fill-primary text-primary" />
+                    </span>
+                    · {qt.name} · {qt.label} · {qt.date}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
+
+          <p className="mt-3 text-xs leading-relaxed text-muted">
+            Ratings and quotes are pulled from {p.externalReviews.source} and shown as posted there — including
+            whether each was “invited” (solicited by the company) or independently “verified.” We don't edit or
+            curate to flatter our pick.{" "}
+            <a
+              href={p.externalReviews.url}
+              target="_blank"
+              rel="nofollow noopener"
+              className="font-semibold text-primary underline"
+            >
+              See the full {p.externalReviews.source} profile
+            </a>
+            .
+          </p>
+        </section>
+      )}
+
       {/* Credibility */}
       <section className="mt-10 rounded-2xl border border-border bg-surface p-6">
         <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-muted">
@@ -249,6 +425,22 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
             : "It dispenses FDA-approved branded medication through licensed pharmacies."}
         </p>
       </section>
+
+      {/* Bottom line */}
+      {p.editorial && (
+        <section className="mt-10 rounded-2xl border-2 border-primary/30 bg-primary-light/40 p-6">
+          <h2 className="font-serif text-2xl font-semibold text-foreground">The bottom line</h2>
+          <p className="prose-body mt-3 leading-relaxed text-foreground">{p.editorial.bottomLine}</p>
+          <a
+            href={p.affiliateUrl}
+            target="_blank"
+            rel="sponsored nofollow noopener"
+            className="mt-4 inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+          >
+            {p.ctaText}: {p.name} <ArrowUpRight size={15} />
+          </a>
+        </section>
+      )}
 
       {/* FAQ */}
       <section className="mt-10">

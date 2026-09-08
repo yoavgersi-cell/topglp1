@@ -29,8 +29,8 @@ export function ProviderCard({ provider }: { provider: Provider }) {
             <h3 className="text-lg font-bold text-foreground">{provider.name}</h3>
             <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
               <Star size={14} className="fill-primary text-primary" />
-              {provider.rating.toFixed(1)}
-              <span className="font-normal text-muted">· {provider.ratingLabel}</span>
+              {provider.rating.toFixed(1)}/10
+              <span className="font-normal text-muted">· our score</span>
             </span>
           </div>
           <p className="mt-1 text-sm text-muted">{provider.glp1Focus}</p>
@@ -56,9 +56,11 @@ export function ProviderCard({ provider }: { provider: Provider }) {
             {provider.ctaText}
             <ArrowUpRight size={15} />
           </a>
-          <span className="text-center text-xs text-muted">
-            {provider.reviewCount.toLocaleString()} reviews
-          </span>
+          {provider.externalReviews && (
+            <span className="text-center text-xs text-muted">
+              {provider.externalReviews.source} {provider.externalReviews.score}
+            </span>
+          )}
         </div>
       </div>
     </div>
