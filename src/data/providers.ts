@@ -86,10 +86,14 @@ export interface ProviderEditorial {
  */
 export interface ExternalReviews {
   source: string;
-  /** Public URL of the source listing, for verification. */
-  url: string;
+  /** Public URL of the source listing. Intentionally not linked out on-page. */
+  url?: string;
   /** Score exactly as the source states it, e.g. "4.6 / 5". */
   score: string;
+  /** Numeric score, for rendering the star graphic. */
+  scoreValue: number;
+  /** Scale maximum (Trustpilot = 5). */
+  scoreMax: number;
   /** Review count from the source. */
   count: number;
   /** Date we last checked the source. */
@@ -260,8 +264,9 @@ export const PROVIDERS: Provider[] = [
     },
     externalReviews: {
       source: "Trustpilot",
-      url: "https://www.trustpilot.com/search?query=embody",
       score: "3.7 / 5",
+      scoreValue: 3.7,
+      scoreMax: 5,
       count: 7250,
       asOf: "September 7, 2026",
       summary:

@@ -21,6 +21,7 @@ import { battlesForProvider } from "@/data/battle-engine";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { Faq } from "@/components/faq";
+import { TrustpilotStars, TrustpilotLogo } from "@/components/trustpilot";
 import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
@@ -155,17 +156,11 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
             <span className="font-normal text-muted">Top GLP-1 score</span>
           </span>
           {p.externalReviews && (
-            <a
-              href={p.externalReviews.url}
-              target="_blank"
-              rel="nofollow noopener"
-              className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-sm font-semibold text-foreground hover:border-primary"
-            >
-              <Star size={14} className="fill-accent text-accent" /> {p.externalReviews.score}
-              <span className="font-normal text-muted">
-                {p.externalReviews.source} · {p.externalReviews.count.toLocaleString()} reviews
-              </span>
-            </a>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-sm">
+              <TrustpilotStars value={p.externalReviews.scoreValue} max={p.externalReviews.scoreMax} size={16} />
+              <span className="font-bold text-foreground">{p.externalReviews.score}</span>
+              <TrustpilotLogo />
+            </span>
           )}
         </div>
         <p className="mt-4 text-lg leading-relaxed text-foreground">
@@ -338,13 +333,15 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
             <Star size={20} className="fill-primary text-primary" /> What real {p.name} customers say
           </h2>
           <div className="mt-4 rounded-2xl border border-border bg-surface p-6">
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="text-3xl font-bold text-foreground">{p.externalReviews.score}</span>
-              <span className="text-sm text-muted">
-                on {p.externalReviews.source} · {p.externalReviews.count.toLocaleString()} reviews · checked{" "}
-                {p.externalReviews.asOf}
-              </span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <span className="text-4xl font-bold text-foreground">{p.externalReviews.score}</span>
+              <TrustpilotStars value={p.externalReviews.scoreValue} max={p.externalReviews.scoreMax} size={26} />
+              <TrustpilotLogo />
             </div>
+            <p className="mt-2 text-sm text-muted">
+              {p.externalReviews.count.toLocaleString()} {p.externalReviews.source} reviews · checked{" "}
+              {p.externalReviews.asOf}
+            </p>
             {p.externalReviews.summary && (
               <p className="prose-body mt-3 leading-relaxed text-foreground">{p.externalReviews.summary}</p>
             )}
@@ -397,18 +394,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
           )}
 
           <p className="mt-3 text-xs leading-relaxed text-muted">
-            Ratings and quotes are pulled from {p.externalReviews.source} and shown as posted there — including
+            Ratings and quotes are drawn from {p.externalReviews.source} and shown as posted there — including
             whether each was “invited” (solicited by the company) or independently “verified.” We don't edit or
-            curate to flatter our pick.{" "}
-            <a
-              href={p.externalReviews.url}
-              target="_blank"
-              rel="nofollow noopener"
-              className="font-semibold text-primary underline"
-            >
-              See the full {p.externalReviews.source} profile
-            </a>
-            .
+            curate them to flatter our pick.
           </p>
         </section>
       )}
