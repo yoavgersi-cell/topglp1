@@ -25,6 +25,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialByline } from "@/components/editorial-byline";
 import { Faq } from "@/components/faq";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
+import { TrustpilotStars, TrustpilotLogo } from "@/components/trustpilot";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
 export const revalidate = 3600;
@@ -335,6 +336,56 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
           <ProsCons provider={bp} />
         </div>
       </section>
+
+      {/* Real customer reviews (Trustpilot) */}
+      {(a.externalReviews || bp.externalReviews) && (
+        <section className="mt-10">
+          <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
+            <Star size={20} className="fill-primary text-primary" /> What real customers say
+          </h2>
+          <p className="mt-2 text-sm text-muted">
+            Independent Trustpilot ratings for each program — shown as posted, not curated to flatter our pick.
+          </p>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {[a, bp].map((p) => (
+              <div key={p.id} className="rounded-2xl border border-border bg-surface p-5">
+                <h3 className="text-base font-bold text-foreground">{p.name}</h3>
+                {p.externalReviews ? (
+                  <>
+                    <div className="mt-2 flex flex-wrap items-center gap-2">
+                      <span className="text-2xl font-bold text-foreground">{p.externalReviews.score}</span>
+                      <TrustpilotStars value={p.externalReviews.scoreValue} max={p.externalReviews.scoreMax} size={18} />
+                      <TrustpilotLogo />
+                    </div>
+                    <p className="mt-1 text-xs text-muted">
+                      {p.externalReviews.count.toLocaleString()} reviews · checked {p.externalReviews.asOf}
+                    </p>
+                    {p.externalReviews.quotes && p.externalReviews.quotes[0] && (
+                      <blockquote className="mt-3 border-l-2 border-border pl-3 text-sm leading-relaxed text-foreground">
+                        “{p.externalReviews.quotes[0].text}”
+                        <span className="mt-1 block text-xs text-muted">
+                          — {p.externalReviews.quotes[0].name} · {p.externalReviews.quotes[0].label}
+                        </span>
+                      </blockquote>
+                    )}
+                    <Link href={`/reviews/${p.slug}`} className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                      Full {p.name} review <ArrowRight size={13} />
+                    </Link>
+                  </>
+                ) : (
+                  <p className="mt-2 text-sm text-muted">
+                    No verified Trustpilot data yet — see our{" "}
+                    <Link href={`/reviews/${p.slug}`} className="font-semibold text-primary underline">
+                      {p.name} review
+                    </Link>
+                    .
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Where each has the edge */}
       <section className="mt-10">
