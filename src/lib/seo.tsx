@@ -8,22 +8,49 @@ interface PageMetaInput {
   path: string;
   /** Override the "%s | TopGLP1" template (used for the homepage). */
   absoluteTitle?: boolean;
+  /** OpenGraph locale override, e.g. "en_GB" for the UK section. */
+  locale?: string;
+  /**
+   * hreflang alternates (root-relative or absolute). Set on pages that have a
+   * regional twin so search engines serve the right one per country. Keys are
+   * BCP-47 tags (e.g. "en-GB", "en-US", "x-default").
+   */
+  languages?: Record<string, string>;
 }
 
 // Build a consistent Metadata object with canonical + OpenGraph + Twitter.
-export function pageMetadata({ title, description, path, absoluteTitle }: PageMetaInput): Metadata {
+export function pageMetadata({
+  title,
+  description,
+  path,
+  absoluteTitle,
+  locale,
+  languages,
+}: PageMetaInput): Metadata {
   const url = absoluteUrl(path);
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      ...(languages
+        ? {
+            languages: Object.fromEntries(
+              Object.entries(languages).map(([lang, p]) => [
+                lang,
+                p.startsWith("http") ? p : absoluteUrl(p),
+              ]),
+            ),
+          }
+        : {}),
+    },
     openGraph: {
       title,
       description,
       url,
       siteName: SITE.name,
       type: "article",
-      locale: SITE.locale,
+      locale: locale ?? SITE.locale,
     },
     twitter: {
       card: "summary_large_image",

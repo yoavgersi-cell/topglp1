@@ -12,6 +12,7 @@ const NAV = [
   { label: "Compare", href: "/compare" },
   { label: "Guides", href: "/guides" },
   { label: "Tools", href: "/tools" },
+  { label: "UK", href: "/uk" },
 ];
 
 export function Header() {

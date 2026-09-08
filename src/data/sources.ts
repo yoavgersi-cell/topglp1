@@ -138,6 +138,43 @@ export const SOURCES: Record<string, Source> = {
     type: "Policy analysis",
     note: "Explains the Medicare GLP-1 Bridge and the follow-on BALANCE Model.",
   },
+
+  // ── UK sources (NHS / NICE / MHRA) ──────────────────────────────────────────
+  "nice-ta875": {
+    citation: "National Institute for Health and Care Excellence. Semaglutide for managing overweight and obesity (TA875).",
+    publisher: "NICE",
+    url: "https://www.nice.org.uk/guidance/ta875/chapter/1-Recommendations",
+    type: "Regulatory",
+    note: "NICE recommendation for Wegovy (semaglutide) on the NHS — specialist weight-management service, max 2 years, BMI thresholds.",
+  },
+  "nhs-tirzepatide-ta1026": {
+    citation: "NHS England. Interim commissioning guidance: NICE TA1026 tirzepatide for managing overweight and obesity.",
+    publisher: "NHS England",
+    url: "https://www.england.nhs.uk/long-read/interim-commissioning-guidance-nice-ta1026-tirzepatide/",
+    type: "Regulatory",
+    note: "The phased NHS rollout of Mounjaro (tirzepatide) from 23 June 2025 and the eligibility cohorts.",
+  },
+  "mhra-illegal-weightloss": {
+    citation: "Medicines and Healthcare products Regulatory Agency. UK medicines regulator warns against buying weight-loss medicines without a prescription.",
+    publisher: "MHRA (GOV.UK)",
+    url: "https://www.gov.uk/government/news/uk-medicines-regulator-warns-against-buying-weight-loss-medicines-without-a-prescription-this-new-year",
+    type: "Regulatory",
+    note: "MHRA warning that it is illegal to sell GLP-1 medicines without a prescription in the UK.",
+  },
+  "mhra-record-seizure": {
+    citation: "Medicines and Healthcare products Regulatory Agency. MHRA smashes major illicit weight-loss medicine production facility in record seizure.",
+    publisher: "MHRA (GOV.UK)",
+    url: "https://www.gov.uk/government/news/mhra-smashes-majorillicitweight-loss-medicine-production-facility-in-record-seizure",
+    type: "Regulatory",
+    note: "Enforcement against unlicensed/compounded weight-loss medicines in the UK.",
+  },
+  "which-glp1-uk-costs": {
+    citation: "Which?. Weight-loss injections: Wegovy vs Mounjaro, private costs and NHS options explained.",
+    publisher: "Which?",
+    url: "https://www.which.co.uk/reviews/nutrition-and-supplements/article/weight-loss-injections-wegovy-vs-mounjaro-private-costs-and-nhs-options-explained-aCic43r0uxdE",
+    type: "Policy analysis",
+    note: "Independent consumer comparison of UK private GLP-1 pricing and NHS access.",
+  },
 };
 
 export function getSources(keys: string[]): (Source & { key: string })[] {
