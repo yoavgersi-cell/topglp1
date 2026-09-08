@@ -7,8 +7,15 @@ import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { MedicalSources } from "@/components/medical-sources";
 import { Faq } from "@/components/faq";
 import { TrustpilotStars, TrustpilotLogo } from "@/components/trustpilot";
-import { UK_CHAMPION } from "@/data/uk";
+import { UK_CHAMPION, ukBattleSlugs, resolveUkBattle } from "@/data/uk";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
+
+const COMPARISONS = ukBattleSlugs()
+  .map((slug) => {
+    const b = resolveUkBattle(slug);
+    return b ? { slug, title: `${b.a.name} vs ${b.b.name}` } : null;
+  })
+  .filter((x): x is { slug: string; title: string } => Boolean(x));
 
 export const metadata: Metadata = pageMetadata({
   title: "Weight-Loss Treatment in the UK (2026): NHS vs Private, Done Safely",
@@ -180,6 +187,25 @@ export default function UkHubPage() {
             Ratings and quotes are drawn from {c.name}'s Trustpilot profile ({c.trustpilot?.count.toLocaleString()}{" "}
             reviews, {c.trustpilot?.score}, checked {c.trustpilot?.asOf}) and shown as posted there.
           </p>
+        </section>
+      )}
+
+      {/* Compare providers */}
+      {COMPARISONS.length > 0 && (
+        <section className="mt-10">
+          <h2 className="font-serif text-2xl font-semibold text-foreground">Compare UK providers</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {COMPARISONS.map((cmp) => (
+              <Link
+                key={cmp.slug}
+                href={`/uk/compare/${cmp.slug}`}
+                className="group flex items-center justify-between rounded-xl border border-border bg-surface p-4 transition-colors hover:border-primary"
+              >
+                <span className="text-sm font-semibold text-foreground">{cmp.title}</span>
+                <ArrowRight size={15} className="text-primary transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            ))}
+          </div>
         </section>
       )}
 

@@ -5,6 +5,7 @@ import { allBattleSlugs } from "@/data/battle-engine";
 import { PROVIDERS } from "@/data/providers";
 import { MED_COMPARISONS } from "@/data/med-comparisons";
 import { STATES } from "@/data/states";
+import { ukBattleSlugs } from "@/data/uk";
 import { SITE } from "@/lib/site";
 import { CONTENT_REVIEWED } from "@/lib/site";
 
@@ -85,6 +86,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const ukComparePages: MetadataRoute.Sitemap = ukBattleSlugs().map((slug) => ({
+    url: `${base}/uk/compare/${slug}`,
+    lastModified,
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...medPages,
@@ -93,5 +101,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...reviewPages,
     ...medComparePages,
     ...statePages,
+    ...ukComparePages,
   ];
 }
