@@ -9,8 +9,9 @@
 
 export const SITE = {
   name: "Top GLP-1",
-  // Alternate names so search engines associate the brand with the domain.
-  alternateNames: ["TopGLP1", "topglp1.io", "Top GLP1"],
+  // Only the domain as an alternate — we deliberately do NOT list "TopGLP1"/"Top
+  // GLP1" so we give search engines one clean site-name signal: "Top GLP-1".
+  alternateNames: ["topglp1.io"],
   domain: "topglp1.io",
   url: "https://www.topglp1.io",
   // Short, spoken-brand tagline used in the header and OG.
