@@ -28,7 +28,7 @@ export const SITE = {
 // A stable "content reviewed" date shown across evergreen pages. Bump when the
 // medical content is re-reviewed so on-page "Last reviewed" lines, schema
 // dateModified and the sitemap lastmod all move together.
-export const CONTENT_REVIEWED = "2026-09-01";
+export const CONTENT_REVIEWED = "2026-09-09";
 
 // Absolute URL helper for canonical / OpenGraph / schema.
 export function absoluteUrl(path: string): string {

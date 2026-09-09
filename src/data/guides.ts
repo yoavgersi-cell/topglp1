@@ -475,6 +475,86 @@ export const GUIDES: Guide[] = [
     relatedMeds: ["compounded-glp1", "semaglutide", "tirzepatide"],
     sources: ["fda-unapproved-glp1", "fda-compounding-policy", "fda-compounding-dosing"],
   },
+  {
+    slug: "what-happens-when-you-stop-taking-glp1",
+    title: "What Happens When You Stop Taking a GLP-1?",
+    description:
+      "Most people regain a large share of the weight after stopping a GLP-1 — here's what the trials actually show, why it happens, and how to think about coming off the medication safely.",
+    category: "Treatment",
+    readTime: "8 min read",
+    keyTakeaways: [
+      "Most people regain much of the lost weight after stopping — about two-thirds within a year in the semaglutide STEP 1 extension.",
+      "It isn't a willpower failure: the drug's appetite effect ends when it clears, and obesity behaves like a chronic condition.",
+      "Trials show continuing treatment maintains the loss, while stopping reverses much of it.",
+      "Never stop abruptly on your own — talk to your prescriber about tapering, a maintenance dose, or alternatives.",
+    ],
+    sections: [
+      {
+        heading: "The short answer",
+        body: [
+          "For most people, stopping a GLP-1 leads to steady weight regain over the following months. In the extension of the pivotal semaglutide trial (STEP 1), participants who came off the medication regained about two-thirds of the weight they had lost within a year, and much of the improvement in blood pressure, blood sugar and cholesterol reversed alongside it.",
+          "This is the single most important thing to understand before starting: a GLP-1 treats obesity, it doesn't cure it. The results last as long as the treatment does — the same way blood-pressure medication works only while you take it.",
+        ],
+      },
+      {
+        heading: "Why the weight comes back",
+        body: [
+          "GLP-1 medications work by turning down appetite and quieting the constant “food noise” many people describe. When the drug clears from your system, that biological brake comes off: hunger signals return, portions creep back up, and the body — which defends a higher “set point” weight — pushes to regain what it lost.",
+          "In other words, the regain isn't a personal failing or proof the drug “didn't work.” It's the expected result of removing a treatment that was actively suppressing appetite. Willpower is fighting biology, and biology usually wins over time.",
+        ],
+      },
+      {
+        heading: "What the trials actually show",
+        body: [
+          "Two withdrawal trials make the pattern clear, one for each main molecule.",
+        ],
+        list: [
+          "STEP 4 (semaglutide): after everyone lost weight for 20 weeks, those who kept taking semaglutide continued to lose, while those switched to placebo steadily regained — a widening gap that came down to nothing but stopping the drug.",
+          "SURMOUNT-4 (tirzepatide): the same story. People who continued tirzepatide held onto and added to their loss; those who stopped regained a substantial share of it.",
+          "STEP 1 extension (semaglutide): a year after stopping, participants had regained roughly two-thirds of their lost weight on average.",
+        ],
+      },
+      {
+        heading: "Does everyone regain everything?",
+        body: [
+          "No — and this is where individual differences matter. The trial figures are averages: some people regain almost all of it, others hold onto more, especially if strong habits (regular resistance training, high-protein eating, sleep, activity) were built while on the medication. But across large groups, the clear trend is meaningful regain, and very few people keep all of the loss without ongoing treatment.",
+          "Habits help slow and blunt the regain; they rarely stop it entirely, because they don't replace the drug's direct effect on appetite.",
+        ],
+      },
+      {
+        heading: "Reasons people stop — and what to weigh",
+        body: [
+          "People come off GLP-1s for real reasons: cost, side effects, reaching a goal weight, supply gaps, or pregnancy planning (these drugs are stopped before conception). Each deserves a conversation with your prescriber rather than a sudden halt.",
+        ],
+        list: [
+          "Cost: a lower maintenance dose, switching products, or a more affordable program may keep you on treatment for less — often cheaper than regaining and restarting.",
+          "Side effects: dose adjustments or a slower titration frequently fix tolerability without stopping altogether.",
+          "“I hit my goal”: goal weight is the point maintenance begins, not the finish line — this is exactly when the regain risk is highest.",
+        ],
+      },
+      {
+        heading: "How to stop as safely as possible",
+        body: [
+          "If you and your clinician decide to stop, a few things make it go better. There's no dangerous physical withdrawal from GLP-1s, but appetite returns, so a plan matters.",
+        ],
+        list: [
+          "Don't stop cold on your own — ask about tapering the dose down rather than quitting outright.",
+          "Ask whether a lower maintenance dose could hold your results at a fraction of the cost.",
+          "Lock in habits before you stop: protein at every meal, resistance training to protect muscle, and a way to track weight so you catch regain early.",
+          "Re-book a check-in a month or two out, so a small regain can be addressed before it becomes a large one.",
+        ],
+      },
+      {
+        heading: "The bottom line",
+        body: [
+          "Stopping a GLP-1 usually means giving back much of the weight and metabolic benefit — most within the first year — because the medication manages a chronic condition rather than fixing it permanently. That's not a reason to avoid treatment; it's a reason to plan for the long term from day one, and to make any decision to stop with your prescriber rather than alone.",
+        ],
+      },
+    ],
+    relatedGuides: ["glp1-results-timeline", "glp1-side-effects-and-how-to-manage-them", "glp1-cost-and-insurance"],
+    relatedMeds: ["semaglutide", "tirzepatide"],
+    sources: ["step-1-extension", "step-4", "surmount-4", "step-1"],
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {

@@ -49,6 +49,30 @@ export const SOURCES: Record<string, Source> = {
     type: "Clinical trial",
     note: "SURMOUNT-5 — head-to-head trial; tirzepatide produced greater weight loss than semaglutide at 72 weeks.",
   },
+  "step-1-extension": {
+    citation:
+      "Wilding JPH, et al. Weight regain and cardiometabolic effects after withdrawal of semaglutide: The STEP 1 trial extension. Diabetes Obes Metab. 2022;24(8):1553–1564.",
+    publisher: "Diabetes, Obesity and Metabolism",
+    url: "https://dom-pubs.onlinelibrary.wiley.com/doi/10.1111/dom.14725",
+    type: "Clinical trial",
+    note: "After stopping semaglutide, participants regained about two-thirds of their lost weight within a year.",
+  },
+  "step-4": {
+    citation:
+      "Rubino D, et al. Effect of Continued Weekly Subcutaneous Semaglutide vs Placebo on Weight Loss Maintenance: The STEP 4 Randomized Clinical Trial. JAMA. 2021;325(14):1414–1425.",
+    publisher: "JAMA",
+    url: "https://jamanetwork.com/journals/jama/fullarticle/2777886",
+    type: "Clinical trial",
+    note: "Continuing semaglutide maintained and extended weight loss; switching to placebo led to regain.",
+  },
+  "surmount-4": {
+    citation:
+      "Aronne LJ, et al. Continued Treatment With Tirzepatide for Maintenance of Weight Reduction: The SURMOUNT-4 Randomized Clinical Trial. JAMA. 2024;331(1):38–48.",
+    publisher: "JAMA",
+    url: "https://jamanetwork.com/journals/jama/fullarticle/2812936",
+    type: "Clinical trial",
+    note: "Stopping tirzepatide led to substantial weight regain; continuing it maintained the loss.",
+  },
   select: {
     citation:
       "Lincoff AM, et al. Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes. N Engl J Med. 2023;389(24):2221–2232.",
