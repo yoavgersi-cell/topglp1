@@ -547,22 +547,14 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
 
       {/* Sticky compare bar (mobile) */}
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-surface/95 p-3 backdrop-blur sm:hidden">
-        <div className="flex gap-2">
-          <a
-            href={winner.affiliateUrl}
-            target="_blank"
-            rel="sponsored nofollow noopener"
-            className="flex flex-1 items-center justify-center gap-1 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white"
-          >
-            Get {winner.name} <ArrowUpRight size={14} />
-          </a>
-          <Link
-            href="/find-your-match"
-            className="flex items-center justify-center rounded-full border border-border px-4 py-2.5 text-sm font-semibold text-foreground"
-          >
-            Quiz
-          </Link>
-        </div>
+        <a
+          href={winner.affiliateUrl}
+          target="_blank"
+          rel="sponsored nofollow noopener"
+          className="flex w-full items-center justify-center gap-1 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white"
+        >
+          Get {winner.name} <ArrowUpRight size={14} />
+        </a>
       </div>
       <div className="h-16 sm:hidden" aria-hidden />
     </article>
