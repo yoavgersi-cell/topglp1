@@ -37,33 +37,37 @@ export default function ReviewsIndex() {
         credentials, and honest pros and cons.
       </p>
 
-      <div className="mt-8 space-y-4">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
         {sorted.map((p) => (
           <Link
             key={p.id}
             href={`/reviews/${p.slug}`}
-            className="group block rounded-2xl border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:shadow-md sm:p-6"
+            className="group flex flex-col rounded-2xl border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-primary hover:shadow-sm"
           >
-            <div className="flex flex-wrap items-center gap-4">
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-primary-light text-sm font-bold text-primary">
+            <div className="flex items-center gap-3">
+              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-primary-light text-xs font-bold text-primary">
                 {p.rank}
               </span>
-              <div className="relative h-8 w-28">
-                <Image src={p.logo} alt={`${p.name} logo`} fill className="object-contain object-left" sizes="112px" />
+              <div className="relative h-7 w-24">
+                <Image src={p.logo} alt={p.name} fill className="object-contain object-left" sizes="96px" />
               </div>
-              <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                <Star size={14} className="fill-primary text-primary" /> {p.rating.toFixed(1)}
-              </span>
               {p.rank === 1 && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-primary px-2 py-0.5 text-[11px] font-bold uppercase text-white">
-                  <Trophy size={11} /> Top pick
+                <span className="inline-flex items-center gap-1 rounded-full bg-primary px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                  <Trophy size={10} /> Top pick
                 </span>
               )}
               <ArrowRight size={16} className="ml-auto text-primary transition-transform group-hover:translate-x-0.5" />
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-muted">
-              {p.glp1Focus} {p.specs.standout}.
-            </p>
+            <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{p.glp1Focus}</p>
+            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-border pt-3 text-xs">
+              <span className="inline-flex items-center gap-1 font-semibold text-primary">
+                <Star size={13} className="fill-primary text-primary" /> {p.rating.toFixed(1)}/10
+                <span className="font-normal text-muted">our score</span>
+              </span>
+              {p.externalReviews && (
+                <span className="text-muted">Trustpilot {p.externalReviews.score}</span>
+              )}
+            </div>
           </Link>
         ))}
       </div>
