@@ -4,9 +4,11 @@ import Link from "next/link";
 import { Check } from "lucide-react";
 import { GUIDES, GUIDE_SLUGS, getGuide } from "@/data/guides";
 import { getMedication } from "@/data/medications";
+import { ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { MedicalSources } from "@/components/medical-sources";
+import { ArticleLayout, AsideCard, OnThisPage } from "@/components/article-layout";
 import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, articleSchema, breadcrumbSchema } from "@/lib/seo";
 
@@ -43,8 +45,40 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     .map((s) => getMedication(s))
     .filter((m): m is NonNullable<typeof m> => Boolean(m));
 
+  const aside = (
+    <>
+      <OnThisPage items={guide.sections.map((s, i) => ({ id: `sec-${i}`, label: s.heading }))} />
+      <AsideCard title="About this guide">
+        <dl className="space-y-2.5 text-sm">
+          <div>
+            <dt className="text-xs text-muted">Topic</dt>
+            <dd className="font-medium text-foreground">{guide.category}</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted">Read time</dt>
+            <dd className="font-medium text-foreground">{guide.readTime}</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted">Last reviewed</dt>
+            <dd className="font-medium text-foreground">{CONTENT_REVIEWED}</dd>
+          </div>
+        </dl>
+      </AsideCard>
+      <Link
+        href="/best-glp1-providers"
+        className="block rounded-2xl border border-primary/30 bg-primary-light/40 p-5 transition-colors hover:border-primary"
+      >
+        <p className="text-xs font-semibold uppercase tracking-wide text-primary">Considering treatment?</p>
+        <p className="mt-1.5 text-sm font-semibold text-foreground">See the GLP-1 programs we rate highest, scored and ranked</p>
+        <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+          Best programs <ArrowRight size={14} />
+        </span>
+      </Link>
+    </>
+  );
+
   return (
-    <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={aside}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -106,7 +140,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       {/* Body */}
       <div className="mt-10">
         {guide.sections.map((section, i) => (
-          <section key={i} className={i > 0 ? "mt-9" : ""}>
+          <section key={i} id={`sec-${i}`} className={`scroll-mt-24 ${i > 0 ? "mt-9" : ""}`}>
             <h2 className="font-serif text-2xl font-semibold text-foreground">{section.heading}</h2>
             {section.body && (
               <div className="prose-body mt-3">
@@ -168,6 +202,6 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           </div>
         </section>
       )}
-    </article>
+    </ArticleLayout>
   );
 }

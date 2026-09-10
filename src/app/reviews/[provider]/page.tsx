@@ -22,6 +22,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { Faq } from "@/components/faq";
 import { TrustpilotStars, TrustpilotLogo } from "@/components/trustpilot";
+import { ArticleLayout, AsideCard } from "@/components/article-layout";
 import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
@@ -98,8 +99,60 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
   const faqs = providerFaqs(p);
   const relatedBattles = battlesForProvider(p.id).slice(0, 6);
 
+  const isPlaceholder = p.affiliateUrl === "#";
+  const aside = (
+    <>
+      <AsideCard title="Quick facts">
+        <dl className="space-y-2.5 text-sm">
+          <div>
+            <dt className="text-xs text-muted">Our score</dt>
+            <dd className="font-medium text-foreground">{p.rating.toFixed(1)}/10 · {p.ratingLabel}</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted">Ranked</dt>
+            <dd className="font-medium text-foreground">#{p.rank} of {PROVIDERS.length} programs</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted">Starting price</dt>
+            <dd className="font-medium text-foreground">{p.specs.startingPrice}</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted">Offering</dt>
+            <dd className="font-medium text-foreground">{p.specs.offeringType}</dd>
+          </div>
+          {p.externalReviews && (
+            <div>
+              <dt className="text-xs text-muted">Trustpilot</dt>
+              <dd className="font-medium text-foreground">{p.externalReviews.score}</dd>
+            </div>
+          )}
+        </dl>
+      </AsideCard>
+      {!isPlaceholder && (
+        <div className="rounded-2xl border-2 border-primary/30 bg-primary-light/40 p-5">
+          {isTopPick && (
+            <p className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wide text-primary">
+              <Trophy size={12} /> Our #1 pick
+            </p>
+          )}
+          <p className="mt-1 text-sm font-semibold text-foreground">Start with {p.name}</p>
+          <p className="mt-1 text-xs text-muted">{p.specs.startingPrice}</p>
+          <a
+            href={p.affiliateUrl}
+            target="_blank"
+            rel="sponsored nofollow noopener"
+            className="mt-3 inline-flex w-full items-center justify-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+          >
+            {p.ctaText}: {p.name} <ArrowUpRight size={15} />
+          </a>
+          <p className="mt-2 text-center text-[11px] text-muted">We may earn a commission. It never changes our score.</p>
+        </div>
+      )}
+    </>
+  );
+
   return (
-    <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={aside}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
@@ -476,6 +529,6 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
             ))}
         </div>
       </nav>
-    </article>
+    </ArticleLayout>
   );
 }
