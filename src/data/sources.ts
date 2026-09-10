@@ -155,6 +155,13 @@ export const SOURCES: Record<string, Source> = {
     type: "Regulatory",
     note: "US adult obesity prevalence data (roughly 40% of adults).",
   },
+  "cdc-obesity-maps": {
+    citation: "CDC. Adult Obesity Prevalence Maps (2023, BRFSS self-reported).",
+    publisher: "U.S. Centers for Disease Control and Prevention",
+    url: "https://www.cdc.gov/obesity/data-and-statistics/adult-obesity-prevalence-maps.html",
+    type: "Regulatory",
+    note: "Regional adult obesity prevalence (Midwest 36.0%, South 34.7%, West 29.1%, Northeast 28.6%) and the states where more than 1 in 3 adults have obesity.",
+  },
   "kff-medicare-balance": {
     citation: "KFF. What to Know About the BALANCE Model for GLP-1s in Medicare and Medicaid and the Medicare GLP-1 Bridge.",
     publisher: "KFF (Kaiser Family Foundation)",

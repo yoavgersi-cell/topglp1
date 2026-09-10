@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Check, Minus, X, ArrowRight, ArrowUpRight, DollarSign, Landmark, CreditCard, Stethoscope, ListChecks, ShieldCheck } from "lucide-react";
-import { STATES, STATE_SLUGS, getState, medicaidStatus } from "@/data/states";
+import { Check, Minus, X, ArrowRight, ArrowUpRight, DollarSign, Landmark, CreditCard, Stethoscope, ListChecks, ShieldCheck, Activity } from "lucide-react";
+import { STATES, STATE_SLUGS, getState, medicaidStatus, obesityContext, medicaidProgram } from "@/data/states";
 import { getProvider } from "@/data/providers";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialByline } from "@/components/editorial-byline";
@@ -42,6 +42,8 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
   const Icon = toneIcon[st.tone];
   const embody = getProvider("embody");
   const isCovered = s.medicaid === "covered" || s.medicaid === "limited";
+  const ob = obesityContext(s);
+  const program = medicaidProgram(s);
 
   const COST_ROWS: { label: string; value: string; note: string }[] = [
     { label: "Branded (Wegovy / Zepbound) — cash", value: "$1,000–$1,400/mo", note: "Full list price without coverage" },
@@ -105,7 +107,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       />
 
       <h1 className="font-serif text-4xl font-semibold text-foreground">GLP-1 in {s.name}</h1>
-      <EditorialByline chips={["Medicaid data from KFF & Stateline"]} />
+      <EditorialByline chips={["Data from CDC, KFF & Stateline"]} />
       <p className="mt-4 text-lg leading-relaxed text-muted">
         A clear guide to getting GLP-1 medication in {s.name} in 2026 — what Medicaid covers, who qualifies, what it
         costs, and the fastest legal route regardless of your coverage.
@@ -118,9 +120,50 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
         </p>
       </div>
 
+      {/* By the numbers — real, cited per-state context */}
+      <section className="mt-8">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">{s.name}: by the numbers</h2>
+        <div className="mt-3 grid gap-3 sm:grid-cols-3">
+          <div className="rounded-2xl border border-border bg-surface p-5">
+            <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-muted">
+              <Activity size={14} className="text-primary" /> Adult obesity
+            </p>
+            <p className="mt-2 font-serif text-2xl font-semibold text-foreground">~{ob.regionPct}%</p>
+            <p className="mt-1 text-xs leading-relaxed text-muted">
+              of adults in the {ob.region} have obesity (CDC, 2023).{" "}
+              {ob.veryHigh
+                ? `${s.name} is one of only three states where 40%+ of adults do.`
+                : ob.high
+                  ? `${s.name} is among the states where more than 1 in 3 adults do.`
+                  : "The condition GLP-1 medications treat."}
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-surface p-5">
+            <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-muted">
+              <Landmark size={14} className="text-primary" /> Medicaid program
+            </p>
+            <p className="mt-2 font-serif text-2xl font-semibold text-foreground">{program}</p>
+            <p className="mt-1 text-xs leading-relaxed text-muted">
+              {isCovered
+                ? "Covers GLP-1 for weight loss with clinical criteria."
+                : "Does not cover GLP-1 for weight loss (diabetes still covered)."}
+            </p>
+          </div>
+          <div className="rounded-2xl border-2 border-primary/30 bg-primary-light/30 p-5">
+            <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-primary">
+              <Stethoscope size={14} /> Cash telehealth
+            </p>
+            <p className="mt-2 font-serif text-2xl font-semibold text-primary">from $69/mo</p>
+            <p className="mt-1 text-xs leading-relaxed text-foreground">
+              Compounded GLP-1 shipped to {s.name}, no insurance required.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Medicaid status card */}
       <div className="mt-8 rounded-2xl border border-border bg-surface p-6">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">{s.name} Medicaid — weight-loss GLP-1</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">{program} — weight-loss GLP-1</h2>
         <p className={`mt-2 flex items-center gap-2 font-serif text-2xl font-semibold ${st.tone === "yes" ? "text-primary" : st.tone === "limited" ? "text-accent" : "text-foreground"}`}>
           <Icon size={22} /> {st.label}
         </p>
@@ -259,7 +302,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
         </div>
       </section>
 
-      <MedicalSources keys={["kff-medicaid-glp1", "stateline-glp1-medicaid", "medicare-glp1-bridge"]} />
+      <MedicalSources keys={["kff-medicaid-glp1", "stateline-glp1-medicaid", "cdc-obesity-maps", "medicare-glp1-bridge"]} />
 
       {/* Nearby states */}
       <nav className="mt-10 border-t border-border pt-8">

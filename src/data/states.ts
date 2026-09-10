@@ -88,6 +88,97 @@ export function getState(slug: string): StateInfo | undefined {
 
 export const STATE_SLUGS = STATES.map((s) => s.slug);
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Real, citable per-state context (no fabricated numbers).
+//
+// 1) OBESITY — from the CDC's 2023 Adult Obesity Prevalence Maps (BRFSS, self-
+//    reported), released Sept 2024. We report the CDC's EXACT regional averages
+//    and the CDC's OWN named lists of high-prevalence states, rather than
+//    inventing a per-state decimal we can't verify.
+//      • Regional adult obesity: Midwest 36.0%, South 34.7%, West 29.1%,
+//        Northeast 28.6%.
+//      • 23 states where >1 in 3 adults (≥35%) have obesity (CDC-named).
+//      • 3 states at ≥40%: Arkansas, Mississippi, West Virginia (CDC-named).
+//
+// 2) MEDICAID PROGRAM NAME — each state's official program brand. Distinctive
+//    brands are shown where stable; otherwise the plain "{State} Medicaid".
+// ─────────────────────────────────────────────────────────────────────────────
+
+export type Region = "Northeast" | "Midwest" | "South" | "West";
+
+const REGION_BY_ABBR: Record<string, Region> = {
+  CT: "Northeast", ME: "Northeast", MA: "Northeast", NH: "Northeast", RI: "Northeast",
+  VT: "Northeast", NJ: "Northeast", NY: "Northeast", PA: "Northeast",
+  IL: "Midwest", IN: "Midwest", MI: "Midwest", OH: "Midwest", WI: "Midwest",
+  IA: "Midwest", KS: "Midwest", MN: "Midwest", MO: "Midwest", NE: "Midwest",
+  ND: "Midwest", SD: "Midwest",
+  DE: "South", DC: "South", FL: "South", GA: "South", MD: "South", NC: "South",
+  SC: "South", VA: "South", WV: "South", AL: "South", KY: "South", MS: "South",
+  TN: "South", AR: "South", LA: "South", OK: "South", TX: "South",
+  AZ: "West", CO: "West", ID: "West", MT: "West", NV: "West", NM: "West",
+  UT: "West", WY: "West", AK: "West", CA: "West", HI: "West", OR: "West", WA: "West",
+};
+
+// CDC 2023 regional adult obesity prevalence (exact, self-reported / BRFSS).
+const REGION_OBESITY: Record<Region, number> = {
+  Midwest: 36.0,
+  South: 34.7,
+  West: 29.1,
+  Northeast: 28.6,
+};
+
+// CDC 2023: states where more than 1 in 3 adults (≥35%) have obesity.
+const HIGH_OBESITY = new Set([
+  "AL", "AK", "AR", "DE", "GA", "IL", "IN", "IA", "KS", "LA", "MI", "MS", "MO",
+  "NE", "NM", "ND", "OH", "OK", "SC", "SD", "TN", "WV", "WI",
+]);
+
+// CDC 2023: states at 40% or greater.
+const VERY_HIGH_OBESITY = new Set(["AR", "MS", "WV"]);
+
+export function obesityContext(s: StateInfo): {
+  region: Region;
+  regionPct: number;
+  high: boolean;
+  veryHigh: boolean;
+} {
+  const region = REGION_BY_ABBR[s.abbr] ?? "South";
+  return {
+    region,
+    regionPct: REGION_OBESITY[region],
+    high: HIGH_OBESITY.has(s.abbr),
+    veryHigh: VERY_HIGH_OBESITY.has(s.abbr),
+  };
+}
+
+// Distinctive, stable Medicaid program brands. States not listed use the plain
+// "{State} Medicaid" form (always accurate).
+const MEDICAID_BRAND: Record<string, string> = {
+  AZ: "AHCCCS",
+  CA: "Medi-Cal",
+  CO: "Health First Colorado",
+  CT: "HUSKY Health",
+  HI: "Med-QUEST",
+  KS: "KanCare",
+  LA: "Healthy Louisiana",
+  ME: "MaineCare",
+  MA: "MassHealth",
+  MN: "Medical Assistance",
+  MO: "MO HealthNet",
+  NJ: "NJ FamilyCare",
+  OK: "SoonerCare",
+  OR: "Oregon Health Plan",
+  SC: "Healthy Connections",
+  TN: "TennCare",
+  VT: "Green Mountain Care",
+  WA: "Apple Health",
+  WI: "BadgerCare Plus",
+};
+
+export function medicaidProgram(s: StateInfo): string {
+  return MEDICAID_BRAND[s.abbr] ?? `${s.name} Medicaid`;
+}
+
 // Human-readable status + a short explanation, composed per state.
 export function medicaidStatus(s: StateInfo): { label: string; tone: "yes" | "limited" | "no"; detail: string } {
   switch (s.medicaid) {
