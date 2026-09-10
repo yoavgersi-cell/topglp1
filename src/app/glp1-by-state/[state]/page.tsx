@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Check, Minus, X, ArrowRight, ArrowUpRight } from "lucide-react";
+import { Check, Minus, X, ArrowRight, ArrowUpRight, DollarSign, Landmark, CreditCard, Stethoscope, ListChecks, ShieldCheck } from "lucide-react";
 import { STATES, STATE_SLUGS, getState, medicaidStatus } from "@/data/states";
 import { getProvider } from "@/data/providers";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -41,6 +41,18 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
   const st = medicaidStatus(s);
   const Icon = toneIcon[st.tone];
   const embody = getProvider("embody");
+  const isCovered = s.medicaid === "covered" || s.medicaid === "limited";
+
+  const COST_ROWS: { label: string; value: string; note: string }[] = [
+    { label: "Branded (Wegovy / Zepbound) — cash", value: "$1,000–$1,400/mo", note: "Full list price without coverage" },
+    { label: "Branded — with insurance", value: "$0–$550/mo", note: "If your plan covers it (varies widely)" },
+    { label: "Compounded semaglutide — telehealth", value: "from $69/mo", note: "No insurance needed; ships to " + s.name },
+    { label: "Compounded tirzepatide — telehealth", value: "from $119/mo", note: "The stronger dual-agonist molecule" },
+  ];
+
+  const quickAnswer = isCovered
+    ? `${s.name} Medicaid ${st.tone === "limited" ? "covers GLP-1 for weight loss but with tightened criteria" : "is one of the few states that still cover GLP-1 for weight loss"} — so you may qualify through Medicaid. If you don't, a licensed telehealth program ships compounded GLP-1 to ${s.name} from about $69/month, no insurance required.`
+    : `${s.name} Medicaid ${st.tone === "no" && s.medicaid === "dropped" ? "recently ended" : "does not currently offer"} coverage of GLP-1 for weight loss. The route that works for most ${s.name} residents is a licensed telehealth program: compounded GLP-1 from about $69/month, no insurance required.`;
 
   const faqs = [
     {
@@ -48,12 +60,20 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       a: st.detail,
     },
     {
+      q: `Who qualifies for GLP-1 in ${s.name}?`,
+      a: `GLP-1 for weight management is generally appropriate for adults with a BMI of 30 or higher, or 27 or higher with a weight-related condition such as high blood pressure, high cholesterol, obstructive sleep apnoea or type 2 diabetes. A prescriber confirms whether it's right for you — the criteria are the same in ${s.name} as nationwide.`,
+    },
+    {
+      q: `How much does GLP-1 cost in ${s.name} without insurance?`,
+      a: `Branded GLP-1 at a ${s.name} pharmacy runs about $1,000–$1,400 a month at cash price. Compounded GLP-1 through a licensed telehealth program is far cheaper — from about $69/month for semaglutide and $119/month for tirzepatide (our top pick, Embody), shipped to ${s.name} with no insurance required.`,
+    },
+    {
       q: `How can I get GLP-1 in ${s.name} without insurance?`,
-      a: `Compounded GLP-1 through a licensed telehealth program is available to ${s.name} residents and is the lowest-cost route — from about $69/month for semaglutide (our top pick, Embody), versus $1,000+/month for branded at the pharmacy. No insurance is required.`,
+      a: `Complete a short online assessment with a licensed telehealth program. A prescriber reviews your case and, if appropriate, a licensed pharmacy ships the medication to your door in ${s.name}. It's the lowest-cost route and doesn't depend on ${s.name} Medicaid.`,
     },
     {
       q: `Is GLP-1 telehealth legal in ${s.name}?`,
-      a: `Yes. Licensed telehealth GLP-1 programs operate in ${s.name}, with a prescriber reviewing your case and a licensed pharmacy filling the medication. Use our provider safety check to confirm a program's credentials.`,
+      a: `Yes. Licensed telehealth GLP-1 programs operate in ${s.name}, with a prescriber reviewing your case and a licensed pharmacy filling the medication. Use our provider safety check to confirm a program's credentials before you sign up.`,
     },
   ];
 
@@ -87,9 +107,16 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       <h1 className="font-serif text-4xl font-semibold text-foreground">GLP-1 in {s.name}</h1>
       <EditorialByline chips={["Medicaid data from KFF & Stateline"]} />
       <p className="mt-4 text-lg leading-relaxed text-muted">
-        Here's how to get GLP-1 medication in {s.name} in 2026 — what Medicaid covers, and the cash route that works
-        statewide regardless of coverage.
+        A clear guide to getting GLP-1 medication in {s.name} in 2026 — what Medicaid covers, who qualifies, what it
+        costs, and the fastest legal route regardless of your coverage.
       </p>
+
+      {/* Quick answer (AEO) */}
+      <div className="mt-6 rounded-r-xl border-l-4 border-primary bg-primary-light/40 py-4 pl-5 pr-4">
+        <p className="leading-relaxed text-foreground">
+          <strong>Short answer:</strong> {quickAnswer}
+        </p>
+      </div>
 
       {/* Medicaid status card */}
       <div className="mt-8 rounded-2xl border border-border bg-surface p-6">
@@ -100,16 +127,98 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
         <p className="mt-3 leading-relaxed text-muted">{st.detail}</p>
       </div>
 
-      {/* Cash route */}
-      <section className="mt-8">
-        <h2 className="font-serif text-2xl font-semibold text-foreground">The cash route works in {s.name}</h2>
-        <p className="prose-body mt-3">
-          Whatever {s.name} Medicaid does, compounded GLP-1 through licensed telehealth is available to {s.name}{" "}
-          residents and doesn't depend on insurance. It's the same molecules (semaglutide, tirzepatide) prepared by a
-          compounding pharmacy, from about $69–$300 a month — a fraction of the $1,000+ branded pharmacy price. Our top
-          pick, {embody?.name ?? "Embody"}, offers flat $69/mo semaglutide with fast shipping.
+      {/* 3 routes */}
+      <section className="mt-10">
+        <h2 className="font-serif text-2xl font-semibold text-foreground">3 ways to get GLP-1 in {s.name}</h2>
+        <div className="mt-4 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl border border-border bg-surface p-5">
+            <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-primary">
+              <Landmark size={16} /> Medicaid
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              {isCovered
+                ? `${s.name} may cover it for weight loss with clinical criteria and prior authorization. Ask your ${s.name} Medicaid plan.`
+                : `Not currently a weight-loss benefit in ${s.name} (diabetes coverage continues). Worth confirming, but most people use the cash route.`}
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-surface p-5">
+            <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-primary">
+              <CreditCard size={16} /> Private / employer
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              Some commercial and employer plans cover branded GLP-1. Check your formulary; a prior authorization and a
+              BMI threshold usually apply.
+            </p>
+          </div>
+          <div className="rounded-2xl border-2 border-primary/30 bg-primary-light/30 p-5">
+            <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-primary">
+              <Stethoscope size={16} /> Cash telehealth
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-foreground">
+              Works statewide, no insurance required. Compounded GLP-1 from about <strong>$69/month</strong> — the
+              fastest, lowest-cost route for most {s.name} residents.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Cost table */}
+      <section className="mt-10">
+        <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
+          <DollarSign size={20} className="text-primary" /> What GLP-1 costs in {s.name}
+        </h2>
+        <div className="mt-4 overflow-hidden rounded-2xl border border-border">
+          {COST_ROWS.map((row, i) => (
+            <div
+              key={row.label}
+              className={`flex flex-col gap-1 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6 ${i > 0 ? "border-t border-border" : ""} ${i % 2 === 0 ? "bg-background" : "bg-surface"}`}
+            >
+              <div>
+                <p className="text-sm font-semibold text-foreground">{row.label}</p>
+                <p className="text-xs text-muted">{row.note}</p>
+              </div>
+              <span className="shrink-0 font-serif text-lg font-semibold text-primary">{row.value}</span>
+            </div>
+          ))}
+        </div>
+        <p className="mt-2 text-xs text-muted">
+          Prices are provider-reported and change; compounded availability depends on FDA shortage status. Confirm
+          current pricing before you buy.
         </p>
-        <div className="mt-4 flex flex-wrap gap-3">
+      </section>
+
+      {/* Eligibility */}
+      <section className="mt-10 rounded-2xl border border-border bg-surface p-6">
+        <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-muted">
+          <ShieldCheck size={16} className="text-primary" /> Who qualifies in {s.name}
+        </h2>
+        <p className="mt-2 text-sm leading-relaxed text-foreground">
+          GLP-1 for weight management is generally for adults with a <strong>BMI of 30+</strong>, or <strong>27+ with a
+          weight-related condition</strong> (high blood pressure, high cholesterol, sleep apnoea or type 2 diabetes).
+          The criteria are the same in {s.name} as nationwide — a prescriber makes the final call.
+        </p>
+      </section>
+
+      {/* How to start */}
+      <section className="mt-10">
+        <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
+          <ListChecks size={20} className="text-primary" /> How to start in {s.name}
+        </h2>
+        <ol className="mt-4 space-y-3">
+          {[
+            `Check your coverage first — ${isCovered ? `${s.name} Medicaid may cover it, and some private plans do too.` : `${s.name} Medicaid doesn't cover weight-loss GLP-1, so check any private/employer plan, then consider the cash route.`}`,
+            "Complete a short online health assessment with a licensed telehealth program.",
+            "A prescriber reviews your history and, if appropriate, prescribes.",
+            `A licensed pharmacy ships the medication to your door in ${s.name} — often within days.`,
+            "Follow up as your dose is titrated up over the first weeks.",
+          ].map((step, i) => (
+            <li key={i} className="flex gap-3">
+              <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-white">{i + 1}</span>
+              <span className="text-sm leading-relaxed text-foreground">{step}</span>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-5 flex flex-wrap gap-3">
           {embody && (
             <a
               href={embody.affiliateUrl}
@@ -121,10 +230,10 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
             </a>
           )}
           <Link
-            href="/find-your-match"
+            href="/tools/glp1-provider-safety-check"
             className="inline-flex items-center gap-1 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-foreground hover:border-primary"
           >
-            Find your match
+            Check a provider's safety
           </Link>
         </div>
       </section>
