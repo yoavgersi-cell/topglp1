@@ -1204,3 +1204,22 @@ export const PROVIDERS: Provider[] = [
 export function getProvider(id: string): Provider | undefined {
   return PROVIDERS.find((p) => p.id === id);
 }
+
+// Curated "best cash-pay compounded GLP-1" set for high-intent placements
+// (state pages, category blocks). Every entry:
+//   • is a compounded cash-pay program with a real starting price, and
+//   • has a live affiliate link (no "#" placeholders here).
+// Ordered by our editorial rank; Embody leads. A short, honest "why" line per
+// pick — sourced from that provider's own standout, not invented.
+export const CASH_PAY_PICKS: { id: string; why: string }[] = [
+  { id: "embody", why: "Lowest transparent flat price and LegitScript-certified 503A pharmacies." },
+  { id: "altrx", why: "Rock-bottom entry price, plus the rare option of brand-name Zepbound or Wegovy." },
+  { id: "healthrx", why: "Overnight cold-chain shipping and a low semaglutide price on prepaid plans." },
+  { id: "sprout", why: "Big first-month discount and fast dispatch to get started cheaply." },
+];
+
+export function cashPayPicks(): { provider: Provider; why: string }[] {
+  return CASH_PAY_PICKS.map((c) => ({ provider: getProvider(c.id)!, why: c.why })).filter(
+    (x) => x.provider && x.provider.affiliateUrl !== "#",
+  );
+}

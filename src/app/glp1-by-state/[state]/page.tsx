@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { Check, Minus, X, ArrowRight, ArrowUpRight, DollarSign, Landmark, CreditCard, Stethoscope, ListChecks, ShieldCheck, Activity } from "lucide-react";
+import { Check, Minus, X, ArrowRight, DollarSign, Landmark, CreditCard, Stethoscope, ListChecks, ShieldCheck, Activity } from "lucide-react";
 import { STATES, STATE_SLUGS, getState, medicaidStatus, obesityContext, medicaidProgram } from "@/data/states";
-import { getProvider } from "@/data/providers";
+import { StateProviderPicks } from "@/components/state-provider-picks";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialByline } from "@/components/editorial-byline";
 import { MedicalSources } from "@/components/medical-sources";
@@ -40,7 +40,6 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
 
   const st = medicaidStatus(s);
   const Icon = toneIcon[st.tone];
-  const embody = getProvider("embody");
   const isCovered = s.medicaid === "covered" || s.medicaid === "limited";
   const ob = obesityContext(s);
   const program = medicaidProgram(s);
@@ -261,25 +260,18 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
             </li>
           ))}
         </ol>
-        <div className="mt-5 flex flex-wrap gap-3">
-          {embody && (
-            <a
-              href={embody.affiliateUrl}
-              target="_blank"
-              rel="sponsored nofollow noopener"
-              className="inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
-            >
-              See {embody.name} — from $69/mo <ArrowUpRight size={15} />
-            </a>
-          )}
+        <div className="mt-5">
           <Link
             href="/tools/glp1-provider-safety-check"
             className="inline-flex items-center gap-1 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-foreground hover:border-primary"
           >
-            Check a provider's safety
+            Check a provider's safety first
           </Link>
         </div>
       </section>
+
+      {/* Best cash-pay programs — ranked, monetized */}
+      <StateProviderPicks stateName={s.name} />
 
       {/* Medicare note */}
       <section className="mt-8 rounded-2xl border border-border bg-primary-light/40 p-5 text-sm leading-relaxed text-foreground">
