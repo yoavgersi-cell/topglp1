@@ -10,6 +10,7 @@ const NAV = [
   { label: "Medications", href: "/medications" },
   { label: "Reviews", href: "/reviews" },
   { label: "Compare", href: "/compare" },
+  { label: "By state", href: "/glp1-by-state" },
   { label: "Guides", href: "/guides" },
   { label: "Tools", href: "/tools" },
   { label: "UK", href: "/uk" },
@@ -35,7 +36,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Logo variant={isUk ? "uk" : undefined} href={isUk ? "/uk" : "/"} />
 
-        <nav className="hidden items-center gap-7 md:flex">
+        <nav className="hidden items-center gap-5 md:flex lg:gap-6">
           {nav.map((item) => (
             <Link
               key={item.href}
