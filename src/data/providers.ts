@@ -164,7 +164,7 @@ export const PROVIDERS: Provider[] = [
       "Compounded products aren't FDA-approved finished drugs",
       "Brand-name pricing depends on insurance/eligibility",
     ],
-    affiliateUrl: "#",
+    affiliateUrl: "https://altrx.com/glp1/offer-v9?sub1=&sub2=&sub3=&sub4=&sub5=&_ef_transaction_id=&utm_source=partners&utm_campaign=id_21&utm_affiliate=21&ef=n&ef_oid=108&ef_aid=21&uid=95&oid=108&affid=21&uid=1910&oid2=5043&affid2=1952",
     ctaText: "View Plan",
     specs: {
       startingPrice: "$89/mo (compounded semaglutide)",
@@ -480,7 +480,7 @@ export const PROVIDERS: Provider[] = [
       "Entry pricing not published as a single flat number",
       "Compounded only",
     ],
-    affiliateUrl: "#",
+    affiliateUrl: "https://trimrx.com/glp1/offer-v4-meta?catalog=winter&discount=winter140&offer_url_id=29&oid=1&affid=40&oid2=4461&affid2=1952",
     ctaText: "View Plan",
     specs: {
       startingPrice: "Competitive (varies by plan — not a single flat number)",
@@ -529,7 +529,7 @@ export const PROVIDERS: Provider[] = [
       "Add-on services can inflate the real monthly cost",
       "Compounded only",
     ],
-    affiliateUrl: "#",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1593&aff_id=12905",
     ctaText: "View Plan",
     specs: {
       startingPrice: "50% off first month (then plan rate)",
@@ -625,7 +625,7 @@ export const PROVIDERS: Provider[] = [
       "Ongoing price may step up after the intro month",
       "Compounded only",
     ],
-    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1286&aff_id=12905",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1286&aff_id=12904",
     ctaText: "Get Started",
     specs: {
       startingPrice: "$200 off first month (then plan rate)",
@@ -673,7 +673,7 @@ export const PROVIDERS: Provider[] = [
       "Membership fee sits on top of medication cost",
       "Best value depends on insurance coverage",
     ],
-    affiliateUrl: "https://joinfound.com/",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1162&aff_id=12905",
     ctaText: "View Plan",
     specs: {
       startingPrice: "Membership + medication (up to $100 off)",
@@ -721,7 +721,7 @@ export const PROVIDERS: Provider[] = [
       "Fewer published details than top-ranked programs",
       "Compounded only",
     ],
-    affiliateUrl: "https://skinnyrx.com/",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1464&aff_id=12904",
     ctaText: "View Plan",
     specs: {
       startingPrice: "Varies (not published as a flat rate)",
@@ -806,7 +806,7 @@ export const PROVIDERS: Provider[] = [
     highlights: ["30% off your first month", "Compounded semaglutide and tirzepatide", "Multiple treatment options"],
     pros: ["Solid 30%-off intro offer", "Both semaglutide and tirzepatide", "Straightforward online process"],
     cons: ["Ongoing price after intro month less transparent", "Compounded only"],
-    affiliateUrl: "#",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1516&aff_id=12904",
     ctaText: "View Plan",
     specs: {
       startingPrice: "30% off first month (then plan rate)",
@@ -843,7 +843,7 @@ export const PROVIDERS: Provider[] = [
     highlights: ["Personalized medical supervision", "Trusted by over 50,000 patients", "Featured by leading health publications"],
     pros: ["Close medical supervision", "Large, established patient base", "Personalized plans"],
     cons: ["Pricing not published as a flat rate", "Compounded only"],
-    affiliateUrl: "https://www.synergyrx.co/",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1520&aff_id=12905",
     ctaText: "View Plan",
     specs: {
       startingPrice: "Varies (medically supervised plans)",
@@ -991,7 +991,7 @@ export const PROVIDERS: Provider[] = [
     highlights: ["No membership or hidden fees", "Free nationwide shipping", "HSA/FSA eligible plans"],
     pros: ["No membership or hidden fees", "Free nationwide shipping", "HSA/FSA eligible"],
     cons: ["Smaller, less-established brand", "Compounded only"],
-    affiliateUrl: "https://wellorithm.com/",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1565&aff_id=12904",
     ctaText: "View Plan",
     specs: {
       startingPrice: "From $147/mo",
@@ -1028,7 +1028,7 @@ export const PROVIDERS: Provider[] = [
     highlights: ["Licensed providers in all 50 states", "Free expedited prescription shipping", "Trusted by 20,000+ patients"],
     pros: ["Available in all 50 states", "Free expedited shipping", "Low entry price"],
     cons: ["Smaller review base", "Compounded only"],
-    affiliateUrl: "https://tryyucca.com/",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1460&aff_id=12905",
     ctaText: "View Plan",
     specs: {
       startingPrice: "From $146/mo",
@@ -1065,7 +1065,7 @@ export const PROVIDERS: Provider[] = [
     highlights: ["Free shipping in 1–2 days", "No insurance required", "Online medical visit included"],
     pros: ["Fast 1–2 day shipping", "No insurance required", "Low entry price"],
     cons: ["Smaller, less-established brand", "Compounded only"],
-    affiliateUrl: "https://directmeds.com",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1304&aff_id=12904",
     ctaText: "View Plan",
     specs: {
       startingPrice: "From $147/mo",
@@ -1102,7 +1102,7 @@ export const PROVIDERS: Provider[] = [
     highlights: ["Clinician-prescribed care", "Compounded GLP-1 treatments", "Science-backed weight loss"],
     pros: ["Clinician-prescribed", "Compounded GLP-1 options", "Straightforward program"],
     cons: ["Fewer published details", "Compounded only"],
-    affiliateUrl: "#",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1522&aff_id=12905",
     ctaText: "View Plan",
     specs: {
       startingPrice: "Varies by plan",
@@ -1139,7 +1139,7 @@ export const PROVIDERS: Provider[] = [
     highlights: ["Provider-guided weight loss", "Choose GLP-1 or GIP + GLP-1", "No commitment until approved"],
     pros: ["No commitment until approved", "Choice of GLP-1 or GIP+GLP-1", "Provider-guided"],
     cons: ["Smaller review base", "Compounded only"],
-    affiliateUrl: "#",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1584&aff_id=12905&url_id=12381",
     ctaText: "View Plan",
     specs: {
       startingPrice: "Varies (no commitment until approved)",
