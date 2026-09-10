@@ -5,6 +5,7 @@ import { ANSWER_GROUPS, ALL_ANSWERS } from "@/data/answers";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialByline } from "@/components/editorial-byline";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
+import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 export const metadata: Metadata = pageMetadata({
   title: "GLP-1 Quick Answers: Cost, Best Medication, Coverage & Safety (2026)",
@@ -15,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function AnswersPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={<DefaultAside />}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -80,6 +81,6 @@ export default function AnswersPage() {
         licensed clinician. See our{" "}
         <Link href="/how-we-review" className="font-semibold text-primary underline">editorial standards</Link>.
       </p>
-    </div>
+    </ArticleLayout>
   );
 }

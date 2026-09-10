@@ -10,6 +10,7 @@ import { MedicalSources } from "@/components/medical-sources";
 import { Faq } from "@/components/faq";
 import { TrustpilotStars, TrustpilotLogo } from "@/components/trustpilot";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
+import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 export function generateStaticParams() {
   return ukBattleSlugs().map((slug) => ({ slug }));
@@ -77,7 +78,7 @@ export default async function UkComparePage({ params }: { params: Promise<{ slug
   ];
 
   return (
-    <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={<DefaultAside uk />}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
       <script
         type="application/ld+json"
@@ -240,6 +241,6 @@ export default async function UkComparePage({ params }: { params: Promise<{ slug
       </nav>
 
       <MedicalSources keys={["mhra-illegal-weightloss", "nhs-obesity"]} />
-    </article>
+    </ArticleLayout>
   );
 }

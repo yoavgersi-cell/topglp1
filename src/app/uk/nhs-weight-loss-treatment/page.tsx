@@ -8,6 +8,7 @@ import { MedicalSources } from "@/components/medical-sources";
 import { Faq } from "@/components/faq";
 import { UK_CHAMPION } from "@/data/uk";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
+import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 export const metadata: Metadata = pageMetadata({
   title: "Weight-Loss Treatment on the NHS (2026): Am I Eligible?",
@@ -42,7 +43,7 @@ const c = UK_CHAMPION;
 
 export default function NhsWeightLossPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={<DefaultAside uk />}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(FAQS)) }} />
       <script
         type="application/ld+json"
@@ -150,6 +151,6 @@ export default function NhsWeightLossPage() {
       </nav>
 
       <MedicalSources keys={["nhs-obesity", "mhra-illegal-weightloss"]} />
-    </div>
+    </ArticleLayout>
   );
 }

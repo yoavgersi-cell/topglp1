@@ -13,6 +13,7 @@ import { MedicalSources } from "@/components/medical-sources";
 import { Faq } from "@/components/faq";
 import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, faqSchema, articleSchema } from "@/lib/seo";
+import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 export const revalidate = 3600;
 
@@ -44,7 +45,7 @@ export default async function MedComparisonPage({ params }: { params: Promise<{ 
   const otherComparisons = MED_COMPARISONS.filter((x) => x.slug !== c.slug).slice(0, 4);
 
   return (
-    <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={<DefaultAside />}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -234,6 +235,6 @@ export default async function MedComparisonPage({ params }: { params: Promise<{ 
           ))}
         </div>
       </nav>
-    </article>
+    </ArticleLayout>
   );
 }

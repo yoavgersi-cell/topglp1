@@ -6,6 +6,7 @@ import { SITE } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialByline } from "@/components/editorial-byline";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
+import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 export const metadata: Metadata = pageMetadata({
   title: "GLP-1 Glossary: 22 Key Terms Explained (Semaglutide to 503A Pharmacy)",
@@ -29,7 +30,7 @@ export default function GlossaryPage() {
   };
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={<DefaultAside />}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(definedTermSet) }} />
       <script
         type="application/ld+json"
@@ -73,6 +74,6 @@ export default function GlossaryPage() {
         or the{" "}
         <Link href="/glp1-answers" className="font-semibold text-primary underline">quick answers</Link>.
       </p>
-    </div>
+    </ArticleLayout>
   );
 }

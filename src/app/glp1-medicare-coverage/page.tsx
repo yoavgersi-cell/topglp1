@@ -6,6 +6,7 @@ import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { MedicalSources } from "@/components/medical-sources";
 import { Faq } from "@/components/faq";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
+import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 export const metadata: Metadata = pageMetadata({
   title: "Does Medicare Cover GLP-1 for Weight Loss? 2026 Part D & Bridge Guide",
@@ -35,7 +36,7 @@ const FAQS = [
 
 export default function MedicarePage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={<DefaultAside />}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(FAQS)) }}
@@ -125,6 +126,6 @@ export default function MedicarePage() {
       </section>
 
       <MedicalSources keys={["medicare-glp1-bridge", "kff-medicare-balance", "fda-unapproved-glp1"]} />
-    </div>
+    </ArticleLayout>
   );
 }

@@ -9,6 +9,7 @@ import { Faq } from "@/components/faq";
 import { TrustpilotStars, TrustpilotLogo } from "@/components/trustpilot";
 import { UK_CHAMPION, ukBattleSlugs, resolveUkBattle } from "@/data/uk";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
+import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 const COMPARISONS = ukBattleSlugs()
   .map((slug) => {
@@ -50,7 +51,7 @@ const c = UK_CHAMPION;
 
 export default function UkHubPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={<DefaultAside uk />}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(FAQS)) }} />
       <script
         type="application/ld+json"
@@ -218,6 +219,6 @@ export default function UkHubPage() {
       </section>
 
       <MedicalSources keys={["mhra-illegal-weightloss", "nhs-obesity", "mhra-record-seizure"]} />
-    </div>
+    </ArticleLayout>
   );
 }

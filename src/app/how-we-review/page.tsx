@@ -5,6 +5,7 @@ import { SITE, CONTENT_REVIEWED } from "@/lib/site";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MedicalSources } from "@/components/medical-sources";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
+import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 export const metadata: Metadata = pageMetadata({
   title: "How We Review & Rank GLP-1 Programs — Our Editorial Standards",
@@ -15,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function HowWeReviewPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={<DefaultAside />}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -122,6 +123,6 @@ export default function HowWeReviewPage() {
       </div>
 
       <MedicalSources keys={["step-1", "surmount-1", "fda-unapproved-glp1"]} />
-    </div>
+    </ArticleLayout>
   );
 }
