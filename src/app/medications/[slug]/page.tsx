@@ -11,6 +11,7 @@ import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { MedicalSources } from "@/components/medical-sources";
 import { Faq } from "@/components/faq";
 import { ProviderCard } from "@/components/provider-card";
+import { ArticleLayout, AsideCard, OnThisPage } from "@/components/article-layout";
 import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, articleSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
@@ -61,8 +62,64 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
     (c) => c.aMedSlug === med.slug || c.bMedSlug === med.slug,
   ).slice(0, 4);
 
+  const cheapestHref =
+    med.slug === "semaglutide"
+      ? "/semaglutide-online"
+      : med.slug === "tirzepatide"
+        ? "/tirzepatide-online"
+        : "/cheapest-glp1";
+  const fromPrice = med.cost.compoundedRange ?? med.cost.brandedRange;
+
+  const aside = (
+    <>
+      <OnThisPage
+        items={[
+          { id: "how-it-works", label: `How ${med.name.toLowerCase()} works` },
+          { id: "efficacy", label: "How well it works" },
+          { id: "dosing", label: "Dosing schedule" },
+          { id: "side-effects", label: "Side effects & safety" },
+          { id: "cost", label: "What it costs" },
+          { id: "who-for", label: "Who it's for" },
+          { id: "faq", label: "Common questions" },
+        ]}
+      />
+      <AsideCard title="Key facts">
+        <dl className="space-y-2.5 text-sm">
+          <div>
+            <dt className="text-xs text-muted">Drug class</dt>
+            <dd className="font-medium text-foreground">{med.drugClass}</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted">Administration</dt>
+            <dd className="font-medium text-foreground">{med.route}</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted">Brand names</dt>
+            <dd className="font-medium text-foreground">{med.brandNames.join(", ")}</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted">From</dt>
+            <dd className="font-medium text-foreground">{fromPrice}</dd>
+          </div>
+        </dl>
+      </AsideCard>
+      <Link
+        href={cheapestHref}
+        className="block rounded-2xl border border-primary/30 bg-primary-light/40 p-5 transition-colors hover:border-primary"
+      >
+        <p className="text-xs font-semibold uppercase tracking-wide text-primary">Ready to compare?</p>
+        <p className="mt-1.5 text-sm font-semibold text-foreground">
+          See the programs that offer {med.name.toLowerCase()}, ranked by price
+        </p>
+        <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+          Compare programs <ArrowRight size={14} />
+        </span>
+      </Link>
+    </>
+  );
+
   return (
-    <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={aside}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -141,7 +198,7 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
       </section>
 
       {/* How it works */}
-      <section className="mt-10">
+      <section id="how-it-works" className="mt-10 scroll-mt-24">
         <SectionTitle icon={Pill}>How {med.name.toLowerCase()} works</SectionTitle>
         <div className="prose-body mt-4">
           {med.howItWorks.map((p, i) => (
@@ -151,7 +208,7 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
       </section>
 
       {/* Efficacy */}
-      <section className="mt-10">
+      <section id="efficacy" className="mt-10 scroll-mt-24">
         <SectionTitle icon={TrendingUp}>How well it works</SectionTitle>
         <p className="mt-4 rounded-xl border border-border bg-surface p-4 font-semibold text-foreground">
           {med.efficacy.headline}
@@ -171,7 +228,7 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
       </section>
 
       {/* Dosing */}
-      <section className="mt-10">
+      <section id="dosing" className="mt-10 scroll-mt-24">
         <SectionTitle icon={Pill}>Dosing schedule</SectionTitle>
         <p className="prose-body mt-4">{med.dosing.intro}</p>
         <div className="mt-5 overflow-hidden rounded-2xl border border-border bg-surface">
@@ -198,7 +255,7 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
       </section>
 
       {/* Side effects */}
-      <section className="mt-10">
+      <section id="side-effects" className="mt-10 scroll-mt-24">
         <SectionTitle icon={AlertTriangle}>Side effects &amp; safety</SectionTitle>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <div className="rounded-2xl border border-border bg-surface p-5">
@@ -222,7 +279,7 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
       </section>
 
       {/* Cost */}
-      <section className="mt-10">
+      <section id="cost" className="mt-10 scroll-mt-24">
         <SectionTitle icon={DollarSign}>What it costs</SectionTitle>
         <dl className="mt-4 space-y-3">
           <div className="rounded-xl border border-border bg-surface p-4">
@@ -243,7 +300,7 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
       </section>
 
       {/* Who it's for */}
-      <section className="mt-10">
+      <section id="who-for" className="mt-10 scroll-mt-24">
         <SectionTitle icon={Check}>Who it's for — and who should avoid it</SectionTitle>
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <div className="rounded-2xl border border-border bg-surface p-5">
@@ -270,7 +327,7 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
       </section>
 
       {/* FAQ */}
-      <section className="mt-10">
+      <section id="faq" className="mt-10 scroll-mt-24">
         <SectionTitle icon={Pill}>Common questions</SectionTitle>
         <div className="mt-4">
           <Faq items={med.faqs} />
@@ -360,6 +417,6 @@ export default async function MedicationPage({ params }: { params: Promise<{ slu
           ))}
         </div>
       </nav>
-    </article>
+    </ArticleLayout>
   );
 }
