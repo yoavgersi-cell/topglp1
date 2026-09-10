@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Check, Minus, X, ArrowRight, DollarSign, Landmark, CreditCard, Stethoscope, ListChecks, ShieldCheck, Activity } from "lucide-react";
 import { STATES, STATE_SLUGS, getState, medicaidStatus, obesityContext, medicaidProgram } from "@/data/states";
 import { StateProviderPicks } from "@/components/state-provider-picks";
+import { ArticleLayout, OnThisPage } from "@/components/article-layout";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialByline } from "@/components/editorial-byline";
 import { MedicalSources } from "@/components/medical-sources";
@@ -78,8 +79,38 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
     },
   ];
 
+  const aside = (
+    <>
+      <OnThisPage
+        items={[
+          { id: "short-answer", label: "Short answer" },
+          { id: "by-the-numbers", label: `${s.name} by the numbers` },
+          { id: "medicaid", label: "Medicaid coverage" },
+          { id: "ways", label: "3 ways to get it" },
+          { id: "cost", label: "What it costs" },
+          { id: "eligibility", label: "Who qualifies" },
+          { id: "how-to-start", label: "How to start" },
+          { id: "best-programs", label: "Best cash-pay programs" },
+          { id: "faq", label: "Common questions" },
+        ]}
+      />
+      <Link
+        href="#best-programs"
+        className="block rounded-2xl border border-primary/30 bg-primary-light/40 p-5 transition-colors hover:border-primary"
+      >
+        <p className="text-xs font-semibold uppercase tracking-wide text-primary">Fastest route in {s.name}</p>
+        <p className="mt-1.5 text-sm font-semibold text-foreground">
+          Compounded GLP-1 shipped to {s.name} from $69/mo, no insurance
+        </p>
+        <span className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+          See best programs <ArrowRight size={14} />
+        </span>
+      </Link>
+    </>
+  );
+
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <ArticleLayout aside={aside}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }}
@@ -113,14 +144,14 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       </p>
 
       {/* Quick answer (AEO) */}
-      <div className="mt-6 rounded-r-xl border-l-4 border-primary bg-primary-light/40 py-4 pl-5 pr-4">
+      <div id="short-answer" className="mt-6 scroll-mt-24 rounded-r-xl border-l-4 border-primary bg-primary-light/40 py-4 pl-5 pr-4">
         <p className="leading-relaxed text-foreground">
           <strong>Short answer:</strong> {quickAnswer}
         </p>
       </div>
 
       {/* By the numbers — real, cited per-state context */}
-      <section className="mt-8">
+      <section id="by-the-numbers" className="mt-8 scroll-mt-24">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">{s.name}: by the numbers</h2>
         <div className="mt-3 grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-border bg-surface p-5">
@@ -161,7 +192,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       </section>
 
       {/* Medicaid status card */}
-      <div className="mt-8 rounded-2xl border border-border bg-surface p-6">
+      <div id="medicaid" className="mt-8 scroll-mt-24 rounded-2xl border border-border bg-surface p-6">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">{program} — weight-loss GLP-1</h2>
         <p className={`mt-2 flex items-center gap-2 font-serif text-2xl font-semibold ${st.tone === "yes" ? "text-primary" : st.tone === "limited" ? "text-accent" : "text-foreground"}`}>
           <Icon size={22} /> {st.label}
@@ -170,7 +201,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       </div>
 
       {/* 3 routes */}
-      <section className="mt-10">
+      <section id="ways" className="mt-10 scroll-mt-24">
         <h2 className="font-serif text-2xl font-semibold text-foreground">3 ways to get GLP-1 in {s.name}</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-3">
           <div className="rounded-2xl border border-border bg-surface p-5">
@@ -205,7 +236,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       </section>
 
       {/* Cost table */}
-      <section className="mt-10">
+      <section id="cost" className="mt-10 scroll-mt-24">
         <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
           <DollarSign size={20} className="text-primary" /> What GLP-1 costs in {s.name}
         </h2>
@@ -230,7 +261,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       </section>
 
       {/* Eligibility */}
-      <section className="mt-10 rounded-2xl border border-border bg-surface p-6">
+      <section id="eligibility" className="mt-10 scroll-mt-24 rounded-2xl border border-border bg-surface p-6">
         <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-muted">
           <ShieldCheck size={16} className="text-primary" /> Who qualifies in {s.name}
         </h2>
@@ -242,7 +273,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       </section>
 
       {/* How to start */}
-      <section className="mt-10">
+      <section id="how-to-start" className="mt-10 scroll-mt-24">
         <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
           <ListChecks size={20} className="text-primary" /> How to start in {s.name}
         </h2>
@@ -271,7 +302,9 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       </section>
 
       {/* Best cash-pay programs — ranked, monetized */}
-      <StateProviderPicks stateName={s.name} />
+      <div id="best-programs" className="scroll-mt-24">
+        <StateProviderPicks stateName={s.name} />
+      </div>
 
       {/* Medicare note */}
       <section className="mt-8 rounded-2xl border border-border bg-primary-light/40 p-5 text-sm leading-relaxed text-foreground">
@@ -282,7 +315,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       </section>
 
       {/* FAQ */}
-      <section className="mt-10">
+      <section id="faq" className="mt-10 scroll-mt-24">
         <h2 className="font-serif text-2xl font-semibold text-foreground">GLP-1 in {s.name}: common questions</h2>
         <div className="mt-4 space-y-3">
           {faqs.map((f) => (
@@ -316,6 +349,6 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
           </Link>
         </div>
       </nav>
-    </div>
+    </ArticleLayout>
   );
 }
