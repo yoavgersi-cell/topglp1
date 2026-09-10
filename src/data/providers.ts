@@ -1214,12 +1214,15 @@ export function getProvider(id: string): Provider | undefined {
 export const CASH_PAY_PICKS: { id: string; why: string }[] = [
   { id: "embody", why: "Lowest transparent flat price and LegitScript-certified 503A pharmacies." },
   { id: "altrx", why: "Rock-bottom entry price, plus the rare option of brand-name Zepbound or Wegovy." },
+  { id: "trimrx", why: "Ongoing clinical guidance and dose management, not a one-and-done script." },
+  { id: "shed", why: "A strong first-month discount to start compounded GLP-1 cheaply." },
   { id: "healthrx", why: "Overnight cold-chain shipping and a low semaglutide price on prepaid plans." },
-  { id: "sprout", why: "Big first-month discount and fast dispatch to get started cheaply." },
+  { id: "synergyrx", why: "Hands-on, medically-supervised plans for closer monitoring." },
 ];
 
 export function cashPayPicks(): { provider: Provider; why: string }[] {
-  return CASH_PAY_PICKS.map((c) => ({ provider: getProvider(c.id)!, why: c.why })).filter(
-    (x) => x.provider && x.provider.affiliateUrl !== "#",
-  );
+  return CASH_PAY_PICKS.map((c) => ({ provider: getProvider(c.id)!, why: c.why }))
+    .filter((x) => x.provider && x.provider.affiliateUrl !== "#")
+    // Display in descending editorial score so the ranking matches the number shown.
+    .sort((a, b) => b.provider.rating - a.provider.rating);
 }
