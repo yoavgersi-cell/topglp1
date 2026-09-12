@@ -13,7 +13,7 @@ import {
   expansionAdopted,
   type StateInfo,
 } from "@/data/states";
-import { cashPayPicks, getProvider } from "@/data/providers";
+import { cashPayPicksForState, providerServesAllStates, getProvider } from "@/data/providers";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EditorialByline } from "@/components/editorial-byline";
 import { MedicalSources } from "@/components/medical-sources";
@@ -85,7 +85,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
   const isCovered = s.medicaid === "covered" || s.medicaid === "limited";
   const ro = getProvider("ro");
 
-  const picks = cashPayPicks();
+  const picks = cashPayPicksForState(s.abbr);
   const top3 = picks.slice(0, 3);
   const rest = picks.slice(3);
   const differentiator: Record<string, string> = {
@@ -124,6 +124,14 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
     {
       q: `Does Medicare cover GLP-1 in ${s.name}?`,
       a: `Medicare Part D still excludes drugs prescribed purely for weight loss, the same in ${s.name} as everywhere. A temporary federal demonstration (July 2026–Dec 2027) offers Wegovy, Zepbound or Foundayo for a $50 copay to eligible members, and GLP-1s remain covered for approved medical indications such as type 2 diabetes.`,
+    },
+    {
+      q: `Can I get tirzepatide online in ${s.name}?`,
+      a: `Yes. Compounded tirzepatide — the dual GLP-1/GIP molecule in Zepbound and Mounjaro — is available to ${s.name} residents through licensed telehealth from about $119/month, no insurance required. Brand-name Zepbound is a separate, insurance-oriented route (see the cost table above).`,
+    },
+    {
+      q: `Are compounded GLP-1 medications available in ${s.name}?`,
+      a: `Yes, through licensed telehealth programs that use US compounding pharmacies. Compounded semaglutide and tirzepatide are not FDA-approved finished drugs, and their availability can shift with FDA shortage status — always confirm a program uses a licensed pharmacy (our provider safety check helps).`,
     },
   ];
 
@@ -224,6 +232,11 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
                 private insurance or cash-pay routes.
               </p>
             )}
+            <p>
+              Coverage is also in flux nationally: a federal Medicaid demonstration (the BALANCE model) aims to expand
+              access to obesity medications beginning in 2026, but participation is state-by-state and {s.name}&rsquo;s
+              involvement isn&rsquo;t yet confirmed.
+            </p>
             <p>
               Coverage rules change; confirm current status directly with{" "}
               <span className="font-medium text-foreground">{program}</span>.
@@ -366,6 +379,9 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
                 {p.specs.startingPrice}
                 {p.externalReviews && <> · Trustpilot {p.externalReviews.score}</>}
               </p>
+              <p className="mt-1 text-xs text-muted">
+                {providerServesAllStates(p) ? `Ships to all 50 states, including ${s.name}` : "Ships to most US states"}
+              </p>
               <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
                 <a href={p.affiliateUrl} target="_blank" rel="sponsored nofollow noopener" className="font-semibold text-primary hover:underline">
                   Visit {p.name} →
@@ -439,7 +455,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       {/* Sources & methodology */}
       <section id="sources" className="mt-12 scroll-mt-24">
         <MedicalSources
-          keys={["kff-medicaid-glp1", "kff-medicaid-expansion", "stateline-glp1-medicaid", "cdc-obesity-maps", "medicare-glp1-bridge"]}
+          keys={["kff-medicaid-glp1", "kff-medicaid-expansion", "stateline-glp1-medicaid", "kff-medicare-balance", "cdc-obesity-maps", "medicare-glp1-bridge"]}
         />
         <p className="mt-4 text-xs leading-relaxed text-muted">
           <strong className="text-foreground">Methodology:</strong> coverage status is drawn from KFF and Stateline

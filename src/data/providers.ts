@@ -135,6 +135,13 @@ export interface Provider {
   editorial?: ProviderEditorial;
   /** Verified third-party reviews (Trustpilot etc.), when we have real data. */
   externalReviews?: ExternalReviews;
+  /**
+   * State abbreviations this provider does NOT serve — only populate from a
+   * verified source (the provider's own state list). Absent/empty means we have
+   * no verified exclusion; combined with `specs.states` it drives state-aware
+   * availability. NEVER guess exclusions.
+   */
+  excludedStates?: string[];
 }
 
 export const PROVIDERS: Provider[] = [
@@ -1275,4 +1282,20 @@ export function cashPayPicks(): { provider: Provider; why: string }[] {
     .filter((x) => x.provider && x.provider.affiliateUrl !== "#")
     // Display in descending editorial score so the ranking matches the number shown.
     .sort((a, b) => b.provider.rating - a.provider.rating);
+}
+
+// True when the provider publicly reports serving every state (vs. "most").
+export function providerServesAllStates(p: Provider): boolean {
+  return /nationwide|all 50/i.test(p.specs.states);
+}
+
+// State-aware availability. A provider serves a state unless it's in a VERIFIED
+// exclusion list. (No exclusions are guessed; the "most US states" providers are
+// still shown, flagged as "confirm at signup" in the UI.)
+export function servesState(p: Provider, stateAbbr: string): boolean {
+  return !p.excludedStates?.includes(stateAbbr);
+}
+
+export function cashPayPicksForState(stateAbbr: string): { provider: Provider; why: string }[] {
+  return cashPayPicks().filter(({ provider }) => servesState(provider, stateAbbr));
 }
