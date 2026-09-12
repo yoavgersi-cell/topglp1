@@ -179,6 +179,18 @@ export function medicaidProgram(s: StateInfo): string {
   return MEDICAID_BRAND[s.abbr] ?? `${s.name} Medicaid`;
 }
 
+// States that have NOT adopted the ACA Medicaid expansion (KFF, current as of
+// 2026). In these states eligibility is narrower — many working-age adults
+// without dependents don't qualify for Medicaid at all — which is a real,
+// state-specific reason more residents rely on private or cash-pay routes.
+const NON_EXPANSION = new Set([
+  "AL", "FL", "GA", "KS", "MS", "SC", "TN", "TX", "WI", "WY",
+]);
+
+export function expansionAdopted(s: StateInfo): boolean {
+  return !NON_EXPANSION.has(s.abbr);
+}
+
 // Human-readable status + a short explanation, composed per state.
 export function medicaidStatus(s: StateInfo): { label: string; tone: "yes" | "limited" | "no"; detail: string } {
   switch (s.medicaid) {

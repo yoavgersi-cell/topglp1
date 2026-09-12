@@ -155,6 +155,13 @@ export const SOURCES: Record<string, Source> = {
     type: "Regulatory",
     note: "US adult obesity prevalence data (roughly 40% of adults).",
   },
+  "kff-medicaid-expansion": {
+    citation: "KFF. Status of State Medicaid Expansion Decisions.",
+    publisher: "KFF (Kaiser Family Foundation)",
+    url: "https://www.kff.org/status-of-state-medicaid-expansion-decisions/",
+    type: "Policy analysis",
+    note: "Tracks which states have adopted the ACA Medicaid expansion; Alabama has not.",
+  },
   "cdc-obesity-maps": {
     citation: "CDC. Adult Obesity Prevalence Maps (2023, BRFSS self-reported).",
     publisher: "U.S. Centers for Disease Control and Prevention",
