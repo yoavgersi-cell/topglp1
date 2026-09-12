@@ -347,7 +347,7 @@ export const PROVIDERS: Provider[] = [
       "Membership fee on top of medication",
       "Branded supply can be affected by shortages",
     ],
-    affiliateUrl: "#",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1662&aff_id=12904",
     ctaText: "View Plan",
     specs: {
       startingPrice: "Membership + medication (insurance-dependent)",
