@@ -23,6 +23,7 @@ import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { Faq } from "@/components/faq";
 import { TrustpilotStars, TrustpilotLogo } from "@/components/trustpilot";
 import { ArticleLayout, AsideCard } from "@/components/article-layout";
+import { Scorecard } from "@/components/scorecard";
 import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
@@ -240,6 +241,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
           {p.ctaText}: {p.name} <ArrowUpRight size={15} />
         </a>
       </div>
+
+      {/* Score breakdown */}
+      <Scorecard provider={p} />
 
       {/* Answer-first Q&A (AEO) */}
       {p.editorial && (
