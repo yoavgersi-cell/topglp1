@@ -49,6 +49,12 @@ export interface Battle {
   winner: string;
   /** One-line reason the pick is our default recommendation. */
   winnerReason: string;
+  /**
+   * Optional split verdict: when both providers genuinely win for different
+   * buyers, render a dual "winner" banner (each with its own CTA) instead of a
+   * single pick. `winner` still holds the overall/default pick.
+   */
+  splitVerdict?: { aFor: string; aReason: string; bFor: string; bReason: string };
   chooseA: string;
   chooseB: string;
   /** Prose analysis of the pricing difference. */
@@ -76,6 +82,12 @@ export const BATTLES: Battle[] = [
     winner: "embody",
     winnerReason:
       "Embody's flat, cash-price GLP-1 is the realistic pick for most people — the only reason to choose Ro is if your insurance genuinely covers branded GLP-1.",
+    splitVerdict: {
+      aFor: "Paying cash / lowest price",
+      aReason: "Flat $69/mo semaglutide, $119/mo tirzepatide — no insurance, no surprises.",
+      bFor: "Brand-name meds or insurance",
+      bReason: "FDA-approved Wegovy or Zepbound with insurance coordination and clinician support.",
+    },
     chooseA: "you're paying cash and want the lowest, most predictable monthly price with fast shipping.",
     chooseB: "you want an FDA-approved branded medication and think your insurance may cover it.",
     pricingAnalysis: [

@@ -189,28 +189,58 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
 
       <MedicalDisclaimer className="mt-4" />
 
-      {/* Our pick banner */}
-      <section className="mt-6 overflow-hidden rounded-2xl border-2 border-primary bg-primary-light/50">
-        <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
-              <Trophy size={14} /> Our pick
-            </span>
-            <div className="relative h-8 w-28">
-              <Image src={winner.logo} alt={`${winner.name} logo`} fill className="object-contain object-left" sizes="112px" />
+      {/* Our pick banner — single, or a split verdict when both win a lane */}
+      {b.splitVerdict ? (
+        <section className="mt-6 grid gap-4 sm:grid-cols-2">
+          {[
+            { p: a, forWho: b.splitVerdict.aFor, reason: b.splitVerdict.aReason },
+            { p: bp, forWho: b.splitVerdict.bFor, reason: b.splitVerdict.bReason },
+          ].map(({ p, forWho, reason }) => (
+            <div key={p.id} className="flex flex-col rounded-2xl border-2 border-primary/40 bg-primary-light/30 p-5">
+              <div className="flex items-center gap-2">
+                <Trophy size={14} className="text-primary" />
+                <span className="text-xs font-bold uppercase tracking-wide text-primary">Best for {forWho}</span>
+              </div>
+              <div className="relative mt-3 h-7 w-24">
+                <Image src={p.logo} alt={`${p.name} logo`} fill className="object-contain object-left" sizes="96px" />
+              </div>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground">{reason}</p>
+              {p.affiliateUrl !== "#" && (
+                <a
+                  href={p.affiliateUrl}
+                  target="_blank"
+                  rel="sponsored nofollow noopener"
+                  className="mt-4 inline-flex items-center justify-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+                >
+                  {p.ctaText}: {p.name} <ArrowUpRight size={15} />
+                </a>
+              )}
             </div>
+          ))}
+        </section>
+      ) : (
+        <section className="mt-6 overflow-hidden rounded-2xl border-2 border-primary bg-primary-light/50">
+          <div className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center">
+            <div className="flex items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                <Trophy size={14} /> Our pick
+              </span>
+              <div className="relative h-8 w-28">
+                <Image src={winner.logo} alt={`${winner.name} logo`} fill className="object-contain object-left" sizes="112px" />
+              </div>
+            </div>
+            <p className="flex-1 text-sm leading-relaxed text-foreground">{b.winnerReason}</p>
+            <a
+              href={winner.affiliateUrl}
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              className="inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+            >
+              {winner.ctaText}: {winner.name} <ArrowUpRight size={15} />
+            </a>
           </div>
-          <p className="flex-1 text-sm leading-relaxed text-foreground">{b.winnerReason}</p>
-          <a
-            href={winner.affiliateUrl}
-            target="_blank"
-            rel="sponsored nofollow noopener"
-            className="inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
-          >
-            {winner.ctaText}: {winner.name} <ArrowUpRight size={15} />
-          </a>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Verdict panel — decision-first, with rank + score */}
       <section className="mt-4 grid gap-4 sm:grid-cols-2">
