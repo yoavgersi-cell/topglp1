@@ -110,6 +110,12 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       a: st.detail,
     },
     {
+      q: `Does ${program} cover Zepbound or Wegovy in ${s.name}?`,
+      a: isCovered
+        ? `${program} may cover branded weight-loss GLP-1 (Wegovy or Zepbound) under ${s.name}'s clinical criteria and prior authorization — ${s.name} is among the states whose Medicaid still covers the obesity indication. Ozempic and Mounjaro are separately covered for type 2 diabetes. Confirm current rules with ${program}.`
+        : `${program} doesn't cover Zepbound or Wegovy for weight loss. GLP-1s like Ozempic and Mounjaro can be covered for type 2 diabetes with prior authorization, but the weight-loss (obesity) indication is excluded from ${s.name}'s Medicaid benefit. Confirm current rules with ${program}.`,
+    },
+    {
       q: `How much does GLP-1 cost in ${s.name} without insurance?`,
       a: `Branded GLP-1 at a ${s.name} pharmacy runs about $1,000–$1,400 a month at cash price. Compounded GLP-1 through a licensed telehealth program is far cheaper — from about $69/month for semaglutide and $119/month for tirzepatide — shipped to ${s.name} with no insurance required.`,
     },
