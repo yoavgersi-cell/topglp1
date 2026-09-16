@@ -133,6 +133,22 @@ export const BATTLES: Battle[] = [
         q: "Which is safer?",
         a: "Both use licensed clinicians. Ro's advantage is an FDA-approved finished product with consistent manufacturing. Embody's mitigation is 503A pharmacies and stated LegitScript certification. Neither removes the medication's own class risks — see our semaglutide and tirzepatide guides.",
       },
+      {
+        q: "Is Embody GLP-1 legit?",
+        a: "Embody is a real cash-pay telehealth service: US-licensed doctors review your case and prescribe, and it dispenses through LegitScript-certified 503A compounding pharmacies, which it states openly. The honest caveat isn't Embody specifically — it's that compounded semaglutide and tirzepatide are not FDA-approved finished drugs. It holds a mixed 3.7/5 on Trustpilot across 7,250 reviews.",
+      },
+      {
+        q: "Is Ro (the Ro Body Program) legit?",
+        a: "Yes. Ro is a large, established telehealth platform that dispenses FDA-approved branded GLP-1 (Wegovy, Zepbound, Ozempic, Mounjaro) with clinician review and insurance coordination. It holds 4.0/5 on Trustpilot across 6,400+ reviews. The main gripe is cost: a membership plus branded medication that runs high without insurance.",
+      },
+      {
+        q: "What pharmacy does Embody use for tirzepatide?",
+        a: "Embody dispenses compounded tirzepatide ($119/mo) through LegitScript-certified 503A compounding pharmacies using US-licensed prescribers. Compounded tirzepatide is the same molecule as Zepbound/Mounjaro but is pharmacy-prepared, not an FDA-approved finished product.",
+      },
+      {
+        q: "Which is better, Embody or Ro?",
+        a: "It depends on how you pay. For the lowest cash price, Embody wins ($69/mo semaglutide, $119/mo tirzepatide, flat). For brand-name Wegovy or Zepbound or if your insurance covers GLP-1, Ro wins. Embody is our higher-rated pick overall on price and transparency; Ro is the pick for FDA-approved branded access.",
+      },
     ],
     bottomLine:
       "If your insurance covers GLP-1, Ro's branded route is compelling and gives you an FDA-approved product. If it doesn't — which is common for weight loss — Embody's flat compounded pricing is the pragmatic way to actually start treatment, at roughly a tenth of branded cash cost.",
