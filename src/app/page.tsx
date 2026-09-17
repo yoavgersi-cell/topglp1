@@ -8,6 +8,7 @@ import { allBattleSlugs } from "@/data/battle-engine";
 import { MED_COMPARISONS } from "@/data/med-comparisons";
 import { SITE, CONTENT_REVIEWED } from "@/lib/site";
 import { ProviderCard } from "@/components/provider-card";
+import { TopicDirectory } from "@/components/topic-directory";
 import { Faq } from "@/components/faq";
 
 const FEATURED_GUIDES = [
@@ -338,32 +339,12 @@ export default function HomePage() {
       <section className="border-y border-border bg-surface">
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
           <h2 className="font-serif text-3xl font-semibold text-foreground">Find your GLP-1 path</h2>
-          <p className="mt-2 text-muted">Jump straight to what you're looking for.</p>
-          <div className="mt-8 grid gap-x-8 gap-y-5 sm:grid-cols-2">
-            {[
-              { href: "/best-glp1-providers", title: "Best GLP-1 program for your situation", note: "All 21 programs scored and ranked" },
-              { href: "/cheapest-glp1", title: "Cheapest GLP-1 without insurance", note: "Every program ranked by price" },
-              { href: "/semaglutide-online", title: "Semaglutide online, compared", note: "Compounded & brand, from $69/mo" },
-              { href: "/tirzepatide-online", title: "Tirzepatide online, compared", note: "The stronger molecule, from $119/mo" },
-              { href: "/compare", title: "Compare any two programs", note: "Side-by-side on price, meds & credentials" },
-              { href: "/vs", title: "Which drug is right for you?", note: "Ozempic vs Wegovy, and more" },
-              { href: "/glp1-by-state", title: "GLP-1 coverage by your state", note: "Medicaid status for all 50 states" },
-              { href: "/glp1-medicare-coverage", title: "Medicare GLP-1 coverage", note: "Part D, the $50 Bridge program & more" },
-              { href: "/guides/glp1-side-effects-and-how-to-manage-them", title: "GLP-1 safety & side effects", note: "FDA warnings and what to watch" },
-              { href: "/tools", title: "Free tools", note: "Cost calculator, eligibility & safety check" },
-              { href: "/reviews", title: "All GLP-1 provider reviews", note: "Independent, methodology-scored" },
-              { href: "/glp1-answers", title: "GLP-1 quick answers", note: "Direct, cited answers to the top questions" },
-              { href: "/glp1-statistics", title: "GLP-1 statistics & facts", note: "Cited weight-loss, cost & coverage data" },
-              { href: "/find-your-match", title: "Take the 2-minute match quiz", note: "Your best-fit program in 7 questions" },
-            ].map((l) => (
-              <Link key={l.href} href={l.href} className="group flex items-start justify-between gap-3 border-b border-border pb-4">
-                <div>
-                  <p className="font-semibold text-foreground group-hover:text-primary">{l.title}</p>
-                  <p className="mt-0.5 text-sm text-muted">{l.note}</p>
-                </div>
-                <ArrowRight size={16} className="mt-1 shrink-0 text-primary transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            ))}
+          <p className="mt-2 max-w-2xl text-muted">
+            Everything on Top GLP-1, organized by what you&rsquo;re trying to figure out — the medications, how they
+            compare, what treatment costs, who to get it from, and how to stay safe.
+          </p>
+          <div className="mt-10">
+            <TopicDirectory />
           </div>
         </div>
       </section>
