@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck, Scale, Activity, Calculator, ClipboardCheck, BookMarked } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck, Scale, Activity, Calculator, ClipboardCheck } from "lucide-react";
 import { MEDICATIONS } from "@/data/medications";
 import { GUIDES } from "@/data/guides";
 import { PROVIDERS, getProvider } from "@/data/providers";
@@ -25,68 +25,74 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="border-b border-border bg-gradient-to-b from-primary-light/70 to-background">
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
-            {/* Left: mission */}
-            <div className="animate-fade-up">
-              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-surface px-3 py-1 text-xs font-semibold text-primary">
-                <ShieldCheck size={14} /> Independent · Education-first · US-focused
+      {/* Hero — editorial masthead */}
+      <section className="border-b border-border bg-background">
+        <div className="mx-auto max-w-6xl px-4 pt-16 sm:px-6 sm:pt-24">
+          <div className="animate-fade-up">
+            <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+              <span className="h-px w-6 bg-primary/50" aria-hidden />
+              An independent GLP-1 publication
+            </p>
+            <h1 className="mt-6 max-w-4xl font-serif text-[2.7rem] font-semibold leading-[1.04] tracking-tight text-foreground sm:text-6xl">
+              The clear, honest guide to <span className="text-primary">GLP-1 medications</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+              Semaglutide, tirzepatide and retatrutide — how they work, what they really cost, who to
+              get them from, and how to stay safe. Researched against primary sources. No hype, no
+              jargon, no pressure.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+              <Link
+                href="/medications"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
+              >
+                Explore the medications <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/best-glp1-providers"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary"
+              >
+                Compare GLP-1 programs
+              </Link>
+              <span className="text-sm text-muted">
+                or{" "}
+                <Link href="/find-your-match" className="font-semibold text-primary hover:underline">
+                  take the 2-minute match quiz
+                </Link>
               </span>
-              <h1 className="mt-5 font-serif text-4xl font-semibold leading-[1.08] text-foreground sm:text-5xl">
-                The clear, honest guide to <span className="text-primary">GLP-1 medications</span>
-              </h1>
-              <p className="mt-5 text-lg leading-relaxed text-muted">
-                Semaglutide, tirzepatide, retatrutide — what they are, how they work, what
-                they cost, and how to get treatment safely. No hype, no jargon, no pressure.
-              </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link
-                  href="/medications"
-                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
-                >
-                  Explore the medications <ArrowRight size={16} />
-                </Link>
-                <Link
-                  href="/best-glp1-providers"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary"
-                >
-                  Compare GLP-1 programs
-                </Link>
-              </div>
             </div>
+          </div>
+        </div>
 
-            {/* Right: credibility panel */}
-            <div className="animate-fade-up rounded-2xl border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(20,33,31,0.05)] sm:p-7">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted">
-                <BookMarked size={15} className="text-primary" /> The independent GLP-1 desk
+        {/* Credential band — hairline dividers, serif numbers */}
+        <div className="mt-14 border-t border-border bg-surface sm:mt-20">
+          <dl className="mx-auto grid max-w-6xl grid-cols-3 divide-x divide-border">
+            {[
+              { n: PROVIDERS.length, l: "programs independently scored" },
+              { n: `${Math.floor(allBattleSlugs().length / 10) * 10}+`, l: "head-to-head comparisons" },
+              { n: GUIDES.length + MEDICATIONS.length, l: "guides & explainers" },
+            ].map((s) => (
+              <div key={s.l} className="px-3 py-6 text-center sm:px-6 sm:py-7">
+                <dt className="font-serif text-3xl font-semibold text-foreground sm:text-4xl">{s.n}</dt>
+                <dd className="mx-auto mt-1 max-w-[12ch] text-xs leading-snug text-muted sm:max-w-none">{s.l}</dd>
               </div>
-              <dl className="mt-5 grid grid-cols-3 gap-4 text-center">
-                {[
-                  { n: PROVIDERS.length, l: "programs scored" },
-                  { n: `${Math.floor(allBattleSlugs().length / 10) * 10}+`, l: "head-to-head comparisons" },
-                  { n: GUIDES.length + MEDICATIONS.length, l: "guides & explainers" },
-                ].map((s) => (
-                  <div key={s.l}>
-                    <dt className="font-serif text-3xl font-semibold text-primary">{s.n}</dt>
-                    <dd className="mt-1 text-xs leading-snug text-muted">{s.l}</dd>
-                  </div>
-                ))}
-              </dl>
-              <ul className="mt-6 space-y-2.5 border-t border-border pt-5">
-                {[
-                  "Every clinical figure cited to NEJM & the FDA",
-                  "Independent — our rankings aren't for sale",
-                  "Written by people, reviewed against primary sources",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2 text-sm text-foreground">
-                    <ShieldCheck size={16} className="mt-0.5 shrink-0 text-primary" /> {t}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 text-xs text-muted">Last reviewed {CONTENT_REVIEWED} · {SITE.team}</p>
-            </div>
+            ))}
+          </dl>
+        </div>
+
+        {/* Trust strip */}
+        <div className="border-t border-border bg-surface">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-4 text-xs text-muted sm:px-6">
+            {[
+              "Every clinical figure cited to NEJM & the FDA",
+              "Independent — our rankings aren't for sale",
+              "Written by people, reviewed against primary sources",
+            ].map((t) => (
+              <span key={t} className="inline-flex items-center gap-1.5">
+                <ShieldCheck size={13} className="shrink-0 text-primary" /> {t}
+              </span>
+            ))}
+            <span className="ml-auto hidden sm:inline">Last reviewed {CONTENT_REVIEWED}</span>
           </div>
         </div>
       </section>

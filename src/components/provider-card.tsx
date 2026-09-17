@@ -50,7 +50,7 @@ export function ProviderCard({ provider }: { provider: Provider }) {
             href={provider.affiliateUrl}
             target="_blank"
             rel="sponsored nofollow noopener"
-            className="inline-flex items-center justify-center gap-1 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:brightness-95"
+            className="inline-flex items-center justify-center gap-1 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
             aria-disabled={isPlaceholder}
           >
             {provider.ctaText}
