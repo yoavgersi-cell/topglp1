@@ -9,6 +9,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { MedicalSources } from "@/components/medical-sources";
 import { ArticleLayout, AsideCard, OnThisPage } from "@/components/article-layout";
+import { RelatedTopics } from "@/components/topic-directory";
 import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, articleSchema, breadcrumbSchema } from "@/lib/seo";
 
@@ -202,6 +203,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           </div>
         </section>
       )}
+
+      <RelatedTopics />
     </ArticleLayout>
   );
 }

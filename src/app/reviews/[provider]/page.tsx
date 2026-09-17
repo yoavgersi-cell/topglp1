@@ -24,6 +24,7 @@ import { Faq } from "@/components/faq";
 import { TrustpilotStars, TrustpilotLogo } from "@/components/trustpilot";
 import { ArticleLayout, AsideCard } from "@/components/article-layout";
 import { Scorecard } from "@/components/scorecard";
+import { RelatedTopics } from "@/components/topic-directory";
 import { CONTENT_REVIEWED } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 
@@ -513,6 +514,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
           </div>
         </section>
       )}
+
+      <RelatedTopics />
 
       {/* Other reviews */}
       <nav className="mt-12 border-t border-border pt-8">

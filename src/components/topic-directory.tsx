@@ -59,6 +59,60 @@ export const TOPIC_CLUSTERS: { title: string; links: { href: string; label: stri
   },
 ];
 
+// A compact cross-cluster "continue exploring" block for content and review
+// pages — links ACROSS topic clusters (medications, providers, cost) that these
+// templates otherwise don't reach. Descriptive anchors; curated, not a dump.
+const RELATED_GROUPS: { title: string; links: { href: string; label: string }[] }[] = [
+  {
+    title: "Compare & choose a program",
+    links: [
+      { href: "/best-glp1-providers", label: "Best GLP-1 programs, scored & ranked" },
+      { href: "/compare", label: "Compare any two programs" },
+      { href: "/cheapest-glp1", label: "Cheapest GLP-1 without insurance" },
+    ],
+  },
+  {
+    title: "The medications",
+    links: [
+      { href: "/medications/semaglutide", label: "Semaglutide (Wegovy, Ozempic)" },
+      { href: "/medications/tirzepatide", label: "Tirzepatide (Zepbound, Mounjaro)" },
+      { href: "/vs/semaglutide-vs-tirzepatide", label: "Semaglutide vs tirzepatide" },
+    ],
+  },
+  {
+    title: "Cost & coverage",
+    links: [
+      { href: "/guides/glp1-cost-and-insurance", label: "What GLP-1 costs, with & without insurance" },
+      { href: "/glp1-medicare-coverage", label: "Medicare GLP-1 coverage" },
+      { href: "/glp1-by-state", label: "GLP-1 coverage by state (Medicaid)" },
+    ],
+  },
+];
+
+export function RelatedTopics() {
+  return (
+    <section className="mt-12 border-t border-border pt-8">
+      <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Continue exploring Top GLP-1</h2>
+      <div className="mt-4 grid gap-x-10 gap-y-6 sm:grid-cols-3">
+        {RELATED_GROUPS.map((g) => (
+          <div key={g.title}>
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-primary">{g.title}</h3>
+            <ul className="mt-2 space-y-1.5">
+              {g.links.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-sm leading-snug text-foreground hover:text-primary hover:underline">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export function TopicDirectory() {
   return (
     <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
