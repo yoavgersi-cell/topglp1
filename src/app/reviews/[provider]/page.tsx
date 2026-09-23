@@ -153,6 +153,36 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
     </>
   );
 
+  // Product schema for the provider's GLP-1 program. Carries our editorial
+  // review (rated /10) and, when we hold real third-party data, an
+  // AggregateRating built ONLY from the Trustpilot figures shown on this page
+  // (never fabricated). Unlike the previous itemReviewed:Organization markup,
+  // Product is eligible for review rich results.
+  const productLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${p.name} — GLP-1 weight-loss program`,
+    description: p.glp1Focus || p.tagline,
+    brand: { "@type": "Brand", name: p.name },
+    review: {
+      "@type": "Review",
+      itemReviewed: { "@type": "Product", name: `${p.name} — GLP-1 weight-loss program` },
+      reviewRating: { "@type": "Rating", ratingValue: p.rating, bestRating: 10, worstRating: 1 },
+      author: { "@type": "Organization", name: "Top GLP-1 Editorial Team" },
+      publisher: { "@type": "Organization", name: "Top GLP-1" },
+      datePublished: CONTENT_REVIEWED,
+    },
+  };
+  if (p.externalReviews) {
+    productLd.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: p.externalReviews.scoreValue,
+      bestRating: p.externalReviews.scoreMax,
+      worstRating: 1,
+      ratingCount: p.externalReviews.count,
+    };
+  }
+
   return (
     <ArticleLayout aside={aside}>
       <script
@@ -161,16 +191,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Review",
-            itemReviewed: { "@type": "Organization", name: p.name },
-            reviewRating: { "@type": "Rating", ratingValue: p.rating, bestRating: 10 },
-            author: { "@type": "Organization", name: "Top GLP-1 Editorial Team" },
-            publisher: { "@type": "Organization", name: "Top GLP-1" },
-          }),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }}
       />
       <script
         type="application/ld+json"

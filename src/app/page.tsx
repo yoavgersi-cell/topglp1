@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, ShieldCheck, Scale, Activity, Calculator, ClipboardCheck } from "lucide-react";
 import { MEDICATIONS } from "@/data/medications";
@@ -10,6 +11,24 @@ import { SITE, CONTENT_REVIEWED } from "@/lib/site";
 import { ProviderCard } from "@/components/provider-card";
 import { TopicDirectory } from "@/components/topic-directory";
 import { Faq } from "@/components/faq";
+import { pageMetadata } from "@/lib/seo";
+
+// Homepage metadata. Declares the reciprocal hreflang cluster back to the UK
+// twin — without this return link the UK page's en-GB/en-US annotations are
+// non-reciprocal and search engines discard them, letting "/" and "/uk"
+// compete as near-duplicates.
+const homeMeta = pageMetadata({
+  title: `${SITE.name} — ${SITE.tagline}`,
+  description: SITE.description,
+  path: "/",
+  absoluteTitle: true,
+  languages: { "en-US": "/", "en-GB": "/uk", "x-default": "/" },
+});
+export const metadata: Metadata = {
+  ...homeMeta,
+  // The homepage is the site root, not an article.
+  openGraph: { ...homeMeta.openGraph, type: "website" },
+};
 
 const FEATURED_GUIDES = [
   "how-glp1-medications-work",
