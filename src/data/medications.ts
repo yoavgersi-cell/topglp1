@@ -182,7 +182,7 @@ export const MEDICATIONS: Medication[] = [
       },
     ],
     relatedProviders: ["embody", "altrx", "ro", "trimrx", "healthrx"],
-    sources: ["step-1", "select", "surmount-5", "fda-unapproved-glp1"],
+    sources: ["step-1", "select", "surmount-5", "niddk-obesity-meds", "fda-unapproved-glp1"],
     accent: "#0E9488",
   },
   {
@@ -279,7 +279,7 @@ export const MEDICATIONS: Medication[] = [
       },
     ],
     relatedProviders: ["embody", "altrx", "wellmedr", "trimrx", "healthrx"],
-    sources: ["surmount-1", "surmount-5", "fda-unapproved-glp1"],
+    sources: ["surmount-1", "surmount-5", "niddk-obesity-meds", "fda-unapproved-glp1"],
     accent: "#2563EB",
   },
   {
@@ -440,7 +440,7 @@ export const MEDICATIONS: Medication[] = [
       },
     ],
     relatedProviders: ["ro", "found", "sequence"],
-    sources: ["scale-obesity", "fda-unapproved-glp1"],
+    sources: ["scale-obesity", "niddk-obesity-meds", "fda-unapproved-glp1"],
     accent: "#DB6D28",
   },
   {

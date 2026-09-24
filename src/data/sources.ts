@@ -177,6 +177,22 @@ export const SOURCES: Record<string, Source> = {
     note: "Explains the Medicare GLP-1 Bridge and the follow-on BALANCE Model.",
   },
 
+  "who-obesity": {
+    citation: "World Health Organization. Obesity and overweight (fact sheet).",
+    publisher: "World Health Organization",
+    url: "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight",
+    type: "Regulatory",
+    note: "WHO's global definition of overweight/obesity by BMI and worldwide prevalence data.",
+  },
+  "niddk-obesity-meds": {
+    citation:
+      "National Institute of Diabetes and Digestive and Kidney Diseases (NIH). Prescription Medications to Treat Overweight & Obesity.",
+    publisher: "NIH — NIDDK",
+    url: "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity",
+    type: "Regulatory",
+    note: "NIH guidance on FDA-approved anti-obesity medications (including GLP-1s): how they work and who qualifies (BMI ≥30, or ≥27 with a weight-related condition).",
+  },
+
   // ── UK sources (NHS / NICE / MHRA) ──────────────────────────────────────────
   "nice-ta875": {
     citation: "National Institute for Health and Care Excellence. Semaglutide for managing overweight and obesity (TA875).",

@@ -82,7 +82,7 @@ export const GUIDES: Guide[] = [
     ],
     relatedGuides: ["glp1-side-effects-and-how-to-manage-them", "glp1-dosing-schedule-explained"],
     relatedMeds: ["semaglutide", "tirzepatide", "retatrutide"],
-    sources: ["step-1", "surmount-1", "retatrutide-p2"],
+    sources: ["step-1", "surmount-1", "retatrutide-p2", "niddk-obesity-meds"],
   },
   {
     slug: "glp1-dosing-schedule-explained",

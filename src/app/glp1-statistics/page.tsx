@@ -25,6 +25,7 @@ const sourceKeys = [
   "kff-medicaid-glp1",
   "medicare-glp1-bridge",
   "cdc-obesity",
+  "who-obesity",
 ];
 
 export default function StatisticsPage() {
