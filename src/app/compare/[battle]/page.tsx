@@ -540,18 +540,6 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
         ))}
       </section>
 
-      {/* Not sure? Quiz */}
-      <section className="mt-8 rounded-2xl border border-border bg-accent-light/40 p-6 text-center">
-        <h2 className="font-serif text-xl font-semibold text-foreground">Not sure which one is right for you?</h2>
-        <p className="mt-2 text-sm text-muted">Answer 7 quick questions and we'll match you to a program.</p>
-        <Link
-          href="/find-your-match"
-          className="mt-4 inline-flex items-center gap-1 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
-        >
-          Take the match quiz <ArrowRight size={15} />
-        </Link>
-      </section>
-
       {/* Other comparisons — with prices */}
       <nav className="mt-12 border-t border-border pt-8">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">More comparisons</h2>
