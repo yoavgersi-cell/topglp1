@@ -40,6 +40,14 @@ function providerFaqs(p: Provider) {
       q: `How much does ${p.name} cost?`,
       a: `${p.name} starts at ${p.specs.startingPrice}. Semaglutide: ${p.specs.semaglutide}. Tirzepatide: ${p.specs.tirzepatide}. Billing is ${p.specs.billing.toLowerCase()}. Pricing is provider-reported and can change — confirm current rates on their site.`,
     },
+    ...(p.externalReviews
+      ? [
+          {
+            q: `What is ${p.name}'s customer rating?`,
+            a: `On ${p.externalReviews.source}, ${p.name} holds ${p.externalReviews.score} across ${p.externalReviews.count.toLocaleString()} reviews (checked ${p.externalReviews.asOf}). Our independent editorial score is ${p.rating.toFixed(1)}/10. Third-party ratings mix invited and organic reviews, so read a sample of both before deciding.`,
+          },
+        ]
+      : []),
     {
       q: `Does ${p.name} offer tirzepatide?`,
       a:

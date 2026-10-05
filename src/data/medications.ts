@@ -435,6 +435,38 @@ export const MEDICATIONS: Medication[] = [
     ],
     faqs: [
       {
+        q: "What is the brand name for liraglutide?",
+        a: "Liraglutide is sold under two brand names: Saxenda, approved for weight management at a 3.0 mg daily dose, and Victoza, approved for type 2 diabetes at up to 1.8 mg daily. Both contain the same active ingredient — liraglutide.",
+      },
+      {
+        q: "What is the generic name for Saxenda?",
+        a: "The generic name for Saxenda is liraglutide. Liraglutide is also the active ingredient in Victoza (the diabetes brand). Lower-cost generic liraglutide has begun to reach some markets.",
+      },
+      {
+        q: "What is liraglutide?",
+        a: "Liraglutide is a GLP-1 receptor agonist — one of the first GLP-1 medications used for weight loss and diabetes. It reduces appetite, slows how fast the stomach empties, and improves blood-sugar control. Unlike semaglutide and tirzepatide, it is injected once daily rather than weekly.",
+      },
+      {
+        q: "Is Saxenda dosed daily or weekly?",
+        a: "Saxenda is a once-daily injection. This is its main practical drawback versus the newer weekly GLP-1s (semaglutide and tirzepatide). Saxenda starts at 0.6 mg daily and steps up weekly to a 3.0 mg daily maintenance dose.",
+      },
+      {
+        q: "What are the liraglutide (Saxenda) doses?",
+        a: "Saxenda escalates once weekly to limit side effects: 0.6 mg (week 1), 1.2 mg (week 2), 1.8 mg (week 3), 2.4 mg (week 4), then 3.0 mg daily from week 5 onward as the maintenance dose. Victoza, the diabetes brand, is typically dosed up to 1.8 mg daily.",
+      },
+      {
+        q: "What drug class is liraglutide (Saxenda)?",
+        a: "Liraglutide — sold as Saxenda and Victoza — is a GLP-1 receptor agonist, the same drug class as semaglutide (Wegovy/Ozempic). Tirzepatide (Zepbound/Mounjaro) is a related but distinct dual GLP-1/GIP agonist.",
+      },
+      {
+        q: "How much weight can you lose on Saxenda?",
+        a: "In the SCALE weight-management trials, adults on 3.0 mg daily liraglutide lost an average of about 8% of body weight over 56 weeks, versus roughly 2–3% on placebo. That is effective but generally less than the ~15% seen with weekly semaglutide.",
+      },
+      {
+        q: "Liraglutide vs semaglutide — which is better for weight loss?",
+        a: "For pure weight-loss efficacy, semaglutide generally wins: weekly semaglutide (Wegovy) produced about 15% average weight loss in trials versus roughly 8% for daily liraglutide (Saxenda). Liraglutide's advantages are cost and access — it is older, well understood, and increasingly available as a generic.",
+      },
+      {
         q: "Why would anyone choose liraglutide over semaglutide?",
         a: "Cost and access, mostly. As a generic it can be cheaper, and it's a well-established option when weekly agents aren't available or tolerated. For pure weight-loss efficacy, the weekly drugs generally win.",
       },
