@@ -11,7 +11,7 @@ import { MedicalSources } from "@/components/medical-sources";
 import { ArticleLayout, AsideCard, OnThisPage } from "@/components/article-layout";
 import { RelatedTopics } from "@/components/topic-directory";
 import { CONTENT_REVIEWED } from "@/lib/site";
-import { pageMetadata, articleSchema, breadcrumbSchema } from "@/lib/seo";
+import { pageMetadata, articleSchema, breadcrumbSchema, howToSchema } from "@/lib/seo";
 
 export const revalidate = 3600;
 
@@ -105,6 +105,22 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           ),
         }}
       />
+
+      {guide.howto && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              howToSchema({
+                name: guide.howto.name,
+                description: guide.description,
+                path: `/guides/${guide.slug}`,
+                steps: guide.howto.steps,
+              }),
+            ),
+          }}
+        />
+      )}
 
       <Breadcrumbs
         items={[

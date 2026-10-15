@@ -74,6 +74,8 @@ export function organizationSchema() {
     description: SITE.description,
     email: SITE.email,
     logo: `${SITE.url}/icon`,
+    slogan: SITE.tagline,
+    foundingDate: SITE.founded,
     areaServed: { "@type": "Country", name: "United States" },
     knowsAbout: [
       "GLP-1 receptor agonists",
@@ -133,8 +135,36 @@ export function articleSchema(opts: {
     description: opts.description,
     url: absoluteUrl(opts.path),
     dateModified: opts.dateModified,
+    // Medical-content E-E-A-T signals that Google and answer engines look for
+    // on YMYL health pages. reviewedBy is our editorial team (Organization) —
+    // we never attribute review to a fabricated individual.
+    lastReviewed: opts.dateModified,
+    reviewedBy: { "@type": "Organization", name: SITE.team, url: SITE.url },
     author: { "@type": "Organization", name: SITE.team },
     publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  };
+}
+
+// HowTo schema for genuinely procedural content (e.g. how to get GLP-1 through
+// telehealth). Answer engines lift the ordered steps directly.
+export function howToSchema(opts: {
+  name: string;
+  description: string;
+  path: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    step: opts.steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
   };
 }
 

@@ -30,6 +30,8 @@ export interface Guide {
   relatedMeds?: string[];
   /** Source keys (see sources.ts) backing this guide's clinical claims. */
   sources?: string[];
+  /** Optional HowTo steps for genuinely procedural guides (emits HowTo JSON-LD). */
+  howto?: { name: string; steps: { name: string; text: string }[] };
 }
 
 export const GUIDES: Guide[] = [
@@ -425,6 +427,27 @@ export const GUIDES: Guide[] = [
     relatedGuides: ["glp1-cost-and-insurance", "compounded-vs-branded-glp1"],
     relatedMeds: ["compounded-glp1", "semaglutide", "tirzepatide"],
     sources: ["fda-unapproved-glp1", "fda-compounding-dosing", "fda-compounding-policy"],
+    howto: {
+      name: "How to Get GLP-1 Through Telehealth Safely",
+      steps: [
+        {
+          name: "Complete a medical intake",
+          text: "Fill out a medical intake questionnaire, sometimes with lab work or a video visit, so a clinician can assess whether a GLP-1 is appropriate for you.",
+        },
+        {
+          name: "Have a licensed clinician review your case",
+          text: "A licensed prescriber reviews your history and, if appropriate, writes a prescription. A legitimate program screens you and can turn you away if a GLP-1 isn't safe.",
+        },
+        {
+          name: "Verify the pharmacy and pricing",
+          text: "Confirm the pharmacy is state-licensed (LegitScript certification is a strong signal) and that pricing, dosing instructions, and clinician access are transparent before you pay.",
+        },
+        {
+          name: "Receive medication with dosing instructions",
+          text: "A pharmacy ships the medication to your door with clear dosing instructions and a way to reach a clinician about side effects.",
+        },
+      ],
+    },
   },
   {
     slug: "compounded-vs-branded-glp1",
