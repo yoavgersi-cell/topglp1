@@ -1,0 +1,35 @@
+name: SEO Guardian
+
+# Reliable, deterministic SEO/GEO safety net. Runs the health check on every
+# push to main, every PR, and once a day. A regression (missing canonical,
+# broken internal link, dropped schema, hreflang break, stale freshness, etc.)
+# fails the job, and GitHub emails the repo owner + marks the commit red.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # 06:00 UTC daily (~08:00–09:00 Israel time).
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  seo-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: SEO / GEO health check
+        run: node scripts/seo-audit.mjs
