@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "seo:check": "next build && node scripts/seo-audit.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
