@@ -183,6 +183,23 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       {/* Sources */}
       {guide.sources && guide.sources.length > 0 && <MedicalSources keys={guide.sources} />}
 
+      {/* Further reading (external) */}
+      {guide.furtherReading && guide.furtherReading.length > 0 && (
+        <section className="mt-10">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">Further reading</h2>
+          <ul className="mt-3 space-y-3">
+            {guide.furtherReading.map((r) => (
+              <li key={r.href} className="rounded-xl border border-border bg-surface p-4">
+                <a href={r.href} className="font-semibold text-foreground underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+                  {r.label}
+                </a>
+                <p className="mt-1 text-sm leading-relaxed text-muted">{r.note}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       {/* Related medications */}
       {relatedMeds.length > 0 && (
         <section className="mt-12 border-t border-border pt-8">
