@@ -32,6 +32,8 @@ export interface Guide {
   sources?: string[];
   /** Optional HowTo steps for genuinely procedural guides (emits HowTo JSON-LD). */
   howto?: { name: string; steps: { name: string; text: string }[] };
+  /** External pages worth reading next, rendered as a short list after the body. */
+  furtherReading?: { label: string; href: string; note: string }[];
 }
 
 export const GUIDES: Guide[] = [
@@ -264,6 +266,13 @@ export const GUIDES: Guide[] = [
     relatedGuides: ["how-to-get-glp1-through-telehealth", "compounded-vs-branded-glp1"],
     relatedMeds: ["semaglutide", "tirzepatide", "compounded-glp1"],
     sources: ["fda-compounding-policy", "fda-drug-shortages", "fda-unapproved-glp1"],
+    furtherReading: [
+      {
+        label: "Verified compounded GLP-1 prices by provider",
+        href: "https://www.treatmentshub.com/weight-loss/cheapest-glp1",
+        note: "Our sister site Treatments Hub lists the current published price at each telehealth provider, with the plan conditions attached.",
+      },
+    ],
   },
   {
     slug: "glp1-results-timeline",

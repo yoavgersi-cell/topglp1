@@ -33,6 +33,14 @@ export default function AboutPage() {
           treatment, but they sit below the education — not the other way around.
         </p>
 
+        <p>
+          {SITE.name} is published by the team behind{" "}
+          <a href="https://www.treatmentshub.com" className="underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
+            Treatments Hub
+          </a>
+          , which covers weight loss, hair loss, HRT, TRT and online therapy.
+        </p>
+
         <h2 className="mt-8 font-serif text-2xl font-semibold text-foreground">How we make money</h2>
         <p>
           {SITE.name} earns affiliate commissions when readers sign up with some of the telehealth
