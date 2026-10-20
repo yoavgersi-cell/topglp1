@@ -69,6 +69,7 @@ export function GET() {
   lines.push("");
 
   lines.push("## Key pages");
+  lines.push(`- GLP-1 for Weight Loss — the complete guide (flagship pillar): ${SITE.url}/glp1-weight-loss-guide`);
   lines.push(`- GLP-1 match quiz: ${SITE.url}/find-your-match`);
   lines.push(`- Best GLP-1 programs: ${SITE.url}/best-glp1-providers`);
   lines.push(`- Cheapest GLP-1 options: ${SITE.url}/cheapest-glp1`);
