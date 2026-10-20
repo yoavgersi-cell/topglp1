@@ -245,7 +245,7 @@ export const PROVIDERS: Provider[] = [
     editorial: {
       seoTitle: "Embody Tirzepatide & Semaglutide Reviews 2026: Cost & Is It Legit?",
       seoDescription:
-        "Our independent Embody review: the real 3.7/5 Trustpilot rating across 7,250 reviews, compounded tirzepatide at $119/mo and semaglutide at $69/mo, pharmacy credentials, honest pros and cons — and whether Embody is legit and worth it.",
+        "Our independent Embody review: the real 3.7/5 Trustpilot rating (7,250 reviews), compounded semaglutide at $69/mo and tirzepatide at $119/mo, and whether Embody is legit and worth it.",
       intro:
         "Embody is a cash-pay telehealth service that prescribes compounded GLP-1 medication — semaglutide at a flat $69/month and tirzepatide at $119/month — with free 1–2 day shipping and no insurance required. It's our top pick for value and pricing transparency among the GLP-1 programs we track. On Trustpilot it holds a mixed 3.7 out of 5 across 7,250 reviews. Below is who it fits, who it doesn't, and what to check before signing up.",
       isItLegit:
@@ -379,7 +379,7 @@ export const PROVIDERS: Provider[] = [
     editorial: {
       seoTitle: "Ro Reviews 2026: 4.0★ Trustpilot — GLP-1 Cost & Is It Worth It?",
       seoDescription:
-        "Ro's real Trustpilot rating is 4.0/5 across 6,343 mostly-organic reviews. We break down how its GLP-1 membership and branded Zepbound/Wegovy access work, insurance costs, honest pros and cons — and whether Ro is worth it.",
+        "Ro's real Trustpilot rating is 4.0/5 across 6,343 mostly-organic reviews. How its GLP-1 membership and branded Zepbound/Wegovy access work, insurance costs, and whether Ro is worth it.",
       intro:
         "Ro is an established telehealth platform that connects you with licensed clinicians for GLP-1 care and access to FDA-approved branded medications — Wegovy, Ozempic, Zepbound and Mounjaro — with help navigating insurance. You pay a membership for the clinical care, plus the medication itself (cost depends on your insurance). On Trustpilot it holds a 4.0 out of 5 across 6,343 reviews, most of them “unprompted” — organic feedback Ro didn't solicit. Here's how it works, who it fits, and where it falls short.",
       isItLegit:

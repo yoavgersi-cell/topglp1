@@ -77,10 +77,11 @@ export async function generateMetadata({
   return pageMetadata({
     title:
       p.editorial?.seoTitle ??
-      `${p.name} Reviews 2026: Cost, Pros & Cons — Is It Legit & Worth It?`,
+      `${p.name} Review 2026: Cost, Pros & Cons & Is It Legit?`,
+    absoluteTitle: true,
     description:
       p.editorial?.seoDescription ??
-      `Our independent ${p.name} review — GLP-1 pricing (${p.specs.startingPrice}), medications offered, pharmacy credentials, honest pros and cons, and whether ${p.name} is legit and worth it.`,
+      `Our independent ${p.name} review: pricing, medications, pharmacy credentials, honest pros and cons, and whether it's legit and worth it.`,
     path: `/reviews/${p.slug}`,
   });
 }

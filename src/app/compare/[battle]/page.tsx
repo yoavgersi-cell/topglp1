@@ -44,7 +44,8 @@ export async function generateMetadata({
   const b = resolveBattle(battle);
   if (!b) return {};
   return pageMetadata({
-    title: `${b.title}: Pricing, Medications & Which Is Right for You (2026)`,
+    title: `${b.title}: Cost, Pros & Cons (2026)`,
+    absoluteTitle: true,
     description: b.description,
     path: `/compare/${b.slug}`,
   });

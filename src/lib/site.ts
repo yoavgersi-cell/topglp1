@@ -18,7 +18,7 @@ export const SITE = {
   tagline: "The independent guide to GLP-1 medications",
   // One-sentence description used across metadata.
   description:
-    "Top GLP-1 is an independent, science-first guide to GLP-1 medications — how semaglutide, tirzepatide and retatrutide work, dosing schedules, side effects, real-world results, cost, and how to get treatment safely.",
+    "Top GLP-1 is an independent, science-first guide to GLP-1 weight-loss medication — how semaglutide and tirzepatide work, results, side effects, cost, and how to get treatment safely.",
   team: "Top GLP-1 Editorial Team",
   // Contact / editorial identity used in schema and the footer.
   email: "editorial@topglp1.io",

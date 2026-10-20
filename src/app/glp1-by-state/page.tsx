@@ -8,7 +8,7 @@ import { MedicalSources } from "@/components/medical-sources";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GLP-1 Coverage by State 2026: Medicaid Rules & How to Get Treatment",
+  title: "GLP-1 Coverage by State 2026: Medicaid Rules & Costs",
   description:
     "GLP-1 coverage by state in 2026 — which state Medicaid programs cover weight-loss GLP-1s (only ~11–13 do), plus how to get compounded GLP-1 by telehealth nationwide.",
   path: "/glp1-by-state",

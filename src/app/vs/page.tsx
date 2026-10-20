@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GLP-1 Drug Comparisons: Ozempic vs Wegovy, Zepbound vs Wegovy & More",
+  title: "GLP-1 Drug Comparisons: Ozempic, Wegovy, Zepbound & More",
   description:
     "Head-to-head GLP-1 medication comparisons — semaglutide vs tirzepatide, Ozempic vs Wegovy, Zepbound vs Wegovy, and more. Cited to NEJM trials and the FDA.",
   path: "/vs",

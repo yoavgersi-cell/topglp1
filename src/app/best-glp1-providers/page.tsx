@@ -10,7 +10,7 @@ import { SITE } from "@/lib/site";
 import { pageMetadata, breadcrumbSchema, itemListSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Best GLP-1 Programs of 2026: 21 Telehealth Providers Ranked & Scored",
+  title: "Best GLP-1 Programs 2026: 21 Telehealth Providers Ranked",
   description:
     "Our independent 2026 ranking of the best online GLP-1 programs — scored across cost, clinical oversight, medications, UX and transparency. Real pricing, type and insurance.",
   path: "/best-glp1-providers",

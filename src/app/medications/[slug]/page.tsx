@@ -29,8 +29,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const med = getMedication(slug);
   if (!med) return {};
+  // Only show a brand in the title when it's a real brand name (not
+  // "(no brand name yet)" for investigational drugs, or a redundant label).
+  const brand = med.brandNames[0];
+  const brandParen = brand && !/no brand|compounded/i.test(brand) ? ` (${brand})` : "";
   return pageMetadata({
-    title: `${med.name} (${med.brandNames[0]}): How It Works, Dosing, Results & Cost`,
+    title: `${med.name}${brandParen}: How It Works, Dosing, Results & Cost`,
     description: med.oneLiner,
     path: `/medications/${med.slug}`,
   });

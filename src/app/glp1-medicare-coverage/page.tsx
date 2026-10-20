@@ -9,7 +9,7 @@ import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Does Medicare Cover GLP-1 for Weight Loss? 2026 Part D & Bridge Guide",
+  title: "Does Medicare Cover GLP-1 for Weight Loss? (2026)",
   description:
     "Medicare GLP-1 coverage in 2026 — the Part D weight-loss exclusion, what IS covered (diabetes, cardiovascular), and the new GLP-1 Bridge program offering Wegovy/Zepbound for a $50 copay.",
   path: "/glp1-medicare-coverage",

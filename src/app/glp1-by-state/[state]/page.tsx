@@ -67,8 +67,8 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
   if (!s) return {};
   const covered = s.medicaid === "covered" || s.medicaid === "limited";
   return pageMetadata({
-    title: `GLP-1 in ${s.name}: Coverage, Costs & How to Get It (2026)`,
-    description: `How to get GLP-1 medication in ${s.name} in 2026 — ${s.name} Medicaid ${covered ? "coverage" : "policy"}, private insurance, cash-pay telehealth pricing and who qualifies. Researched against KFF, CDC and Stateline.`,
+    title: `GLP-1 in ${s.name}: Coverage & Costs (2026)`,
+    description: `How to get GLP-1 medication in ${s.name} in 2026 — ${s.name} Medicaid ${covered ? "coverage" : "policy"}, insurance, cash-pay telehealth pricing and who qualifies. Cited to KFF, CDC and Stateline.`,
     path: `/glp1-by-state/${s.slug}`,
   });
 }

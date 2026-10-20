@@ -8,7 +8,7 @@ import { pageMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GLP-1 Quick Answers: Cost, Best Medication, Coverage & Safety (2026)",
+  title: "GLP-1 Quick Answers: Cost, Coverage & Safety (2026)",
   description:
     "Direct, cited answers to the most-asked GLP-1 questions — the cheapest program, the most effective medication, eligibility, side effects, and Medicare/Medicaid coverage.",
   path: "/glp1-answers",

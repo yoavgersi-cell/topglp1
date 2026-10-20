@@ -62,6 +62,21 @@ function count(hay, needleRe) {
   return (hay.match(needleRe) || []).length;
 }
 
+// Decode the handful of HTML entities that appear in titles/descriptions so we
+// measure the length the user actually sees (e.g. "&amp;" is one character "&",
+// not five) — otherwise ampersands inflate every length check.
+function decode(s) {
+  return s
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#0?39;/g, "'")
+    .replace(/&#x27;/gi, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&mdash;/g, "—")
+    .replace(/&ndash;/g, "–");
+}
+
 function readIf(p) {
   try {
     return readFileSync(p, "utf8");
@@ -125,7 +140,7 @@ for (const file of htmlFiles) {
 
   // Title.
   const titleM = html.match(/<title>([^<]*)<\/title>/i);
-  const title = titleM ? titleM[1].trim() : "";
+  const title = titleM ? decode(titleM[1].trim()) : "";
   if (!title) {
     fail(`${route}: missing/empty <title>`);
     ok = false;
@@ -137,7 +152,7 @@ for (const file of htmlFiles) {
   const descM = html.match(
     /<meta[^>]+name="description"[^>]+content="([^"]*)"/i,
   );
-  const desc = descM ? descM[1].trim() : "";
+  const desc = descM ? decode(descM[1].trim()) : "";
   if (!desc) {
     fail(`${route}: missing meta description`);
     ok = false;

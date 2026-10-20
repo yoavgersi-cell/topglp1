@@ -30,7 +30,7 @@ export async function generateMetadata({
   const c = getMedComparison(slug);
   if (!c) return {};
   return pageMetadata({
-    title: `${c.title}: Which GLP-1 Wins in 2026? (Full Comparison)`,
+    title: `${c.title}: Full Comparison (2026)`,
     description: c.description,
     path: `/vs/${c.slug}`,
   });

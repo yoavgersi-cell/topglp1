@@ -9,7 +9,7 @@ import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 import { ArticleLayout, DefaultAside } from "@/components/article-layout";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GLP-1 Glossary: 22 Key Terms Explained (Semaglutide to 503A Pharmacy)",
+  title: "GLP-1 Glossary: 22 Key Terms Explained (2026)",
   description:
     "A plain-language GLP-1 glossary — semaglutide, tirzepatide, compounded, 503A pharmacy, titration, MACE, food noise and more, each defined in one clear sentence.",
   path: "/glp1-glossary",
