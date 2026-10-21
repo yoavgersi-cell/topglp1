@@ -243,9 +243,9 @@ export const PROVIDERS: Provider[] = [
       watchOut: "Compounded only — no brand-name option",
     },
     editorial: {
-      seoTitle: "Embody Tirzepatide & Semaglutide Reviews 2026: Cost & Is It Legit?",
+      seoTitle: "Embody Tirzepatide Reviews (2026): 3.7★, $119/mo — Is It Legit?",
       seoDescription:
-        "Our independent Embody review: the real 3.7/5 Trustpilot rating (7,250 reviews), compounded semaglutide at $69/mo and tirzepatide at $119/mo, and whether Embody is legit and worth it.",
+        "Independent Embody review: the real 3.7/5 Trustpilot rating (7,250 reviews), compounded tirzepatide $119/mo and semaglutide $69/mo, honest pros and cons — and whether Embody is legit and worth it.",
       intro:
         "Embody is a cash-pay telehealth service that prescribes compounded GLP-1 medication — semaglutide at a flat $69/month and tirzepatide at $119/month — with free 1–2 day shipping and no insurance required. It's our top pick for value and pricing transparency among the GLP-1 programs we track. On Trustpilot it holds a mixed 3.7 out of 5 across 7,250 reviews. Below is who it fits, who it doesn't, and what to check before signing up.",
       isItLegit:

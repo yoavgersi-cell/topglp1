@@ -587,6 +587,107 @@ export const GUIDES: Guide[] = [
     relatedMeds: ["semaglutide", "tirzepatide"],
     sources: ["step-1-extension", "step-4", "surmount-4", "step-1"],
   },
+  {
+    slug: "do-you-qualify-for-glp1",
+    title: "Do You Qualify for GLP-1? BMI & Eligibility Requirements (2026)",
+    description:
+      "Who qualifies for GLP-1 weight-loss medication in 2026 — the BMI requirements, the weight-related conditions that lower the threshold, who shouldn't take it, and how to find out if you're eligible.",
+    category: "Access",
+    readTime: "7 min read",
+    keyTakeaways: [
+      "The standard threshold is a BMI of 30+, or 27+ with a weight-related condition.",
+      "Qualifying conditions include type 2 diabetes, high blood pressure, high cholesterol and sleep apnea.",
+      "A history of medullary thyroid cancer or MEN 2, and pregnancy, are the main disqualifiers.",
+      "Insurance coverage has stricter rules than cash-pay telehealth — eligibility to be prescribed and eligibility to be covered are different things.",
+    ],
+    sections: [
+      {
+        heading: "The short answer: who qualifies",
+        body: [
+          "You generally qualify for GLP-1 weight-loss medication if you're an adult with a body mass index (BMI) of 30 or higher, or a BMI of 27 or higher together with a weight-related health condition — and you don't have one of the specific medical histories that make these drugs unsafe. That's the same threshold the FDA approvals and the National Institutes of Health use for anti-obesity medication.",
+          "Two things are worth separating from the start. Being eligible to be prescribed a GLP-1 is one question; being eligible to have your insurance pay for it is a stricter, separate one. We cover both below.",
+        ],
+      },
+      {
+        heading: "BMI requirements, in plain numbers",
+        body: [
+          "BMI is a weight-for-height number, and it's the standard gate for GLP-1 eligibility even though it's an imperfect measure — it doesn't distinguish muscle from fat. Here's how the thresholds work:",
+        ],
+        list: [
+          "BMI 30 or higher (classified as obesity) — you qualify on BMI alone.",
+          "BMI 27 to 29.9 (classified as overweight) — you qualify if you also have a weight-related condition.",
+          "BMI below 27 — GLP-1 weight-loss medication generally isn't indicated, though a clinician makes the final call based on your full picture.",
+        ],
+      },
+      {
+        heading: "The conditions that lower the threshold",
+        body: [
+          "If your BMI is between 27 and 30, a weight-related medical condition is what makes you eligible. The common ones a clinician looks for include:",
+        ],
+        list: [
+          "Type 2 diabetes or prediabetes",
+          "High blood pressure (hypertension)",
+          "High cholesterol or abnormal lipids (dyslipidemia)",
+          "Obstructive sleep apnea",
+          "Cardiovascular disease",
+          "Other obesity-related conditions a clinician identifies in your history",
+        ],
+      },
+      {
+        heading: "Who should NOT take GLP-1 (the disqualifiers)",
+        body: [
+          "Meeting the BMI criteria isn't the whole story — some histories make these drugs unsafe regardless of weight. You generally should not take a GLP-1 if any of these apply:",
+        ],
+        list: [
+          "A personal or family history of medullary thyroid carcinoma, or MEN 2 (multiple endocrine neoplasia type 2).",
+          "You're pregnant, trying to conceive, or breastfeeding.",
+          "A history of pancreatitis — not an absolute bar, but it requires careful discussion with a clinician.",
+          "Certain eating disorders or other conditions a prescriber determines make it inappropriate.",
+        ],
+      },
+      {
+        heading: "Eligible to be prescribed vs. eligible to be covered",
+        body: [
+          "This is where people get tripped up. You can clearly meet the clinical criteria and still have your insurance decline to pay, because coverage for weight loss specifically is inconsistent. Many plans cover semaglutide for diabetes (Ozempic) but exclude it for obesity (Wegovy), and prior authorization — documenting your BMI and sometimes prior weight-loss attempts — is common.",
+          "Cash-pay telehealth is the other path: because you're paying directly, the gate is purely clinical eligibility, not an insurer's coverage rules. That's why many people who qualify clinically but can't get coverage end up using compounded GLP-1 through telehealth. If you're weighing the options, our cost and coverage guides break down what you'd actually pay.",
+        ],
+      },
+      {
+        heading: "What if you're near the cutoff",
+        body: [
+          "If your BMI is just under 27, or between 27 and 30 without an obvious qualifying condition, it's still worth a proper evaluation. A thorough intake can surface a weight-related condition you didn't know counted, and BMI is only a starting point — a clinician weighs your overall health, not just one number. The honest flip side is that these are powerful medications with real risks, so a responsible program will also decline people for whom they aren't appropriate.",
+        ],
+      },
+    ],
+    howto: {
+      name: "How to Find Out If You Qualify for GLP-1",
+      steps: [
+        {
+          name: "Check your BMI",
+          text: "Calculate your BMI from your height and weight. A BMI of 30+ qualifies on its own; 27+ qualifies with a weight-related condition.",
+        },
+        {
+          name: "List any weight-related conditions",
+          text: "Note conditions like type 2 diabetes, high blood pressure, high cholesterol or sleep apnea — these lower the BMI threshold to 27.",
+        },
+        {
+          name: "Rule out disqualifiers",
+          text: "Confirm you don't have a personal or family history of medullary thyroid cancer or MEN 2, and that you're not pregnant or trying to conceive.",
+        },
+        {
+          name: "Complete a medical evaluation",
+          text: "A licensed clinician reviews your history through an intake (and sometimes labs or a video visit) and confirms whether a GLP-1 is appropriate and safe for you.",
+        },
+        {
+          name: "Sort out coverage or cash-pay",
+          text: "If using insurance, check your plan's formulary and prior-authorization rules; if paying cash, compare telehealth programs on price and credentials.",
+        },
+      ],
+    },
+    relatedGuides: ["how-to-get-glp1-through-telehealth", "glp1-cost-and-insurance", "how-glp1-medications-work"],
+    relatedMeds: ["semaglutide", "tirzepatide"],
+    sources: ["niddk-obesity-meds", "cdc-obesity", "step-1"],
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
