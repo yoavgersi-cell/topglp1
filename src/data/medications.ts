@@ -36,6 +36,10 @@ export interface Medication {
   slug: string;
   /** Generic / common name, e.g. "Semaglutide". */
   name: string;
+  /** Optional SEO title override (else a template is used). */
+  seoTitle?: string;
+  /** Optional SEO description override (else the oneLiner is used). */
+  seoDescription?: string;
   /** Drug class descriptor, e.g. "GLP-1 receptor agonist". */
   drugClass: string;
   /** How it's given. */
@@ -370,6 +374,9 @@ export const MEDICATIONS: Medication[] = [
   {
     slug: "liraglutide",
     name: "Liraglutide",
+    seoTitle: "Liraglutide (Saxenda): Brand & Generic Names, Doses, Results",
+    seoDescription:
+      "Liraglutide is sold as Saxenda (weight loss) and Victoza (diabetes) — a once-daily GLP-1. Its brand and generic names, dose schedule, ~8% average weight loss, side effects and cost, explained.",
     drugClass: "GLP-1 receptor agonist",
     route: "Subcutaneous injection",
     status: "fda-approved",

@@ -32,6 +32,26 @@ const FAQS = [
     q: "Will Medicare permanently cover weight-loss GLP-1s?",
     a: "Not yet. A proposed rule to reinterpret obesity treatment for coverage was never finalized, and permanent coverage would require Congress to change the law. CMS is testing coverage through demonstrations (the GLP-1 Bridge, then the BALANCE Model beginning in 2027).",
   },
+  {
+    q: "Will Medicare cover Zepbound in 2026?",
+    a: "Not under standard Part D for weight loss, which federal law excludes. But eligible members can get Zepbound through the temporary Medicare GLP-1 Bridge (July 2026–December 2027) for a $50 copay. Separately, Zepbound is FDA-approved for obstructive sleep apnea, so a Part D plan may cover it when prescribed for that condition.",
+  },
+  {
+    q: "Will Medicare cover Ozempic in 2026?",
+    a: "Yes, when prescribed for type 2 diabetes — Ozempic is covered under Part D for its diabetes indication, subject to your plan's formulary and cost-sharing. Medicare does not cover Ozempic prescribed purely for weight loss.",
+  },
+  {
+    q: "Does Medicare Part D cover weight-loss drugs?",
+    a: "No. The Part D statute specifically excludes drugs used for weight loss, which is why Wegovy and Zepbound aren't covered for obesity under standard Part D. The GLP-1 Bridge demonstration is a temporary, limited exception, and GLP-1s remain covered for approved medical indications such as type 2 diabetes.",
+  },
+  {
+    q: "Does Medicare cover GLP-1 for prediabetes?",
+    a: "No. Medicare covers GLP-1 drugs for approved conditions — type 2 diabetes, and cardiovascular risk reduction in people with heart disease and obesity (Wegovy) — not for prediabetes or weight loss on their own.",
+  },
+  {
+    q: "How much is the Medicare GLP-1 copay in 2026?",
+    a: "Under the GLP-1 Bridge demonstration, eligible Part D members pay a $50 copay per 30-day supply of Wegovy, Zepbound or Foundayo (July 2026–December 2027). When a GLP-1 is covered under its diabetes indication instead, you pay your plan's normal Part D cost-sharing.",
+  },
 ];
 
 export default function MedicarePage() {

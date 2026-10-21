@@ -34,8 +34,8 @@ export async function generateMetadata({
   const brand = med.brandNames[0];
   const brandParen = brand && !/no brand|compounded/i.test(brand) ? ` (${brand})` : "";
   return pageMetadata({
-    title: `${med.name}${brandParen}: How It Works, Dosing, Results & Cost`,
-    description: med.oneLiner,
+    title: med.seoTitle ?? `${med.name}${brandParen}: How It Works, Dosing, Results & Cost`,
+    description: med.seoDescription ?? med.oneLiner,
     path: `/medications/${med.slug}`,
   });
 }
