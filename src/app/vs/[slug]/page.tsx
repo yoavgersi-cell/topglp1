@@ -170,7 +170,7 @@ export default async function MedComparisonPage({ params }: { params: Promise<{ 
         <div className="mt-4 flex flex-wrap gap-3">
           <Link
             href="/tools/glp1-cost-calculator"
-            className="inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+            className="inline-flex items-center gap-1 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
           >
             Estimate your cost
           </Link>

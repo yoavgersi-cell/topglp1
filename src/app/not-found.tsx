@@ -9,7 +9,7 @@ export default function NotFound() {
         That page doesn't exist or has moved. Here's where most people are headed:
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
-        <Link href="/medications" className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark">
+        <Link href="/medications" className="rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark">
           GLP-1 medications
         </Link>
         <Link href="/guides" className="rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-foreground hover:border-primary">

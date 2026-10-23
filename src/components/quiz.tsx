@@ -160,7 +160,7 @@ export function Quiz() {
               href={top.affiliateUrl}
               target="_blank"
               rel="sponsored nofollow noopener"
-              className="inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+              className="inline-flex items-center gap-1 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
             >
               Visit {top.name} <ArrowUpRight size={15} />
             </a>

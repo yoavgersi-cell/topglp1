@@ -167,7 +167,7 @@ export function EligibilityChecker() {
           <div className="mt-4 flex flex-wrap gap-3">
             <Link
               href="/best-glp1-providers"
-              className="inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+              className="inline-flex items-center rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
             >
               See GLP-1 programs
             </Link>
