@@ -149,7 +149,7 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
   const otherBattles = BATTLES.filter((x) => x.slug !== b.slug).slice(0, 4);
 
   return (
-    <article className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+    <article className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

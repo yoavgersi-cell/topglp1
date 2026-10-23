@@ -35,27 +35,34 @@
   --font-serif: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
-* {
-  border-color: var(--border);
-}
+/* Base element defaults live in @layer base so Tailwind utilities (in the later
+   @layer utilities) always win. An unlayered rule here would beat every utility
+   regardless of specificity — e.g. a bare `a { color: inherit }` silently
+   overrides `text-white`/`text-primary` on <Link>s, and `* { border-color }`
+   overrides `border-primary`. Keeping them layered fixes CTA/link readability. */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
 
-html {
-  scroll-padding-top: 5rem; /* keep anchor targets clear of the sticky header */
-}
+  html {
+    scroll-padding-top: 5rem; /* keep anchor targets clear of the sticky header */
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
 
-h1, h2, h3, h4 {
-  letter-spacing: -0.02em;
-}
+  h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+  }
 
-a {
-  color: inherit;
+  a {
+    color: inherit;
+  }
 }
 
 @keyframes fadeUp {
