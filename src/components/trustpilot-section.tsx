@@ -160,14 +160,14 @@ function Pager({ cards }: { cards: { key: string; node: React.ReactNode }[] }) {
   );
 }
 
-export function TrustpilotSection({ providerName, data }: { providerName: string; data: ExternalReviews }) {
+export function TrustpilotSection({ providerName, data, anchorId = "reviews" }: { providerName: string; data: ExternalReviews; anchorId?: string }) {
   const reviews = data.quotes ?? [];
   const [sort, setSort] = useState<Sort>("highest");
   const sorted = sortReviews(reviews, sort);
   const lowest = reviews.length ? Math.min(...reviews.map((r) => r.stars)) : 0;
 
   return (
-    <section id="reviews" className="mt-12 scroll-mt-24">
+    <section id={anchorId} className="mt-12 scroll-mt-24">
       <h2 className="font-serif text-2xl font-semibold text-foreground">What real {providerName} customers say</h2>
 
       {/* Score header */}
