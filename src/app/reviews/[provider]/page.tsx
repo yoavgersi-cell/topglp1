@@ -153,7 +153,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
             href={p.affiliateUrl}
             target="_blank"
             rel="sponsored nofollow noopener"
-            className="mt-3 inline-flex w-full items-center justify-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+            className="mt-3 inline-flex w-full items-center justify-center gap-1 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
           >
             {p.ctaText}: {p.name} <ArrowUpRight size={15} />
           </a>
@@ -268,7 +268,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
           href={p.affiliateUrl}
           target="_blank"
           rel="sponsored nofollow noopener"
-          className="mt-4 inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+          className="mt-4 inline-flex items-center gap-1 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
         >
           {p.ctaText}: {p.name} <ArrowUpRight size={15} />
         </a>
@@ -440,7 +440,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
             href={p.affiliateUrl}
             target="_blank"
             rel="sponsored nofollow noopener"
-            className="mt-4 inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+            className="mt-4 inline-flex items-center gap-1 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
           >
             {p.ctaText}: {p.name} <ArrowUpRight size={15} />
           </a>

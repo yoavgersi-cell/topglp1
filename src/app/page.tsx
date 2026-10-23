@@ -63,13 +63,13 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
               <Link
                 href="/medications"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark"
+                className="inline-flex h-12 items-center gap-2 rounded-xl bg-primary px-6 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
               >
                 Explore the medications <ArrowRight size={16} />
               </Link>
               <Link
                 href="/best-glp1-providers"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-primary"
+                className="inline-flex h-12 items-center gap-2 rounded-xl border border-border bg-surface px-6 text-sm font-bold text-foreground transition-colors hover:border-primary hover:bg-primary-light/40"
               >
                 Compare GLP-1 programs
               </Link>
@@ -135,7 +135,7 @@ export default function HomePage() {
           <div className="flex flex-col items-center gap-3 sm:flex-row">
             <Link
               href="/find-your-match"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary-dark"
+              className="inline-flex h-12 items-center gap-2 rounded-xl bg-primary px-6 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
             >
               Find your match in 7 questions <ArrowRight size={16} />
             </Link>

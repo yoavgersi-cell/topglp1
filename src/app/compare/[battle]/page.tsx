@@ -206,12 +206,21 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
                 <Image src={p.logo} alt={`${p.name} logo`} fill className="object-contain object-left" sizes="96px" />
               </div>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground">{reason}</p>
+              {p.externalReviews && (
+                <div className="mt-3 flex items-center gap-1.5 text-xs text-muted">
+                  <TrustpilotStars value={p.externalReviews.scoreValue} max={p.externalReviews.scoreMax} size={13} />
+                  <span>
+                    <span className="font-bold text-foreground">{p.externalReviews.score}</span>/{p.externalReviews.scoreMax} ·{" "}
+                    {p.externalReviews.count.toLocaleString()} reviews
+                  </span>
+                </div>
+              )}
               {p.affiliateUrl !== "#" && (
                 <a
                   href={p.affiliateUrl}
                   target="_blank"
                   rel="sponsored nofollow noopener"
-                  className="mt-4 inline-flex items-center justify-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+                  className="mt-4 flex h-11 w-full items-center justify-center gap-1.5 rounded-xl bg-primary text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
                 >
                   {p.ctaText}: {p.name} <ArrowUpRight size={15} />
                 </a>
@@ -235,7 +244,7 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
               href={winner.affiliateUrl}
               target="_blank"
               rel="sponsored nofollow noopener"
-              className="inline-flex shrink-0 items-center justify-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+              className="inline-flex h-12 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-primary px-6 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
             >
               {winner.ctaText}: {winner.name} <ArrowUpRight size={15} />
             </a>
@@ -493,7 +502,7 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
             href={a.affiliateUrl}
             target="_blank"
             rel="sponsored nofollow noopener"
-            className="inline-flex items-center gap-1 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-dark"
+            className="inline-flex h-12 items-center justify-center gap-1.5 rounded-xl bg-primary px-6 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
           >
             {a.ctaText}: {a.name} <ArrowUpRight size={15} />
           </a>
@@ -501,7 +510,7 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
             href={bp.affiliateUrl}
             target="_blank"
             rel="sponsored nofollow noopener"
-            className="inline-flex items-center gap-1 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-foreground hover:border-primary"
+            className="inline-flex h-12 items-center justify-center gap-1.5 rounded-xl border border-border bg-surface px-6 text-sm font-bold text-foreground transition-colors hover:border-primary hover:bg-primary-light/40"
           >
             {bp.ctaText}: {bp.name} <ArrowUpRight size={15} />
           </a>
@@ -570,7 +579,7 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
           href={winner.affiliateUrl}
           target="_blank"
           rel="sponsored nofollow noopener"
-          className="flex w-full items-center justify-center gap-1 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-white"
+          className="flex h-12 w-full items-center justify-center gap-1.5 rounded-xl bg-primary px-4 text-sm font-bold text-white shadow-sm"
         >
           Get {winner.name} <ArrowUpRight size={14} />
         </a>
