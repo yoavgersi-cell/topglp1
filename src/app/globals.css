@@ -1,21 +1,20 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────────────────
-   TopGLP1 design tokens.
-   A clinical, editorial look: deep teal primary, warm sand ground, ink text.
-   Deliberately distinct from any sister property's navy palette.
+   TopGLP1 design tokens — matched to the Treatments Hub UI system.
+   Blue primary, light-gray ground, near-black ink, all-sans typography.
    ───────────────────────────────────────────────────────────────────────── */
 :root {
-  --background: #FBFAF7;
+  --background: #F8F8F8;
   --surface: #FFFFFF;
-  --foreground: #14211F;
-  --muted: #5B6B67;
-  --border: #E6E3DB;
+  --foreground: #191919;
+  --muted: #57606F;
+  --border: #E5E7EB;
 
-  --primary: #14A88C;        /* fresh, light mint-teal — the visible brand green */
-  --primary-dark: #0C7A66;   /* readable deeper green for hovers and small text on white */
-  --primary-light: #E9F7F2;  /* airy mint tint for section fills */
-  --accent: #C2410C;         /* deeper terracotta — legible as text (was #E4703A, failed contrast) */
+  --primary: #0C4B75;        /* Treatments Hub blue — the primary action colour */
+  --primary-dark: #093D61;   /* hover / pressed */
+  --primary-light: #EAF1F6;  /* light blue tint for section fills */
+  --accent: #C2410C;
   --accent-light: #FBEAE0;
 }
 
@@ -31,7 +30,9 @@
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-serif: var(--font-newsreader), ui-serif, Georgia, "Times New Roman", serif;
+  /* No serif — Treatments Hub is all-sans. "font-serif" headings fall back to
+     the sans stack so headings render clean and modern site-wide. */
+  --font-serif: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
 * {
