@@ -106,8 +106,10 @@ export interface ExternalReviews {
   quotes?: {
     name: string;
     stars: number;
-    /** Shown exactly as the source labels it — solicited vs organic. */
-    label: "Invited" | "Verified" | "Unprompted";
+    /** Shown exactly as the source labels it — solicited vs organic. Omitted when the source doesn't state it. */
+    label?: "Invited" | "Verified" | "Unprompted";
+    /** Reviewer location as shown on the source, e.g. "US". */
+    location?: string;
     date: string;
     text: string;
   }[];
@@ -489,6 +491,23 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://trimrx.com/glp1/offer-v4-meta?catalog=winter&discount=winter140&offer_url_id=29&oid=1&affid=40&oid2=4461&affid2=1952",
     ctaText: "View Plan",
+    externalReviews: {
+      source: "Trustpilot",
+      score: "3.7",
+      scoreValue: 3.7,
+      scoreMax: 5,
+      count: 5392,
+      asOf: "September 2026",
+      summary:
+        "TrimRx holds a 3.7 out of 5 on Trustpilot across 5,392 reviews — a genuinely mixed profile. Happy customers cite real weight loss, clear pricing and thorough screening; the critical reviews center on late or missing shipments and slow responses on multi-month prepaid plans. Read both sides before committing to a long plan.",
+      quotes: [
+        { name: "Steve T.", stars: 5, location: "US", date: "Aug 3, 2026", text: "I started my weight-loss journey on May 1st and have lost 41 lbs. My mental clarity has improved, my high blood pressure is gone, and I'm happier than I've been in years. The tirzepatide with B12 from TrimRx really works. If you're skeptical about GLP-1s, don't be." },
+        { name: "Sharon B.", stars: 5, location: "US", date: "Sep 23, 2026", text: "My old provider was charging me close to double this!" },
+        { name: "Alejandro A.", stars: 5, location: "US", date: "Jul 17, 2026", text: "The provider went through my health history before approving the prescription. I didn't feel rushed through it." },
+        { name: "Tiffany C.", stars: 3, location: "US", date: "Sep 22, 2026", text: "The price runs a little high, but if the quality holds I don't mind paying it. Delivery has been great every time and the whole thing is easy to follow. The only frustrating part is those weeks where the scale just sits." },
+        { name: "Karen A.", stars: 2, location: "US", date: "Sep 21, 2026", text: "The onboarding was fine, but they processed my order and full payment very quickly. I signed up for a 6-month plan delivered in two shipments. I've not received the second order, which I already paid for, and it's over 30 days late. They don't respond on chat or answer the phone." },
+      ],
+    },
     specs: {
       startingPrice: "Competitive (varies by plan — not a single flat number)",
       semaglutide: "Compounded (plan-dependent)",
@@ -538,6 +557,23 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1593&aff_id=12905",
     ctaText: "View Plan",
+    externalReviews: {
+      source: "Trustpilot",
+      score: "4.6",
+      scoreValue: 4.6,
+      scoreMax: 5,
+      count: 2188,
+      asOf: "October 2026",
+      summary:
+        "Wellmedr holds a 4.6 out of 5 on Trustpilot across 2,188 reviews. Reviewers repeatedly single out fast, human customer service and hands-on account managers; the critical reviews cluster around shipping delays — which the care team is often seen resolving.",
+      quotes: [
+        { name: "Jeremy N.", stars: 5, location: "US", date: "Sep 22, 2026", text: "After two years with another provider, I switched to Wellmedr. My first couple shipments were slightly delayed and I contacted their Care team — I was personally contacted by Rob, who runs operations, and he went over and beyond to fix everything. I've never had such great customer service, so quickly. Highly recommend." },
+        { name: "Jill", stars: 5, location: "US", date: "Sep 15, 2026", text: "I talked to a person within minutes, no computer talking to me. He was super nice and helpful." },
+        { name: "Kristine S.", stars: 5, location: "US", date: "Sep 20, 2026", text: "I have had no issues or problems since I joined. I've been kept informed and updated every step of the way, even their chat. I would recommend them to anybody." },
+        { name: "Kelly", stars: 4, location: "US", date: "Sep 21, 2026", text: "I had several issues with my order and delivery and was getting frustrated… Rob (operations manager) reached out to let me know he was replacing the product and reassured me of his oversight. Refreshing to see a company react and take care of a situation so quickly." },
+        { name: "Keidre", stars: 1, location: "US", date: "Sep 16, 2026", text: "I placed an order a week ago. Everything said approved and moved to shipping the same day. It's 8 days later and all I get is that there's a delay. Definitely feeling like a scam — no one answers the phone. At this point I just want a refund." },
+      ],
+    },
     specs: {
       startingPrice: "50% off first month (then plan rate)",
       semaglutide: "Compounded (plan-dependent)",
@@ -976,6 +1012,22 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1332&aff_id=12904",
     ctaText: "View Plan",
+    externalReviews: {
+      source: "Trustpilot",
+      score: "4.4",
+      scoreValue: 4.4,
+      scoreMax: 5,
+      count: 870,
+      asOf: "July 2026",
+      summary:
+        "bmiMD holds a 4.4 out of 5 on Trustpilot across 870 reviews. The reviews we captured praise responsive customer service, on-time cold-pack shipping and real early weight loss — a public profile at this score still includes a minority of unhappy customers, so read widely before deciding.",
+      quotes: [
+        { name: "Delaruth W.", stars: 5, location: "US", date: "Jul 23, 2026", text: "The customer service I have experienced with bmiMD is excellent. They always respond to messages in a timely matter and always come up with a solution to any issues. I have nothing bad to say about them." },
+        { name: "MommaJ", stars: 5, location: "US", date: "Jul 4, 2026", text: "So far… no side effects! Just dropping weight that exercise and diet wouldn't. Have gone from 238 to 213 in 3 weeks. Shipped to my front door for easy delivery!" },
+        { name: "Anna", stars: 5, location: "US", date: "Jul 3, 2026", text: "Medication works as it should. Always delivered on time and packaged properly with cold packs. Customer service is very responsive." },
+        { name: "Sandra H.", stars: 5, location: "US", date: "Jul 2, 2026", text: "Excellent customer service, quick shipping. The product I ordered is working wonderfully." },
+      ],
+    },
     specs: {
       startingPrice: "$119/mo (compounded semaglutide)",
       semaglutide: "$119/mo (compounded; list $228.60)",

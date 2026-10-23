@@ -22,6 +22,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MedicalDisclaimer } from "@/components/medical-disclaimer";
 import { Faq } from "@/components/faq";
 import { TrustpilotStars, TrustpilotLogo } from "@/components/trustpilot";
+import { TrustpilotSection } from "@/components/trustpilot-section";
 import { ArticleLayout, AsideCard } from "@/components/article-layout";
 import { Scorecard } from "@/components/scorecard";
 import { RelatedTopics } from "@/components/topic-directory";
@@ -415,79 +416,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
       )}
 
       {/* Real third-party reviews (Trustpilot etc.) */}
-      {p.externalReviews && (
-        <section className="mt-10">
-          <h2 className="flex items-center gap-2 font-serif text-2xl font-semibold text-foreground">
-            <Star size={20} className="fill-primary text-primary" /> What real {p.name} customers say
-          </h2>
-          <div className="mt-4 rounded-2xl border border-border bg-surface p-6">
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <span className="text-4xl font-bold text-foreground">{p.externalReviews.score}</span>
-              <TrustpilotStars value={p.externalReviews.scoreValue} max={p.externalReviews.scoreMax} size={26} />
-              <TrustpilotLogo />
-            </div>
-            <p className="mt-2 text-sm text-muted">
-              {p.externalReviews.count.toLocaleString()} {p.externalReviews.source} reviews · checked{" "}
-              {p.externalReviews.asOf}
-            </p>
-            {p.externalReviews.summary && (
-              <p className="prose-body mt-3 leading-relaxed text-foreground">{p.externalReviews.summary}</p>
-            )}
-            <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              {p.externalReviews.positives && p.externalReviews.positives.length > 0 && (
-                <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wide text-primary">What they praise</h3>
-                  <ul className="mt-2 space-y-1.5">
-                    {p.externalReviews.positives.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-foreground">
-                        <Check size={15} className="mt-0.5 shrink-0 text-primary" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {p.externalReviews.negatives && p.externalReviews.negatives.length > 0 && (
-                <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wide text-accent">The gripes</h3>
-                  <ul className="mt-2 space-y-1.5">
-                    {p.externalReviews.negatives.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-muted">
-                        <X size={15} className="mt-0.5 shrink-0 text-accent" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {p.externalReviews.quotes && p.externalReviews.quotes.length > 0 && (
-            <div className="mt-4 grid gap-3 sm:grid-cols-2">
-              {p.externalReviews.quotes.map((qt) => (
-                <figure key={qt.name + qt.date} className="rounded-2xl border border-border bg-surface p-5">
-                  <Quote size={16} className="text-primary" aria-hidden />
-                  <blockquote className="mt-2 text-sm leading-relaxed text-foreground">“{qt.text}”</blockquote>
-                  <figcaption className="mt-3 flex items-center gap-2 text-xs text-muted">
-                    <span className="inline-flex items-center gap-0.5 font-semibold text-foreground">
-                      {qt.stars}
-                      <Star size={11} className="fill-primary text-primary" />
-                    </span>
-                    · {qt.name} · {qt.label} · {qt.date}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          )}
-
-          <p className="mt-3 text-xs leading-relaxed text-muted">
-            Ratings and quotes are drawn from {p.externalReviews.source} and shown as posted there — including
-            whether each was “invited” (solicited by the company) or independently “verified.” We don't edit or
-            curate them to flatter our pick.
-          </p>
-        </section>
-      )}
+      {p.externalReviews && <TrustpilotSection providerName={p.name} data={p.externalReviews} />}
 
       {/* Credibility */}
       <section className="mt-10 rounded-2xl border border-border bg-surface p-6">
