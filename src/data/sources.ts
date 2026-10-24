@@ -89,6 +89,54 @@ export const SOURCES: Record<string, Source> = {
     type: "Clinical trial",
     note: "Phase 2 retatrutide trial (~24% mean weight loss at 48 weeks at the highest dose).",
   },
+  "attain-1": {
+    citation:
+      "Wharton S, et al. Orforglipron, an Oral Small-Molecule GLP-1 Receptor Agonist, for Obesity Treatment (ATTAIN-1). N Engl J Med. 2025.",
+    publisher: "New England Journal of Medicine",
+    url: "https://www.nejm.org/doi/10.1056/NEJMoa2511774",
+    type: "Clinical trial",
+    note: "ATTAIN-1 — pivotal phase 3 trial of oral orforglipron in obesity without diabetes (~11–12% mean weight loss at 72 weeks at the highest dose).",
+  },
+  "attain-2": {
+    citation:
+      "Frías JP, et al. Orforglipron, an oral small-molecule GLP-1 receptor agonist, for the treatment of obesity in people with type 2 diabetes (ATTAIN-2): a phase 3, randomised, placebo-controlled trial. Lancet. 2025.",
+    publisher: "The Lancet",
+    url: "https://www.sciencedirect.com/science/article/abs/pii/S0140673625021658",
+    type: "Clinical trial",
+    note: "ATTAIN-2 — phase 3 orforglipron trial in obesity plus type 2 diabetes (~10.5% weight loss and ~1.8-point A1C reduction at the top dose).",
+  },
+  "foundayo-label": {
+    citation:
+      "U.S. Food & Drug Administration / Eli Lilly. FOUNDAYO (orforglipron) tablets — Prescribing Information. Initial U.S. Approval: 2026.",
+    publisher: "U.S. Food & Drug Administration (DailyMed)",
+    url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8ac446c5-feba-474f-a103-23facb9b5c62",
+    type: "Regulatory",
+    note: "Official Foundayo label: approved strengths (0.8–17.2 mg), titration, boxed warning for thyroid C-cell tumors, and contraindications.",
+  },
+  "foundayo-approval-news": {
+    citation:
+      "American Journal of Managed Care. FDA Approves Lilly's Oral GLP-1 Orforglipron for Obesity (April 2026).",
+    publisher: "The American Journal of Managed Care",
+    url: "https://www.ajmc.com/view/fda-approves-lilly-s-oral-glp-1-orforglipron-for-obesity",
+    type: "Policy analysis",
+    note: "Reporting on the April 2026 FDA approval of orforglipron (Foundayo), the first oral GLP-1 with no food or water restrictions, under the FDA National Priority Voucher program.",
+  },
+  "wegovy-oral-approval": {
+    citation:
+      "Novo Nordisk. FDA approves once-daily oral Wegovy (semaglutide 25 mg) for chronic weight management (December 2025); pivotal OASIS 4 trial.",
+    publisher: "Novo Nordisk",
+    url: "https://www.novonordisk.com/content/nncorp/global/en/news-and-media/news-and-ir-materials/news-details.html?id=916472",
+    type: "Regulatory",
+    note: "Approval of the first oral GLP-1 for weight management; OASIS 4 showed 16.6% mean weight loss in adherent participants vs 2.7% on placebo over 64 weeks.",
+  },
+  "triumph-phase3": {
+    citation:
+      "Eli Lilly. Retatrutide (triple hormone-receptor agonist) phase 3 TRIUMPH program topline results (2025–2026).",
+    publisher: "Eli Lilly and Company (investor release)",
+    url: "https://investor.lilly.com/news-releases/news-release-details/lillys-triple-agonist-retatrutide-successful-two-additional",
+    type: "Clinical trial",
+    note: "Phase 3 TRIUMPH topline: retatrutide produced roughly 25% (intention-to-treat) to ~28% (on-treatment) weight loss at the highest dose; FDA submission planned.",
+  },
   "scale-obesity": {
     citation:
       "Pi-Sunyer X, et al. A Randomized, Controlled Trial of 3.0 mg of Liraglutide in Weight Management. N Engl J Med. 2015;373(1):11–22.",

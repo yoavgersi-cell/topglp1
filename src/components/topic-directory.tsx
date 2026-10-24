@@ -8,6 +8,7 @@ export const TOPIC_CLUSTERS: { title: string; links: { href: string; label: stri
     title: "GLP-1 medications",
     links: [
       { href: "/glp1-weight-loss-guide", label: "GLP-1 for weight loss: the complete guide" },
+      { href: "/glp1-pills", label: "GLP-1 pills: orforglipron & oral Wegovy" },
       { href: "/medications/semaglutide", label: "Semaglutide (Wegovy, Ozempic)" },
       { href: "/medications/tirzepatide", label: "Tirzepatide (Zepbound, Mounjaro)" },
       { href: "/medications/retatrutide", label: "Retatrutide (investigational)" },
@@ -76,6 +77,7 @@ const RELATED_GROUPS: { title: string; links: { href: string; label: string }[] 
     title: "The medications",
     links: [
       { href: "/glp1-weight-loss-guide", label: "GLP-1 for weight loss: the complete guide" },
+      { href: "/glp1-pills", label: "GLP-1 pills: orforglipron & oral Wegovy" },
       { href: "/medications/semaglutide", label: "Semaglutide (Wegovy, Ozempic)" },
       { href: "/medications/tirzepatide", label: "Tirzepatide (Zepbound, Mounjaro)" },
       { href: "/vs/semaglutide-vs-tirzepatide", label: "Semaglutide vs tirzepatide" },

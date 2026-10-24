@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${base}/`, lastModified, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/glp1-weight-loss-guide`, lastModified, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${base}/glp1-pills`, lastModified: new Date("2026-10-24"), changeFrequency: "weekly", priority: 0.92 },
     { url: `${base}/medications`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/guides`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/best-glp1-providers`, lastModified, changeFrequency: "weekly", priority: 0.9 },
