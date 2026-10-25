@@ -207,12 +207,12 @@ export default async function BattlePage({ params }: { params: Promise<{ battle:
                 <Image src={p.logo} alt={`${p.name} logo`} fill className="object-contain object-left" sizes="96px" />
               </div>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground">{reason}</p>
-              {p.externalReviews && (
+              {p.externalReviews?.score && p.externalReviews.scoreValue != null && (
                 <div className="mt-3 flex items-center gap-1.5 text-xs text-muted">
                   <TrustpilotStars value={p.externalReviews.scoreValue} max={p.externalReviews.scoreMax} size={13} />
                   <span>
-                    <span className="font-bold text-foreground">{p.externalReviews.score}</span>/{p.externalReviews.scoreMax} ·{" "}
-                    {p.externalReviews.count.toLocaleString()} reviews
+                    <span className="font-bold text-foreground">{p.externalReviews.score}</span>/{p.externalReviews.scoreMax}
+                    {p.externalReviews.count != null && <> · {p.externalReviews.count.toLocaleString()} reviews</>}
                   </span>
                 </div>
               )}

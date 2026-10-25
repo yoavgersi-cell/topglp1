@@ -135,12 +135,12 @@ export function ProviderCard({ provider }: { provider: Provider }) {
             <Link href={reviewHref} className="text-center text-[12.5px] font-semibold text-primary hover:underline">
               Read full review
             </Link>
-            {tp && (
+            {tp && tp.score && tp.scoreValue != null && (
               <div className="mt-0.5 flex items-center justify-center gap-1.5 border-t border-border pt-2 text-[11.5px] text-muted">
                 <Star className="h-3.5 w-3.5" strokeWidth={0} style={{ fill: tpStarColor(tp.scoreValue), color: tpStarColor(tp.scoreValue) }} />
                 <span className="font-bold text-foreground">{tp.score}</span>
                 <span>Trustpilot</span>
-                <span className="text-muted/70">({tp.count.toLocaleString()})</span>
+                {tp.count != null && <span className="text-muted/70">({tp.count.toLocaleString()})</span>}
               </div>
             )}
             <p className="text-center text-[10.5px] leading-tight text-muted">Visit official site · we may earn a commission</p>

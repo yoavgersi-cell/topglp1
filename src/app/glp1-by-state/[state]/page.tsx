@@ -400,7 +400,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
               <p className="mt-2 text-sm font-semibold text-foreground">{differentiator[p.id] ?? "Recommended program"}</p>
               <p className="mt-1 text-sm leading-relaxed text-muted">
                 {p.specs.startingPrice}
-                {p.externalReviews && <> · Trustpilot {p.externalReviews.score}</>}
+                {p.externalReviews?.score && <> · Trustpilot {p.externalReviews.score}</>}
               </p>
               <p className="mt-1 text-xs text-muted">
                 {providerServesAllStates(p) ? `Ships to all 50 states, including ${s.name}` : "Ships to most US states"}

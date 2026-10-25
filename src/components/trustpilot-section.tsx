@@ -170,22 +170,39 @@ export function TrustpilotSection({ providerName, data, anchorId = "reviews" }: 
     <section id={anchorId} className="mt-12 scroll-mt-24">
       <h2 className="font-serif text-2xl font-semibold text-foreground">What real {providerName} customers say</h2>
 
-      {/* Score header */}
-      <div className="mt-4 flex flex-col gap-4 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
-        <div className="flex items-center gap-5">
-          <div className="flex flex-col items-center">
-            <span className="font-serif text-5xl font-bold leading-none text-foreground">{data.score}</span>
-            <span className="mt-1 text-xs text-muted">out of {data.scoreMax}</span>
+      {/* Score header — shows the aggregate when the profile has a public rating;
+          for unrated/flagged profiles we show the reviews without inventing a score. */}
+      {data.score && data.scoreValue != null ? (
+        <div className="mt-4 flex flex-col gap-4 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+          <div className="flex items-center gap-5">
+            <div className="flex flex-col items-center">
+              <span className="font-serif text-5xl font-bold leading-none text-foreground">{data.score}</span>
+              <span className="mt-1 text-xs text-muted">out of {data.scoreMax}</span>
+            </div>
+            <div>
+              <TPStars rating={data.scoreValue} size={24} />
+              <p className="mt-2 text-sm text-muted">
+                {data.count != null && (
+                  <><span className="font-semibold text-foreground">{data.count.toLocaleString()}</span> reviews · </>
+                )}
+                checked {data.asOf}
+              </p>
+            </div>
           </div>
+          <TPWordmark />
+        </div>
+      ) : (
+        <div className="mt-4 flex flex-col gap-3 rounded-2xl border border-border bg-surface p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
           <div>
-            <TPStars rating={data.scoreValue} size={24} />
-            <p className="mt-2 text-sm text-muted">
-              <span className="font-semibold text-foreground">{data.count.toLocaleString()}</span> reviews · checked {data.asOf}
+            <p className="text-sm font-semibold text-foreground">Verbatim {providerName} reviews from Trustpilot</p>
+            <p className="mt-1 text-xs leading-relaxed text-muted">
+              {reviews.length} real reviews shown · checked {data.asOf}. {providerName}&rsquo;s Trustpilot profile has no
+              public star rating, so we show the reviews as posted rather than invent an aggregate score.
             </p>
           </div>
+          <TPWordmark />
         </div>
-        <TPWordmark />
-      </div>
+      )}
 
       {data.summary && <p className="mt-3 leading-relaxed text-foreground">{data.summary}</p>}
 

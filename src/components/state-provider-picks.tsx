@@ -54,7 +54,7 @@ export function StateProviderPicks({ stateName }: { stateName: string }) {
 
               <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted">
                 <span className="font-semibold text-foreground">{p.specs.startingPrice}</span>
-                {p.externalReviews && <span>Trustpilot {p.externalReviews.score}</span>}
+                {p.externalReviews?.score && <span>Trustpilot {p.externalReviews.score}</span>}
               </div>
 
               <div className="mt-4 flex flex-wrap items-center gap-3">
@@ -96,7 +96,7 @@ export function StateProviderPicks({ stateName }: { stateName: string }) {
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted">
             <span className="font-semibold text-foreground">Branded GLP-1 · works with insurance</span>
-            {ro.externalReviews && <span>Trustpilot {ro.externalReviews.score}</span>}
+            {ro.externalReviews?.score && <span>Trustpilot {ro.externalReviews.score}</span>}
           </div>
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <a

@@ -12,6 +12,8 @@
 // A "#" affiliateUrl is a placeholder pending the live tracking link.
 // ─────────────────────────────────────────────────────────────────────────────
 
+import { EXTERNAL_REVIEWS } from "./trustpilot-reviews";
+
 export interface ProviderSpecs {
   /** Headline entry price. */
   startingPrice: string;
@@ -88,14 +90,15 @@ export interface ExternalReviews {
   source: string;
   /** Public URL of the source listing. Intentionally not linked out on-page. */
   url?: string;
-  /** Score exactly as the source states it, e.g. "4.6 / 5". */
-  score: string;
-  /** Numeric score, for rendering the star graphic. */
-  scoreValue: number;
+  /** Score exactly as the source states it, e.g. "4.6 / 5". Omitted when the
+   *  provider's profile is unrated or flagged and shows no public aggregate. */
+  score?: string;
+  /** Numeric score, for rendering the star graphic. Omitted with `score`. */
+  scoreValue?: number;
   /** Scale maximum (Trustpilot = 5). */
   scoreMax: number;
-  /** Review count from the source. */
-  count: number;
+  /** Review count from the source. Omitted when there's no public aggregate. */
+  count?: number;
   /** Date we last checked the source. */
   asOf: string;
   /** Honest synthesis of recurring themes — our words, from real reviews. */
@@ -110,7 +113,8 @@ export interface ExternalReviews {
     label?: "Invited" | "Verified" | "Unprompted";
     /** Reviewer location as shown on the source, e.g. "US". */
     location?: string;
-    date: string;
+    /** Review date as shown on the source, when present. */
+    date?: string;
     text: string;
   }[];
 }
@@ -245,11 +249,11 @@ export const PROVIDERS: Provider[] = [
       watchOut: "Compounded only — no brand-name option",
     },
     editorial: {
-      seoTitle: "Embody Tirzepatide Reviews (2026): 3.7★, $119/mo — Is It Legit?",
+      seoTitle: "Embody Tirzepatide Reviews (2026): 3.8★, $119/mo — Is It Legit?",
       seoDescription:
-        "Independent Embody review: the real 3.7/5 Trustpilot rating (7,250 reviews), compounded tirzepatide $119/mo and semaglutide $69/mo, honest pros and cons — and whether Embody is legit and worth it.",
+        "Independent Embody review: the real 3.8/5 Trustpilot rating (9,604 reviews), compounded tirzepatide $119/mo and semaglutide $69/mo, honest pros and cons — and whether Embody is legit and worth it.",
       intro:
-        "Embody is a cash-pay telehealth service that prescribes compounded GLP-1 medication — semaglutide at a flat $69/month and tirzepatide at $119/month — with free 1–2 day shipping and no insurance required. It's our top pick for value and pricing transparency among the GLP-1 programs we track. On Trustpilot it holds a mixed 3.7 out of 5 across 7,250 reviews. Below is who it fits, who it doesn't, and what to check before signing up.",
+        "Embody is a cash-pay telehealth service that prescribes compounded GLP-1 medication — semaglutide at a flat $69/month and tirzepatide at $119/month — with free 1–2 day shipping and no insurance required. It's our top pick for value and pricing transparency among the GLP-1 programs we track. On Trustpilot it holds a mixed 3.8 out of 5 across 9,604 reviews. Below is who it fits, who it doesn't, and what to check before signing up.",
       isItLegit:
         "Embody works with US-licensed doctors and LegitScript-certified 503A compounding pharmacies, and it states those credentials openly — both good signs. The caveat is inherent to the model, not to Embody specifically: compounded semaglutide and tirzepatide are not FDA-approved finished drugs, and the rules around compounding GLP-1s have tightened since the FDA declared the semaglutide and tirzepatide shortages resolved in 2025. Compounding remains legal in defined circumstances, but it is a different product from branded Wegovy or Zepbound, and a licensed clinician should review your history before prescribing.",
       isItWorth:
@@ -269,64 +273,7 @@ export const PROVIDERS: Provider[] = [
         "Anyone not comfortable with compounded (non-FDA-approved) medication",
       ],
       bottomLine:
-        "Embody is our #1 GLP-1 pick on the fundamentals we can verify: the lowest flat cash pricing we track, both semaglutide and tirzepatide, fast free shipping, and openly stated pharmacy credentials. Its Trustpilot score is a mixed 3.7/5 — mostly invited reviews praising responsive clinicians, alongside a real minority of unhappy customers — so go in clear-eyed: it's the best-value compounded option we've found, not a flawless one.",
-    },
-    externalReviews: {
-      source: "Trustpilot",
-      score: "3.7 / 5",
-      scoreValue: 3.7,
-      scoreMax: 5,
-      count: 7250,
-      asOf: "September 7, 2026",
-      summary:
-        "Embody holds a 3.7 out of 5 on Trustpilot across 7,250 reviews — a genuinely mixed “Average” score. Most reviews are 5-star, and most are “invited” (Embody solicits them and runs a paid Trustpilot subscription on a claimed profile), so weigh the sample accordingly. The recurring praise is consistent: friendly, knowledgeable clinicians who answer questions, an easy online ordering process, and pricing people describe as affordable and stable. One honest wrinkle shows up repeatedly — the scheduled video visit sometimes fails to connect, though reviewers say a provider phoned them shortly after. A visible minority still leave 1-star reviews.",
-      positives: [
-        "Clinicians repeatedly described as friendly, patient and knowledgeable — reviewers say they answered every question",
-        "Online ordering and consultation described as easy, comfortable and hassle-free",
-        "Pricing praised as affordable and stable (“prices that don't change”), with free delivery",
-      ],
-      negatives: [
-        "A recurring glitch: the scheduled video visit sometimes doesn't connect — reviewers report a provider phoning them instead",
-        "3.7/5 overall is “Average,” and the distribution shows a real share of 1-star reviews",
-        "Most reviews are “invited” and the profile carries a paid Trustpilot subscription — the sample skews toward solicited feedback",
-      ],
-      quotes: [
-        {
-          name: "Thom K.",
-          stars: 5,
-          label: "Verified",
-          date: "July 3, 2026",
-          text: "The ordering experience was excellent, all information was given and everything done online. It was a very comfortable process.",
-        },
-        {
-          name: "Ann Kirch",
-          stars: 5,
-          label: "Invited",
-          date: "September 5, 2026",
-          text: "I had issues with my video connecting, so my provider took it upon herself to phone call me — it went perfect. So much faith in Embody, with the affordable prices that don't change.",
-        },
-        {
-          name: "Teresa Brown",
-          stars: 5,
-          label: "Invited",
-          date: "September 7, 2026",
-          text: "No hassles. Free delivery. Explained everything.",
-        },
-        {
-          name: "Taylor Smith",
-          stars: 5,
-          label: "Invited",
-          date: "September 7, 2026",
-          text: "Nobody showed up for the video visit, but got a phone call shortly after.",
-        },
-        {
-          name: "Dawn White",
-          stars: 5,
-          label: "Invited",
-          date: "September 7, 2026",
-          text: "He was friendly, concerned about my feelings and answered all my questions.",
-        },
-      ],
+        "Embody is our #1 GLP-1 pick on the fundamentals we can verify: the lowest flat cash pricing we track, both semaglutide and tirzepatide, fast free shipping, and openly stated pharmacy credentials. Its Trustpilot score is a mixed 3.8/5 — real reviews that run from praise for responsive clinicians to a genuine minority of unhappy customers — so go in clear-eyed: it's the best-value compounded option we've found, not a flawless one.",
     },
   },
   {
@@ -381,9 +328,9 @@ export const PROVIDERS: Provider[] = [
     editorial: {
       seoTitle: "Ro Reviews 2026: 4.0★ Trustpilot — GLP-1 Cost & Is It Worth It?",
       seoDescription:
-        "Ro's real Trustpilot rating is 4.0/5 across 6,343 mostly-organic reviews. How its GLP-1 membership and branded Zepbound/Wegovy access work, insurance costs, and whether Ro is worth it.",
+        "Ro's real Trustpilot rating is 3.9/5 across 7,105 reviews. How its GLP-1 membership and branded Zepbound/Wegovy access work, insurance costs, and whether Ro is worth it.",
       intro:
-        "Ro is an established telehealth platform that connects you with licensed clinicians for GLP-1 care and access to FDA-approved branded medications — Wegovy, Ozempic, Zepbound and Mounjaro — with help navigating insurance. You pay a membership for the clinical care, plus the medication itself (cost depends on your insurance). On Trustpilot it holds a 4.0 out of 5 across 6,343 reviews, most of them “unprompted” — organic feedback Ro didn't solicit. Here's how it works, who it fits, and where it falls short.",
+        "Ro is an established telehealth platform that connects you with licensed clinicians for GLP-1 care and access to FDA-approved branded medications — Wegovy, Ozempic, Zepbound and Mounjaro — with help navigating insurance. You pay a membership for the clinical care, plus the medication itself (cost depends on your insurance). On Trustpilot it holds a 3.9 out of 5 across 7,105 reviews. Here's how it works, who it fits, and where it falls short.",
       isItLegit:
         "Ro is one of the largest and longest-running US telehealth companies (its Trustpilot profile dates to 2021), working with US-licensed clinicians and dispensing FDA-approved branded GLP-1 through licensed pharmacies. Unlike compounded-only services, the medication is the brand-name, FDA-approved product. It is a well-established, legitimate operation — the usual caveat applies: a clinician should review your history, and GLP-1 medications carry real side effects.",
       isItWorth:
@@ -403,65 +350,7 @@ export const PROVIDERS: Provider[] = [
         "Anyone who wants one flat, published monthly price with no membership layer",
       ],
       bottomLine:
-        "Ro is a strong, credible choice for brand-name GLP-1 with insurance help, and its 4.0/5 Trustpilot — built mostly on organic, unprompted reviews — is a genuinely good signal for communication and speed. It ranks behind our top pick on cost and transparency: you're paying a membership plus brand-name medication, which without good insurance runs well above Embody's flat $69–$119/month compounded pricing. Want branded and insured? Ro fits. Want the lowest predictable price? Embody wins.",
-    },
-    externalReviews: {
-      source: "Trustpilot",
-      score: "4.0 / 5",
-      scoreValue: 4.0,
-      scoreMax: 5,
-      count: 6428,
-      asOf: "September 12, 2026",
-      summary:
-        "Ro holds a 4.0 out of 5 on Trustpilot across 6,428 reviews, and — unlike an invite-driven profile — the recent reviews are largely “unprompted,” organic feedback Ro didn't solicit (the profile does carry a paid Trustpilot subscription). Trustpilot's own AI summary of recent reviews reports a “great experience” overall: reviewers repeatedly praise a digital onboarding that's simple, fast and easy to navigate, and the thorough medical evaluation — the detailed health questions that keep patients informed at every step. Delivery is fast too, with several reviewers reporting medication arriving within days. The honest criticism is about money: some reviewers find the pricing structure confusing (a membership fee plus monthly medication cost), and note those costs add up — a real strain for people on fixed incomes. Even the cost-conscious reviews tend to end on “worth it if it works.”",
-      positives: [
-        "Fast, easy sign-up and approval — reviewers cite a “valuable questionnaire” and quick provider contact",
-        "Strong, responsive communication; several say the process made them feel safe going online",
-        "Fast delivery — multiple reviewers report medication arriving in about three days",
-        "Upfront information on pricing, use and side effects; recent reviews are mostly “unprompted” (organic)",
-      ],
-      negatives: [
-        "Cost: reviewers note the monthly membership doesn't include the medication, so it's expensive out of pocket without insurance",
-        "One reviewer reported being charged twice — a duplicate charge their bank declined",
-        "The profile carries a paid Trustpilot subscription, though the recent reviews read as organic",
-      ],
-      quotes: [
-        {
-          name: "Renee Shell",
-          stars: 5,
-          label: "Unprompted",
-          date: "September 11, 2026",
-          text: "Company responds promptly, price is reasonable, and service is excellent. They really care about their customers and are always available for questions and concerns.",
-        },
-        {
-          name: "Bill Nadzam",
-          stars: 5,
-          label: "Unprompted",
-          date: "September 11, 2026",
-          text: "I received my pills today after only a few days. Lowest dose available. We will soon see if this works. $149.00 a month. Seems a little high but then again I am cheap.",
-        },
-        {
-          name: "Deb Plummer",
-          stars: 5,
-          label: "Unprompted",
-          date: "September 10, 2026",
-          text: "So far so good regarding how quickly they let me know if I was able to get on GLP meds. It's been packaged and I should receive next week.",
-        },
-        {
-          name: "Jones",
-          stars: 4,
-          label: "Unprompted",
-          date: "September 10, 2026",
-          text: "The staff I have interacted with so far have been courteous and professional.",
-        },
-        {
-          name: "Jen",
-          stars: 5,
-          label: "Unprompted",
-          date: "September 9, 2026",
-          text: "I liked the in depth questions. And things moved along quickly. Nicely. The price is okay. I'll see how Wegovy pills go. I have my doubts……",
-        },
-      ],
+        "Ro is a strong, credible choice for brand-name GLP-1 with insurance help, and its 3.9/5 Trustpilot is a genuinely good signal for communication and speed. It ranks behind our top pick on cost and transparency: you're paying a membership plus brand-name medication, which without good insurance runs well above Embody's flat $69–$119/month compounded pricing. Want branded and insured? Ro fits. Want the lowest predictable price? Embody wins.",
     },
   },
   {
@@ -491,23 +380,6 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://trimrx.com/glp1/offer-v4-meta?catalog=winter&discount=winter140&offer_url_id=29&oid=1&affid=40&oid2=4461&affid2=1952",
     ctaText: "View Plan",
-    externalReviews: {
-      source: "Trustpilot",
-      score: "3.7",
-      scoreValue: 3.7,
-      scoreMax: 5,
-      count: 5392,
-      asOf: "September 2026",
-      summary:
-        "TrimRx holds a 3.7 out of 5 on Trustpilot across 5,392 reviews — a genuinely mixed profile. Happy customers cite real weight loss, clear pricing and thorough screening; the critical reviews center on late or missing shipments and slow responses on multi-month prepaid plans. Read both sides before committing to a long plan.",
-      quotes: [
-        { name: "Steve T.", stars: 5, location: "US", date: "Aug 3, 2026", text: "I started my weight-loss journey on May 1st and have lost 41 lbs. My mental clarity has improved, my high blood pressure is gone, and I'm happier than I've been in years. The tirzepatide with B12 from TrimRx really works. If you're skeptical about GLP-1s, don't be." },
-        { name: "Sharon B.", stars: 5, location: "US", date: "Sep 23, 2026", text: "My old provider was charging me close to double this!" },
-        { name: "Alejandro A.", stars: 5, location: "US", date: "Jul 17, 2026", text: "The provider went through my health history before approving the prescription. I didn't feel rushed through it." },
-        { name: "Tiffany C.", stars: 3, location: "US", date: "Sep 22, 2026", text: "The price runs a little high, but if the quality holds I don't mind paying it. Delivery has been great every time and the whole thing is easy to follow. The only frustrating part is those weeks where the scale just sits." },
-        { name: "Karen A.", stars: 2, location: "US", date: "Sep 21, 2026", text: "The onboarding was fine, but they processed my order and full payment very quickly. I signed up for a 6-month plan delivered in two shipments. I've not received the second order, which I already paid for, and it's over 30 days late. They don't respond on chat or answer the phone." },
-      ],
-    },
     specs: {
       startingPrice: "Competitive (varies by plan — not a single flat number)",
       semaglutide: "Compounded (plan-dependent)",
@@ -557,23 +429,6 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1593&aff_id=12905",
     ctaText: "View Plan",
-    externalReviews: {
-      source: "Trustpilot",
-      score: "4.6",
-      scoreValue: 4.6,
-      scoreMax: 5,
-      count: 2188,
-      asOf: "October 2026",
-      summary:
-        "Wellmedr holds a 4.6 out of 5 on Trustpilot across 2,188 reviews. Reviewers repeatedly single out fast, human customer service and hands-on account managers; the critical reviews cluster around shipping delays — which the care team is often seen resolving.",
-      quotes: [
-        { name: "Jeremy N.", stars: 5, location: "US", date: "Sep 22, 2026", text: "After two years with another provider, I switched to Wellmedr. My first couple shipments were slightly delayed and I contacted their Care team — I was personally contacted by Rob, who runs operations, and he went over and beyond to fix everything. I've never had such great customer service, so quickly. Highly recommend." },
-        { name: "Jill", stars: 5, location: "US", date: "Sep 15, 2026", text: "I talked to a person within minutes, no computer talking to me. He was super nice and helpful." },
-        { name: "Kristine S.", stars: 5, location: "US", date: "Sep 20, 2026", text: "I have had no issues or problems since I joined. I've been kept informed and updated every step of the way, even their chat. I would recommend them to anybody." },
-        { name: "Kelly", stars: 4, location: "US", date: "Sep 21, 2026", text: "I had several issues with my order and delivery and was getting frustrated… Rob (operations manager) reached out to let me know he was replacing the product and reassured me of his oversight. Refreshing to see a company react and take care of a situation so quickly." },
-        { name: "Keidre", stars: 1, location: "US", date: "Sep 16, 2026", text: "I placed an order a week ago. Everything said approved and moved to shipping the same day. It's 8 days later and all I get is that there's a delay. Definitely feeling like a scam — no one answers the phone. At this point I just want a refund." },
-      ],
-    },
     specs: {
       startingPrice: "50% off first month (then plan rate)",
       semaglutide: "Compounded (plan-dependent)",
@@ -1012,22 +867,6 @@ export const PROVIDERS: Provider[] = [
     ],
     affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1332&aff_id=12904",
     ctaText: "View Plan",
-    externalReviews: {
-      source: "Trustpilot",
-      score: "4.4",
-      scoreValue: 4.4,
-      scoreMax: 5,
-      count: 870,
-      asOf: "July 2026",
-      summary:
-        "bmiMD holds a 4.4 out of 5 on Trustpilot across 870 reviews. The reviews we captured praise responsive customer service, on-time cold-pack shipping and real early weight loss — a public profile at this score still includes a minority of unhappy customers, so read widely before deciding.",
-      quotes: [
-        { name: "Delaruth W.", stars: 5, location: "US", date: "Jul 23, 2026", text: "The customer service I have experienced with bmiMD is excellent. They always respond to messages in a timely matter and always come up with a solution to any issues. I have nothing bad to say about them." },
-        { name: "MommaJ", stars: 5, location: "US", date: "Jul 4, 2026", text: "So far… no side effects! Just dropping weight that exercise and diet wouldn't. Have gone from 238 to 213 in 3 weeks. Shipped to my front door for easy delivery!" },
-        { name: "Anna", stars: 5, location: "US", date: "Jul 3, 2026", text: "Medication works as it should. Always delivered on time and packaged properly with cold packs. Customer service is very responsive." },
-        { name: "Sandra H.", stars: 5, location: "US", date: "Jul 2, 2026", text: "Excellent customer service, quick shipping. The product I ordered is working wonderfully." },
-      ],
-    },
     specs: {
       startingPrice: "$119/mo (compounded semaglutide)",
       semaglutide: "$119/mo (compounded; list $228.60)",
@@ -1359,6 +1198,14 @@ export const PROVIDERS: Provider[] = [
     },
   },
 ];
+
+// Attach the real Trustpilot reviews (single source of truth: trustpilot-reviews.ts)
+// to each provider by id. This overrides any inline externalReviews so the same
+// verified reviews render in every Trustpilot section site-wide.
+for (const provider of PROVIDERS) {
+  const reviews = EXTERNAL_REVIEWS[provider.id];
+  if (reviews) provider.externalReviews = reviews;
+}
 
 export function getProvider(id: string): Provider | undefined {
   return PROVIDERS.find((p) => p.id === id);

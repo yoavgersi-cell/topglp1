@@ -41,7 +41,7 @@ function providerFaqs(p: Provider) {
       q: `How much does ${p.name} cost?`,
       a: `${p.name} starts at ${p.specs.startingPrice}. Semaglutide: ${p.specs.semaglutide}. Tirzepatide: ${p.specs.tirzepatide}. Billing is ${p.specs.billing.toLowerCase()}. Pricing is provider-reported and can change — confirm current rates on their site.`,
     },
-    ...(p.externalReviews
+    ...(p.externalReviews?.score && p.externalReviews.count != null
       ? [
           {
             q: `What is ${p.name}'s customer rating?`,
@@ -160,7 +160,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
             <dt className="text-xs text-muted">Offering</dt>
             <dd className="font-medium text-foreground">{p.specs.offeringType}</dd>
           </div>
-          {p.externalReviews && (
+          {p.externalReviews?.score && (
             <div>
               <dt className="text-xs text-muted">Trustpilot</dt>
               <dd className="font-medium text-foreground">{p.externalReviews.score}</dd>
@@ -211,7 +211,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
       datePublished: CONTENT_REVIEWED,
     },
   };
-  if (p.externalReviews) {
+  if (p.externalReviews?.score && p.externalReviews.scoreValue != null && p.externalReviews.count != null) {
     productLd.aggregateRating = {
       "@type": "AggregateRating",
       ratingValue: p.externalReviews.scoreValue,
@@ -269,7 +269,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ provide
             <Star size={15} className="fill-primary text-primary" /> {p.rating.toFixed(1)}/10
             <span className="font-normal text-muted">Top GLP-1 score</span>
           </span>
-          {p.externalReviews && (
+          {p.externalReviews?.score && p.externalReviews.scoreValue != null && (
             <span className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-sm">
               <TrustpilotStars value={p.externalReviews.scoreValue} max={p.externalReviews.scoreMax} size={16} />
               <span className="font-bold text-foreground">{p.externalReviews.score}</span>

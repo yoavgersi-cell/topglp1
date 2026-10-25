@@ -64,7 +64,7 @@ export default function ReviewsIndex() {
                 <Star size={13} className="fill-primary text-primary" /> {p.rating.toFixed(1)}/10
                 <span className="font-normal text-muted">our score</span>
               </span>
-              {p.externalReviews && (
+              {p.externalReviews?.score && (
                 <span className="text-muted">Trustpilot {p.externalReviews.score}</span>
               )}
             </div>
