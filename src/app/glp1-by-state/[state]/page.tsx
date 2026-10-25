@@ -102,6 +102,7 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
     { label: "Branded — with insurance", value: "$0–$550/mo", note: "If your plan covers it (varies widely)" },
     { label: "Compounded semaglutide — telehealth", value: "from $69/mo", note: `No insurance needed; ships to ${s.name}` },
     { label: "Compounded tirzepatide — telehealth", value: "from $119/mo", note: "The stronger dual-agonist molecule" },
+    { label: "Oral GLP-1 pills (Foundayo / oral Wegovy) — cash", value: "~$149–$349/mo", note: `Newer prescription pills, direct from the maker; ship to ${s.name}` },
   ];
 
   const faqs = [
@@ -138,6 +139,10 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
     {
       q: `Can I get tirzepatide online in ${s.name}?`,
       a: `Yes. Compounded tirzepatide — the dual GLP-1/GIP molecule in Zepbound and Mounjaro — is available to ${s.name} residents through licensed telehealth from about $119/month, no insurance required. Brand-name Zepbound is a separate, insurance-oriented route (see the cost table above).`,
+    },
+    {
+      q: `Can I get GLP-1 pills in ${s.name}?`,
+      a: `Yes. Two FDA-approved GLP-1 weight-loss pills — orforglipron (Foundayo) and oral Wegovy (oral semaglutide 25 mg) — can be prescribed to ${s.name} residents, including direct from the manufacturers for roughly $149–$349 a month. They're a needle-free option, though the strongest injections still produce more weight loss. See our full GLP-1 pills guide for details.`,
     },
     {
       q: `Are compounded GLP-1 medications available in ${s.name}?`,
@@ -322,6 +327,14 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
         <p className="mt-2 text-xs leading-relaxed text-muted">
           Cash prices are nationwide provider pricing (these programs serve {s.name}); they are provider-reported and
           change, and compounded availability depends on FDA shortage status. Confirm current pricing before you buy.
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-foreground">
+          Prefer a pill to a weekly injection? Two FDA-approved GLP-1 pills — orforglipron (Foundayo) and oral Wegovy —
+          can now be prescribed to {s.name} residents. See our{" "}
+          <Link href="/glp1-pills" className="font-medium text-primary hover:underline">
+            full guide to GLP-1 weight-loss pills
+          </Link>{" "}
+          for how well they work, dosing and cost.
         </p>
       </section>
 

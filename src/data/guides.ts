@@ -94,12 +94,14 @@ export const GUIDES: Guide[] = [
     description:
       "Why GLP-1 doses start low and step up slowly, what the typical semaglutide and tirzepatide schedules look like, and how to handle a rough week.",
     category: "Treatment",
-    readTime: "6 min read",
+    readTime: "8 min read",
     keyTakeaways: [
-      "Every GLP-1 starts low and increases every 4 weeks to limit nausea.",
+      "Every GLP-1 — injection or pill — starts low and increases about every 4 weeks to limit nausea.",
       "The starter dose isn't meant to cause much weight loss — it's for tolerance.",
       "You don't always need the maximum dose to get results.",
       "Slowing down escalation is a normal, safe response to side effects.",
+      "The new oral GLP-1 pills titrate on the same slow-ramp principle: oral Wegovy climbs to 25 mg, orforglipron to 17.2 mg.",
+      "For a missed dose, follow the product-specific window — and never double up to catch up.",
     ],
     sections: [
       {
@@ -130,9 +132,34 @@ export const GUIDES: Guide[] = [
         ],
       },
       {
+        heading: "Oral GLP-1 dosing: the new pills",
+        body: [
+          "GLP-1s now come as pills too, and they titrate on exactly the same slow-ramp principle — start low, step up roughly every 30 days to a maintenance dose. There are two FDA-approved weight-loss pills in 2026, and how you take them differs in one important way.",
+          "Oral Wegovy (oral semaglutide) must be taken on an empty stomach first thing in the morning, with no more than about 4 ounces of plain water, then a 30-minute wait before eating, drinking or taking anything else — getting that routine right is what makes the dose actually work. Orforglipron (Foundayo) has no such restriction: as a small molecule it can be taken at any time, with or without food or water.",
+        ],
+        list: [
+          "Oral Wegovy (oral semaglutide): climbs roughly monthly from 1.5 mg → 4 mg → 9 mg → 25 mg daily (maintenance), taken on an empty stomach with the 30-minute rule.",
+          "Orforglipron (Foundayo): 0.8 mg → 2.5 mg → 5.5 mg, then if needed 9 → 14.5 → 17.2 mg daily (max), at least 30 days per step — any time of day, with or without food or water.",
+          "As with the injections, the top strength is a ceiling, not a target — many people hold at a middle dose.",
+        ],
+      },
+      {
         heading: "You may not need the top dose",
         body: [
           "The maximum dose is a ceiling, not a target. Plenty of people reach their goal weight and feel great at an intermediate dose — 1.0 mg semaglutide or 5–10 mg tirzepatide — and never go higher. The right dose is the lowest one that keeps you progressing with manageable side effects.",
+        ],
+      },
+      {
+        heading: "What if I miss a dose?",
+        body: [
+          "The rule depends on whether your medication is weekly or daily, and the exact window is set by the product instructions — but the principle is universal: never double up to \"catch up,\" which stacks side effects.",
+        ],
+        list: [
+          "Weekly injectable semaglutide (Wegovy): if your next scheduled dose is at least 2 days (48 hours) away, take the missed dose as soon as you can; if it's sooner than that, skip it and resume your normal schedule.",
+          "Weekly injectable tirzepatide (Zepbound): a missed dose can generally be taken within about 4 days (96 hours); after that, skip it and take the next dose on schedule.",
+          "Daily pills (oral Wegovy, orforglipron): skip a missed day and take the next day's dose as normal — don't take two in one day.",
+          "Orforglipron specifically: if you miss about a week or more of consecutive doses, your prescriber may have you restart the dose escalation at a lower step.",
+          "When in doubt, follow the instructions that came with your medication or ask your prescriber.",
         ],
       },
       {
@@ -145,7 +172,14 @@ export const GUIDES: Guide[] = [
     ],
     relatedGuides: ["glp1-side-effects-and-how-to-manage-them", "how-glp1-medications-work"],
     relatedMeds: ["semaglutide", "tirzepatide"],
-    sources: ["step-1", "surmount-1"],
+    sources: ["step-1", "surmount-1", "foundayo-label", "wegovy-oral-approval"],
+    furtherReading: [
+      {
+        label: "GLP-1 weight-loss pills: orforglipron & oral Wegovy — the full guide",
+        href: "/glp1-pills",
+        note: "Our in-depth guide to the two FDA-approved GLP-1 pills: how well they work, side effects, full dosing, cost, and how they compare to the injections.",
+      },
+    ],
   },
   {
     slug: "glp1-side-effects-and-how-to-manage-them",

@@ -57,13 +57,41 @@ function providerFaqs(p: Provider) {
           : `Yes. ${p.specs.tirzepatide}. ${p.specs.gipOption}`,
     },
     {
+      q: `Does ${p.name} offer semaglutide?`,
+      a:
+        p.specs.semaglutide.startsWith("—")
+          ? `No — ${p.name} does not currently offer semaglutide. Its GLP-1 offering is ${p.specs.offeringType.toLowerCase()}.`
+          : `Yes. ${p.specs.semaglutide}. Semaglutide is the active molecule in Ozempic and Wegovy; ${p.name}'s offering is ${p.specs.offeringType.toLowerCase()}.`,
+    },
+    {
       q: `Is ${p.name} legitimate and safe?`,
       a: `${p.name} works with ${p.specs.pharmacy.toLowerCase()} and ${p.specs.clinicians.toLowerCase()}. As with any GLP-1 program, confirm licensing and that a prescriber reviews your case. GLP-1 medications carry real risks regardless of provider — see our medication guides.`,
+    },
+    {
+      q: `How fast does ${p.name} ship?`,
+      a: `${p.name} shipping: ${p.specs.shipping}. Delivery times are provider-reported and can vary by state and demand — confirm current timelines at checkout.`,
+    },
+    {
+      q: `How do I start with ${p.name}?`,
+      a: `You start with ${p.specs.consult.toLowerCase()}: ${p.specs.clinicians.toLowerCase()} review your history and, if appropriate, prescribe. ${p.specs.labs.startsWith("—") ? "" : `Labs: ${p.specs.labs}. `}If approved, the medication ships to you (${p.specs.shipping.toLowerCase()}).`.trim(),
     },
     {
       q: `Does ${p.name} take insurance?`,
       a: `Insurance: ${p.specs.insurance}. ${p.specs.offeringType === "Compounded" ? "Compounded GLP-1 is usually paid cash." : ""}`.trim(),
     },
+    ...(p.editorial?.bestFor?.length
+      ? [
+          {
+            q: `Who is ${p.name} best for?`,
+            a: `${p.name} is a good fit for ${p.editorial.bestFor.map((b) => b.charAt(0).toLowerCase() + b.slice(1)).join("; ")}. ${p.editorial.notFor?.length ? `It's a weaker fit if you ${p.editorial.notFor[0].charAt(0).toLowerCase() + p.editorial.notFor[0].slice(1)}.` : ""}`.trim(),
+          },
+        ]
+      : [
+          {
+            q: `What is ${p.name} best for?`,
+            a: `${p.specs.standout}. ${p.name} starts at ${p.specs.startingPrice} and offers ${p.specs.offeringType.toLowerCase()} GLP-1.`,
+          },
+        ]),
   ];
 }
 
