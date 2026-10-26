@@ -137,6 +137,54 @@ export const SOURCES: Record<string, Source> = {
     type: "Clinical trial",
     note: "Phase 3 TRIUMPH topline: retatrutide produced roughly 25% (intention-to-treat) to ~28% (on-treatment) weight loss at the highest dose; FDA submission planned.",
   },
+  "step1-bodycomp": {
+    citation:
+      "Wilding JPH, et al. Impact of semaglutide on body composition in adults with overweight or obesity: exploratory analysis of the STEP 1 study (reported in the STEP-program review, Postgrad Med 2022).",
+    publisher: "Postgraduate Medicine (Taylor & Francis)",
+    url: "https://www.tandfonline.com/doi/full/10.1080/00325481.2022.2150006",
+    type: "Peer-reviewed",
+    note: "STEP 1 DXA substudy: semaglutide cut total fat mass ~19.3% and lean body mass ~9.7% over 68 weeks — so lean mass as a share of body weight actually rose.",
+  },
+  "semalean": {
+    citation:
+      "SEMALEAN study. Impact of semaglutide on fat mass, lean mass and muscle function in patients with obesity. (2025).",
+    publisher: "PubMed Central (NIH)",
+    url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12673431/",
+    type: "Clinical trial",
+    note: "Real-world DXA + handgrip study of semaglutide, tracking fat vs lean mass and measured muscle function over 12 months.",
+  },
+  "muscle-preservation-review-2026": {
+    citation:
+      "Aimelet, et al. Pharmacological intervention: challenges and promising outcomes for fat loss and preservation of lean body mass in overweight and type 2 diabetes. Diabetes Obes Metab. 2026.",
+    publisher: "Diabetes, Obesity and Metabolism (Wiley)",
+    url: "https://dom-pubs.onlinelibrary.wiley.com/doi/full/10.1111/dom.70229",
+    type: "Peer-reviewed",
+    note: "2026 review of lean-mass loss on GLP-1 therapy (~a quarter to a third of weight lost, broadly comparable to diet) and the investigational muscle-preservation drug pipeline; none approved for this use.",
+  },
+  "believe-bimagrumab": {
+    citation:
+      "Heymsfield SB, et al. Bimagrumab plus semaglutide in obesity (BELIEVE): a phase 2 randomized trial. Nat Med. 2026;32:869–882.",
+    publisher: "Nature Medicine",
+    url: "https://www.nature.com/articles/s41591-026-04204-0",
+    type: "Clinical trial",
+    note: "Phase 2: bimagrumab + semaglutide reached ~22.1% weight loss with ~92% of it from fat and lean-mass loss limited to ~2.9% (vs ~7.4% on semaglutide alone). Investigational.",
+  },
+  "courage-trevogrumab": {
+    citation:
+      "Regeneron. Phase 2 COURAGE trial: trevogrumab prevents lean mass and muscle loss during GLP-1-induced weight loss (presented EASD, October 2026).",
+    publisher: "Regeneron (investor release)",
+    url: "https://investor.regeneron.com/news-releases/news-release-details/phase-2-courage-trial-confirms-trevogrumab-prevents-lean-mass",
+    type: "Clinical trial",
+    note: "Phase 2: adding the anti-myostatin antibody trevogrumab to semaglutide preserved lean mass and reduced thigh-muscle loss on MRI. Investigational — not approved.",
+  },
+  "sarcopenia-glp1-review": {
+    citation:
+      "GLP-1 Receptor Agonists for Obesity Management in Older Adults: A Scoping Review on the Risk of Sarcopenia and Sarcopenic Obesity. Curr Nutr Rep. 2026.",
+    publisher: "Current Nutrition Reports (Springer)",
+    url: "https://link.springer.com/article/10.1007/s13668-026-00777-x",
+    type: "Peer-reviewed",
+    note: "Review supporting resistance exercise plus adequate protein (about 1.2–1.6 g/kg/day) to help preserve muscle during GLP-1 therapy, especially in older adults.",
+  },
   "scale-obesity": {
     citation:
       "Pi-Sunyer X, et al. A Randomized, Controlled Trial of 3.0 mg of Liraglutide in Weight Management. N Engl J Med. 2015;373(1):11–22.",

@@ -51,6 +51,7 @@ export const TOPIC_CLUSTERS: { title: string; links: { href: string; label: stri
     title: "Safety, dosing & results",
     links: [
       { href: "/guides/how-glp1-medications-work", label: "How GLP-1 medications work" },
+      { href: "/glp1-muscle-loss", label: "GLP-1 & muscle loss: how to keep muscle" },
       { href: "/guides/glp1-side-effects-and-how-to-manage-them", label: "Side effects & how to manage them" },
       { href: "/guides/glp1-dosing-schedule-explained", label: "Dosing schedules explained" },
       { href: "/guides/glp1-results-timeline", label: "Results timeline: what to expect" },
@@ -80,6 +81,7 @@ const RELATED_GROUPS: { title: string; links: { href: string; label: string }[] 
       { href: "/glp1-pills", label: "GLP-1 pills: orforglipron & oral Wegovy" },
       { href: "/medications/semaglutide", label: "Semaglutide (Wegovy, Ozempic)" },
       { href: "/medications/tirzepatide", label: "Tirzepatide (Zepbound, Mounjaro)" },
+      { href: "/glp1-muscle-loss", label: "GLP-1 & muscle loss: keep your muscle" },
       { href: "/vs/semaglutide-vs-tirzepatide", label: "Semaglutide vs tirzepatide" },
     ],
   },
