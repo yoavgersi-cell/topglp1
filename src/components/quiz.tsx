@@ -13,14 +13,16 @@ interface Question {
   options: { value: string; label: string }[];
 }
 
+// The quiz recommends only from our featured GLP-1 programs, in priority order.
+const POOL_IDS = ["embody", "wellmedr", "eden"];
+
 const QUESTIONS: Question[] = [
   {
     id: "budget",
     title: "What's your budget?",
     options: [
       { value: "lowest", label: "The lowest price possible" },
-      { value: "under150", label: "Under ~$150/month" },
-      { value: "insurance", label: "I'd like insurance to cover it" },
+      { value: "under150", label: "Under ~$150/month is fine" },
       { value: "flexible", label: "Cost isn't my main concern" },
     ],
   },
@@ -30,98 +32,36 @@ const QUESTIONS: Question[] = [
     options: [
       { value: "semaglutide", label: "Semaglutide (Wegovy/Ozempic's molecule)" },
       { value: "tirzepatide", label: "Tirzepatide (stronger, Zepbound's molecule)" },
-      { value: "brand", label: "Brand-name specifically" },
       { value: "notsure", label: "Not sure yet" },
-    ],
-  },
-  {
-    id: "insurance",
-    title: "What's your insurance situation?",
-    options: [
-      { value: "cash", label: "No coverage — paying cash" },
-      { value: "covers", label: "My plan likely covers GLP-1" },
-      { value: "notsure", label: "Not sure" },
     ],
   },
   {
     id: "priority",
     title: "What matters most to you?",
     options: [
-      { value: "price", label: "Lowest price" },
-      { value: "shipping", label: "Fast shipping" },
-      { value: "support", label: "Coaching & clinical support" },
-      { value: "brand", label: "FDA-approved brand-name" },
-    ],
-  },
-  {
-    id: "commitment",
-    title: "How do you feel about commitment?",
-    options: [
-      { value: "monthly", label: "Month-to-month only" },
-      { value: "prepay", label: "OK to prepay for a lower rate" },
-    ],
-  },
-  {
-    id: "extras",
-    title: "Do you want anything beyond the medication?",
-    options: [
-      { value: "justmeds", label: "Just the medication" },
-      { value: "coaching", label: "Behavior coaching" },
-      { value: "longevity", label: "Longevity / wellness add-ons" },
-    ],
-  },
-  {
-    id: "format",
-    title: "Injection or pill?",
-    options: [
-      { value: "injection", label: "Injection is fine" },
-      { value: "pill", label: "I'd prefer a pill" },
-      { value: "nopref", label: "No preference" },
+      { value: "price", label: "The lowest, cheapest price" },
+      { value: "flat", label: "Flat, predictable pricing with no commitment" },
+      { value: "support", label: "Responsive, 24/7 human support" },
+      { value: "longevity", label: "Wellness & longevity add-ons (NAD+, B12)" },
     ],
   },
 ];
 
-const priceNum = (s: string) => {
-  const m = s.match(/\$(\d[\d,]*)/);
-  return m ? Number(m[1].replace(/,/g, "")) : 999;
-};
-const has = (p: Provider, kw: string) =>
-  (p.specs.shipping + p.specs.insurance + p.specs.offeringType).toLowerCase().includes(kw);
-const COACHING = new Set(["noom", "found", "calibrate", "sequence", "trimrx", "synergyrx"]);
-const FAST_SHIP = new Set(["embody", "healthrx", "directmeds", "sprout"]);
-const PREPAY = new Set(["healthrx", "calibrate"]);
-
+// Purpose-built scoring for the three featured programs: Embody (cheapest value),
+// Eden (flat, no-commitment pricing + support) and wellmedr (support + longevity).
 function score(p: Provider, a: Record<string, string>): number {
-  let s = p.rating;
-  const sema = priceNum(p.specs.semaglutide);
-  const branded = p.specs.offeringType === "Branded" || p.specs.offeringType === "Both";
-  const insured = p.specs.insurance.toLowerCase().includes("insurance");
-  const cheap = Math.max(0, (300 - sema) / 80); // ~2.9 for $69, 0 for $300+
+  let s = p.rating; // Embody 9.9 > Eden 9.3 > wellmedr 8.9 by default
 
-  if (a.budget === "lowest") s += cheap;
-  if (a.budget === "under150") s += sema <= 150 ? 1.5 : -1;
-  if (a.budget === "insurance") s += insured ? 2 : -0.5;
+  if (a.budget === "lowest") s += p.id === "embody" ? 2 : p.id === "eden" ? 0.5 : 0;
+  if (a.budget === "flexible") s += p.id === "embody" ? 0 : 0.5;
 
-  if (a.medication === "tirzepatide") s += p.specs.tirzepatide.startsWith("—") ? -3 : 1;
-  if (a.medication === "brand") s += branded ? 1.5 : -2.5;
+  if (a.medication === "tirzepatide") s += p.id === "embody" ? 0.6 : 0.4; // all three offer it; Embody cheapest
 
-  if (a.insurance === "cash") s += insured ? -0.5 : 1;
-  if (a.insurance === "covers") s += insured ? 1.5 : -0.5;
+  if (a.priority === "price") s += p.id === "embody" ? 2.5 : p.id === "eden" ? 0.5 : 0;
+  if (a.priority === "flat") s += p.id === "eden" ? 2.5 : -0.5;
+  if (a.priority === "support") s += p.id === "wellmedr" ? 2.5 : p.id === "eden" ? 1 : -0.5;
+  if (a.priority === "longevity") s += p.id === "wellmedr" ? 3 : -0.5;
 
-  if (a.priority === "price") s += cheap;
-  if (a.priority === "shipping") s += FAST_SHIP.has(p.id) ? 1.5 : -0.5;
-  if (a.priority === "support") s += COACHING.has(p.id) ? 1.8 : -0.3;
-  if (a.priority === "brand") s += branded ? 1.5 : -1.5;
-
-  if (a.commitment === "monthly") s += PREPAY.has(p.id) ? -1.5 : 0.3;
-  if (a.commitment === "prepay") s += PREPAY.has(p.id) ? 0.8 : 0;
-
-  if (a.extras === "justmeds") s += p.specs.offeringType === "Compounded" && !COACHING.has(p.id) ? 1 : 0;
-  if (a.extras === "coaching") s += COACHING.has(p.id) ? 1.8 : -0.5;
-  if (a.extras === "longevity") s += p.id === "wellmedr" ? 2.5 : -0.2;
-
-  if (a.format === "brand" && !branded) s -= 0.3;
-  void has;
   return s;
 }
 
@@ -135,7 +75,7 @@ export function Quiz() {
     setStep((s) => s + 1);
   };
 
-  const ranked = [...PROVIDERS].sort((a, b) => score(b, answers) - score(a, answers));
+  const ranked = PROVIDERS.filter((p) => POOL_IDS.includes(p.id)).sort((a, b) => score(b, answers) - score(a, answers));
   const top = ranked[0];
   const alts = ranked.slice(1, 3);
 
@@ -156,17 +96,28 @@ export function Quiz() {
             <strong className="text-foreground">Best for:</strong> {bestForTag(top.id)}. {top.specs.standout}.
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-3">
-            <a
-              href={top.affiliateUrl}
-              target="_blank"
-              rel="sponsored nofollow noopener"
-              className="inline-flex items-center gap-1 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
-            >
-              Visit {top.name} <ArrowUpRight size={15} />
-            </a>
-            <Link href={`/reviews/${top.slug}`} className="text-sm font-semibold text-primary hover:underline">
-              Read the full review
-            </Link>
+            {top.affiliateUrl !== "#" ? (
+              <>
+                <a
+                  href={top.affiliateUrl}
+                  target="_blank"
+                  rel="sponsored nofollow noopener"
+                  className="inline-flex items-center gap-1 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
+                >
+                  Visit {top.name} <ArrowUpRight size={15} />
+                </a>
+                <Link href={`/reviews/${top.slug}`} className="text-sm font-semibold text-primary hover:underline">
+                  Read the full review
+                </Link>
+              </>
+            ) : (
+              <Link
+                href={`/reviews/${top.slug}`}
+                className="inline-flex items-center gap-1 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm transition-colors hover:bg-primary-dark"
+              >
+                See {top.name} details <ArrowUpRight size={15} />
+              </Link>
+            )}
           </div>
         </div>
 

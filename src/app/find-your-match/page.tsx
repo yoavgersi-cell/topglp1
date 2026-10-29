@@ -5,9 +5,9 @@ import { Quiz } from "@/components/quiz";
 import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "GLP-1 Match Quiz: Find Your Best Program in 7 Questions",
+  title: "GLP-1 Match Quiz: Find Your Best Program in 3 Questions",
   description:
-    "Answer 7 quick questions about budget, medication, insurance and priorities, and get matched to the GLP-1 telehealth program that fits you best. Free, no signup.",
+    "Answer 3 quick questions about budget, medication and what matters most, and get matched to the GLP-1 telehealth program that fits you best. Free, no signup.",
   path: "/find-your-match",
 });
 
@@ -29,8 +29,8 @@ export default function FindYourMatchPage() {
 
       <h1 className="font-serif text-4xl font-semibold text-foreground">Find your GLP-1 match</h1>
       <p className="mt-3 text-lg leading-relaxed text-muted">
-        Seven quick questions — budget, medication, insurance and what matters most — and we'll point you to the
-        program that fits. No signup, instant result.
+        Three quick questions — budget, medication and what matters most — and we'll point you to the program that
+        fits. No signup, instant result.
       </p>
 
       <div className="mt-8">

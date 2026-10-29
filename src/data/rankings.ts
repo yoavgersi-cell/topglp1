@@ -50,6 +50,7 @@ export const BEST_FOR: Record<string, string> = {
   ro: "Branded access with insurance",
   trimrx: "Ongoing clinical guidance",
   wellmedr: "GLP-1 plus longevity add-ons",
+  eden: "Flat pricing, no commitment, 24/7 support",
   healthrx: "Overnight cold-chain shipping",
   sprout: "Big first-month discount",
   found: "Meds plus behavior coaching",

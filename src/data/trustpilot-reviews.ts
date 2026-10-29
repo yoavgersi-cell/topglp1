@@ -355,4 +355,22 @@ export const EXTERNAL_REVIEWS: Record<string, ExternalReviews> = {
       { name: "Customer", stars: 5, location: "US", text: "Amy was awesome! Super sweet, intelligent and love every time I get to work with her." },
     ],
   },
+  eden: {
+    source: "Trustpilot",
+    score: "4.5 / 5",
+    scoreValue: 4.5,
+    scoreMax: 5,
+    count: 4917,
+    asOf: "October 2026",
+    quotes: [
+      { name: "Jessica L.", stars: 5, location: "US", date: "Oct 12, 2026", text: "Ann was a great help. She got back to me with a resolution to my problem with quick action." },
+      { name: "Amy B.", stars: 5, location: "US", date: "Oct 12, 2026", text: "The team was prompt, kind and helpful." },
+      { name: "Leanne", stars: 5, location: "US", date: "Oct 12, 2026", text: "MELANIE was fantastic!!! Super helpful and responsive" },
+      { name: "Mary Lou J.", stars: 5, location: "US", date: "Oct 12, 2026", text: "Sandra was super helpful in resolving my question. She was on point, answered directly and very nice & polite! Thank you, Sandra!" },
+      { name: "Jenni", stars: 5, location: "US", date: "Oct 11, 2026", text: "Joanne with customer support was great, answered all my questions" },
+      { name: "Frances", stars: 5, location: "US", date: "Oct 8, 2026", text: "Ann did an excellent job. She answered my question and thoroughly explained the issue. She also responded quickly. This process worked much better than trying to get someone on the phone." },
+      { name: "Tikvah", stars: 5, location: "US", text: "When the pricing at the company I had been using went up I knew I had to look for a better option. I was \"only\" looking for maintenance support, but it was not possible with many other companies, or they were more expensive, or had membership fees, or monthly billing, or bad customer service, or found other ways to take advantage of you. Checking out Eden on Trust Pilot made a world of difference. The high ratings for fair pricing, customer service, and support of the doctors was the deciding factor for me, and they were spot on. The people I have dealt with have been great, especially Nick who I spoke to the most, and they should all be commended!" },
+      { name: "RC", stars: 5, location: "US", date: "Oct 1, 2026", text: "Melanie was patient, helpful, and friendly throughout the call, offering courteous assistance from beginning to end." },
+    ],
+  },
 };
