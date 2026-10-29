@@ -1224,7 +1224,7 @@ export const PROVIDERS: Provider[] = [
       "Shipping speed isn't published — confirm at checkout",
       "FDA marketing warning letter (June 2026) over website claims — about wording, not product safety",
     ],
-    affiliateUrl: "#",
+    affiliateUrl: "https://track.revoffers.com/aff_c?offer_id=1435&aff_id=12904",
     ctaText: "Get Started",
     specs: {
       startingPrice: "$99/mo (compounded semaglutide)",
