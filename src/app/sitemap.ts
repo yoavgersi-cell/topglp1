@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/glp1-weight-loss-guide`, lastModified, changeFrequency: "weekly", priority: 0.95 },
     { url: `${base}/glp1-pills`, lastModified: new Date("2026-10-24"), changeFrequency: "weekly", priority: 0.92 },
     { url: `${base}/glp1-muscle-loss`, lastModified: new Date("2026-10-26"), changeFrequency: "weekly", priority: 0.92 },
+    { url: `${base}/glp1-beyond-weight-loss`, lastModified: new Date("2026-10-31"), changeFrequency: "weekly", priority: 0.92 },
     { url: `${base}/medications`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/guides`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/best-glp1-providers`, lastModified, changeFrequency: "weekly", priority: 0.9 },

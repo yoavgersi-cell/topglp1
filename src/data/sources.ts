@@ -185,6 +185,30 @@ export const SOURCES: Record<string, Source> = {
     type: "Peer-reviewed",
     note: "Review supporting resistance exercise plus adequate protein (about 1.2–1.6 g/kg/day) to help preserve muscle during GLP-1 therapy, especially in older adults.",
   },
+  "surmount-osa": {
+    citation:
+      "Malhotra A, et al. Tirzepatide for the Treatment of Obstructive Sleep Apnea (SURMOUNT-OSA). N Engl J Med. 2024; secondary outcomes, Nat Med. 2025.",
+    publisher: "Nature Medicine / New England Journal of Medicine",
+    url: "https://www.nature.com/articles/s41591-025-04071-1",
+    type: "Clinical trial",
+    note: "Tirzepatide cut obstructive sleep apnea severity (AHI) by about 20–24 more events/hour than placebo over 52 weeks — the basis for Zepbound's December 2024 FDA approval for OSA with obesity.",
+  },
+  "wegovy-mash": {
+    citation:
+      "U.S. Food & Drug Administration / Novo Nordisk. FDA approves Wegovy (semaglutide 2.4 mg) for noncirrhotic MASH with moderate-to-advanced fibrosis (accelerated approval, August 15, 2025); ESSENCE trial.",
+    publisher: "U.S. Food & Drug Administration (reported by Healio)",
+    url: "https://www.healio.com/news/gastroenterology/20250818/fda-approves-wegovy-for-certain-adults-with-noncirrhotic-mash",
+    type: "Regulatory",
+    note: "First GLP-1 approved for metabolic dysfunction-associated steatohepatitis (MASH), based on the ESSENCE trial. Accelerated approval; full approval pending confirmatory data.",
+  },
+  "evoke-alzheimers": {
+    citation:
+      "Oral semaglutide in early-stage symptomatic Alzheimer's disease (EVOKE and EVOKE+): two phase 3, randomised, placebo-controlled trials. Lancet. 2026.",
+    publisher: "The Lancet",
+    url: "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(26)00459-9/fulltext",
+    type: "Clinical trial",
+    note: "Both phase 3 trials were NEGATIVE — oral semaglutide did not slow early Alzheimer's progression, though some biomarkers improved. A key 2026 correction to earlier dementia hype.",
+  },
   "scale-obesity": {
     citation:
       "Pi-Sunyer X, et al. A Randomized, Controlled Trial of 3.0 mg of Liraglutide in Weight Management. N Engl J Med. 2015;373(1):11–22.",
