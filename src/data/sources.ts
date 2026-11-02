@@ -209,6 +209,30 @@ export const SOURCES: Record<string, Source> = {
     type: "Clinical trial",
     note: "Both phase 3 trials were NEGATIVE — oral semaglutide did not slow early Alzheimer's progression, though some biomarkers improved. A key 2026 correction to earlier dementia hype.",
   },
+  "berberine-meta-2026": {
+    citation:
+      "The effect of berberine on obesity indices: a systematic review and meta-analysis of 23 randomized trials. Int J Obes. 2026.",
+    publisher: "International Journal of Obesity (Nature)",
+    url: "https://www.nature.com/articles/s41366-025-01943-x",
+    type: "Peer-reviewed",
+    note: "Berberine produced only about 0.9 kg (−0.88 kg) average weight loss, a BMI drop of ~0.48 and a waist reduction of ~1.3 cm — modest, mixed and from low-quality trials. Far smaller than GLP-1 drugs, and via a different mechanism (AMPK, not GLP-1).",
+  },
+  "foods-glp1-nutrients": {
+    citation:
+      "Foods as Modulators of GLP-1 Secretion. Nutrients. 2026;18(18):2995.",
+    publisher: "Nutrients (MDPI)",
+    url: "https://www.mdpi.com/2072-6643/18/18/2995",
+    type: "Peer-reviewed",
+    note: "Review of how dietary protein, fiber and polyphenols stimulate the body's own GLP-1 — real but far smaller in magnitude than what medications achieve.",
+  },
+  "fiber-glp1-review": {
+    citation:
+      "Dietary fibers to boost endogenous GLP-1 secretion and satiety: a scoping review. 2025.",
+    publisher: "PubMed Central (NIH)",
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13414124/",
+    type: "Peer-reviewed",
+    note: "Fermentable and viscous fibers (e.g. glucomannan, guar gum, resistant starch) can raise circulating GLP-1 and satiety, though effects vary by fiber type and trials are small and short.",
+  },
   "scale-obesity": {
     citation:
       "Pi-Sunyer X, et al. A Randomized, Controlled Trial of 3.0 mg of Liraglutide in Weight Management. N Engl J Med. 2015;373(1):11–22.",
