@@ -135,11 +135,11 @@ export const BATTLES: Battle[] = [
       },
       {
         q: "Is Embody GLP-1 legit?",
-        a: "Embody is a real cash-pay telehealth service: US-licensed doctors review your case and prescribe, and it dispenses through LegitScript-certified 503A compounding pharmacies, which it states openly. The honest caveat isn't Embody specifically — it's that compounded semaglutide and tirzepatide are not FDA-approved finished drugs. It holds a mixed 3.7/5 on Trustpilot across 7,250 reviews.",
+        a: "Embody is a real cash-pay telehealth service: US-licensed doctors review your case and prescribe, and it dispenses through LegitScript-certified 503A compounding pharmacies, which it states openly. The honest caveat isn't Embody specifically — it's that compounded semaglutide and tirzepatide are not FDA-approved finished drugs. It holds a mixed 3.8/5 on Trustpilot across 9,604 reviews.",
       },
       {
         q: "Is Ro (the Ro Body Program) legit?",
-        a: "Yes. Ro is a large, established telehealth platform that dispenses FDA-approved branded GLP-1 (Wegovy, Zepbound, Ozempic, Mounjaro) with clinician review and insurance coordination. It holds 4.0/5 on Trustpilot across 6,400+ reviews. The main gripe is cost: a membership plus branded medication that runs high without insurance.",
+        a: "Yes. Ro is a large, established telehealth platform that dispenses FDA-approved branded GLP-1 (Wegovy, Zepbound, Ozempic, Mounjaro) with clinician review and insurance coordination. It holds 3.9/5 on Trustpilot across 7,105 reviews. The main gripe is cost: a membership plus branded medication that runs high without insurance.",
       },
       {
         q: "What pharmacy does Embody use for tirzepatide?",
