@@ -550,6 +550,191 @@ export const BATTLES: Battle[] = [
     bottomLine:
       "Embody is the cleaner, cheaper, GLP-1-only pick. wellmedr makes sense if you actually want the longevity add-ons — otherwise you're paying for breadth you won't use.",
   },
+  {
+    slug: "altrx-vs-wellmedr",
+    a: "altrx",
+    b: "wellmedr",
+    title: "altRx vs wellmedr",
+    description:
+      "altRx's low, transparent compounded pricing (plus a brand-name option) versus wellmedr's higher-rated, longevity-bundled GLP-1/GIP program — compared on price, scope and satisfaction.",
+    intro:
+      "These two pull in different directions. altRx is built for price and optionality: a published $89/mo compounded entry, Buy Now, Pay Later financing, and the rare ability to switch to brand-name Wegovy or Zepbound in one place. wellmedr is built for scope and service: compounded GLP-1/GIP bundled with a longevity stack (NAD+, B12), board-certified specialists, a 50%-off first month — and a notably strong Trustpilot score.",
+    winner: "altrx",
+    winnerReason:
+      "altRx is the better default on transparent low pricing, financing and a brand-name off-ramp — but wellmedr genuinely wins for buyers who want the longevity stack and rate customer experience highest.",
+    splitVerdict: {
+      aFor: "Lowest transparent price + brand-name option",
+      aReason: "altRx publishes a flat $89/mo compounded entry, adds Buy Now, Pay Later, and uniquely offers brand Wegovy/Zepbound alongside compounded.",
+      bFor: "Longevity bundle + top satisfaction scores",
+      bReason: "wellmedr pairs GLP-1/GIP with NAD+/B12 and holds a strong 4.6/5 on Trustpilot across 2,188 reviews — the higher-rated experience here.",
+    },
+    chooseA: "you want the lowest published price, financing, or a path to brand-name GLP-1.",
+    chooseB: "you want GLP-1 bundled with longevity care and value a high customer-satisfaction score.",
+    pricingAnalysis: [
+      "altRx leads with a transparent number: $89/mo for compounded semaglutide and from $149/mo for the compounded GLP-1/GIP option, with Buy Now, Pay Later if cash flow is the constraint. You can plan a year of cost from the published rate.",
+      "wellmedr opens with 50% off the first month, which lowers entry cost but makes the ongoing rate the number to confirm — and the optional NAD+/B12 and broader men's-health add-ons can push real monthly spend above the core GLP-1 line. It's efficient only if you'll actually use the extras.",
+      "On customer satisfaction the picture flips: wellmedr holds a strong 4.6/5 on Trustpilot (2,188 reviews), while altRx doesn't publish a single Trustpilot aggregate we can cite — so if third-party rating is your deciding signal, that's a point for wellmedr. Both are compounded, cash-pay programs, so this is a price-and-scope decision, not a legitimacy one.",
+    ],
+    costRows: [
+      { label: "Semaglutide, monthly", a: "$89/mo (published)", b: "Compounded (plan-dependent)" },
+      { label: "Tirzepatide / GLP-1+GIP", a: "From $149/mo", b: "Compounded GLP-1/GIP" },
+      { label: "First-month / financing", a: "Buy Now, Pay Later", b: "50% off first month" },
+      { label: "Brand-name option", a: "Yes — Wegovy, Zepbound", b: "No (compounded only)" },
+      { label: "Add-on services", a: "GLP-1 focus", b: "NAD+, B12, broader wellness" },
+      { label: "Trustpilot", a: "No published aggregate", b: "4.6/5 (2,188 reviews)" },
+    ],
+    medicationNotes: [
+      "altRx: compounded semaglutide and GLP-1/GIP, plus brand-name Wegovy and Zepbound — the rare compounded-or-branded choice under one roof.",
+      "wellmedr: compounded tirzepatide (GLP-1/GIP), optionally paired with NAD+/B12 microdosing and a broader men's-health platform. Compounded only — no brand-name path.",
+    ],
+    edges: [
+      { dimension: "Published price", leader: "a", note: "altRx lists a flat $89/mo compounded entry; wellmedr's rate is plan-dependent after the intro month." },
+      { dimension: "Customer rating", leader: "b", note: "wellmedr holds 4.6/5 on Trustpilot (2,188 reviews); altRx has no single published aggregate to cite." },
+      { dimension: "Brand-name option", leader: "a", note: "altRx also offers brand Wegovy/Zepbound; wellmedr is compounded-only." },
+      { dimension: "Breadth of care", leader: "b", note: "wellmedr bundles NAD+/B12 and a broader wellness platform." },
+      { dimension: "Payment flexibility", leader: "a", note: "altRx offers Buy Now, Pay Later." },
+    ],
+    scenarios: [
+      { priority: "You want the lowest published price", pick: "a", why: "altRx's $89/mo compounded entry is transparent and low." },
+      { priority: "You weight customer-satisfaction scores highest", pick: "b", why: "wellmedr's 4.6/5 Trustpilot is the stronger rating here." },
+      { priority: "You may want brand-name GLP-1 later", pick: "a", why: "altRx carries both compounded and branded." },
+      { priority: "You want GLP-1 plus a longevity stack", pick: "b", why: "wellmedr bundles NAD+/B12 and more." },
+    ],
+    faqs: [
+      {
+        q: "Which has the better Trustpilot score, altRx or wellmedr?",
+        a: "wellmedr, on the figures we can verify: it holds 4.6/5 across 2,188 Trustpilot reviews (as of October 2026). altRx does not publish a single Trustpilot aggregate we can cite, so we don't claim a score for it. If third-party rating is your deciding factor, that favors wellmedr.",
+      },
+      {
+        q: "Which is cheaper overall?",
+        a: "altRx is the more transparent low price: $89/mo published for compounded semaglutide, versus wellmedr's plan-dependent rate after a 50%-off first month. wellmedr's optional NAD+/B12 add-ons can raise its real monthly cost further, so altRx is usually the cheaper core-GLP-1 option.",
+      },
+      {
+        q: "Can I get brand-name Wegovy or Zepbound from either?",
+        a: "From altRx, yes — it offers brand Wegovy and Zepbound alongside compounded options. wellmedr is compounded-only.",
+      },
+    ],
+    bottomLine:
+      "altRx is the better default for a transparent low price, financing and a brand-name off-ramp. wellmedr earns the nod if you want GLP-1 bundled with longevity care and you weight its stronger 4.6/5 Trustpilot score highly. Different buyers, genuinely different winners.",
+  },
+  {
+    slug: "embody-vs-directmeds",
+    a: "embody",
+    b: "directmeds",
+    title: "Embody vs DirectMeds",
+    description:
+      "Our top-ranked flat-priced compounded GLP-1 versus a smaller, higher-Trustpilot program with fast shipping — compared on price, credentials and satisfaction.",
+    intro:
+      "Both ship compounded GLP-1 fast and skip insurance, but they trade off differently. Embody is our #1 pick on price and transparency: $69/mo semaglutide, flat, with openly stated LegitScript/503A credentials. DirectMeds is smaller and newer, and its semaglutide starts higher (from ~$147/mo) — but it carries a notably strong Trustpilot score across a large review base.",
+    winner: "embody",
+    winnerReason:
+      "Embody wins on price (less than half DirectMeds' semaglutide rate), transparency and track record — DirectMeds' edge is a higher customer-satisfaction score, not a lower price.",
+    chooseA: "you want the lowest flat price, published pharmacy credentials and an established program.",
+    chooseB: "you weight a high Trustpilot satisfaction score above getting the lowest price.",
+    pricingAnalysis: [
+      "On price this isn't close: Embody lists $69/mo flat for compounded semaglutide, while DirectMeds starts from about $147/mo — more than double. Over six months of semaglutide that's roughly $414 (Embody) versus about $882+ (DirectMeds). Both include free 1–2 day shipping, so speed isn't the separator.",
+      "DirectMeds' real strength is customer satisfaction: it holds 4.6/5 on Trustpilot across 16,390 reviews, higher than Embody's mixed 3.8/5 across 9,604. That's a genuine point in its favor and we won't pretend otherwise — a happier average customer is worth something, especially against Embody's more divided reviews.",
+      "The counterweight is that Embody is our established #1 on the fundamentals we verify — lowest flat price, both semaglutide and tirzepatide, and openly stated LegitScript certification and 503A pharmacies — while DirectMeds is a smaller, less-established brand. For most buyers the price gap and track record decide it, but if you rank third-party satisfaction highest, DirectMeds has a real case.",
+    ],
+    costRows: [
+      { label: "Semaglutide, monthly", a: "$69/mo flat", b: "From ~$147/mo" },
+      { label: "Tirzepatide", a: "$119/mo flat", b: "Compounded (plan-dependent)" },
+      { label: "~6-month semaglutide total", a: "~$414", b: "~$882+" },
+      { label: "Shipping", a: "Free 1–2 day", b: "Free 1–2 day" },
+      { label: "Pharmacy credentials", a: "LegitScript / 503A stated", b: "US compounding pharmacies" },
+      { label: "Trustpilot", a: "3.8/5 (9,604)", b: "4.6/5 (16,390)" },
+    ],
+    medicationNotes: [
+      "Both offer compounded semaglutide and compounded tirzepatide (GLP-1/GIP); neither offers brand-name finished drugs.",
+      "Embody openly states LegitScript certification and 503A pharmacies; DirectMeds lists US compounding pharmacies without the same published certification detail.",
+    ],
+    edges: [
+      { dimension: "Lowest price", leader: "a", note: "Embody's $69/mo semaglutide is less than half DirectMeds' ~$147/mo." },
+      { dimension: "Trustpilot rating", leader: "b", note: "DirectMeds holds 4.6/5 (16,390 reviews) versus Embody's 3.8/5 (9,604)." },
+      { dimension: "Pharmacy transparency", leader: "a", note: "Embody publicizes LegitScript / 503A credentials." },
+      { dimension: "Track record", leader: "a", note: "Embody is our established #1 pick; DirectMeds is smaller and newer." },
+      { dimension: "Shipping", leader: "even", note: "Both advertise free 1–2 day shipping." },
+    ],
+    scenarios: [
+      { priority: "You want the lowest price", pick: "a", why: "Embody's $69/mo is less than half DirectMeds' rate." },
+      { priority: "You weight Trustpilot satisfaction highest", pick: "b", why: "DirectMeds' 4.6/5 beats Embody's 3.8/5." },
+      { priority: "You want documented pharmacy credentials", pick: "a", why: "Embody states LegitScript / 503A openly." },
+      { priority: "You prefer an established program", pick: "a", why: "Embody is our #1; DirectMeds is a smaller brand." },
+    ],
+    faqs: [
+      {
+        q: "Is DirectMeds cheaper than Embody?",
+        a: "No. DirectMeds' compounded semaglutide starts from about $147/mo, while Embody is $69/mo flat — more than double the price. Both include free 1–2 day shipping, so the gap is in the medication price, not delivery.",
+      },
+      {
+        q: "Why does DirectMeds have a higher Trustpilot score?",
+        a: "DirectMeds holds 4.6/5 across 16,390 Trustpilot reviews, higher than Embody's mixed 3.8/5 across 9,604 (both as of October 2026). It reflects a happier average customer. We weight price, credentials and track record alongside it, which is why Embody is still our overall pick — but DirectMeds' satisfaction score is a genuine strength.",
+      },
+      {
+        q: "Which is the safer choice?",
+        a: "Both are cash-pay compounded programs with US-licensed prescribers; compounded GLP-1 is not an FDA-approved finished drug either way. Embody publishes LegitScript certification and 503A pharmacy details, which is a transparency point in its favor. As always, confirm a clinician reviews your history before prescribing.",
+      },
+    ],
+    bottomLine:
+      "Embody is the better pick for most people — less than half the semaglutide price, published credentials and an established track record. DirectMeds' real draw is its higher 4.6/5 Trustpilot score, so it's worth a look if customer satisfaction outweighs paying roughly double.",
+  },
+  {
+    slug: "embody-vs-sunlight",
+    a: "embody",
+    b: "sunlight",
+    title: "Embody vs Sunlight",
+    description:
+      "Flat, published compounded pricing with stated credentials versus a flexible-plan program that doesn't publish its pricing — compared on transparency and value.",
+    intro:
+      "Embody and Sunlight are both compounded, cash-pay GLP-1 programs, but they differ most on transparency. Embody publishes everything — $69/mo semaglutide, $119/mo tirzepatide, LegitScript/503A credentials, a Trustpilot score. Sunlight leans on flexible, adaptable plans and virtual care, but doesn't publish a flat price or a Trustpilot aggregate upfront, so more of the detail is confirmed only at signup.",
+    winner: "embody",
+    winnerReason:
+      "Embody wins clearly on published low pricing, stated pharmacy credentials and a verifiable track record; Sunlight's edge is flexible plans, but with less public detail to check first.",
+    chooseA: "you want a published flat price, stated credentials and a verifiable track record.",
+    chooseB: "you specifically want flexible, adaptable plans and are comfortable confirming details at signup.",
+    pricingAnalysis: [
+      "Embody's case is transparency: $69/mo semaglutide and $119/mo tirzepatide, flat, with free 1–2 day shipping and openly stated LegitScript certification and 503A pharmacies. You can see the price and the credentials before you commit.",
+      "Sunlight markets flexible, adaptable plans and convenient virtual care, but it doesn't publish a flat entry price — pricing 'varies by plan' and is confirmed at signup — and we don't have a Sunlight Trustpilot aggregate to cite. That doesn't make it a worse program, but it does mean you're deciding with less public information than Embody gives you.",
+      "Both are compounded and cash-pay, so this is largely a transparency-and-value call. If you want to compare a known, low, flat price against stated credentials, Embody is the clearer choice. If flexible plan adjustments matter more to you than seeing the number upfront, Sunlight's model is built around that.",
+    ],
+    costRows: [
+      { label: "Semaglutide, monthly", a: "$69/mo flat", b: "Not published (varies by plan)" },
+      { label: "Tirzepatide", a: "$119/mo flat", b: "Compounded (plan-dependent)" },
+      { label: "Pricing transparency", a: "Flat, published", b: "Varies; confirmed at signup" },
+      { label: "Shipping", a: "Free 1–2 day", b: "Included" },
+      { label: "Pharmacy credentials", a: "LegitScript / 503A stated", b: "US compounding pharmacies" },
+      { label: "Published Trustpilot", a: "3.8/5 (9,604)", b: "Not published" },
+    ],
+    medicationNotes: [
+      "Both offer compounded semaglutide and compounded tirzepatide (GLP-1/GIP); neither offers brand-name finished drugs.",
+      "Embody publicizes LegitScript certification and 503A pharmacies; Sunlight lists US compounding pharmacies without the same published detail.",
+    ],
+    edges: [
+      { dimension: "Pricing transparency", leader: "a", note: "Embody publishes a flat $69/$119 rate; Sunlight's pricing varies by plan and isn't published upfront." },
+      { dimension: "Published credentials", leader: "a", note: "Embody states LegitScript / 503A; Sunlight lists compounding pharmacies without the same detail." },
+      { dimension: "Verifiable rating", leader: "a", note: "Embody publishes a 3.8/5 Trustpilot score; we have no Sunlight aggregate to cite." },
+      { dimension: "Plan flexibility", leader: "b", note: "Sunlight emphasizes flexible, adaptable plans." },
+      { dimension: "Shipping", leader: "a", note: "Embody advertises free 1–2 day shipping." },
+    ],
+    scenarios: [
+      { priority: "You want a published flat price", pick: "a", why: "Embody lists $69/$119 upfront; Sunlight's varies by plan." },
+      { priority: "You want stated pharmacy credentials", pick: "a", why: "Embody publicizes LegitScript / 503A." },
+      { priority: "You want flexible, adjustable plans", pick: "b", why: "Sunlight is built around adaptable plans." },
+      { priority: "You want a verifiable track record", pick: "a", why: "Embody publishes a Trustpilot score and is our #1 pick." },
+    ],
+    faqs: [
+      {
+        q: "How much does Sunlight cost versus Embody?",
+        a: "Embody publishes a flat $69/mo for compounded semaglutide and $119/mo for tirzepatide. Sunlight doesn't publish a flat price — it markets flexible plans with pricing confirmed at signup — so Embody is the one you can price-compare upfront.",
+      },
+      {
+        q: "Which is more transparent?",
+        a: "Embody, clearly: it publishes its flat pricing, states LegitScript certification and 503A pharmacies, and shows a Trustpilot score. Sunlight shares less publicly — no published flat price and no Trustpilot aggregate we can cite — so you confirm more at signup.",
+      },
+    ],
+    bottomLine:
+      "Embody is the stronger pick here on the things you can verify before signing up: a low flat price, stated pharmacy credentials and a published rating. Sunlight may suit someone who specifically wants flexible, adaptable plans — just expect to confirm pricing and details at signup rather than reading them off the page.",
+  },
 ];
 
 export function getBattle(slug: string): Battle | undefined {
