@@ -492,13 +492,21 @@ export default async function StatePage({ params }: { params: Promise<{ state: s
       <nav className="mt-12 border-t border-border pt-8">
         <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">Explore other states</h2>
         <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-sm">
-          {STATES.filter((x) => x.slug !== s.slug)
-            .slice(0, 8)
-            .map((x) => (
+          {(() => {
+            // Deterministic rotating window: each state links to the 8 states
+            // that follow it (wrapping around), so every state receives ~8
+            // inbound links. A fixed `.slice(0, 8)` instead linked only the
+            // first 8 alphabetical states from every page, orphaning the rest
+            // (incl. high-demand states like Ohio/Texas) to a single hub link.
+            const others = STATES.filter((x) => x.slug !== s.slug);
+            const start = Math.max(0, STATES.findIndex((x) => x.slug === s.slug));
+            const picks = Array.from({ length: Math.min(8, others.length) }, (_, k) => others[(start + k) % others.length]);
+            return picks.map((x) => (
               <Link key={x.slug} href={`/glp1-by-state/${x.slug}`} className="text-primary hover:underline">
                 {x.name}
               </Link>
-            ))}
+            ));
+          })()}
           <Link href="/glp1-by-state" className="font-semibold text-primary hover:underline">
             All 50 states →
           </Link>
