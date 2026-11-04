@@ -56,14 +56,42 @@ export default function EligibilityPage() {
           matter, which is why a clinician makes the final call. If you're close to the threshold or unsure, that's
           exactly the conversation to have with a licensed provider.
         </p>
+        <h2 className="font-serif text-2xl font-semibold text-foreground">If you qualify, here&rsquo;s where to go next</h2>
         <p>
-          Curious what treatment would cost if you qualify? Try the{" "}
-          <Link href="/tools/glp1-cost-calculator" className="font-semibold text-primary underline">
-            GLP-1 cost calculator
-          </Link>{" "}
-          or see the{" "}
-          <Link href="/best-glp1-providers" className="font-semibold text-primary underline">best GLP-1 programs</Link>.
+          A result here is a screen, not a prescription — but if you likely qualify, or you&rsquo;re close to the
+          threshold, these are the useful next steps:
         </p>
+        <ul>
+          <li>
+            Read the full clinical criteria in our guide to{" "}
+            <Link href="/guides/do-you-qualify-for-glp1" className="font-semibold text-primary underline">
+              whether you qualify for GLP-1
+            </Link>
+            .
+          </li>
+          <li>
+            See what treatment would cost with the{" "}
+            <Link href="/tools/glp1-cost-calculator" className="font-semibold text-primary underline">
+              GLP-1 cost calculator
+            </Link>
+            , or compare the{" "}
+            <Link href="/cheapest-glp1" className="font-semibold text-primary underline">
+              lowest-cost GLP-1 options
+            </Link>
+            .
+          </li>
+          <li>
+            Compare the{" "}
+            <Link href="/best-glp1-providers" className="font-semibold text-primary underline">
+              best GLP-1 programs
+            </Link>
+            , or take the{" "}
+            <Link href="/find-your-match" className="font-semibold text-primary underline">
+              2-minute match quiz
+            </Link>{" "}
+            to find your fit.
+          </li>
+        </ul>
       </section>
     </div>
   );
