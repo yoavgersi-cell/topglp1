@@ -73,6 +73,22 @@ export const SOURCES: Record<string, Source> = {
     type: "Clinical trial",
     note: "Stopping tirzepatide led to substantial weight regain; continuing it maintained the loss.",
   },
+  "surmount-4-posthoc": {
+    citation:
+      "Horn DB, et al. Cardiometabolic Parameter Change by Weight Regain on Tirzepatide Withdrawal: A Post Hoc Analysis of the SURMOUNT-4 Trial. JAMA Intern Med. 2026;186(2):157–167.",
+    publisher: "JAMA Internal Medicine",
+    url: "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2841273",
+    type: "Peer-reviewed",
+    note: "After tirzepatide withdrawal, 82% of participants regained more than a quarter of their lost weight, and cardiometabolic gains reversed in step with the regain.",
+  },
+  "gallup-glp1-2026": {
+    citation:
+      "Gallup. In U.S., GLP-1 Usage Reaches New High. Gallup News, 2026.",
+    publisher: "Gallup",
+    url: "https://news.gallup.com/poll/712157/glp-usage-reaches-new-high.aspx",
+    type: "Policy analysis",
+    note: "About 11% of U.S. adults reported currently using a GLP-1 for weight loss in 2026, up from 3% in 2024.",
+  },
   select: {
     citation:
       "Lincoff AM, et al. Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes. N Engl J Med. 2023;389(24):2221–2232.",
