@@ -497,6 +497,33 @@ export const PROVIDERS: Provider[] = [
       standout: "Overnight cold-chain shipping and a low semaglutide price",
       watchOut: "Lowest price needs a 12-month prepay; semaglutide only",
     },
+    editorial: {
+      seoTitle: "HealthRx Review (2026): $99/mo Semaglutide, Fast Shipping",
+      seoDescription:
+        "Independent HealthRx review: compounded semaglutide from $99/mo on an annual plan, free overnight cold-chain shipping, LegitScript-certified pharmacies — the honest pros, cons and who it fits.",
+      intro:
+        "HealthRx is a focused compounded-semaglutide program built around two things: a low $99/month price on a 12-month prepaid plan, and free overnight cold-chain shipping on every plan. It works with LegitScript-certified 503A pharmacies and US-licensed clinicians, and states those credentials openly. The trade-offs are that the best price requires committing to a year up front, and it offers semaglutide only — no tirzepatide and no brand-name options.",
+      isItLegit:
+        "HealthRx shows the credentials that matter: it works with LegitScript-certified 503A compounding pharmacies and US-licensed clinicians, and it publishes those details rather than burying them — good signs. The standard caveat is the model, not the company: compounded semaglutide is pharmacy-prepared and not an FDA-approved finished drug, and a clinician should review your history before prescribing. The main thing to go in clear-eyed about is commercial, not safety — the headline $99 rate is tied to a 12-month prepaid plan, so you're committing roughly $1,188 up front for the year.",
+      isItWorth:
+        "If you want compounded semaglutide at a low price and you're comfortable prepaying for a year, HealthRx is a strong-value option — and the free overnight cold-chain shipping is a genuine premium touch most budget programs don't match. It's not the right pick if you want tirzepatide (it's semaglutide-only), if you'd rather pay month-to-month without an annual commitment, or if you want a brand-name medication.",
+      semaglutideNote:
+        "HealthRx's compounded semaglutide is $99/month on a 12-month prepaid plan (about $1,188 for the year), with free overnight cold-chain shipping and LegitScript-certified 503A pharmacies. Semaglutide is the same active molecule as Ozempic and Wegovy; this is a compounded version, not the branded finished drug.",
+      tirzepatideNote:
+        "HealthRx does not offer tirzepatide — it's a semaglutide-only program. If you specifically want tirzepatide (Zepbound or Mounjaro) or a compounded GLP-1/GIP, you'll need a provider that offers it.",
+      bestFor: [
+        "People who want low-cost compounded semaglutide and can prepay for 12 months",
+        "Anyone who values fast, free overnight cold-chain shipping",
+        "Those who want openly stated LegitScript / 503A pharmacy credentials",
+      ],
+      notFor: [
+        "People who want tirzepatide or a GLP-1/GIP option",
+        "Anyone who prefers month-to-month billing over an annual prepay",
+        "People who want brand-name Wegovy, Zepbound or similar",
+      ],
+      bottomLine:
+        "HealthRx is a strong-value, semaglutide-only program: $99/month on an annual prepaid plan, free overnight cold-chain shipping, and stated LegitScript / 503A credentials. The catches are the upfront 12-month commitment for the best price and the lack of tirzepatide or brand-name options — but if low-cost semaglutide with premium shipping is the goal, it's a genuinely competitive pick.",
+    },
   },
   {
     id: "sprout",
@@ -1195,6 +1222,33 @@ export const PROVIDERS: Provider[] = [
       consult: "Online medical intake",
       standout: "One of the only programs offering an oral GLP-1 tablet alongside compounded injections and brand-name Zepbound",
       watchOut: "Higher entry price than the budget leaders, and we haven't yet verified its pharmacy accreditation, state coverage or customer reviews — confirm these before committing. Compounded products aren't FDA-approved finished drugs.",
+    },
+    editorial: {
+      seoTitle: "MEDGm Review (2026): Oral GLP-1 Tablet, Zepbound & Pricing",
+      seoDescription:
+        "Independent MEDGm review: a rare oral GLP-1 tablet and compounded injections from $169/mo, plus brand-name Zepbound — the honest pros, the caveats we couldn't yet verify, and who it's for.",
+      intro:
+        "MEDGm is a prescription GLP-1 program with an unusual lineup: compounded GLP-1 injections from $169/month, a rare oral GLP-1 tablet from $239/month for people who want to skip needles, and access to brand-name Zepbound through a $99/month membership plus medication cost. That breadth — compounded, oral and brand under one roof — is its real differentiator. It's priced above the budget-leading compounders, and a few things we normally verify (pharmacy accreditation, state coverage, customer reviews) aren't yet confirmed, so treat it as a promising option to check carefully rather than a settled pick.",
+      isItLegit:
+        "MEDGm is prescription-only, with an online medical evaluation and US-licensed prescribers — the baseline signs of a real telehealth service. Being straight with you, though: unlike our top-rated programs, we haven't yet verified its pharmacy accreditation, the states it serves, or any independent customer reviews, and it doesn't carry a Trustpilot record we can cite. None of that makes it illegitimate, but it does mean there's less third-party proof to lean on — so confirm the pharmacy and your state's availability directly before committing. As with any compounded GLP-1, the injections and tablets are pharmacy-prepared, not FDA-approved finished drugs.",
+      isItWorth:
+        "MEDGm earns a look for something most programs can't match: a needle-free oral GLP-1 tablet, alongside compounded injections and a brand-name Zepbound path in the same place. If an oral option or the convenience of one provider for compounded-and-brand is what you want, it can justify the higher entry price. It's not the pick if you're chasing the lowest possible cost — budget compounders start well below its $169/month — or if you want the reassurance of verified accreditation and a public review history before you sign up.",
+      semaglutideNote:
+        "MEDGm's core compounded GLP-1 injection starts at $169/month (one injection per week). It also offers a rare oral GLP-1 tablet from $239/month — a genuine needle-free option. Both are compounded by a pharmacy, not FDA-approved finished drugs.",
+      tirzepatideNote:
+        "For tirzepatide, MEDGm offers brand-name Zepbound (the FDA-approved GLP-1/GIP dual agonist) through a $99/month membership plus the medication cost — a real brand-name route rather than a compounded version.",
+      bestFor: [
+        "People who want a needle-free oral GLP-1 tablet option",
+        "Anyone who wants compounded GLP-1 and brand-name Zepbound from one provider",
+        "Those who value clearly published starting prices",
+      ],
+      notFor: [
+        "People focused on the absolute lowest price (budget compounders start below $169/mo)",
+        "Anyone who wants verified pharmacy accreditation and a public review history before committing",
+        "People who want brand-name medication without a membership fee",
+      ],
+      bottomLine:
+        "MEDGm stands out for a rare oral GLP-1 tablet and a one-stop mix of compounded and brand-name Zepbound, with transparent starting prices. The trade-offs are an entry price above the budget leaders and a few details we couldn't yet verify — pharmacy accreditation, state coverage and customer reviews — so it's a genuinely interesting option to confirm carefully, not a blind buy.",
     },
   },
   {
