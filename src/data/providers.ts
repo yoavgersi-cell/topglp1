@@ -449,6 +449,33 @@ export const PROVIDERS: Provider[] = [
       standout: "GLP-1 paired with a broader longevity and wellness stack",
       watchOut: "Add-on services can add cost beyond the core GLP-1",
     },
+    editorial: {
+      seoTitle: "wellmedr Review (2026): GLP-1/GIP, NAD+ & a 4.6/5 Rating",
+      seoDescription:
+        "Independent wellmedr review: compounded GLP-1/GIP with NAD+/B12 longevity add-ons, 50% off the first month, and a strong 4.6/5 Trustpilot score — the honest pros, cons and who it fits.",
+      intro:
+        "wellmedr is an AI-assisted telehealth program that pairs compounded GLP-1/GIP (tirzepatide) with a broader longevity and men's-health stack — NAD+ and B12 microdosing, plus TRT, hair and sexual-health services. It opens with 50% off the first month, runs on board-certified specialists, and holds a strong 4.6/5 on Trustpilot across 2,188 reviews. The trade-off is scope: the optional add-ons can push your real monthly cost above the core GLP-1 line, and it markets plan-based pricing rather than a single flat rate.",
+      isItLegit:
+        "wellmedr shows solid signals: board-certified specialists, US compounding pharmacies, and a genuinely strong customer-satisfaction record — 4.6/5 on Trustpilot across 2,188 reviews (as of October 2026), higher than most programs we track. The caveat is the model, not the company: compounded GLP-1 is pharmacy-prepared and not an FDA-approved finished drug, and a clinician should review your history before prescribing. The thing to watch is commercial — the 50%-off first month lowers your entry cost, so the ongoing rate plus any add-ons is the number that actually matters.",
+      isItWorth:
+        "wellmedr is worth it if you want more than weight loss from one provider — GLP-1/GIP alongside a longevity stack — or if a high customer-satisfaction score carries weight in your decision. Its 4.6/5 Trustpilot is a real strength. It's not the pick if you want the lowest flat, predictable price for GLP-1 alone: the plan-based pricing and optional NAD+/B12 add-ons make the true monthly cost harder to pin down and easy to inflate if you add services you won't use.",
+      semaglutideNote:
+        "wellmedr's GLP-1 is compounded and plan-dependent rather than a single published flat rate, so confirm the current price at signup. Compounded semaglutide is the same active molecule as Ozempic and Wegovy, pharmacy-prepared rather than the branded finished drug.",
+      tirzepatideNote:
+        "wellmedr offers compounded tirzepatide (the GLP-1/GIP dual agonist), opening with 50% off the first month. It's compounded, not brand-name Zepbound or Mounjaro, and the ongoing rate is plan-dependent — confirm it before committing.",
+      bestFor: [
+        "People who want GLP-1 paired with longevity care (NAD+, B12) from one provider",
+        "Anyone who weights a strong customer-satisfaction score highly (4.6/5 on Trustpilot)",
+        "Those who value board-certified specialist review",
+      ],
+      notFor: [
+        "People who want the lowest flat, predictable price for GLP-1 alone",
+        "Anyone who prefers to avoid add-on upsells",
+        "People who want brand-name medication rather than compounded",
+      ],
+      bottomLine:
+        "wellmedr is a strong pick if you want GLP-1/GIP bundled with a longevity stack and you value its high 4.6/5 Trustpilot score. The catch is cost clarity: plan-based pricing and optional NAD+/B12 add-ons mean your real monthly spend can climb above the core GLP-1 — efficient if you'll use the extras, pricier if you won't.",
+    },
   },
   {
     id: "healthrx",
@@ -863,6 +890,33 @@ export const PROVIDERS: Provider[] = [
       consult: "Virtual consultation",
       standout: "Flexible plans with convenient virtual care",
       watchOut: "Entry pricing isn't published upfront",
+    },
+    editorial: {
+      seoTitle: "Sunlight GLP-1 Review (2026): Flexible Plans, Pros & Cons",
+      seoDescription:
+        "Independent Sunlight review: flexible, adaptable compounded GLP-1 telehealth with licensed providers — the honest pros and cons, what isn't published upfront, and who it's for.",
+      intro:
+        "Sunlight is a telehealth GLP-1 program built around flexibility: compounded semaglutide and tirzepatide delivered through virtual consultations with licensed providers, on plans it adapts to the individual rather than a fixed package. Convenient online follow-up is its selling point. The honest limitation is transparency — Sunlight doesn't publish a flat starting price, and we don't have an independent review record (such as a Trustpilot score) we can cite — so more of the detail is confirmed at signup than with the programs that publish everything.",
+      isItLegit:
+        "Sunlight works with US-licensed providers and US compounding pharmacies through virtual consultations — the baseline markers of a real telehealth service. Being straight with you, though: there's less public information to lean on here than with our top-rated programs. It doesn't publish a flat price, and we don't have a Trustpilot or comparable independent review aggregate for it to cite, so confirm pricing, pharmacy details and your state's availability directly before committing. As with any compounded GLP-1, the medication is pharmacy-prepared, not an FDA-approved finished drug.",
+      isItWorth:
+        "Sunlight is worth considering if you specifically value flexible, adaptable plans and convenient virtual follow-up, and you're comfortable confirming the specifics at signup rather than reading them off a page. It's a weaker fit if you want a published flat price to compare upfront, or the reassurance of a public review history and verifiable credentials before you commit — in which case a more transparent program is an easier call.",
+      semaglutideNote:
+        "Sunlight offers compounded semaglutide on a plan-dependent basis rather than a published flat rate, so confirm the current price at signup. Compounded semaglutide is the same active molecule as Ozempic and Wegovy, pharmacy-prepared rather than the branded finished drug.",
+      tirzepatideNote:
+        "Sunlight offers compounded tirzepatide (the GLP-1/GIP dual agonist) on a plan-dependent basis. It's compounded, not brand-name Zepbound or Mounjaro, and the price is confirmed at signup rather than published upfront.",
+      bestFor: [
+        "People who want flexible, adaptable treatment plans",
+        "Anyone who values convenient virtual consultations and follow-up",
+        "Those comfortable confirming pricing and details at signup",
+      ],
+      notFor: [
+        "People who want a published flat price to compare before signing up",
+        "Anyone who wants a verifiable public review history before committing",
+        "People who want brand-name medication rather than compounded",
+      ],
+      bottomLine:
+        "Sunlight's draw is flexibility — adaptable plans and convenient virtual care with licensed providers. The trade-off is transparency: it doesn't publish a flat price and has no independent review record we can cite, so it suits someone who values adaptable care and is willing to confirm the specifics at signup, rather than anyone who wants everything verifiable upfront.",
     },
   },
   {
