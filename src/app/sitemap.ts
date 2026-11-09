@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/glp1-beyond-weight-loss`, lastModified: new Date("2026-10-31"), changeFrequency: "weekly", priority: 0.92 },
     { url: `${base}/natural-ozempic`, lastModified: new Date("2026-11-02"), changeFrequency: "weekly", priority: 0.92 },
     { url: `${base}/stopping-glp1`, lastModified: new Date("2026-11-05"), changeFrequency: "weekly", priority: 0.92 },
+    { url: `${base}/tirzepatide-weight-loss`, lastModified: new Date("2026-11-09"), changeFrequency: "weekly", priority: 0.95 },
     { url: `${base}/medications`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/guides`, lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/best-glp1-providers`, lastModified, changeFrequency: "weekly", priority: 0.9 },

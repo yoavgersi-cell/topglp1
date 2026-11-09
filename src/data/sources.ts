@@ -89,6 +89,14 @@ export const SOURCES: Record<string, Source> = {
     type: "Policy analysis",
     note: "About 11% of U.S. adults reported currently using a GLP-1 for weight loss in 2026, up from 3% in 2024.",
   },
+  "lilly-direct-pricing": {
+    citation:
+      "Eli Lilly. LillyDirect self-pay pricing for Zepbound (tirzepatide). Lilly, 2026.",
+    publisher: "Eli Lilly (LillyDirect)",
+    url: "https://www.lilly.com/lillydirect/zepbound",
+    type: "Policy analysis",
+    note: "LillyDirect self-pay Zepbound vials from ~$299–$449/month by dose (45-day refill terms); retail list price runs ~$1,000+/month. Confirm current pricing directly.",
+  },
   select: {
     citation:
       "Lincoff AM, et al. Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes. N Engl J Med. 2023;389(24):2221–2232.",

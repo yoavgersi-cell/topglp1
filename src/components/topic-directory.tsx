@@ -9,6 +9,7 @@ export const TOPIC_CLUSTERS: { title: string; links: { href: string; label: stri
     links: [
       { href: "/glp1-weight-loss-guide", label: "GLP-1 for weight loss: the complete guide" },
       { href: "/glp1-pills", label: "GLP-1 pills: orforglipron & oral Wegovy" },
+      { href: "/tirzepatide-weight-loss", label: "Tirzepatide for weight loss: the complete guide" },
       { href: "/medications/semaglutide", label: "Semaglutide (Wegovy, Ozempic)" },
       { href: "/medications/tirzepatide", label: "Tirzepatide (Zepbound, Mounjaro)" },
       { href: "/medications/retatrutide", label: "Retatrutide (investigational)" },
@@ -84,6 +85,7 @@ const RELATED_GROUPS: { title: string; links: { href: string; label: string }[] 
       { href: "/glp1-pills", label: "GLP-1 pills: orforglipron & oral Wegovy" },
       { href: "/medications/semaglutide", label: "Semaglutide (Wegovy, Ozempic)" },
       { href: "/medications/tirzepatide", label: "Tirzepatide (Zepbound, Mounjaro)" },
+      { href: "/tirzepatide-weight-loss", label: "Tirzepatide for weight loss: full guide" },
       { href: "/glp1-muscle-loss", label: "GLP-1 & muscle loss: keep your muscle" },
       { href: "/glp1-beyond-weight-loss", label: "GLP-1 beyond weight loss: all uses" },
       { href: "/natural-ozempic", label: "'Natural Ozempic': berberine & GLP-1 foods" },
