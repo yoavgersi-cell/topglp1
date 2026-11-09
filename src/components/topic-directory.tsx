@@ -31,6 +31,7 @@ export const TOPIC_CLUSTERS: { title: string; links: { href: string; label: stri
     title: "Get treatment & compare providers",
     links: [
       { href: "/best-glp1-providers", label: "Best GLP-1 programs, scored & ranked" },
+      { href: "/online-weight-loss-injections", label: "Online weight-loss injections: cash-pay vs insurance" },
       { href: "/semaglutide-online", label: "Buy semaglutide online, compared" },
       { href: "/tirzepatide-online", label: "Buy tirzepatide online, compared" },
       { href: "/cheapest-glp1", label: "Cheapest GLP-1 without insurance" },

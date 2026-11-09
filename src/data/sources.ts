@@ -97,6 +97,14 @@ export const SOURCES: Record<string, Source> = {
     type: "Policy analysis",
     note: "LillyDirect self-pay Zepbound vials from ~$299–$449/month by dose (45-day refill terms); retail list price runs ~$1,000+/month. Confirm current pricing directly.",
   },
+  "hims-novo-2026": {
+    citation:
+      "Hims & Hers settlement with Novo Nordisk and exit from compounded semaglutide for new patients (reported March 2026).",
+    publisher: "Reported in financial/industry press, 2026",
+    url: "https://finance.yahoo.com/news/hims-glp-1-weight-loss-015100273.html",
+    type: "Policy analysis",
+    note: "Hims reportedly settled with Novo Nordisk in March 2026 and moved away from compounded semaglutide for new patients toward branded GLP-1 — an example of the tightening compounding landscape.",
+  },
   select: {
     citation:
       "Lincoff AM, et al. Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes. N Engl J Med. 2023;389(24):2221–2232.",
