@@ -49,15 +49,23 @@ export function pageMetadata({
       description,
       url,
       // UK pages must not carry the "Top GLP-1" brand ("GLP-1" is a restricted
-      // term in UK ads) — use a neutral site name there.
+      // term in UK ads) — use a neutral site name there, and skip the branded
+      // OG image (which renders the "Top GLP-1" wordmark).
       siteName: locale === "en_GB" ? "Top" : SITE.name,
       type: "article",
       locale: locale ?? SITE.locale,
+      // Explicit OG image so every page carries a social/AI preview image.
+      // Without this, a page-level openGraph object suppresses the root
+      // opengraph-image file convention, leaving pages with no og:image.
+      ...(locale === "en_GB"
+        ? {}
+        : { images: [{ url: `${SITE.url}/opengraph-image`, width: 1200, height: 630, alt: SITE.name }] }),
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      ...(locale === "en_GB" ? {} : { images: [`${SITE.url}/opengraph-image`] }),
     },
   };
 }
