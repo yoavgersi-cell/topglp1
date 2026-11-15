@@ -41,6 +41,14 @@ export const SOURCES: Record<string, Source> = {
     type: "Clinical trial",
     note: "SURMOUNT-1 — the pivotal tirzepatide obesity trial (up to ~20.9% mean weight loss).",
   },
+  "semaglutide-realworld-2026": {
+    citation:
+      "Real-world semaglutide in an obesity cohort: effectiveness, safety and persistence across sex, BMI and prior GLP-1RA treatment. 2026.",
+    publisher: "Peer-reviewed (PMC)",
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13457613/",
+    type: "Peer-reviewed",
+    note: "Real-world outcomes tend to trail trial averages, driven heavily by adherence, titration and how long people persist on treatment.",
+  },
   "surmount-5": {
     citation:
       "Aronne LJ, et al. Tirzepatide as Compared with Semaglutide for the Treatment of Obesity. N Engl J Med. 2025.",

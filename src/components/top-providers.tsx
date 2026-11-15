@@ -34,7 +34,7 @@ export function TopProviders({
         <h3 className="font-serif text-xl font-semibold text-foreground">{heading}</h3>
       )}
       {intro && <p className="mt-2 text-sm leading-relaxed text-muted">{intro}</p>}
-      <div className="mt-5 grid gap-4 lg:grid-cols-3">
+      <div className={`mt-5 grid gap-4 ${providers.length === 2 ? "sm:grid-cols-2" : "lg:grid-cols-3"}`}>
         {providers.map((p, i) => {
           const live = p.affiliateUrl && p.affiliateUrl !== "#";
           const ext = p.externalReviews;

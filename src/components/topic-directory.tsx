@@ -60,6 +60,7 @@ export const TOPIC_CLUSTERS: { title: string; links: { href: string; label: stri
       { href: "/guides/glp1-side-effects-and-how-to-manage-them", label: "Side effects & how to manage them" },
       { href: "/guides/glp1-dosing-schedule-explained", label: "Dosing schedules explained" },
       { href: "/guides/glp1-results-timeline", label: "Results timeline: what to expect" },
+      { href: "/glp1-weight-loss-results", label: "How much weight will you lose? The real data" },
       { href: "/tools/am-i-eligible-for-glp1", label: "Am I eligible? (BMI checker)" },
       { href: "/glp1-answers", label: "GLP-1 quick answers" },
       { href: "/glp1-statistics", label: "GLP-1 statistics & facts" },
