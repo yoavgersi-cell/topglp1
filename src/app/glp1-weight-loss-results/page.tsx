@@ -8,6 +8,7 @@ import { MedicalSources } from "@/components/medical-sources";
 import { ArticleLayout, AsideCard, OnThisPage } from "@/components/article-layout";
 import { RelatedTopics } from "@/components/topic-directory";
 import { TopProviders } from "@/components/top-providers";
+import { DataChart } from "@/components/data-chart";
 import {
   pageMetadata,
   articleSchema,
@@ -150,6 +151,8 @@ function BlockView({ block, k }: { block: Block; k: string }) {
           </ul>
         </div>
       );
+    case "chart":
+      return <DataChart block={block} />;
     default:
       return null;
   }

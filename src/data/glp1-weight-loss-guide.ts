@@ -20,7 +20,19 @@ export type Block =
   | { type: "table"; caption?: string; headers: string[]; rows: string[][] }
   | { type: "callout"; title?: string; text: string }
   | { type: "statgrid"; stats: { value: string; label: string }[] }
-  | { type: "keytakeaways"; items: string[] };
+  | { type: "keytakeaways"; items: string[] }
+  | {
+      type: "chart";
+      title?: string;
+      caption?: string;
+      unit?: string;
+      prefix?: string;
+      max?: number;
+      groups: string[];
+      rows: { label: string; values: number[] }[];
+      /** Accessible summary / SEO alt text describing the chart's data. */
+      alt: string;
+    };
 
 export interface GuideSection {
   id: string;

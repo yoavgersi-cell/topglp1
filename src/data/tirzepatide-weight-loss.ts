@@ -250,6 +250,21 @@ export const TIRZ_SECTIONS: GuideSection[] = [
         ],
       },
       {
+        type: "chart",
+        title: "Your odds of hitting each milestone: tirzepatide vs semaglutide",
+        caption: "Tirzepatide 15 mg (SURMOUNT-1) vs semaglutide 2.4 mg (STEP 1). Percentages approximate; the ≥15% tirzepatide figure is from a company release.",
+        unit: "%",
+        max: 100,
+        groups: ["Tirzepatide 15 mg", "Semaglutide 2.4 mg"],
+        rows: [
+          { label: "≥ 5%", values: [91, 86] },
+          { label: "≥ 10%", values: [84, 69] },
+          { label: "≥ 15%", values: [71, 51] },
+          { label: "≥ 20%", values: [57, 32] },
+        ],
+        alt: "Bar chart comparing tirzepatide 15 mg with semaglutide 2.4 mg. Share of people reaching at least 5% weight loss: 91% vs 86%. At least 10%: 84% vs 69%. At least 15%: 71% vs 51%. At least 20%: 57% vs 32%. Tirzepatide is higher at every milestone.",
+      },
+      {
         type: "h3",
         text: "Why semaglutide might still be your pick",
       },

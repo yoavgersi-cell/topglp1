@@ -113,6 +113,21 @@ export const RESULTS_SECTIONS: GuideSection[] = [
         ],
       },
       {
+        type: "chart",
+        title: "Semaglutide vs placebo: who reaches each milestone (STEP 1)",
+        caption: "Source: STEP 1 (Wilding et al., NEJM 2021), 68 weeks. Percentages are approximate.",
+        unit: "%",
+        max: 100,
+        groups: ["Semaglutide 2.4 mg", "Placebo + lifestyle"],
+        rows: [
+          { label: "≥ 5%", values: [86, 32] },
+          { label: "≥ 10%", values: [69, 12] },
+          { label: "≥ 15%", values: [51, 5] },
+          { label: "≥ 20%", values: [32, 2] },
+        ],
+        alt: "Bar chart of STEP 1 results. On semaglutide 2.4 mg, about 86% of people lost at least 5% of body weight, 69% at least 10%, 51% at least 15%, and 32% at least 20% — versus roughly 32%, 12%, 5%, and 2% on placebo plus lifestyle.",
+      },
+      {
         type: "p",
         text: "Read down the semaglutide column and the picture is genuinely encouraging — and far more informative than '15%.' The overwhelming majority (about 86%) lose at least a clinically meaningful 5%. More than two-thirds cross 10%. Right around half reach 15% or more. And about a third of people — nearly one in three — lose 20% or more of their entire body weight on semaglutide alone. That last figure is worth sitting with: a 20%+ loss is transformational, the kind of result that used to require surgery, and roughly a third of people get there.",
       },
@@ -148,6 +163,20 @@ export const RESULTS_SECTIONS: GuideSection[] = [
           ["≥ 20%", "~30%", "~50%", "~57%", "~3%"],
           ["≥ 25%", "~15%", "~32%", "~36%", "~2%"],
         ],
+      },
+      {
+        type: "chart",
+        title: "Tirzepatide: the dose moves the odds (SURMOUNT-1)",
+        caption: "Source: SURMOUNT-1 (Jastreboff et al., NEJM 2022), 72 weeks. ≥20% and ≥25% were secondary endpoints; percentages approximate.",
+        unit: "%",
+        max: 100,
+        groups: ["5 mg", "10 mg", "15 mg"],
+        rows: [
+          { label: "≥ 10%", values: [69, 78, 84] },
+          { label: "≥ 20%", values: [30, 50, 57] },
+          { label: "≥ 25%", values: [15, 32, 36] },
+        ],
+        alt: "Bar chart of SURMOUNT-1 results by tirzepatide dose. Reaching at least 10% weight loss: 69% at 5 mg, 78% at 10 mg, 84% at 15 mg. At least 20%: 30%, 50%, 57%. At least 25%: 15%, 32%, 36%. Higher doses move more people to each milestone.",
       },
       {
         type: "p",

@@ -143,6 +143,19 @@ export const STOPPING_SECTIONS: GuideSection[] = [
         ],
       },
       {
+        type: "chart",
+        title: "Body weight regained in the year after stopping",
+        caption: "Semaglutide: STEP 4 switch-to-placebo arm (Rubino et al., JAMA 2021). Tirzepatide: SURMOUNT-4 withdrawal arm (Aronne et al., JAMA 2024). Approximate.",
+        unit: "%",
+        max: 20,
+        groups: ["% of body weight regained after stopping"],
+        rows: [
+          { label: "Semaglutide", values: [6.9] },
+          { label: "Tirzepatide", values: [14] },
+        ],
+        alt: "Bar chart of weight regained after stopping a GLP-1. In STEP 4, people who switched off semaglutide regained about 6.9% of body weight; in SURMOUNT-4, people who stopped tirzepatide regained about 14% of body weight within a year.",
+      },
+      {
         type: "p",
         text: "Read across any row and the conclusion is the same. There isn't a trial that shows people comfortably keeping the weight off after stopping — not because no one has looked, but because the biology doesn't cooperate. That's the honest state of the evidence, and it should shape how you plan, not scare you off a medication that works.",
       },

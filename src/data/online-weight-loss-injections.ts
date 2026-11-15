@@ -155,6 +155,21 @@ export const INJ_SECTIONS: GuideSection[] = [
         ],
       },
       {
+        type: "chart",
+        title: "Estimated 6-month cost, cash-pay, no insurance",
+        caption: "Illustrative, provider-reported figures (late 2026) — confirm current pricing. Ro's drug is billed separately from the membership; insurance can lower it substantially.",
+        prefix: "$",
+        unit: "",
+        max: 2200,
+        groups: ["~6-month cash cost"],
+        rows: [
+          { label: "Embody (sema)", values: [414] },
+          { label: "Embody (tirz)", values: [714] },
+          { label: "Ro + pen (cash)", values: [2088] },
+        ],
+        alt: "Bar chart of estimated 6-month cash cost with no insurance: Embody compounded semaglutide about $414, Embody compounded tirzepatide about $714, and Ro membership plus a branded pen often around $2,000 or more. Cash-pay compounded is far cheaper without insurance.",
+      },
+      {
         type: "callout",
         title: "The honest cost takeaway",
         text: "Without insurance, a flat-rate compounded program like Embody is almost always the cheapest online weight-loss injection, because there's no membership and the compounded drug is far cheaper than branded. With insurance that covers the branded drug, a membership model like Ro can win on total cost. Your insurance situation is the deciding variable — so check it first.",
