@@ -37,6 +37,8 @@ export function generateStaticParams() {
 
 function providerFaqs(p: Provider) {
   return [
+    // Provider-specific FAQs first — these target the real search queries.
+    ...(p.editorial?.faqs ?? []),
     {
       q: `How much does ${p.name} cost?`,
       a: `${p.name} starts at ${p.specs.startingPrice}. Semaglutide: ${p.specs.semaglutide}. Tirzepatide: ${p.specs.tirzepatide}. Billing is ${p.specs.billing.toLowerCase()}. Pricing is provider-reported and can change — confirm current rates on their site.`,

@@ -79,6 +79,9 @@ export interface ProviderEditorial {
   notFor: string[];
   /** One-paragraph bottom line. */
   bottomLine: string;
+  /** Provider-specific FAQs (target real search queries). Rendered and
+   *  schema'd ahead of the auto-generated ones. */
+  faqs?: { q: string; a: string }[];
 }
 
 /**
@@ -274,6 +277,28 @@ export const PROVIDERS: Provider[] = [
       ],
       bottomLine:
         "Embody is our #1 GLP-1 pick on the fundamentals we can verify: the lowest flat cash pricing we track, both semaglutide and tirzepatide, fast free shipping, and openly stated pharmacy credentials. Its Trustpilot score is a mixed 3.8/5 — real reviews that run from praise for responsive clinicians to a genuine minority of unhappy customers — so go in clear-eyed: it's the best-value compounded option we've found, not a flawless one.",
+      faqs: [
+        {
+          q: "Does Embody charge a membership or monthly fee?",
+          a: "There's no separate membership fee. Embody uses a flat monthly price that already includes the medication — about $69/month for compounded semaglutide and $119/month for compounded tirzepatide, billed monthly with free 1–2 day shipping. Unlike membership-plus-medication models (such as Ro), the price you see is the price you pay. Confirm current rates on Embody's site, as pricing can change.",
+        },
+        {
+          q: "What pharmacy does Embody use? Is it a 503A pharmacy?",
+          a: "Embody states that it dispenses through LegitScript-certified 503A compounding pharmacies, using US-licensed clinicians — and it publishes those credentials rather than hiding them, which is a good sign. The standard caveat is the model, not the company: compounded semaglutide and tirzepatide are pharmacy-prepared and not FDA-approved finished drugs.",
+        },
+        {
+          q: "Are Embody and altRx the same company?",
+          a: "No — Embody and altRx are separate GLP-1 programs we review independently. Both are cash-pay compounded telehealth services, but they're different providers with different pricing (Embody lists $69/month semaglutide versus altRx's $89/month), and altRx also offers brand-name Wegovy and Zepbound while Embody is compounded-only. See our Embody vs altRx comparison for the full breakdown.",
+        },
+        {
+          q: "Does Embody actually work for weight loss?",
+          a: "Embody dispenses compounded semaglutide and tirzepatide — the same active molecules as Wegovy, Ozempic and Zepbound — so how well it works depends on the medication, your dose and staying on treatment, not on the brand name. In trials those molecules produced roughly 15% (semaglutide) to about 20% (tirzepatide) average weight loss. Results vary by person, and the weight returns if you stop; see our GLP-1 weight-loss results guide for the full response data.",
+        },
+        {
+          q: "How do I cancel Embody?",
+          a: "Embody is billed monthly at a flat rate rather than locking you into a long prepaid contract, so there's no multi-month commitment to unwind. To cancel or pause, contact Embody's support through your account and confirm the current cancellation terms directly, since a provider's policies can change.",
+        },
+      ],
     },
   },
   {
